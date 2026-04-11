@@ -104,14 +104,28 @@ Future<void> openAdd() async {
 					  title: Text(item.title),
 					  subtitle: Text(item.username),
 					  trailing: const Icon(Icons.chevron_right),
-					  onTap: () {
-						Navigator.push(
-						  context,
-						  MaterialPageRoute(
-							builder: (_) => VaultDetailScreen(item: item),
-						  ),
-						);
-					  },
+					  onTap: () async {
+  final result = await Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) => VaultDetailScreen(item: item),
+    ),
+  );
+
+  if (result != null) {
+    await repo.deleteItem(item.id);
+
+    await repo.insertItem(
+      vaultKey: vaultKey,
+      title: result["title"],
+      username: result["username"],
+      password: result["password"],
+      note: result["note"],
+    );
+
+    await load();
+  }
+},
 					  onLongPress: () => delete(item),
 					),
                 );

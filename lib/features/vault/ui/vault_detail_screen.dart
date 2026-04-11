@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/vault_item.dart';
+import 'add_edit_screen.dart';
 
 class VaultDetailScreen extends StatelessWidget {
   final VaultItem item;
@@ -13,8 +14,32 @@ class VaultDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(item.title),
-      ),
+  title: Text(item.title),
+  actions: [
+    IconButton(
+      icon: const Icon(Icons.edit),
+      onPressed: () async {
+        final result = await Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (_) => AddEditScreen(
+              initialData: {
+                "title": item.title,
+                "username": item.username,
+                "password": item.password,
+                "note": item.note,
+              },
+            ),
+          ),
+        );
+
+        if (result != null) {
+          Navigator.pop(context, result);
+        }
+      },
+    )
+  ],
+),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

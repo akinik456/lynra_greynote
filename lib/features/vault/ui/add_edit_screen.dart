@@ -1,18 +1,34 @@
 import 'package:flutter/material.dart';
 
 class AddEditScreen extends StatefulWidget {
-  const AddEditScreen({super.key});
+  final Map<String, dynamic>? initialData;
+
+  const AddEditScreen({
+    super.key,
+    this.initialData,
+  });
 
   @override
   State<AddEditScreen> createState() => _AddEditScreenState();
 }
-
 class _AddEditScreenState extends State<AddEditScreen> {
   final titleCtrl = TextEditingController();
   final usernameCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
   final noteCtrl = TextEditingController();
+	
+@override
+void initState() {
+  super.initState();
 
+  if (widget.initialData != null) {
+    titleCtrl.text = widget.initialData!["title"] ?? "";
+    usernameCtrl.text = widget.initialData!["username"] ?? "";
+    passwordCtrl.text = widget.initialData!["password"] ?? "";
+    noteCtrl.text = widget.initialData!["note"] ?? "";
+  }
+}
+	
   @override
   Widget build(BuildContext context) {
     return Scaffold(
