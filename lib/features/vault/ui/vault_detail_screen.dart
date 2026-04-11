@@ -48,10 +48,10 @@ class VaultDetailScreen extends StatelessWidget {
             label: 'Title',
             value: item.title,
           ),
-          _InfoTile(
-            label: 'Username',
-            value: item.username,
-          ),
+          _CopyTile(
+			  label: 'Username',
+			  value: item.username,
+			),
           _PasswordTile(password: item.password),
           _InfoTile(
             label: 'Note',
@@ -182,6 +182,57 @@ class _PasswordTileState extends State<_PasswordTile> {
 			  ],
 			),
         ),
+    );
+  }
+}
+class _CopyTile extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const _CopyTile({
+    required this.label,
+    required this.value,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              label,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 6),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    value,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.copy),
+                  onPressed: () {
+                    Clipboard.setData(ClipboardData(text: value));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('$label copied')),
+                    );
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
