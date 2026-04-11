@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/vault_item.dart';
 import 'add_edit_screen.dart';
+import 'package:flutter/services.dart';
 
 class VaultDetailScreen extends StatelessWidget {
   final VaultItem item;
@@ -51,10 +52,7 @@ class VaultDetailScreen extends StatelessWidget {
             label: 'Username',
             value: item.username,
           ),
-          _InfoTile(
-            label: 'Password',
-            value: item.password,
-          ),
+          _PasswordTile(password: item.password),
           _InfoTile(
             label: 'Note',
             value: item.note.isEmpty ? '-' : item.note,
@@ -120,6 +118,70 @@ class _InfoTile extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+class _PasswordTile extends StatefulWidget {
+  final String password;
+
+  const _PasswordTile({required this.password});
+
+  @override
+  State<_PasswordTile> createState() => _PasswordTileState();
+}
+
+class _PasswordTileState extends State<_PasswordTile> {
+  bool hidden = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 10),
+      child: Padding(
+        padding: const EdgeInsets.all(14),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Password',
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: 6),
+				Row(
+				  children: [
+					Expanded(
+					  child: Text(
+						hidden ? '••••••••' : widget.password,
+						style: const TextStyle(fontSize: 16),
+					  ),
+					),
+					IconButton(
+					  icon: const Icon(Icons.copy),
+					  onPressed: () {
+						Clipboard.setData(ClipboardData(text: widget.password));
+						ScaffoldMessenger.of(context).showSnackBar(
+						  const SnackBar(content: Text('Password copied')),
+						);
+					  },
+					),
+					IconButton(
+					  icon: Icon(
+						hidden ? Icons.visibility : Icons.visibility_off,
+					  ),
+					  onPressed: () {
+						setState(() {
+						  hidden = !hidden;
+						});
+					  },
+					)
+				  ],
+				),
+			  ],
+			),
+        ),
     );
   }
 }
