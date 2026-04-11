@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'core/db/database_helper.dart';
+import 'features/auth/data/auth_storage.dart';
 import 'features/auth/ui/pattern_setup_screen.dart';
 import 'features/auth/ui/pattern_unlock_screen.dart';
+import 'features/vault/ui/vault_list_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,60 +18,117 @@ class LynraApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PatternFlow(),
+      home: AppGate(),
     );
   }
 }
 
-class PatternFlow extends StatefulWidget {
-  const PatternFlow({super.key});
+class AppGate extends StatefulWidget {
+  const AppGate({super.key});
 
   @override
-  State<PatternFlow> createState() => _PatternFlowState();
+  State<AppGate> createState() => _AppGateState();
 }
 
-class _PatternFlowState extends State<PatternFlow> {
-  String? savedPattern;
+class _AppGateState extends State<AppGate> {
+  bool _loading = true;
+  bool _unlocked = false;
+  String? _savedPattern;
 
   @override
-void initState() {
-  super.initState();
-  WidgetsBinding.instance.addPostFrameCallback((_) {
-    start();
-  });
-}
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _start();
+    });
+  }
 
-  Future<void> start() async {
-    final pattern = await Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => const PatternSetupScreen()),
-    );
+  Future<void> _start() async {
+    final saved = await AuthStorage.getPattern();
 
-    if (pattern == null) return;
+    if (!mounted) return;
 
-    savedPattern = pattern;
+    if (saved == null || saved.isEmpty) {
+      final createdPattern = await Navigator.push<String>(
+        context,
+        MaterialPageRoute(
+          builder: (_) => const PatternSetupScreen(),
+        ),
+      );
 
-    final unlocked = await Navigator.push(
+      if (createdPattern == null || createdPattern.isEmpty) {
+        setState(() {
+          _loading = false;
+          _unlocked = false;
+          _savedPattern = null;
+        });
+        return;
+      }
+
+      await AuthStorage.savePattern(createdPattern);
+      _savedPattern = createdPattern;
+
+      final unlocked = await Navigator.push<bool>(
+        context,
+        MaterialPageRoute(
+          builder: (_) => PatternUnlockScreen(savedPattern: _savedPattern!),
+        ),
+      );
+
+      if (!mounted) return;
+
+      setState(() {
+        _loading = false;
+        _unlocked = unlocked == true;
+      });
+
+      return;
+    }
+
+    _savedPattern = saved;
+
+    final unlocked = await Navigator.push<bool>(
       context,
       MaterialPageRoute(
-        builder: (_) => PatternUnlockScreen(savedPattern: savedPattern!),
+        builder: (_) => PatternUnlockScreen(savedPattern: _savedPattern!),
       ),
     );
 
-    if (unlocked == true) {
-      setState(() {});
-    }
+    if (!mounted) return;
+
+    setState(() {
+      _loading = false;
+      _unlocked = unlocked == true;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (savedPattern == null) {
-      return const Scaffold(body: SizedBox());
+    if (_loading) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
     }
 
-    return const Scaffold(
+    if (_unlocked) {
+      return const VaultListScreen();
+    }
+
+    return Scaffold(
       body: Center(
-        child: Text("Unlocked"),
+        child: ElevatedButton(
+          onPressed: () {
+            setState(() {
+              _loading = true;
+            });
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _start();
+            });
+          },
+          child: const Text('Try Again'),
+        ),
       ),
     );
   }
