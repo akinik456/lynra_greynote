@@ -16,10 +16,17 @@ class LynraApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: AppGate(),
-    );
+    return MaterialApp(
+	  debugShowCheckedModeBanner: false,
+	  theme: ThemeData.dark().copyWith(
+		scaffoldBackgroundColor: const Color(0xFF0F172A),
+		cardColor: const Color(0xFF1E293B),
+		colorScheme: const ColorScheme.dark(
+		  primary: Color(0xFF22D3EE),
+		),
+	  ),
+	  home: const AppGate(),
+	);
   }
 }
 
