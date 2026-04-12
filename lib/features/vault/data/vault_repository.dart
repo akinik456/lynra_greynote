@@ -59,6 +59,46 @@ class VaultRepository {
 
     return items;
   }
+Future<void> updateItem({
+  required String vaultKey,
+  required VaultItem oldItem,
+  required String title,
+  required String username,
+  required String password,
+  required String note,
+}) async {
+  final db = await _dbHelper.database;
+  final now = DateTime.now().millisecondsSinceEpoch;
+
+  final passwordChanged = oldItem.password != password;
+
+  final updatedItem = VaultItem(
+    id: oldItem.id,
+    title: title,
+    username: username,
+    password: password,
+    note: note,
+    createdAt: oldItem.createdAt,
+    updatedAt: now,
+    lastChangedAt: passwordChanged ? now : oldItem.lastChangedAt,
+    isFavorite: oldItem.isFavorite,
+  );
+
+  final encryptedPayload =
+      await CryptoHelper.encrypt(updatedItem.toEncodedJson(), vaultKey);
+
+  await db.update(
+    'vault',
+    {
+      'payload': encryptedPayload,
+      'updatedAt': now,
+      'isFavorite': updatedItem.isFavorite ? 1 : 0,
+    },
+    where: 'id = ?',
+    whereArgs: [oldItem.id],
+  );
+}  
+  
   
 Future<void> deleteItem(String id) async {
   final db = await _dbHelper.database;

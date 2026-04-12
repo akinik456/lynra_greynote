@@ -119,18 +119,17 @@ class _VaultListScreenState extends State<VaultListScreen> {
                       );
 
                       if (result != null) {
-                        await repo.deleteItem(item.id);
+  await repo.updateItem(
+    vaultKey: vaultKey,
+    oldItem: item,
+    title: result["title"] ?? "",
+    username: result["username"] ?? "",
+    password: result["password"] ?? "",
+    note: result["note"] ?? "",
+  );
 
-                        await repo.insertItem(
-                          vaultKey: vaultKey,
-                          title: result["title"] ?? "",
-                          username: result["username"] ?? "",
-                          password: result["password"] ?? "",
-                          note: result["note"] ?? "",
-                        );
-
-                        await load();
-                      }
+  await load();
+}
                     },
                     onLongPress: () => delete(item),
                   );
