@@ -36,6 +36,7 @@ class VaultDetailScreen extends StatelessWidget {
                       "username": item.username,
                       "password": item.password,
                       "note": item.note,
+					  "iban": item.iban,
                     },
                   ),
                 ),
@@ -58,6 +59,14 @@ class VaultDetailScreen extends StatelessWidget {
             value: item.username,
             snackText: 'Username copied',
           ),
+		  if (item.iban.isNotEmpty) ...[
+  const SizedBox(height: 12),
+  _CopyTile(
+    label: 'IBAN',
+    value: item.iban,
+    snackText: 'IBAN copied',
+  ),
+],
           const SizedBox(height: 12),
           _PasswordTile(password: item.password),
           const SizedBox(height: 12),

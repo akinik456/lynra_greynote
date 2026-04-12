@@ -43,6 +43,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
         username: result["username"] ?? "",
         password: result["password"] ?? "",
         note: result["note"] ?? "",
+		iban: result["iban"] ?? "",
       );
       await load();
     }
@@ -126,6 +127,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
     username: result["username"] ?? "",
     password: result["password"] ?? "",
     note: result["note"] ?? "",
+	iban: result["iban"] ?? "",
   );
 
   await load();

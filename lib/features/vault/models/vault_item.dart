@@ -6,17 +6,19 @@ class VaultItem {
   final String username;
   final String password;
   final String note;
+  final String iban;
   final int createdAt;
   final int updatedAt;
   final int lastChangedAt;
   final bool isFavorite;
-
+  
   VaultItem({
     required this.id,
     required this.title,
     required this.username,
     required this.password,
     required this.note,
+ 	required this.iban,
     required this.createdAt,
     required this.updatedAt,
     required this.lastChangedAt,
@@ -29,6 +31,7 @@ class VaultItem {
         "username": username,
         "password": password,
         "note": note,
+		"iban": iban,
         "createdAt": createdAt,
         "updatedAt": updatedAt,
         "lastChangedAt": lastChangedAt,
@@ -42,6 +45,7 @@ class VaultItem {
       username: json["username"] ?? "",
       password: json["password"] ?? "",
       note: json["note"] ?? "",
+	  iban: json["iban"] ?? "",
       createdAt: json["createdAt"],
       updatedAt: json["updatedAt"],
       lastChangedAt: json["lastChangedAt"],

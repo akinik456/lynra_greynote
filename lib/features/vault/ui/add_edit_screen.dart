@@ -17,7 +17,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
   final usernameCtrl = TextEditingController();
   final passwordCtrl = TextEditingController();
   final noteCtrl = TextEditingController();
-
+  final ibanCtrl = TextEditingController();
+  bool showBankDetails = false;
   bool hidePassword = true;
 
   @override
@@ -30,6 +31,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
       passwordCtrl.text = widget.initialData!["password"] ?? "";
       noteCtrl.text = widget.initialData!["note"] ?? "";
     }
+	ibanCtrl.text = widget.initialData?["iban"] ?? "";
+    showBankDetails = ibanCtrl.text.trim().isNotEmpty;
   }
 
   void save() {
@@ -38,6 +41,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
       "username": usernameCtrl.text.trim(),
       "password": passwordCtrl.text,
       "note": noteCtrl.text.trim(),
+	  "iban": showBankDetails ? ibanCtrl.text.trim() : "",
     });
   }
 
@@ -73,6 +77,33 @@ class _AddEditScreenState extends State<AddEditScreen> {
               ),
             ),
           ),
+		  _FieldCard(
+  label: "Bank Details",
+  child: SwitchListTile(
+    contentPadding: EdgeInsets.zero,
+    value: showBankDetails,
+    onChanged: (value) {
+      setState(() {
+        showBankDetails = value;
+        if (!showBankDetails) {
+          ibanCtrl.clear();
+        }
+      });
+    },
+    title: const Text("Add IBAN"),
+  ),
+),
+if (showBankDetails)
+  _FieldCard(
+    label: "IBAN",
+    child: TextField(
+      controller: ibanCtrl,
+      decoration: const InputDecoration(
+        hintText: "TR00 0000 0000 0000 0000 0000 00",
+        border: InputBorder.none,
+      ),
+    ),
+  ),
           _FieldCard(
             label: "Password",
             child: Row(

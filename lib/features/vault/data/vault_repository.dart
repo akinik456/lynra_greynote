@@ -13,6 +13,7 @@ class VaultRepository {
     required String username,
     required String password,
     required String note,
+	required String iban,
   }) async {
     final db = await _dbHelper.database;
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -23,6 +24,7 @@ class VaultRepository {
       username: username,
       password: password,
       note: note,
+	  iban: iban,
       createdAt: now,
       updatedAt: now,
       lastChangedAt: now,
@@ -66,6 +68,7 @@ Future<void> updateItem({
   required String username,
   required String password,
   required String note,
+  required String iban,
 }) async {
   final db = await _dbHelper.database;
   final now = DateTime.now().millisecondsSinceEpoch;
@@ -78,6 +81,7 @@ Future<void> updateItem({
     username: username,
     password: password,
     note: note,
+	iban: iban,
     createdAt: oldItem.createdAt,
     updatedAt: now,
     lastChangedAt: passwordChanged ? now : oldItem.lastChangedAt,
