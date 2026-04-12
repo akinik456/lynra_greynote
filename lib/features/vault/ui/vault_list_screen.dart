@@ -14,7 +14,8 @@ class VaultListScreen extends StatefulWidget {
 class _VaultListScreenState extends State<VaultListScreen> {
   final repo = VaultRepository();
   final vaultKey = '1234';
-
+  String selectedCollectionId = 'default';
+  
   List<VaultItem> items = [];
 
   @override
@@ -24,7 +25,10 @@ class _VaultListScreenState extends State<VaultListScreen> {
   }
 
   Future<void> load() async {
-    final result = await repo.getItems(vaultKey);
+    final result = await repo.getItems(
+	  vaultKey: vaultKey,
+	  collectionId: selectedCollectionId,
+	);
     setState(() => items = result);
   }
 
@@ -44,6 +48,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
         password: result["password"] ?? "",
         note: result["note"] ?? "",
 		iban: result["iban"] ?? "",
+		collectionId: selectedCollectionId,
       );
       await load();
     }

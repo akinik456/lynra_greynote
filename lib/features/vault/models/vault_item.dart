@@ -2,6 +2,7 @@ import 'dart:convert';
 
 class VaultItem {
   final String id;
+  final String collectionId;
   final String title;
   final String username;
   final String password;
@@ -23,6 +24,7 @@ class VaultItem {
     required this.updatedAt,
     required this.lastChangedAt,
     required this.isFavorite,
+	required this.collectionId,
   });
 
   Map<String, dynamic> toJson() => {
@@ -36,6 +38,7 @@ class VaultItem {
         "updatedAt": updatedAt,
         "lastChangedAt": lastChangedAt,
         "isFavorite": isFavorite,
+		"collectionId": collectionId,
       };
 
   factory VaultItem.fromJson(Map<String, dynamic> json) {
@@ -50,6 +53,7 @@ class VaultItem {
       updatedAt: json["updatedAt"],
       lastChangedAt: json["lastChangedAt"],
       isFavorite: json["isFavorite"] ?? false,
+	  collectionId: json["collectionId"] ?? "default",
     );
   }
 

@@ -13,7 +13,8 @@ class VaultRepository {
     required String username,
     required String password,
     required String note,
-	required String iban,
+    required String iban,
+    required String collectionId,
   }) async {
     final db = await _dbHelper.database;
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -24,7 +25,8 @@ class VaultRepository {
       username: username,
       password: password,
       note: note,
-	  iban: iban,
+      iban: iban,
+      collectionId: collectionId,
       createdAt: now,
       updatedAt: now,
       lastChangedAt: now,
@@ -40,12 +42,22 @@ class VaultRepository {
       'createdAt': now,
       'updatedAt': now,
       'isFavorite': 0,
+      'collectionId': collectionId.isEmpty ? 'default' : collectionId,
     });
   }
 
-  Future<List<VaultItem>> getItems(String vaultKey) async {
+  Future<List<VaultItem>> getItems({
+    required String vaultKey,
+    required String collectionId,
+  }) async {
     final db = await _dbHelper.database;
-    final rows = await db.query('vault', orderBy: 'updatedAt DESC');
+
+    final rows = await db.query(
+      'vault',
+      where: 'collectionId = ?',
+      whereArgs: [collectionId],
+      orderBy: 'updatedAt DESC',
+    );
 
     final items = <VaultItem>[];
 
@@ -55,62 +67,62 @@ class VaultRepository {
         final decrypted =
             await CryptoHelper.decrypt(encryptedPayload, vaultKey);
         items.add(VaultItem.fromEncodedJson(decrypted));
-      } catch (_) {
-      }
+      } catch (_) {}
     }
 
     return items;
   }
-Future<void> updateItem({
-  required String vaultKey,
-  required VaultItem oldItem,
-  required String title,
-  required String username,
-  required String password,
-  required String note,
-  required String iban,
-}) async {
-  final db = await _dbHelper.database;
-  final now = DateTime.now().millisecondsSinceEpoch;
 
-  final passwordChanged = oldItem.password != password;
+  Future<void> updateItem({
+    required String vaultKey,
+    required VaultItem oldItem,
+    required String title,
+    required String username,
+    required String password,
+    required String note,
+    required String iban,
+  }) async {
+    final db = await _dbHelper.database;
+    final now = DateTime.now().millisecondsSinceEpoch;
 
-  final updatedItem = VaultItem(
-    id: oldItem.id,
-    title: title,
-    username: username,
-    password: password,
-    note: note,
-	iban: iban,
-    createdAt: oldItem.createdAt,
-    updatedAt: now,
-    lastChangedAt: passwordChanged ? now : oldItem.lastChangedAt,
-    isFavorite: oldItem.isFavorite,
-  );
+    final passwordChanged = oldItem.password != password;
 
-  final encryptedPayload =
-      await CryptoHelper.encrypt(updatedItem.toEncodedJson(), vaultKey);
+    final updatedItem = VaultItem(
+      id: oldItem.id,
+      title: title,
+      username: username,
+      password: password,
+      note: note,
+      iban: iban,
+      collectionId: oldItem.collectionId,
+      createdAt: oldItem.createdAt,
+      updatedAt: now,
+      lastChangedAt: passwordChanged ? now : oldItem.lastChangedAt,
+      isFavorite: oldItem.isFavorite,
+    );
 
-  await db.update(
-    'vault',
-    {
-      'payload': encryptedPayload,
-      'updatedAt': now,
-      'isFavorite': updatedItem.isFavorite ? 1 : 0,
-    },
-    where: 'id = ?',
-    whereArgs: [oldItem.id],
-  );
-}  
-  
-  
-Future<void> deleteItem(String id) async {
-  final db = await _dbHelper.database;
-  await db.delete(
-    'vault',
-    where: 'id = ?',
-    whereArgs: [id],
-  );
-}  
-  
+    final encryptedPayload =
+        await CryptoHelper.encrypt(updatedItem.toEncodedJson(), vaultKey);
+
+    await db.update(
+      'vault',
+      {
+        'payload': encryptedPayload,
+        'updatedAt': now,
+        'isFavorite': updatedItem.isFavorite ? 1 : 0,
+        'collectionId': oldItem.collectionId,
+      },
+      where: 'id = ?',
+      whereArgs: [oldItem.id],
+    );
+  }
+
+  Future<void> deleteItem(String id) async {
+    final db = await _dbHelper.database;
+    await db.delete(
+      'vault',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
 }
