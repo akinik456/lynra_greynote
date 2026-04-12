@@ -3,6 +3,8 @@ import '../data/vault_repository.dart';
 import '../models/vault_item.dart';
 import 'add_edit_screen.dart';
 import 'vault_detail_screen.dart';
+import '../data/collection_repository.dart';
+import '../models/vault_collection.dart';
 
 class VaultListScreen extends StatefulWidget {
   const VaultListScreen({super.key});
@@ -15,12 +17,15 @@ class _VaultListScreenState extends State<VaultListScreen> {
   final repo = VaultRepository();
   final vaultKey = '1234';
   String selectedCollectionId = 'default';
-  
+  final collectionRepo = CollectionRepository();
+
+  List<VaultCollection> collections = [];
   List<VaultItem> items = [];
 
   @override
   void initState() {
     super.initState();
+	loadCollections();
     load();
   }
 
@@ -31,6 +36,18 @@ class _VaultListScreenState extends State<VaultListScreen> {
 	);
     setState(() => items = result);
   }
+  
+  Future<void> loadCollections() async {
+	  final result = await collectionRepo.getCollections();
+
+	  setState(() {
+		collections = result;
+		if (collections.isNotEmpty &&
+			!collections.any((c) => c.id == selectedCollectionId)) {
+		  selectedCollectionId = collections.first.id;
+		}
+	  });
+	}
 
   Future<void> openAdd() async {
     final result = await Navigator.push(
@@ -103,7 +120,21 @@ class _VaultListScreenState extends State<VaultListScreen> {
         centerTitle: true,
         elevation: 0,
       ),
-      body: items.isEmpty
+      body: Column(
+  children: [
+    _CollectionBar(
+  collections: collections,
+  selectedCollectionId: selectedCollectionId,
+  onSelected: (id) async {
+    setState(() {
+      selectedCollectionId = id;
+    });
+    await load();
+  },
+  onAdd: openAddCollection,
+),
+    Expanded(
+      child: items.isEmpty
           ? const _EmptyState()
           : RefreshIndicator(
               onRefresh: load,
@@ -125,24 +156,27 @@ class _VaultListScreenState extends State<VaultListScreen> {
                       );
 
                       if (result != null) {
-  await repo.updateItem(
-    vaultKey: vaultKey,
-    oldItem: item,
-    title: result["title"] ?? "",
-    username: result["username"] ?? "",
-    password: result["password"] ?? "",
-    note: result["note"] ?? "",
-	iban: result["iban"] ?? "",
-  );
+                        await repo.updateItem(
+                          vaultKey: vaultKey,
+                          oldItem: item,
+                          title: result["title"] ?? "",
+                          username: result["username"] ?? "",
+                          password: result["password"] ?? "",
+                          note: result["note"] ?? "",
+                          iban: result["iban"] ?? "",
+                        );
 
-  await load();
-}
+                        await load();
+                      }
                     },
                     onLongPress: () => delete(item),
                   );
                 },
               ),
             ),
+    ),
+  ],
+),
       floatingActionButton: FloatingActionButton(
         backgroundColor: const Color(0xFF22D3EE),
         foregroundColor: Colors.black,
@@ -151,6 +185,60 @@ class _VaultListScreenState extends State<VaultListScreen> {
       ),
     );
   }
+Future<void> openAddCollection() async {
+  final controller = TextEditingController();
+
+  final result = await showDialog<String>(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: const Text('New Collection'),
+        content: TextField(
+          controller: controller,
+          autofocus: true,
+          decoration: const InputDecoration(
+            hintText: 'e.g. Annem',
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () {
+              final name = controller.text.trim();
+              if (name.isEmpty) return;
+              Navigator.pop(context, name);
+            },
+            child: const Text('Add'),
+          ),
+        ],
+      );
+    },
+  );
+
+  if (result == null || result.trim().isEmpty) return;
+
+  final id = result
+      .trim()
+      .toLowerCase()
+      .replaceAll(RegExp(r'\s+'), '_');
+
+  await collectionRepo.insertCollection(
+    id: id,
+    name: result.trim(),
+  );
+
+  await loadCollections();
+
+  setState(() {
+    selectedCollectionId = id;
+  });
+
+  await load();
+}  
+  
 }
 
 class _VaultCard extends StatelessWidget {
@@ -299,5 +387,70 @@ class _EmptyState extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+class _CollectionBar extends StatelessWidget {
+  final List<VaultCollection> collections;
+  final String selectedCollectionId;
+  final ValueChanged<String> onSelected;
+  final VoidCallback onAdd;
+  
+  const _CollectionBar({
+    required this.collections,
+    required this.selectedCollectionId,
+    required this.onSelected,
+	required this.onAdd,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    if (collections.isEmpty) {
+      return const SizedBox(height: 12);
+    }
+
+    return SizedBox(
+  height: 58,
+  child: ListView.separated(
+    padding: const EdgeInsets.fromLTRB(12, 10, 12, 6),
+    scrollDirection: Axis.horizontal,
+    itemCount: collections.length + 1,
+    separatorBuilder: (_, __) => const SizedBox(width: 8),
+    itemBuilder: (context, index) {
+      if (index == collections.length) {
+        return ActionChip(
+          label: const Text('+'),
+          onPressed: onAdd,
+          backgroundColor: const Color(0xFF1E293B),
+          labelStyle: const TextStyle(
+            color: Color(0xFF22D3EE),
+            fontWeight: FontWeight.w700,
+            fontSize: 18,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+        );
+      }
+
+      final collection = collections[index];
+      final selected = collection.id == selectedCollectionId;
+
+      return ChoiceChip(
+        label: Text(collection.name),
+        selected: selected,
+        onSelected: (_) => onSelected(collection.id),
+        selectedColor: const Color(0xFF22D3EE),
+        labelStyle: TextStyle(
+          color: selected ? Colors.black : Colors.white,
+          fontWeight: FontWeight.w600,
+        ),
+        backgroundColor: const Color(0xFF1E293B),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14),
+        ),
+      );
+    },
+  ),
+);
   }
 }
