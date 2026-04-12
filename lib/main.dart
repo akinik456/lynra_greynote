@@ -17,16 +17,16 @@ class LynraApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-	  debugShowCheckedModeBanner: false,
-	  theme: ThemeData.dark().copyWith(
-		scaffoldBackgroundColor: const Color(0xFF0F172A),
-		cardColor: const Color(0xFF1E293B),
-		colorScheme: const ColorScheme.dark(
-		  primary: Color(0xFF22D3EE),
-		),
-	  ),
-	  home: const AppGate(),
-	);
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: const Color(0xFF0F172A),
+        cardColor: const Color(0xFF1E293B),
+        colorScheme: const ColorScheme.dark(
+          primary: Color(0xFF22D3EE),
+        ),
+      ),
+      home: const AppGate(),
+    );
   }
 }
 
@@ -37,17 +37,48 @@ class AppGate extends StatefulWidget {
   State<AppGate> createState() => _AppGateState();
 }
 
-class _AppGateState extends State<AppGate> {
+class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   bool _loading = true;
   bool _unlocked = false;
+  bool _unlockScreenOpen = false;
   String? _savedPattern;
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _start();
     });
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.paused ||
+        state == AppLifecycleState.hidden) {
+      if (_unlocked) {
+        setState(() {
+          _unlocked = false;
+        });
+      }
+      return;
+    }
+
+    if (state == AppLifecycleState.resumed) {
+      if (!_loading && _savedPattern != null && !_unlocked && !_unlockScreenOpen) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _unlockExistingPattern();
+        });
+      }
+    }
   }
 
   Future<void> _start() async {
@@ -75,24 +106,34 @@ class _AppGateState extends State<AppGate> {
       await AuthStorage.savePattern(createdPattern);
       _savedPattern = createdPattern;
 
-      final unlocked = await Navigator.push<bool>(
-        context,
-        MaterialPageRoute(
-          builder: (_) => PatternUnlockScreen(savedPattern: _savedPattern!),
-        ),
-      );
+      await _unlockExistingPattern();
 
       if (!mounted) return;
 
       setState(() {
         _loading = false;
-        _unlocked = unlocked == true;
       });
 
       return;
     }
 
     _savedPattern = saved;
+
+    await _unlockExistingPattern();
+
+    if (!mounted) return;
+
+    setState(() {
+      _loading = false;
+    });
+  }
+
+  Future<void> _unlockExistingPattern() async {
+    if (_savedPattern == null || _savedPattern!.isEmpty) return;
+    if (!mounted) return;
+    if (_unlockScreenOpen) return;
+
+    _unlockScreenOpen = true;
 
     final unlocked = await Navigator.push<bool>(
       context,
@@ -101,10 +142,11 @@ class _AppGateState extends State<AppGate> {
       ),
     );
 
+    _unlockScreenOpen = false;
+
     if (!mounted) return;
 
     setState(() {
-      _loading = false;
       _unlocked = unlocked == true;
     });
   }
@@ -127,14 +169,11 @@ class _AppGateState extends State<AppGate> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            setState(() {
-              _loading = true;
-            });
             WidgetsBinding.instance.addPostFrameCallback((_) {
-              _start();
+              _unlockExistingPattern();
             });
           },
-          child: const Text('Try Again'),
+          child: const Text('Unlock'),
         ),
       ),
     );
