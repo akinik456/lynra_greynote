@@ -18,7 +18,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
   final vaultKey = '1234';
   String selectedCollectionId = 'default';
   final collectionRepo = CollectionRepository();
-
+  
   List<VaultCollection> collections = [];
   List<VaultItem> items = [];
 
@@ -121,18 +121,19 @@ class _VaultListScreenState extends State<VaultListScreen> {
         elevation: 0,
       ),
       body: Column(
-  children: [
-    _CollectionBar(
-  collections: collections,
-  selectedCollectionId: selectedCollectionId,
-  onSelected: (id) async {
-    setState(() {
-      selectedCollectionId = id;
-    });
-    await load();
-  },
-  onAdd: openAddCollection,
-),
+	  children: [
+		_CollectionBar(
+	  collections: collections,
+	  selectedCollectionId: selectedCollectionId,
+	  onSelected: (id) async {
+		setState(() {
+		  selectedCollectionId = id;
+		});
+		await load();
+	  },
+	  onAdd: openAddCollection,
+	  onDelete: openDeleteCollection,
+	),
     Expanded(
       child: items.isEmpty
           ? const _EmptyState()
@@ -186,8 +187,15 @@ class _VaultListScreenState extends State<VaultListScreen> {
     );
   }
 Future<void> openAddCollection() async {
+if (collections.length >= 5) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(
+      content: Text('Maximum 5 collections allowed'),
+    ),
+  );
+  return;
+}  
   final controller = TextEditingController();
-
   final result = await showDialog<String>(
     context: context,
     builder: (context) {
@@ -238,6 +246,42 @@ Future<void> openAddCollection() async {
 
   await load();
 }  
+Future<void> openDeleteCollection(VaultCollection collection) async {
+  final confirmed = await showDialog<bool>(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: const Text('Delete Collection'),
+        content: Text(
+          'Delete "${collection.name}"?\n\nAll entries will be permanently deleted.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Delete'),
+          ),
+        ],
+      );
+    },
+  );
+
+  if (confirmed != true) return;
+
+  await collectionRepo.deleteCollection(collection.id);
+
+  await loadCollections();
+
+  setState(() {
+    selectedCollectionId = 'default';
+  });
+
+  await load();
+}
+
   
 }
 
@@ -394,12 +438,14 @@ class _CollectionBar extends StatelessWidget {
   final String selectedCollectionId;
   final ValueChanged<String> onSelected;
   final VoidCallback onAdd;
+  final Function(VaultCollection) onDelete;
   
   const _CollectionBar({
     required this.collections,
     required this.selectedCollectionId,
     required this.onSelected,
 	required this.onAdd,
+	required this.onDelete,
   });
 
   @override
@@ -435,20 +481,26 @@ class _CollectionBar extends StatelessWidget {
       final collection = collections[index];
       final selected = collection.id == selectedCollectionId;
 
-      return ChoiceChip(
-        label: Text(collection.name),
-        selected: selected,
-        onSelected: (_) => onSelected(collection.id),
-        selectedColor: const Color(0xFF22D3EE),
-        labelStyle: TextStyle(
-          color: selected ? Colors.black : Colors.white,
-          fontWeight: FontWeight.w600,
-        ),
-        backgroundColor: const Color(0xFF1E293B),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
-        ),
-      );
+return InkWell(
+  borderRadius: BorderRadius.circular(14),
+  onLongPress: collection.id == 'default'
+      ? null
+      : () => onDelete(collection),
+  child: ChoiceChip(
+    label: Text(collection.name),
+    selected: selected,
+    onSelected: (_) => onSelected(collection.id),
+    selectedColor: const Color(0xFF22D3EE),
+    labelStyle: TextStyle(
+      color: selected ? Colors.black : Colors.white,
+      fontWeight: FontWeight.w600,
+    ),
+    backgroundColor: const Color(0xFF1E293B),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(14),
+    ),
+  ),
+);
     },
   ),
 );

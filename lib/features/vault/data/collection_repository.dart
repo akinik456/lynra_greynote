@@ -29,4 +29,22 @@ class CollectionRepository {
       'updatedAt': now,
     });
   }
+Future<void> deleteCollection(String collectionId) async {
+  final db = await _dbHelper.database;
+
+  if (collectionId == 'default') return;
+
+  await db.delete(
+    'vault',
+    where: 'collectionId = ?',
+    whereArgs: [collectionId],
+  );
+
+  await db.delete(
+    'collections',
+    where: 'id = ?',
+    whereArgs: [collectionId],
+  );
+}  
+  
 }
