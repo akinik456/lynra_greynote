@@ -4,6 +4,9 @@ import 'features/auth/data/auth_storage.dart';
 import 'features/auth/ui/pattern_setup_screen.dart';
 import 'features/auth/ui/pattern_unlock_screen.dart';
 import 'features/vault/ui/vault_list_screen.dart';
+import 'features/settings/ui/pin_unlock_screen.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -127,6 +130,25 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
       _loading = false;
     });
   }
+  
+  Future<bool> _checkSecondaryLock() async {
+  const storage = FlutterSecureStorage();
+
+  final secondaryLock = await storage.read(key: "secondary_lock");
+
+  if (secondaryLock == "PIN") {
+    final result = await Navigator.push<bool>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const PinUnlockScreen(),
+      ),
+    );
+
+    return result == true;
+  }
+
+  return true;
+}
 
   Future<void> _unlockExistingPattern() async {
     if (_savedPattern == null || _savedPattern!.isEmpty) return;
@@ -146,9 +168,12 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
 
     if (!mounted) return;
 
-    setState(() {
-      _unlocked = unlocked == true;
-    });
+    if (unlocked == true) {
+  final ok = await _checkSecondaryLock();
+  setState(() {
+    _unlocked = ok;
+  });
+}
   }
 
   @override

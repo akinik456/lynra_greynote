@@ -86,7 +86,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
             child: TextField(
               controller: titleCtrl,
               decoration: const InputDecoration(
-                hintText: "e.g. Ziraat Bank",
+                hintText: "Title",
                 border: InputBorder.none,
               ),
             ),

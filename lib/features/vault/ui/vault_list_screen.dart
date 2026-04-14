@@ -5,6 +5,7 @@ import 'add_edit_screen.dart';
 import 'vault_detail_screen.dart';
 import '../data/collection_repository.dart';
 import '../models/vault_collection.dart';
+import '../../settings/ui/settings_screen.dart';
 
 class VaultListScreen extends StatefulWidget {
   const VaultListScreen({super.key});
@@ -118,6 +119,19 @@ class _VaultListScreenState extends State<VaultListScreen> {
             letterSpacing: 0.2,
           ),
         ),
+		actions: [
+    IconButton(
+      icon: const Icon(Icons.settings),
+      onPressed: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (_) => const SettingsScreen(),
+    ),
+  );
+},
+    ),
+  ],
         centerTitle: true,
         elevation: 0,
       ),
