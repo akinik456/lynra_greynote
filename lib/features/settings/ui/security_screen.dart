@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:local_auth/local_auth.dart';
 import 'pin_setup_screen.dart';
 
 
@@ -13,6 +14,8 @@ class _SecurityScreenState extends State<SecurityScreen> {
 String lockType = "Pattern";
 String secondaryLock = "None";
 final storage = const FlutterSecureStorage();
+final auth = LocalAuthentication();
+
 @override
 void initState() {
   super.initState();
@@ -31,6 +34,35 @@ Future<void> loadSecondaryLock() async {
     });
   }
 }
+Future<void> testBiometric() async {
+  final canCheck = await auth.canCheckBiometrics;
+print("biometric called");
+  if (!canCheck) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Biometric not available")),
+    );
+	print("biometric called end");
+    return;
+  }
+
+  final authenticated = await auth.authenticate(
+    localizedReason: "Authenticate to continue",
+    options: const AuthenticationOptions(
+      biometricOnly: true,
+    ),
+  );
+
+  if (authenticated) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Biometric success")),
+    );
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Biometric failed")),
+    );
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +119,8 @@ Future<void> loadSecondaryLock() async {
             ),
             ListTile(
               title: const Text("Biometric"),
-              onTap: () {
+              onTap: () async {
+  await testBiometric();
   setState(() => secondaryLock = "Biometric");
   saveSecondaryLock(secondaryLock);
   Navigator.pop(context);

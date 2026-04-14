@@ -6,6 +6,7 @@ import 'features/auth/ui/pattern_unlock_screen.dart';
 import 'features/vault/ui/vault_list_screen.dart';
 import 'features/settings/ui/pin_unlock_screen.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:local_auth/local_auth.dart';
 
 
 void main() async {
@@ -146,6 +147,24 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
 
     return result == true;
   }
+  else if (secondaryLock == "Biometric") {
+  final auth = LocalAuthentication();
+
+  final canCheck = await auth.canCheckBiometrics;
+
+  if (!canCheck) {
+    return false;
+  }
+
+  final authenticated = await auth.authenticate(
+    localizedReason: "Authenticate to continue",
+    options: const AuthenticationOptions(
+      biometricOnly: true,
+    ),
+  );
+
+  return authenticated;
+}
 
   return true;
 }
