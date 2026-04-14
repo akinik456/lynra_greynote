@@ -22,6 +22,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
   bool showBankDetails = false;
   bool hidePassword = true;
   String entryType = "standard";
+  String passwordStrength = "";
   
   @override
   void initState() {
@@ -57,7 +58,31 @@ String generatePassword({int length = 10}) {
 	  "type": entryType,
     });
   }
-  
+
+void updatePasswordStrength(String password) {
+  if (password.isEmpty) {
+    setState(() => passwordStrength = "");
+    return;
+  }
+
+  int score = 0;
+
+  if (password.length >= 8) score++;
+  if (password.length >= 10) score++;
+  if (RegExp(r'[A-Z]').hasMatch(password)) score++;
+  if (RegExp(r'[0-9]').hasMatch(password)) score++;
+  if (RegExp(r'[!@#\$%&*_\-]').hasMatch(password)) score++;
+
+  if (score <= 2) {
+    passwordStrength = "Weak";
+  } else if (score <= 4) {
+    passwordStrength = "Medium";
+  } else {
+    passwordStrength = "Strong";
+  }
+
+  setState(() {});
+}  
   
 
   @override
@@ -156,6 +181,7 @@ if (showBankDetails)
 				),
                 Expanded(
                   child: TextField(
+				  onChanged: updatePasswordStrength,
                     controller: passwordCtrl,
                     obscureText: hidePassword,
                     decoration: const InputDecoration(
@@ -179,6 +205,22 @@ if (showBankDetails)
               ],
             ),			
           ),
+		  
+if (passwordStrength.isNotEmpty)
+  Padding(
+    padding: const EdgeInsets.only(top: 6),
+    child: Text(
+      passwordStrength,
+      style: TextStyle(
+        color: passwordStrength == "Weak"
+            ? Colors.red
+            : passwordStrength == "Medium"
+                ? Colors.orange
+                : Colors.green,
+        fontSize: 12,
+      ),
+    ),
+  ),		  
 		  ],
           _FieldCard(
             label: "Note",
