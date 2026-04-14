@@ -1,0 +1,214 @@
+Lynra GreyNote — V1 Release Checklist
+🔐 1. Giriş Güvenliği (CRITICAL)
+
+
+ Pattern (default) ✔️ (var)
+
+
+ PIN (opsiyonel)
+
+
+ Biometric (opsiyonel, hızlı giriş)
+
+
+ Ayarlar ekranı:
+
+
+Lock type seçimi (Pattern / PIN)
+
+
+Biometric toggle
+
+
+
+
+ Background lock ✔️ (var)
+
+
+Done kriteri:
+Kullanıcı lock tipini değiştirebilir ve app güvenli şekilde açılır.
+
+📝 2. Secure Note / Notepad (CRITICAL)
+
+
+ Entry Type:
+
+
+Standard Entry ✔️
+
+
+Secure Note (yeni)
+
+
+
+
+ Secure Note UI:
+
+
+Title
+
+
+Büyük text editor (multi-line)
+
+
+
+
+ Listede ayırt edici görünüm (ikon / label)
+
+
+Done kriteri:
+Kullanıcı sadece metin belge oluşturup saklayabilir.
+
+🧠 3. Vault Word (İkinci Katman) (KILLER)
+
+
+ Kullanıcı bir “Vault Word” belirler
+
+
+ Açık değilken:
+
+
+içerik maskelenir / anlamsız görünür
+
+
+
+
+ Doğru kelime girince:
+
+
+gerçek içerik görünür
+
+
+
+
+ Ayarlardan aç/kapat
+
+
+Done kriteri:
+App açık olsa bile veri ikinci katmanla korunur.
+
+📦 4. Encrypted Export / Import (CRITICAL)
+
+
+ Export:
+
+
+tüm vault → tek dosya
+
+
+şifreli (vaultKey ile)
+
+
+
+
+ Import:
+
+
+dosyayı seç
+
+
+decrypt et
+
+
+kayıtları geri yükle
+
+
+
+
+ Dosya formatı (örnek):
+
+
+.lynra
+
+
+
+
+Done kriteri:
+Kullanıcı verisini güvenli şekilde yedekleyip geri yükleyebilir.
+
+🎭 5. App Disguise (Icon + Name) (ADVANCED)
+
+
+ Alternatif icon + isim seçenekleri
+
+
+ Kullanıcı seçim yapabilir:
+
+
+Notes
+
+
+Calculator
+
+
+vb.
+
+
+
+
+ Android launcher alias kullanımı
+
+
+Done kriteri:
+App dışarıdan farklı bir uygulama gibi görünebilir.
+
+🧩 Mevcut Core (ZATEN TAMAM)
+
+
+ Encrypted local DB
+
+
+ Pattern lock
+
+
+ Background lock
+
+
+ CRUD (real update)
+
+
+ IBAN field
+
+
+ Collections system
+
+
+
+🎯 V1 Tanımı
+👉 Bu checklist %100 tamam → Play Store’a çıkış
+
+🧠 Strateji (çok önemli)
+Brom burada en kritik şey:
+👉 tek tek bitir → test et → commit → ilerle
+Sakın:
+
+
+2 feature aynı anda başlama
+
+
+büyük refactor yapma
+
+
+“sonra düzeltiriz” deme
+
+
+
+🚀 İlk başlama önerim
+Net:
+👉 2. madde: Secure Note
+Neden?
+
+
+en hızlı kazanım
+
+
+UI hazır zaten
+
+
+veri modeli genişletme
+
+
+kullanıcı hemen fayda görür
+
+
+

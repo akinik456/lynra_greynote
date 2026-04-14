@@ -15,6 +15,7 @@ class VaultRepository {
     required String note,
     required String iban,
     required String collectionId,
+	required String type,
   }) async {
     final db = await _dbHelper.database;
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -31,6 +32,7 @@ class VaultRepository {
       updatedAt: now,
       lastChangedAt: now,
       isFavorite: false,
+	  type: type,
     );
 
     final encryptedPayload =
@@ -81,6 +83,7 @@ class VaultRepository {
     required String password,
     required String note,
     required String iban,
+	required String type,
   }) async {
     final db = await _dbHelper.database;
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -99,6 +102,7 @@ class VaultRepository {
       updatedAt: now,
       lastChangedAt: passwordChanged ? now : oldItem.lastChangedAt,
       isFavorite: oldItem.isFavorite,
+	  type: type,
     );
 
     final encryptedPayload =

@@ -12,6 +12,7 @@ class VaultItem {
   final int updatedAt;
   final int lastChangedAt;
   final bool isFavorite;
+  final String type;
   
   VaultItem({
     required this.id,
@@ -25,6 +26,7 @@ class VaultItem {
     required this.lastChangedAt,
     required this.isFavorite,
 	required this.collectionId,
+	required this.type,
   });
 
   Map<String, dynamic> toJson() => {
@@ -39,6 +41,7 @@ class VaultItem {
         "lastChangedAt": lastChangedAt,
         "isFavorite": isFavorite,
 		"collectionId": collectionId,
+		"type": type,
       };
 
   factory VaultItem.fromJson(Map<String, dynamic> json) {
@@ -54,6 +57,7 @@ class VaultItem {
       lastChangedAt: json["lastChangedAt"],
       isFavorite: json["isFavorite"] ?? false,
 	  collectionId: json["collectionId"] ?? "default",
+	  type: json["type"] ?? "standard",
     );
   }
 

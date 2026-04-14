@@ -37,6 +37,7 @@ class VaultDetailScreen extends StatelessWidget {
                       "password": item.password,
                       "note": item.note,
 					  "iban": item.iban,
+					  "type": item.type,
                     },
                   ),
                 ),
@@ -54,22 +55,25 @@ class VaultDetailScreen extends StatelessWidget {
         children: [
           _HeaderCard(item: item),
           const SizedBox(height: 14),
-          _CopyTile(
-            label: 'Username',
-            value: item.username,
-            snackText: 'Username copied',
-          ),
-		  if (item.iban.isNotEmpty) ...[
-  const SizedBox(height: 12),
+		  
+          if (item.type == "standard") ...[
   _CopyTile(
-    label: 'IBAN',
-    value: item.iban,
-    snackText: 'IBAN copied',
+    label: 'Username',
+    value: item.username,
+    snackText: 'Username copied',
   ),
+  if (item.iban.isNotEmpty) ...[
+    const SizedBox(height: 12),
+    _CopyTile(
+      label: 'IBAN',
+      value: item.iban,
+      snackText: 'IBAN copied',
+    ),
+  ],
+  const SizedBox(height: 12),
+  _PasswordTile(password: item.password),
+  const SizedBox(height: 12),
 ],
-          const SizedBox(height: 12),
-          _PasswordTile(password: item.password),
-          const SizedBox(height: 12),
           _InfoCard(
             label: 'Note',
             value: item.note.isEmpty ? 'No note added' : item.note,

@@ -66,6 +66,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
         note: result["note"] ?? "",
 		iban: result["iban"] ?? "",
 		collectionId: selectedCollectionId,
+		type: result["type"] ?? "standard",
       );
       await load();
     }
@@ -165,6 +166,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
                           password: result["password"] ?? "",
                           note: result["note"] ?? "",
                           iban: result["iban"] ?? "",
+						  type: result["type"] ?? "standard",
                         );
 
                         await load();
@@ -205,7 +207,7 @@ if (collections.length >= 5) {
           controller: controller,
           autofocus: true,
           decoration: const InputDecoration(
-            hintText: 'e.g. Annem',
+            hintText: 'e.g. Mom',
           ),
         ),
         actions: [

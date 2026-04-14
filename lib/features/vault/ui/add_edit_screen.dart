@@ -20,7 +20,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
   final ibanCtrl = TextEditingController();
   bool showBankDetails = false;
   bool hidePassword = true;
-
+  String entryType = "standard";
+  
   @override
   void initState() {
     super.initState();
@@ -33,6 +34,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
     }
 	ibanCtrl.text = widget.initialData?["iban"] ?? "";
     showBankDetails = ibanCtrl.text.trim().isNotEmpty;
+	entryType = widget.initialData?["type"] ?? "standard";
   }
 
   void save() {
@@ -42,6 +44,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
       "password": passwordCtrl.text,
       "note": noteCtrl.text.trim(),
 	  "iban": showBankDetails ? ibanCtrl.text.trim() : "",
+	  "type": entryType,
     });
   }
 
@@ -57,6 +60,27 @@ class _AddEditScreenState extends State<AddEditScreen> {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 100),
         children: [
+			Row(
+  children: [
+    Expanded(
+      child: ElevatedButton(
+        onPressed: () {
+          setState(() => entryType = "standard");
+        },
+        child: const Text("Standard"),
+      ),
+    ),
+    const SizedBox(width: 8),
+    Expanded(
+      child: ElevatedButton(
+        onPressed: () {
+          setState(() => entryType = "note");
+        },
+        child: const Text("Note"),
+      ),
+    ),
+  ],
+),
           _FieldCard(
             label: "Title",
             child: TextField(
@@ -67,6 +91,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
               ),
             ),
           ),
+		  if (entryType == "standard") ...[
           _FieldCard(
             label: "Username",
             child: TextField(
@@ -133,11 +158,12 @@ if (showBankDetails)
               ],
             ),
           ),
+		  ],
           _FieldCard(
             label: "Note",
             child: TextField(
               controller: noteCtrl,
-              maxLines: 3,
+              maxLines: entryType == "note" ? 10 : 3,
               decoration: const InputDecoration(
                 hintText: "Optional note",
                 border: InputBorder.none,
