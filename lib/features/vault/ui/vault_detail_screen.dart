@@ -275,6 +275,9 @@ class _PasswordTileState extends State<_PasswordTile> {
                           Clipboard.setData(
                             ClipboardData(text: widget.password),
                           );
+						  setState(() {
+							hidden = true;
+}							);
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('Password copied')),
                           );

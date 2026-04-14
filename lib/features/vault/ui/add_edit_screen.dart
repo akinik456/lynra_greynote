@@ -173,7 +173,7 @@ if (showBankDetails)
                   onPressed: () {
                     setState(() {
                       hidePassword = !hidePassword;
-                    });
+                    });  
                   },
                 )				
               ],

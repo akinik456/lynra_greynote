@@ -1,7 +1,6 @@
  
-password önerme
 
-
+*******************
 Lynra GreyNote — V1 Release Checklist
 🔐 1. Giriş Güvenliği (CRITICAL)
 
