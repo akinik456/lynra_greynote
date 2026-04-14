@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class AddEditScreen extends StatefulWidget {
   final Map<String, dynamic>? initialData;
@@ -36,7 +37,16 @@ class _AddEditScreenState extends State<AddEditScreen> {
     showBankDetails = ibanCtrl.text.trim().isNotEmpty;
 	entryType = widget.initialData?["type"] ?? "standard";
   }
+String generatePassword({int length = 10}) {
+  const chars =
+      'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#\$%&*_-';
+  final random = Random.secure();
 
+  return List.generate(
+    length,
+    (_) => chars[random.nextInt(chars.length)],
+  ).join();
+}
   void save() {
     Navigator.pop(context, {
       "title": titleCtrl.text.trim(),
@@ -47,6 +57,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
 	  "type": entryType,
     });
   }
+  
+  
 
   @override
   Widget build(BuildContext context) {
@@ -133,6 +145,15 @@ if (showBankDetails)
             label: "Password",
             child: Row(
               children: [
+				IconButton(
+				  icon: const Icon(Icons.refresh),
+				  onPressed: () {
+  final generated = generatePassword();
+  setState(() {
+    passwordCtrl.text = generated;
+  });
+},
+				),
                 Expanded(
                   child: TextField(
                     controller: passwordCtrl,
@@ -142,7 +163,7 @@ if (showBankDetails)
                       border: InputBorder.none,
                     ),
                   ),
-                ),
+                ),				
                 IconButton(
                   icon: Icon(
                     hidePassword
@@ -154,9 +175,9 @@ if (showBankDetails)
                       hidePassword = !hidePassword;
                     });
                   },
-                )
+                )				
               ],
-            ),
+            ),			
           ),
 		  ],
           _FieldCard(
