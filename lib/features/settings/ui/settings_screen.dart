@@ -1,6 +1,8 @@
+import 'dart:convert';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_saver/file_saver.dart';
-import 'dart:convert';
+import 'package:file_picker/file_picker.dart';
 
 
 import 'security_screen.dart';
@@ -44,6 +46,38 @@ ListTile(
   trailing: const Icon(Icons.chevron_right),
   onTap: exportPlaceholder,
 ),	
+ListTile(
+  title: const Text("Import Data"),
+  trailing: const Icon(Icons.chevron_right),
+  onTap: () async {
+  final result = await FilePicker.pickFiles(
+    type: FileType.custom,
+    allowedExtensions: ['json'],
+  );
+
+  if (result != null) {
+  final path = result.files.single.path;
+  final file = File(path!);
+  final content = await file.readAsString();
+  final data = jsonDecode(content);
+  final vaultRows = data["vault"];
+  final collectionRows = data["collections"];
+  final db = await DatabaseHelper.instance.database;
+  await db.delete('vault');
+  await db.delete('collections');
+	  for (final row in collectionRows) {
+	  await db.insert('collections', Map<String, dynamic>.from(row));
+	  }
+	  for (final row in vaultRows) {
+	  await db.insert('vault', Map<String, dynamic>.from(row));
+	  }
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Import completed")),
+    );
+  }
+},
+),	
+
 	
   ],
 ),
