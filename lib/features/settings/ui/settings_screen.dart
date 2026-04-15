@@ -7,6 +7,7 @@ import 'package:file_picker/file_picker.dart';
 
 import 'security_screen.dart';
 import '../../vault/data/vault_repository.dart';
+import 'vault_word_screen.dart';
 import '../../../core/db/database_helper.dart';
 
 
@@ -77,7 +78,22 @@ ListTile(
   }
 },
 ),	
+ListTile(
+  title: const Text("Vault Word"),
+  trailing: const Icon(Icons.chevron_right),
+  onTap: () async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const VaultWordScreen(),
+      ),
+    );
 
+    if (result == true) {
+      setState(() {});
+    }
+  },
+),
 	
   ],
 ),

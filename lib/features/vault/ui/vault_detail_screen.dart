@@ -5,18 +5,23 @@ import 'add_edit_screen.dart';
 
 class VaultDetailScreen extends StatelessWidget {
   final VaultItem item;
+  final bool shouldHide;
 
   const VaultDetailScreen({
     super.key,
     required this.item,
+    required this.shouldHide,
   });
 
   @override
   Widget build(BuildContext context) {
+    final maskedTitle =
+        shouldHide ? randomFakeText() : (item.title.isEmpty ? 'Entry Details' : item.title);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          item.title.isEmpty ? 'Entry Details' : item.title,
+          maskedTitle,
           style: const TextStyle(
             fontWeight: FontWeight.w700,
             letterSpacing: 0.2,
@@ -24,59 +29,86 @@ class VaultDetailScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: const Icon(Icons.edit_outlined),
-            onPressed: () async {
-              final result = await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => AddEditScreen(
-                    initialData: {
-                      "title": item.title,
-                      "username": item.username,
-                      "password": item.password,
-                      "note": item.note,
-					  "iban": item.iban,
-					  "type": item.type,
-                    },
+          if (!shouldHide)
+            IconButton(
+              icon: const Icon(Icons.edit_outlined),
+              onPressed: () async {
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => AddEditScreen(
+                      initialData: {
+                        "title": item.title,
+                        "username": item.username,
+                        "password": item.password,
+                        "note": item.note,
+                        "iban": item.iban,
+                        "type": item.type,
+                      },
+                    ),
                   ),
-                ),
-              );
+                );
 
-              if (result != null) {
-                Navigator.pop(context, result);
-              }
-            },
-          ),
+                if (result != null) {
+                  Navigator.pop(context, result);
+                }
+              },
+            ),
         ],
       ),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
         children: [
-          _HeaderCard(item: item),
+          _HeaderCard(
+            item: item,
+            shouldHide: shouldHide,
+          ),
           const SizedBox(height: 14),
-		  
+
           if (item.type == "standard") ...[
-  _CopyTile(
-    label: 'Username',
-    value: item.username,
-    snackText: 'Username copied',
-  ),
-  if (item.iban.isNotEmpty) ...[
-    const SizedBox(height: 12),
-    _CopyTile(
-      label: 'IBAN',
-      value: item.iban,
-      snackText: 'IBAN copied',
-    ),
-  ],
-  const SizedBox(height: 12),
-  _PasswordTile(password: item.password),
-  const SizedBox(height: 12),
-],
+            if (shouldHide) ...[
+              _InfoCard(
+                label: 'Username',
+                value: randomFakeText(),
+              ),
+              if (item.iban.isNotEmpty) ...[
+                const SizedBox(height: 12),
+                _InfoCard(
+                  label: 'IBAN',
+                  value: randomFakeText(),
+                ),
+              ],
+              const SizedBox(height: 12),
+              _InfoCard(
+                label: 'Password',
+                value: randomFakeText(),
+              ),
+              const SizedBox(height: 12),
+            ] else ...[
+              _CopyTile(
+                label: 'Username',
+                value: item.username,
+                snackText: 'Username copied',
+              ),
+              if (item.iban.isNotEmpty) ...[
+                const SizedBox(height: 12),
+                _CopyTile(
+                  label: 'IBAN',
+                  value: item.iban,
+                  snackText: 'IBAN copied',
+                ),
+              ],
+              const SizedBox(height: 12),
+              _PasswordTile(password: item.password),
+              const SizedBox(height: 12),
+            ],
+          ],
+
           _InfoCard(
             label: 'Note',
-            value: item.note.isEmpty ? 'No note added' : item.note,
+            value: shouldHide
+                ? randomFakeText()
+                : (item.note.isEmpty ? 'No note added' : item.note),
           ),
           const SizedBox(height: 12),
           _MetaCard(item: item),
@@ -88,11 +120,24 @@ class VaultDetailScreen extends StatelessWidget {
 
 class _HeaderCard extends StatelessWidget {
   final VaultItem item;
+  final bool shouldHide;
 
-  const _HeaderCard({required this.item});
+  const _HeaderCard({
+    required this.item,
+    required this.shouldHide,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final avatarChar =
+        shouldHide ? '?' : (item.title.isNotEmpty ? item.title[0] : '?').toUpperCase();
+
+    final titleText =
+        shouldHide ? randomFakeText() : (item.title.isEmpty ? 'Untitled Entry' : item.title);
+
+    final usernameText =
+        shouldHide ? randomFakeText() : (item.username.isEmpty ? 'No username' : item.username);
+
     return Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
@@ -113,18 +158,15 @@ class _HeaderCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Center(
-  child: Text(
-    (item.title.isNotEmpty
-            ? item.title[0]
-            : '?')
-        .toUpperCase(),
-    style: const TextStyle(
-      fontSize: 20,
-      fontWeight: FontWeight.w700,
-      color: Color(0xFF22D3EE),
-    ),
-  ),
-),
+                child: Text(
+                  avatarChar,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xFF22D3EE),
+                  ),
+                ),
+              ),
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -132,7 +174,7 @@ class _HeaderCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    item.title.isEmpty ? 'Untitled Entry' : item.title,
+                    titleText,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -142,7 +184,7 @@ class _HeaderCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    item.username.isEmpty ? 'No username' : item.username,
+                    usernameText,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
@@ -275,9 +317,9 @@ class _PasswordTileState extends State<_PasswordTile> {
                           Clipboard.setData(
                             ClipboardData(text: widget.password),
                           );
-						  setState(() {
-							hidden = true;
-}							);
+                          setState(() {
+                            hidden = true;
+                          });
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('Password copied')),
                           );
@@ -425,4 +467,16 @@ class _MetaRow extends StatelessWidget {
       ],
     );
   }
+}
+
+String randomFakeText() {
+  final fake = [
+    "system buffer",
+    "encrypted block",
+    "null segment",
+    "hidden layer",
+    "data masked",
+  ];
+  fake.shuffle();
+  return fake.first;
 }

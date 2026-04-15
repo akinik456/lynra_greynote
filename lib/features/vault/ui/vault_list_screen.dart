@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+
 import '../data/vault_repository.dart';
 import '../models/vault_item.dart';
 import 'add_edit_screen.dart';
@@ -19,6 +21,9 @@ class _VaultListScreenState extends State<VaultListScreen> {
   final vaultKey = '1234';
   String selectedCollectionId = 'default';
   final collectionRepo = CollectionRepository();
+  bool isVaultUnlocked = false;
+  bool isVaultWordEnabled = false;
+  final storage = const FlutterSecureStorage();
   
   List<VaultCollection> collections = [];
   List<VaultItem> items = [];
@@ -26,6 +31,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
   @override
   void initState() {
     super.initState();
+	loadVaultWordSettings();
 	loadCollections();
     load();
   }
@@ -49,6 +55,14 @@ class _VaultListScreenState extends State<VaultListScreen> {
 		}
 	  });
 	}
+	
+  Future<void> loadVaultWordSettings() async {
+  final enabled = await storage.read(key: "vault_word_enabled");
+  setState(() {
+  isVaultWordEnabled = enabled == "true";
+  isVaultUnlocked = false;
+	});
+}	
 
   Future<void> openAdd() async {
     final result = await Navigator.push(
@@ -99,6 +113,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
       await load();
     }
   }
+  
 
   String formatDate(int ts) {
     final dt = DateTime.fromMillisecondsSinceEpoch(ts);
@@ -110,6 +125,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
 
   @override
   Widget build(BuildContext context) {
+  final shouldHide = isVaultWordEnabled && !isVaultUnlocked;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -120,18 +136,22 @@ class _VaultListScreenState extends State<VaultListScreen> {
           ),
         ),
 		actions: [
-    IconButton(
-      icon: const Icon(Icons.settings),
-      onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (_) => const SettingsScreen(),
-    ),
-  );
-},
-    ),
-  ],
+			IconButton(
+			  icon: const Icon(Icons.settings),
+				onPressed: () {
+				  Navigator.push(
+					context,
+					MaterialPageRoute(
+					  builder: (_) => const SettingsScreen(),
+					),
+				  );
+				},
+			),
+			IconButton(
+				icon: const Icon(Icons.lock_open),
+				onPressed: showVaultUnlockDialog,
+			  ),
+		  ],
         centerTitle: true,
         elevation: 0,
       ),
@@ -162,12 +182,13 @@ class _VaultListScreenState extends State<VaultListScreen> {
 
                   return _VaultCard(
                     item: item,
-                    formattedDate: formatDate(item.updatedAt),
-                    onTap: () async {
+                    shouldHide: shouldHide,
+					formattedDate: formatDate(item.updatedAt),
+					onTap: () async {
                       final result = await Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => VaultDetailScreen(item: item),
+                          builder: (_) => VaultDetailScreen(item: item,shouldHide: shouldHide),
                         ),
                       );
 
@@ -202,6 +223,48 @@ class _VaultListScreenState extends State<VaultListScreen> {
       ),
     );
   }
+Future<void> showVaultUnlockDialog() async {
+  final ctrl = TextEditingController();
+
+  final result = await showDialog<bool>(
+    context: context,
+    builder: (context) {
+      return AlertDialog(
+        title: const Text("Unlock Content"),
+        content: TextField(
+          controller: ctrl,
+          decoration: const InputDecoration(
+            hintText: "Enter Vault Word",
+          ),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text("Cancel"),
+          ),
+          TextButton(
+            onPressed: () async {
+              final saved = await storage.read(key: "vault_word");
+
+              final ok = saved != null &&
+                  saved.toLowerCase() == ctrl.text.toLowerCase();
+
+              Navigator.pop(context, ok);
+            },
+            child: const Text("Unlock"),
+          ),
+        ],
+      );
+    },
+  );
+
+  if (result == true) {
+    setState(() {
+      isVaultUnlocked = true;
+    });
+  }
+}  
+  
 Future<void> openAddCollection() async {
 if (collections.length >= 5) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -306,14 +369,26 @@ class _VaultCard extends StatelessWidget {
   final String formattedDate;
   final VoidCallback onTap;
   final VoidCallback onLongPress;
-
+  final bool shouldHide;
+  
   const _VaultCard({
     required this.item,
     required this.formattedDate,
     required this.onTap,
     required this.onLongPress,
+	required this.shouldHide,
   });
-
+String randomFakeText() {
+  final fake = [
+    "system buffer",
+    "encrypted block",
+    "null segment",
+    "hidden layer",
+    "data masked",
+  ];
+  fake.shuffle();
+  return fake.first;
+}
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -341,18 +416,18 @@ class _VaultCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(14),
                 ),
                 child: Center(
-  child: Text(
-    (item.title.isNotEmpty
-            ? item.title[0]
-            : '?')
-        .toUpperCase(),
-    style: const TextStyle(
-      fontSize: 26,
-      fontWeight: FontWeight.w700,
-      color: Color(0xFF22D3EE),
-    ),
-  ),
-),
+				  child: Text(
+					(item.title.isNotEmpty
+							? item.title[0]
+							: '?')
+						.toUpperCase(),
+					style: const TextStyle(
+					  fontSize: 26,
+					  fontWeight: FontWeight.w700,
+					  color: Color(0xFF22D3EE),
+					),
+				  ),
+				),
               ),
               const SizedBox(width: 14),
               Expanded(
@@ -360,7 +435,9 @@ class _VaultCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      item.title.isEmpty ? 'Untitled' : item.title,
+                      shouldHide
+						? randomFakeText()
+						: (item.title.isEmpty ? 'Untitled' : item.title),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
@@ -370,7 +447,9 @@ class _VaultCard extends StatelessWidget {
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      item.username.isEmpty ? 'No username' : item.username,
+                      shouldHide
+						? randomFakeText()
+						: (item.username.isEmpty ? 'No username' : item.username),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
