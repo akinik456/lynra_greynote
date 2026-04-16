@@ -101,17 +101,47 @@ abstract class AppLocalizations {
   /// **'Add'**
   String get add;
 
+  /// No description provided for @addFirstSecureEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the + button to add your first secure entry.'**
+  String get addFirstSecureEntry;
+
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
   /// **'LynraGreyNote'**
   String get appTitle;
 
-  /// No description provided for @addFirstSecureEntry.
+  /// No description provided for @authenticateToContinue.
   ///
   /// In en, this message translates to:
-  /// **'Tap the + button to add your first secure entry.'**
-  String get addFirstSecureEntry;
+  /// **'Authenticate to continue'**
+  String get authenticateToContinue;
+
+  /// No description provided for @biometric.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric'**
+  String get biometric;
+
+  /// No description provided for @biometricFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric failed'**
+  String get biometricFailed;
+
+  /// No description provided for @biometricNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric not available'**
+  String get biometricNotAvailable;
+
+  /// No description provided for @biometricSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric success'**
+  String get biometricSuccess;
 
   /// No description provided for @cancel.
   ///
@@ -251,6 +281,12 @@ abstract class AppLocalizations {
   /// **'No entries yet'**
   String get noEntriesYet;
 
+  /// No description provided for @none.
+  ///
+  /// In en, this message translates to:
+  /// **'None'**
+  String get none;
+
   /// No description provided for @noUsername.
   ///
   /// In en, this message translates to:
@@ -268,6 +304,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Patterns did not match. Start again'**
   String get patternMismatch;
+
+  /// No description provided for @pin.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN'**
+  String get pin;
 
   /// No description provided for @pinMustBe6Digits.
   ///
@@ -304,6 +346,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save PIN'**
   String get savePin;
+
+  /// No description provided for @secondaryLock.
+  ///
+  /// In en, this message translates to:
+  /// **'Secondary Lock'**
+  String get secondaryLock;
 
   /// No description provided for @security.
   ///

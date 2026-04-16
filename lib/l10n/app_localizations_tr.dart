@@ -12,10 +12,25 @@ class AppLocalizationsTr extends AppLocalizations {
   String get add => 'Ekle';
 
   @override
+  String get addFirstSecureEntry => 'İlk güvenli kaydını eklemek için + butonuna dokun.';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
-  String get addFirstSecureEntry => 'İlk güvenli kaydını eklemek için + butonuna dokun.';
+  String get authenticateToContinue => 'Devam etmek için doğrulayın';
+
+  @override
+  String get biometric => 'Biyometrik';
+
+  @override
+  String get biometricFailed => 'Doğrulama başarısız';
+
+  @override
+  String get biometricNotAvailable => 'Biyometrik doğrulama kullanılamıyor';
+
+  @override
+  String get biometricSuccess => 'Doğrulama başarılı';
 
   @override
   String get cancel => 'İptal';
@@ -91,6 +106,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noEntriesYet => 'Henüz kayıt yok';
 
   @override
+  String get none => 'Yok';
+
+  @override
   String get noUsername => 'Kullanıcı adı yok';
 
   @override
@@ -98,6 +116,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get patternMismatch => 'Desenler eşleşmedi. Tekrar başla';
+
+  @override
+  String get pin => 'PIN';
 
   @override
   String get pinMustBe6Digits => 'PIN 6 haneli olmalı';
@@ -116,6 +137,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get savePin => 'PIN Kaydet';
+
+  @override
+  String get secondaryLock => 'İkincil Kilit';
 
   @override
   String get security => 'Güvenlik';

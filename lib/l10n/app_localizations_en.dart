@@ -12,10 +12,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get add => 'Add';
 
   @override
+  String get addFirstSecureEntry => 'Tap the + button to add your first secure entry.';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
-  String get addFirstSecureEntry => 'Tap the + button to add your first secure entry.';
+  String get authenticateToContinue => 'Authenticate to continue';
+
+  @override
+  String get biometric => 'Biometric';
+
+  @override
+  String get biometricFailed => 'Biometric failed';
+
+  @override
+  String get biometricNotAvailable => 'Biometric not available';
+
+  @override
+  String get biometricSuccess => 'Biometric success';
 
   @override
   String get cancel => 'Cancel';
@@ -91,6 +106,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get noEntriesYet => 'No entries yet';
 
   @override
+  String get none => 'None';
+
+  @override
   String get noUsername => 'No username';
 
   @override
@@ -98,6 +116,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get patternMismatch => 'Patterns did not match. Start again';
+
+  @override
+  String get pin => 'PIN';
 
   @override
   String get pinMustBe6Digits => 'PIN must be 6 digits';
@@ -116,6 +137,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get savePin => 'Save PIN';
+
+  @override
+  String get secondaryLock => 'Secondary Lock';
 
   @override
   String get security => 'Security';

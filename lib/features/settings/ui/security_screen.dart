@@ -48,13 +48,13 @@ class _SecurityScreenState extends State<SecurityScreen> {
 
     if (!canCheck) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Biometric not available")),
+        SnackBar(content: Text(AppLocalizations.of(context)!.biometricNotAvailable)),
       );
       return;
     }
 
     final authenticated = await auth.authenticate(
-      localizedReason: "Authenticate to continue",
+      localizedReason: AppLocalizations.of(context)!.authenticateToContinue,
       options: const AuthenticationOptions(
         biometricOnly: true,
       ),
@@ -63,7 +63,9 @@ class _SecurityScreenState extends State<SecurityScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(
-          authenticated ? "Biometric success" : "Biometric failed",
+         authenticated
+  ? AppLocalizations.of(context)!.biometricSuccess
+  : AppLocalizations.of(context)!.biometricFailed,
         ),
       ),
     );
@@ -78,8 +80,8 @@ class _SecurityScreenState extends State<SecurityScreen> {
         surfaceTintColor: _bgColor,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          "Security",
+        title: Text(
+		AppLocalizations.of(context)!.security,
           style: TextStyle(
             color: _textPrimary,
             fontWeight: FontWeight.w700,
@@ -90,7 +92,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
         padding: const EdgeInsets.all(16),
         children: [
           _Item(
-            title: "Secondary Lock",
+            title: AppLocalizations.of(context)!.secondaryLock,
             subtitle: secondaryLock,
             onTap: openLockSelector,
           ),
@@ -113,8 +115,8 @@ class _SecurityScreenState extends State<SecurityScreen> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  "Secondary Lock",
+                Text(
+				AppLocalizations.of(context)!.secondaryLock,
                   style: TextStyle(
                     color: _textPrimary,
                     fontSize: 16,
@@ -123,7 +125,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                 ),
                 const SizedBox(height: 10),
                 _DialogItem(
-                  title: "None",
+                  title: AppLocalizations.of(context)!.none,
                   onTap: () {
                     setState(() => secondaryLock = "None");
                     saveSecondaryLock(secondaryLock);
@@ -131,7 +133,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                   },
                 ),
                 _DialogItem(
-                  title: "PIN",
+                  title: AppLocalizations.of(context)!.pin,
                   onTap: () async {
                     final existing = await storage.read(key: "secondary_lock");
 
@@ -150,7 +152,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
                   },
                 ),
                 _DialogItem(
-                  title: "Biometric",
+                  title: AppLocalizations.of(context)!.biometric,
                   onTap: () async {
                     await testBiometric();
                     setState(() => secondaryLock = "Biometric");
