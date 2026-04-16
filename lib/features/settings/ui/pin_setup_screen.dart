@@ -36,8 +36,8 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
         surfaceTintColor: _bgColor,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          "Set PIN",
+        title: Text(
+		AppLocalizations.of(context)!.setPin,
           style: TextStyle(
             color: _textPrimary,
             fontWeight: FontWeight.w700,
@@ -50,7 +50,7 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             _FieldCard(
-              label: "Enter PIN",
+              label: AppLocalizations.of(context)!.enterPin,
               child: TextField(
                 controller: pinCtrl,
                 keyboardType: TextInputType.number,
@@ -85,7 +85,7 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
             ),
             const SizedBox(height: 14),
             _FieldCard(
-              label: "Confirm PIN",
+              label: AppLocalizations.of(context)!.confirmPin,
               child: TextField(
                 controller: confirmPinCtrl,
                 keyboardType: TextInputType.number,
@@ -136,14 +136,14 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
 
                   if (pin.length != 6 || confirmPin.length != 6) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("PIN must be 6 digits")),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.pinMustBe6Digits)),
                     );
                     return;
                   }
 
                   if (pin != confirmPin) {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("PINs do not match")),
+                      SnackBar(content: Text(AppLocalizations.of(context)!.pinsDoNotMatch)),
                     );
                     return;
                   }
@@ -151,15 +151,14 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
                   await storage.write(key: "user_pin", value: pin);
 
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("PIN saved")),
+                    SnackBar(content: Text(AppLocalizations.of(context)!.pinSaved)),
                   );
 
                   Navigator.pop(context);
                 },
-                child: const Text(
-                  "Save PIN",
-                  style: TextStyle(fontWeight: FontWeight.w700),
-                ),
+                child: Text(AppLocalizations.of(context)!.savePin),
+                  //style: TextStyle(fontWeight: FontWeight.w700),
+                //),
               ),
             ),
           ],

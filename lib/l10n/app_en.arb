@@ -1,41 +1,55 @@
 {
-	"confirmPattern":  "Draw the same pattern again to confirm",
-	"continueText":    "Continue",
-	"createVaultKey":  "Create Your Vault Key",
-	"drawNewPattern":  "Draw a new pattern",
-	"drawVaultKey":    "Draw your vault key",
-	"lynraSecurity":   "Lynra Security",
-	"min4Dots":        "Use at least 4 dots",
-	"onboardingDescription": 	"Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.",
-	"patternMismatch": "Patterns did not match. Start again",
-	"privateByDesign": 	"Private by Design",
-    "wrongPattern":    "Wrong pattern. Try again",
-	"unlock": 		   "Unlock",
-	"unlockVault": 	   "Unlock Vault",
-	
-"deleteEntry": "Delete entry",
-"deleteEntryConfirm": "Delete \"{name}\"?",
-"@deleteEntryConfirm": {
-  "placeholders": {
-    "name": {}
-  }
-},
-"cancel": "Cancel",
-"delete": "Delete",
-"unlockContent": "Unlock Content",
-"max5Collections": "Maximum 5 collections allowed",
-"newCollection": "New Collection",
-"collectionExample": "e.g. Mom",
-"add": "Add",
-"deleteCollection": "Delete Collection",
-"deleteCollectionConfirm": "Delete \"{name}\"?\n\nAll entries will be permanently deleted.",
+
+"@@locale": 				"en",
+"add": 						"Add",
+"appTitle": 				"LynraGreyNote",
+"addFirstSecureEntry": 		"Tap the + button to add your first secure entry.",
+"cancel": 					"Cancel",
+"collection": 				"Collection",	
+"collectionExample": 		"e.g. Mom",
+"confirmPattern":  			"Draw the same pattern again to confirm",
+"confirmPin": 				"Confirm PIN",
+"continueText":    			"Continue",
+"createVaultKey":  			"Create Your Vault Key",
+"delete": 					"Delete",
+"deleteCollection": 		"Delete Collection",
+"deleteCollectionConfirm": 	"Delete \"{name}\"?\n\nAll entries will be permanently deleted.",
 "@deleteCollectionConfirm": {
   "placeholders": {
     "name": {}
   }
 },
-"myVault": "My Vault",
-"vaultHeaderStats": "{collection} • {count} {count,plural, =1{item} other{items}}",
+"deleteEntry": 				"Delete entry",
+"deleteEntryConfirm": 		"Delete \"{name}\"?",
+"@deleteEntryConfirm": {
+  "placeholders": {
+    "name": {}
+  }
+},
+"drawNewPattern":  			"Draw a new pattern",
+"drawVaultKey":    			"Draw your vault key",
+"editEntry": 				"Edit Entry",
+"enterPin": 				"Enter PIN",
+"lynraSecurity":   			"Lynra Security",
+"max5Collections": 			"Maximum 5 collections allowed",
+"min4Dots":        			"Use at least 4 dots",
+"myVault": 					"My Vault",
+"newCollection": 			"New Collection",
+"newEntry": 				"New Entry",
+"noEntriesYet": 			"No entries yet",
+"noUsername": 				"No username",
+"onboardingDescription": 	"Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.",
+"patternMismatch": 			"Patterns did not match. Start again",
+"pinMustBe6Digits": 		"PIN must be 6 digits",
+"pinSaved": 				"PIN saved",
+"pinsDoNotMatch": 			"PINs do not match",
+"privateByDesign": 			"Private by Design",
+"save": 					"Save",
+"savePin": 					"Save PIN",
+"security": 				"Security",
+"settings": 				"Settings",
+"setPin": 					"Set PIN",
+"vaultHeaderStats": 		"{collection} • {count} {count,plural, =1{item} other{items}}",
 "@vaultHeaderStats": {
   "placeholders": {
     "collection": {},
@@ -44,28 +58,21 @@
     }
   }
 },
-"untitled": "Untitled",
-"noUsername": "No username",
-"updatedDate": "Updated {date}",
+
+
+"vaultWord": 				"Vault Word",
+"wrongPattern":    			"Wrong pattern. Try again",
+"unlock": 		   			"Unlock",
+"unlockContent": 			"Unlock Content",
+"unlockVault": 	   			"Unlock Vault",
+"untitled": 				"Untitled",	
+"updatedDate": 				"Updated {date}",
 "@updatedDate": {
   "placeholders": {
     "date": {}
   }
-},
-"noEntriesYet": "No entries yet",
-"addFirstSecureEntry": "Tap the + button to add your first secure entry.",
-"collection": "Collection",	
-	
-	
-	
-  "@@locale": "en",
-  "appTitle": "LynraGreyNote",
-  "settings": "Settings",
-  "security": "Security",
-  "vaultWord": "Vault Word",
-  "save": "Save",
-  "cancel": "Cancel",
-  "unlock": "Unlock",
-  "editEntry": "Edit Entry",
-  "newEntry": "New Entry"
 }
+}
+	
+	
+	

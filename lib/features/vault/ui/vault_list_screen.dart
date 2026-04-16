@@ -645,7 +645,7 @@ class _VaultCard extends StatelessWidget {
                           color: Colors.white.withOpacity(0.68),
                         ),
                       ),
-                      const SizedBox(height: 8),
+                      SizedBox(height: 8),
                       Text(
                         AppLocalizations.of(context)!.updatedDate(formattedDate),
                         style: TextStyle(

@@ -1,40 +1,54 @@
 {
-	"confirmPattern": 	"Onaylamak için aynı deseni tekrar çiz",
-	"continueText": 	"Devam Et",
-	"createVaultKey": 	"Kasa Anahtarı Oluştur",
-	"drawNewPattern": 	"Yeni bir desen çiz",
-	"drawVaultKey": 	"Kasa anahtarını çiz",
-	"lynraSecurity": 	"Lynra Güvenlik",
-	"min4Dots": 		"En az 4 nokta kullan",
-	"onboardingDescription": "Verileriniz cihazınızda kalır.\n\nLynraGreyNote sunucu kullanmaz, sizi takip etmez ve hiçbir veri toplamaz.\n\nKaydettiğiniz her şey şifrelenir ve cihazda saklanır.\nSadece siz erişebilirsiniz.\n\nHızlı ve güvenli erişim için PIN veya Biyometri kullanabilirsiniz.\nEkstra gizlilik için Kasa Anahtarı özelliğini açabilirsiniz.",
-	"patternMismatch": 	"Desenler eşleşmedi. Tekrar başla",
-	"privateByDesign":  "Gizlilik Önceliğimiz",
-	"wrongPattern": 	"Yanlış desen. Tekrar dene",
-	"unlock": 		    "Kilidi Aç",
-	"unlockVault": 	    "Kasayı Aç",
 
-"deleteEntry": "Kaydı Sil",
-"deleteEntryConfirm": "\"{name}\" silinsin mi?",
-"@deleteEntryConfirm": {
-  "placeholders": {
-    "name": {}
-  }
-},
-"cancel": "İptal",
-"delete": "Sil",
-"unlockContent": "İçeriğin Kilidini Aç",
-"max5Collections": "En fazla 5 koleksiyon eklenebilir",
-"newCollection": "Yeni Koleksiyon",
-"collectionExample": "örn. Annem",
-"add": "Ekle",
-"deleteCollection": "Koleksiyonu Sil",
-"deleteCollectionConfirm": "\"{name}\" silinsin mi?\n\nTüm kayıtlar kalıcı olarak silinecek.",
+"@@locale":					"tr",
+"add": 						"Ekle",
+"addFirstSecureEntry": 		"İlk güvenli kaydını eklemek için + butonuna dokun.",
+"appTitle": 				"LynraGreyNote",
+"cancel": 					"İptal",
+"collection": 				"Koleksiyon",
+"collectionExample": 		"örn. Annem",
+"confirmPattern": 			"Onaylamak için aynı deseni tekrar çiz",
+"confirmPin": 				"PIN Onayla",
+"continueText": 			"Devam Et",
+"createVaultKey": 			"Kasa Anahtarı Oluştur",
+"delete": 					"Sil",
+"deleteCollection": 		"Koleksiyonu Sil",
+"deleteCollectionConfirm": 	"\"{name}\" silinsin mi?\n\nTüm kayıtlar kalıcı olarak silinecek.",
 "@deleteCollectionConfirm": {
   "placeholders": {
     "name": {}
   }
 },
-"myVault": "Kasam",
+"deleteEntry": 				"Kaydı Sil",
+"deleteEntryConfirm": 		"\"{name}\" silinsin mi?",
+"@deleteEntryConfirm": {
+  "placeholders": {
+    "name": {}
+  }
+},
+"drawNewPattern": 			"Yeni bir desen çiz",
+"drawVaultKey": 			"Kasa anahtarını çiz",
+"editEntry": 				"Kaydı Düzenle",
+"enterPin": 				"PIN Gir",
+"lynraSecurity": 			"Lynra Güvenlik",
+"max5Collections": 			"En fazla 5 koleksiyon eklenebilir",
+"min4Dots": 				"En az 4 nokta kullan",
+"myVault": 					"Kasam",
+"newCollection": 			"Yeni Koleksiyon",
+"noEntriesYet": 			"Henüz kayıt yok",
+"newEntry": 				"Yeni Kayıt",
+"noUsername": 				"Kullanıcı adı yok",
+"onboardingDescription": 	"Verileriniz cihazınızda kalır.\n\nLynraGreyNote sunucu kullanmaz, sizi takip etmez ve hiçbir veri toplamaz.\n\nKaydettiğiniz her şey şifrelenir ve cihazda saklanır.\nSadece siz erişebilirsiniz.\n\nHızlı ve güvenli erişim için PIN veya Biyometri kullanabilirsiniz.\nEkstra gizlilik için Kasa Anahtarı özelliğini açabilirsiniz.",
+"patternMismatch": 			"Desenler eşleşmedi. Tekrar başla",
+"pinsDoNotMatch": 			"PIN'ler eşleşmiyor",
+"pinMustBe6Digits": 		"PIN 6 haneli olmalı",
+"pinSaved": 				"PIN kaydedildi",
+"privateByDesign":  		"Gizlilik Önceliğimiz",
+"save": 					"Kaydet",
+"savePin": 					"PIN Kaydet",
+"setPin": 					"PIN Ayarla",
+"settings": 				"Ayarlar",
+"security": 				"Güvenlik",
 "vaultHeaderStats": "{collection} • {count} öğe",
 "@vaultHeaderStats": {
   "placeholders": {
@@ -44,26 +58,16 @@
     }
   }
 },
-"untitled": "Başlıksız",
-"noUsername": "Kullanıcı adı yok",
-"updatedDate": "Güncellendi: {date}",
+"vaultWord": 				"Kasa Kelimesi",
+"wrongPattern": 			"Yanlış desen. Tekrar dene",
+"unlock": 		    		"Kilidi Aç",
+"unlockContent": 			"İçeriğin Kilidini Aç",
+"unlockVault": 	    		"Kasayı Aç",
+"untitled": 				"Başlıksız",
+"updatedDate": 				"Güncellendi {date}",
 "@updatedDate": {
   "placeholders": {
     "date": {}
   }
-},
-"noEntriesYet": "Henüz kayıt yok",
-"addFirstSecureEntry": "İlk güvenli kaydını eklemek için + butonuna dokun.",
-"collection": "Koleksiyon",
-	
-  "@@locale": "tr",
-  "appTitle": "LynraGreyNote",
-  "settings": "Ayarlar",
-  "security": "Güvenlik",
-  "vaultWord": "Kasa Kelimesi",
-  "save": "Kaydet",
-  "cancel": "İptal",
-  "unlock": "Kilidi Aç",
-  "editEntry": "Kaydı Düzenle",
-  "newEntry": "Yeni Kayıt"
+}
 }

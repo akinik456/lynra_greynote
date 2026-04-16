@@ -95,11 +95,53 @@ abstract class AppLocalizations {
     Locale('tr')
   ];
 
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @appTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'LynraGreyNote'**
+  String get appTitle;
+
+  /// No description provided for @addFirstSecureEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the + button to add your first secure entry.'**
+  String get addFirstSecureEntry;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @collection.
+  ///
+  /// In en, this message translates to:
+  /// **'Collection'**
+  String get collection;
+
+  /// No description provided for @collectionExample.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Mom'**
+  String get collectionExample;
+
   /// No description provided for @confirmPattern.
   ///
   /// In en, this message translates to:
   /// **'Draw the same pattern again to confirm'**
   String get confirmPattern;
+
+  /// No description provided for @confirmPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm PIN'**
+  String get confirmPin;
 
   /// No description provided for @continueText.
   ///
@@ -113,119 +155,11 @@ abstract class AppLocalizations {
   /// **'Create Your Vault Key'**
   String get createVaultKey;
 
-  /// No description provided for @drawNewPattern.
-  ///
-  /// In en, this message translates to:
-  /// **'Draw a new pattern'**
-  String get drawNewPattern;
-
-  /// No description provided for @drawVaultKey.
-  ///
-  /// In en, this message translates to:
-  /// **'Draw your vault key'**
-  String get drawVaultKey;
-
-  /// No description provided for @lynraSecurity.
-  ///
-  /// In en, this message translates to:
-  /// **'Lynra Security'**
-  String get lynraSecurity;
-
-  /// No description provided for @min4Dots.
-  ///
-  /// In en, this message translates to:
-  /// **'Use at least 4 dots'**
-  String get min4Dots;
-
-  /// No description provided for @onboardingDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.'**
-  String get onboardingDescription;
-
-  /// No description provided for @patternMismatch.
-  ///
-  /// In en, this message translates to:
-  /// **'Patterns did not match. Start again'**
-  String get patternMismatch;
-
-  /// No description provided for @privateByDesign.
-  ///
-  /// In en, this message translates to:
-  /// **'Private by Design'**
-  String get privateByDesign;
-
-  /// No description provided for @wrongPattern.
-  ///
-  /// In en, this message translates to:
-  /// **'Wrong pattern. Try again'**
-  String get wrongPattern;
-
-  /// No description provided for @unlock.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock'**
-  String get unlock;
-
-  /// No description provided for @unlockVault.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock Vault'**
-  String get unlockVault;
-
-  /// No description provided for @deleteEntry.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete entry'**
-  String get deleteEntry;
-
-  /// No description provided for @deleteEntryConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'Delete \"{name}\"?'**
-  String deleteEntryConfirm(Object name);
-
-  /// No description provided for @cancel.
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
-
   /// No description provided for @delete.
   ///
   /// In en, this message translates to:
   /// **'Delete'**
   String get delete;
-
-  /// No description provided for @unlockContent.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock Content'**
-  String get unlockContent;
-
-  /// No description provided for @max5Collections.
-  ///
-  /// In en, this message translates to:
-  /// **'Maximum 5 collections allowed'**
-  String get max5Collections;
-
-  /// No description provided for @newCollection.
-  ///
-  /// In en, this message translates to:
-  /// **'New Collection'**
-  String get newCollection;
-
-  /// No description provided for @collectionExample.
-  ///
-  /// In en, this message translates to:
-  /// **'e.g. Mom'**
-  String get collectionExample;
-
-  /// No description provided for @add.
-  ///
-  /// In en, this message translates to:
-  /// **'Add'**
-  String get add;
 
   /// No description provided for @deleteCollection.
   ///
@@ -239,83 +173,29 @@ abstract class AppLocalizations {
   /// **'Delete \"{name}\"?\n\nAll entries will be permanently deleted.'**
   String deleteCollectionConfirm(Object name);
 
-  /// No description provided for @myVault.
+  /// No description provided for @deleteEntry.
   ///
   /// In en, this message translates to:
-  /// **'My Vault'**
-  String get myVault;
+  /// **'Delete entry'**
+  String get deleteEntry;
 
-  /// No description provided for @vaultHeaderStats.
+  /// No description provided for @deleteEntryConfirm.
   ///
   /// In en, this message translates to:
-  /// **'{collection} • {count} {count,plural, =1{item} other{items}}'**
-  String vaultHeaderStats(Object collection, int count);
+  /// **'Delete \"{name}\"?'**
+  String deleteEntryConfirm(Object name);
 
-  /// No description provided for @untitled.
+  /// No description provided for @drawNewPattern.
   ///
   /// In en, this message translates to:
-  /// **'Untitled'**
-  String get untitled;
+  /// **'Draw a new pattern'**
+  String get drawNewPattern;
 
-  /// No description provided for @noUsername.
+  /// No description provided for @drawVaultKey.
   ///
   /// In en, this message translates to:
-  /// **'No username'**
-  String get noUsername;
-
-  /// No description provided for @updatedDate.
-  ///
-  /// In en, this message translates to:
-  /// **'Updated {date}'**
-  String updatedDate(Object date);
-
-  /// No description provided for @noEntriesYet.
-  ///
-  /// In en, this message translates to:
-  /// **'No entries yet'**
-  String get noEntriesYet;
-
-  /// No description provided for @addFirstSecureEntry.
-  ///
-  /// In en, this message translates to:
-  /// **'Tap the + button to add your first secure entry.'**
-  String get addFirstSecureEntry;
-
-  /// No description provided for @collection.
-  ///
-  /// In en, this message translates to:
-  /// **'Collection'**
-  String get collection;
-
-  /// No description provided for @appTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'LynraGreyNote'**
-  String get appTitle;
-
-  /// No description provided for @settings.
-  ///
-  /// In en, this message translates to:
-  /// **'Settings'**
-  String get settings;
-
-  /// No description provided for @security.
-  ///
-  /// In en, this message translates to:
-  /// **'Security'**
-  String get security;
-
-  /// No description provided for @vaultWord.
-  ///
-  /// In en, this message translates to:
-  /// **'Vault Word'**
-  String get vaultWord;
-
-  /// No description provided for @save.
-  ///
-  /// In en, this message translates to:
-  /// **'Save'**
-  String get save;
+  /// **'Draw your vault key'**
+  String get drawVaultKey;
 
   /// No description provided for @editEntry.
   ///
@@ -323,11 +203,173 @@ abstract class AppLocalizations {
   /// **'Edit Entry'**
   String get editEntry;
 
+  /// No description provided for @enterPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter PIN'**
+  String get enterPin;
+
+  /// No description provided for @lynraSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Lynra Security'**
+  String get lynraSecurity;
+
+  /// No description provided for @max5Collections.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum 5 collections allowed'**
+  String get max5Collections;
+
+  /// No description provided for @min4Dots.
+  ///
+  /// In en, this message translates to:
+  /// **'Use at least 4 dots'**
+  String get min4Dots;
+
+  /// No description provided for @myVault.
+  ///
+  /// In en, this message translates to:
+  /// **'My Vault'**
+  String get myVault;
+
+  /// No description provided for @newCollection.
+  ///
+  /// In en, this message translates to:
+  /// **'New Collection'**
+  String get newCollection;
+
   /// No description provided for @newEntry.
   ///
   /// In en, this message translates to:
   /// **'New Entry'**
   String get newEntry;
+
+  /// No description provided for @noEntriesYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No entries yet'**
+  String get noEntriesYet;
+
+  /// No description provided for @noUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'No username'**
+  String get noUsername;
+
+  /// No description provided for @onboardingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.'**
+  String get onboardingDescription;
+
+  /// No description provided for @patternMismatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Patterns did not match. Start again'**
+  String get patternMismatch;
+
+  /// No description provided for @pinMustBe6Digits.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN must be 6 digits'**
+  String get pinMustBe6Digits;
+
+  /// No description provided for @pinSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'PIN saved'**
+  String get pinSaved;
+
+  /// No description provided for @pinsDoNotMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'PINs do not match'**
+  String get pinsDoNotMatch;
+
+  /// No description provided for @privateByDesign.
+  ///
+  /// In en, this message translates to:
+  /// **'Private by Design'**
+  String get privateByDesign;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
+
+  /// No description provided for @savePin.
+  ///
+  /// In en, this message translates to:
+  /// **'Save PIN'**
+  String get savePin;
+
+  /// No description provided for @security.
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get security;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @setPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Set PIN'**
+  String get setPin;
+
+  /// No description provided for @vaultHeaderStats.
+  ///
+  /// In en, this message translates to:
+  /// **'{collection} • {count} {count,plural, =1{item} other{items}}'**
+  String vaultHeaderStats(Object collection, int count);
+
+  /// No description provided for @vaultWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Vault Word'**
+  String get vaultWord;
+
+  /// No description provided for @wrongPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong pattern. Try again'**
+  String get wrongPattern;
+
+  /// No description provided for @unlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get unlock;
+
+  /// No description provided for @unlockContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Content'**
+  String get unlockContent;
+
+  /// No description provided for @unlockVault.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Vault'**
+  String get unlockVault;
+
+  /// No description provided for @untitled.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled'**
+  String get untitled;
+
+  /// No description provided for @updatedDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated {date}'**
+  String updatedDate(Object date);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
