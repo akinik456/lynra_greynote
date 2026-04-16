@@ -12,59 +12,134 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
   bool enabled = false;
   final storage = const FlutterSecureStorage();
   final wordCtrl = TextEditingController();
-  
-@override
-void initState() {
-  super.initState();
-  loadVaultWord();
-}
 
-Future<void> loadVaultWord() async {
-  final enabledValue = await storage.read(key: "vault_word_enabled");
-  final savedWord = await storage.read(key: "vault_word");
+  static const Color _bgColor = Color(0xFF020617);
+  static const Color _cardColor = Color(0xFF0F172A);
+  static const Color _primary = Color(0xFF22D3EE);
+  static const Color _textPrimary = Color(0xFFE2E8F0);
+  static const Color _textSecondary = Color(0xFF94A3B8);
 
-  setState(() {
-    enabled = enabledValue == "true";
-    wordCtrl.text = savedWord ?? "";
-  });
-}  
+  @override
+  void initState() {
+    super.initState();
+    loadVaultWord();
+  }
+
+  Future<void> loadVaultWord() async {
+    final enabledValue = await storage.read(key: "vault_word_enabled");
+    final savedWord = await storage.read(key: "vault_word");
+
+    setState(() {
+      enabled = enabledValue == "true";
+      wordCtrl.text = savedWord ?? "";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: _bgColor,
       appBar: AppBar(
-        title: const Text("Vault Word"),
+        backgroundColor: _bgColor,
+        surfaceTintColor: _bgColor,
+        elevation: 0,
+        centerTitle: true,
+        title: const Text(
+          "Vault Word",
+          style: TextStyle(
+            color: _textPrimary,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            SwitchListTile(
-              title: const Text("Enable Vault Word"),
-              value: enabled,
-              onChanged: (val) {
-                setState(() {
-                  enabled = val;
-                });
-              },
+            Container(
+              padding: const EdgeInsets.fromLTRB(16, 10, 12, 10),
+              decoration: BoxDecoration(
+                color: _cardColor,
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(
+                  color: Colors.white.withOpacity(0.05),
+                ),
+              ),
+              child: SwitchListTile(
+                contentPadding: EdgeInsets.zero,
+                activeColor: _primary,
+                title: const Text(
+                  "Enable Vault Word",
+                  style: TextStyle(
+                    color: _textPrimary,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                subtitle: const Text(
+                  "Hide sensitive content until unlocked",
+                  style: TextStyle(
+                    color: _textSecondary,
+                  ),
+                ),
+                value: enabled,
+                onChanged: (val) {
+                  setState(() {
+                    enabled = val;
+                  });
+                },
+              ),
             ),
             const SizedBox(height: 16),
-            TextField(
-              controller: wordCtrl,
-              decoration: const InputDecoration(
-                labelText: "Vault Word",
-                border: OutlineInputBorder(),
+            Container(
+              padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
+              decoration: BoxDecoration(
+                color: _cardColor,
+                borderRadius: BorderRadius.circular(18),
+                border: Border.all(
+                  color: Colors.white.withOpacity(0.05),
+                ),
+              ),
+              child: TextField(
+                controller: wordCtrl,
+                style: const TextStyle(color: _textPrimary),
+                decoration: const InputDecoration(
+                  labelText: "Vault Word",
+                  labelStyle: TextStyle(color: _textSecondary),
+                  hintText: "Enter your vault word",
+                  hintStyle: TextStyle(color: _textSecondary),
+                  border: InputBorder.none,
+                ),
               ),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () async {
-  await storage.write(key: "vault_word_enabled", value: enabled.toString());
-  await storage.write(key: "vault_word", value: wordCtrl.text);
+            SizedBox(
+              width: double.infinity,
+              height: 48,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: _primary,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                ),
+                onPressed: () async {
+                  await storage.write(
+                    key: "vault_word_enabled",
+                    value: enabled.toString(),
+                  );
+                  await storage.write(
+                    key: "vault_word",
+                    value: wordCtrl.text,
+                  );
 
-  Navigator.pop(context, true);
-},
-              child: const Text("Save"),
+                  Navigator.pop(context, true);
+                },
+                child: const Text(
+                  "Save",
+                  style: TextStyle(fontWeight: FontWeight.w700),
+                ),
+              ),
             ),
           ],
         ),

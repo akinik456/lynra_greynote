@@ -24,45 +24,53 @@ class _VaultListScreenState extends State<VaultListScreen> {
   bool isVaultUnlocked = false;
   bool isVaultWordEnabled = false;
   final storage = const FlutterSecureStorage();
-  
+
   List<VaultCollection> collections = [];
   List<VaultItem> items = [];
+
+  static const Color _bgColor = Color(0xFF020617);
+  static const Color _cardColor = Color(0xFF0F172A);
+  static const Color _chipColor = Color(0xFF1E293B);
+  static const Color _primary = Color(0xFF22D3EE);
+  static const Color _textPrimary = Color(0xFFE2E8F0);
+  static const Color _textSecondary = Color(0xFF94A3B8);
+  static const Color _borderColor = Color(0xFF334155);
 
   @override
   void initState() {
     super.initState();
-	loadVaultWordSettings();
-	loadCollections();
+    loadVaultWordSettings();
+    loadCollections();
     load();
   }
 
   Future<void> load() async {
     final result = await repo.getItems(
-	  vaultKey: vaultKey,
-	  collectionId: selectedCollectionId,
-	);
+      vaultKey: vaultKey,
+      collectionId: selectedCollectionId,
+    );
     setState(() => items = result);
   }
-  
-  Future<void> loadCollections() async {
-	  final result = await collectionRepo.getCollections();
 
-	  setState(() {
-		collections = result;
-		if (collections.isNotEmpty &&
-			!collections.any((c) => c.id == selectedCollectionId)) {
-		  selectedCollectionId = collections.first.id;
-		}
-	  });
-	}
-	
+  Future<void> loadCollections() async {
+    final result = await collectionRepo.getCollections();
+
+    setState(() {
+      collections = result;
+      if (collections.isNotEmpty &&
+          !collections.any((c) => c.id == selectedCollectionId)) {
+        selectedCollectionId = collections.first.id;
+      }
+    });
+  }
+
   Future<void> loadVaultWordSettings() async {
-  final enabled = await storage.read(key: "vault_word_enabled");
-  setState(() {
-  isVaultWordEnabled = enabled == "true";
-  isVaultUnlocked = false;
-	});
-}	
+    final enabled = await storage.read(key: "vault_word_enabled");
+    setState(() {
+      isVaultWordEnabled = enabled == "true";
+      isVaultUnlocked = false;
+    });
+  }
 
   Future<void> openAdd() async {
     final result = await Navigator.push(
@@ -79,9 +87,9 @@ class _VaultListScreenState extends State<VaultListScreen> {
         username: result["username"] ?? "",
         password: result["password"] ?? "",
         note: result["note"] ?? "",
-		iban: result["iban"] ?? "",
-		collectionId: selectedCollectionId,
-		type: result["type"] ?? "standard",
+        iban: result["iban"] ?? "",
+        collectionId: selectedCollectionId,
+        type: result["type"] ?? "standard",
       );
       await load();
     }
@@ -113,7 +121,6 @@ class _VaultListScreenState extends State<VaultListScreen> {
       await load();
     }
   }
-  
 
   String formatDate(int ts) {
     final dt = DateTime.fromMillisecondsSinceEpoch(ts);
@@ -125,243 +132,354 @@ class _VaultListScreenState extends State<VaultListScreen> {
 
   @override
   Widget build(BuildContext context) {
-  final shouldHide = isVaultWordEnabled && !isVaultUnlocked;
+    final shouldHide = isVaultWordEnabled && !isVaultUnlocked;
+
     return Scaffold(
+      backgroundColor: _bgColor,
       appBar: AppBar(
+        backgroundColor: _bgColor,
+        surfaceTintColor: _bgColor,
+        centerTitle: true,
+        elevation: 0,
         title: const Text(
           'Lynra GreyNote',
           style: TextStyle(
+            color: _textPrimary,
             fontWeight: FontWeight.w700,
             letterSpacing: 0.2,
           ),
         ),
-		actions: [
-			IconButton(
-			  icon: const Icon(Icons.settings),
-				onPressed: () {
-				  Navigator.push(
-					context,
-					MaterialPageRoute(
-					  builder: (_) => const SettingsScreen(),
-					),
-				  );
-				},
-			),
-			IconButton(
-				icon: const Icon(Icons.lock_open),
-				onPressed: showVaultUnlockDialog,
-			  ),
-		  ],
-        centerTitle: true,
-        elevation: 0,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.settings_outlined, color: _textPrimary),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const SettingsScreen(),
+                ),
+              );
+            },
+          ),
+          IconButton(
+            icon: Icon(
+              shouldHide ? Icons.lock_outline : Icons.lock_open_rounded,
+              color: _textPrimary,
+            ),
+            onPressed: showVaultUnlockDialog,
+          ),
+        ],
       ),
       body: Column(
-	  children: [
-		_CollectionBar(
-	  collections: collections,
-	  selectedCollectionId: selectedCollectionId,
-	  onSelected: (id) async {
-		setState(() {
-		  selectedCollectionId = id;
-		});
-		await load();
-	  },
-	  onAdd: openAddCollection,
-	  onDelete: openDeleteCollection,
-	),
-    Expanded(
-      child: items.isEmpty
-          ? const _EmptyState()
-          : RefreshIndicator(
-              onRefresh: load,
-              child: ListView.builder(
-                padding: const EdgeInsets.fromLTRB(12, 12, 12, 90),
-                itemCount: items.length,
-                itemBuilder: (context, index) {
-                  final item = items[index];
-
-                  return _VaultCard(
-                    item: item,
-                    shouldHide: shouldHide,
-					formattedDate: formatDate(item.updatedAt),
-					onTap: () async {
-                      final result = await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => VaultDetailScreen(item: item,shouldHide: shouldHide),
-                        ),
-                      );
-
-                      if (result != null) {
-                        await repo.updateItem(
-                          vaultKey: vaultKey,
-                          oldItem: item,
-                          title: result["title"] ?? "",
-                          username: result["username"] ?? "",
-                          password: result["password"] ?? "",
-                          note: result["note"] ?? "",
-                          iban: result["iban"] ?? "",
-						  type: result["type"] ?? "standard",
-                        );
-
-                        await load();
-                      }
-                    },
-                    onLongPress: () => delete(item),
-                  );
-                },
-              ),
+        children: [
+          const SizedBox(height: 4),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12),
+            child: _VaultHeaderCard(
+              totalItems: items.length,
+              currentCollectionName: collections
+                      .where((c) => c.id == selectedCollectionId)
+                      .map((c) => c.name)
+                      .firstOrNull ??
+                  'Vault',
+              isLocked: shouldHide,
             ),
-    ),
-  ],
-),
+          ),
+          _CollectionBar(
+            collections: collections,
+            selectedCollectionId: selectedCollectionId,
+            onSelected: (id) async {
+              setState(() {
+                selectedCollectionId = id;
+              });
+              await load();
+            },
+            onAdd: openAddCollection,
+            onDelete: openDeleteCollection,
+          ),
+          Expanded(
+            child: items.isEmpty
+                ? const _EmptyState()
+                : RefreshIndicator(
+                    onRefresh: load,
+                    color: _primary,
+                    backgroundColor: _cardColor,
+                    child: ListView.builder(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      padding: const EdgeInsets.fromLTRB(12, 8, 12, 96),
+                      itemCount: items.length,
+                      itemBuilder: (context, index) {
+                        final item = items[index];
+
+                        return _VaultCard(
+                          item: item,
+                          shouldHide: shouldHide,
+                          formattedDate: formatDate(item.updatedAt),
+                          onTap: () async {
+                            final result = await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => VaultDetailScreen(
+                                  item: item,
+                                  shouldHide: shouldHide,
+                                ),
+                              ),
+                            );
+
+                            if (result != null) {
+                              await repo.updateItem(
+                                vaultKey: vaultKey,
+                                oldItem: item,
+                                title: result["title"] ?? "",
+                                username: result["username"] ?? "",
+                                password: result["password"] ?? "",
+                                note: result["note"] ?? "",
+                                iban: result["iban"] ?? "",
+                                type: result["type"] ?? "standard",
+                              );
+
+                              await load();
+                            }
+                          },
+                          onLongPress: () => delete(item),
+                        );
+                      },
+                    ),
+                  ),
+          ),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF22D3EE),
+        backgroundColor: _primary,
         foregroundColor: Colors.black,
         onPressed: openAdd,
         child: const Icon(Icons.add),
       ),
     );
   }
-Future<void> showVaultUnlockDialog() async {
-  final ctrl = TextEditingController();
 
-  final result = await showDialog<bool>(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text("Unlock Content"),
-        content: TextField(
-          controller: ctrl,
-          decoration: const InputDecoration(
-            hintText: "Enter Vault Word",
+  Future<void> showVaultUnlockDialog() async {
+    final ctrl = TextEditingController();
+
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Unlock Content"),
+          content: TextField(
+            controller: ctrl,
+            decoration: const InputDecoration(
+              hintText: "Enter Vault Word",
+            ),
           ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text("Cancel"),
-          ),
-          TextButton(
-            onPressed: () async {
-              final saved = await storage.read(key: "vault_word");
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text("Cancel"),
+            ),
+            TextButton(
+              onPressed: () async {
+                final saved = await storage.read(key: "vault_word");
 
-              final ok = saved != null &&
-                  saved.toLowerCase() == ctrl.text.toLowerCase();
+                final ok =
+                    saved != null && saved.toLowerCase() == ctrl.text.toLowerCase();
 
-              Navigator.pop(context, ok);
-            },
-            child: const Text("Unlock"),
-          ),
-        ],
-      );
-    },
-  );
+                Navigator.pop(context, ok);
+              },
+              child: const Text("Unlock"),
+            ),
+          ],
+        );
+      },
+    );
 
-  if (result == true) {
-    setState(() {
-      isVaultUnlocked = true;
-    });
+    if (result == true) {
+      setState(() {
+        isVaultUnlocked = true;
+      });
+    }
   }
-}  
-  
-Future<void> openAddCollection() async {
-if (collections.length >= 5) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    const SnackBar(
-      content: Text('Maximum 5 collections allowed'),
-    ),
-  );
-  return;
-}  
-  final controller = TextEditingController();
-  final result = await showDialog<String>(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('New Collection'),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: const InputDecoration(
-            hintText: 'e.g. Mom',
-          ),
+
+  Future<void> openAddCollection() async {
+    if (collections.length >= 5) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Maximum 5 collections allowed'),
         ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('Cancel'),
-          ),
-          TextButton(
-            onPressed: () {
-              final name = controller.text.trim();
-              if (name.isEmpty) return;
-              Navigator.pop(context, name);
-            },
-            child: const Text('Add'),
-          ),
-        ],
       );
-    },
-  );
+      return;
+    }
 
-  if (result == null || result.trim().isEmpty) return;
-
-  final id = result
-      .trim()
-      .toLowerCase()
-      .replaceAll(RegExp(r'\s+'), '_');
-
-  await collectionRepo.insertCollection(
-    id: id,
-    name: result.trim(),
-  );
-
-  await loadCollections();
-
-  setState(() {
-    selectedCollectionId = id;
-  });
-
-  await load();
-}  
-Future<void> openDeleteCollection(VaultCollection collection) async {
-  final confirmed = await showDialog<bool>(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('Delete Collection'),
-        content: Text(
-          'Delete "${collection.name}"?\n\nAll entries will be permanently deleted.',
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context, false),
-            child: const Text('Cancel'),
+    final controller = TextEditingController();
+    final result = await showDialog<String>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('New Collection'),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            decoration: const InputDecoration(
+              hintText: 'e.g. Mom',
+            ),
           ),
-          TextButton(
-            onPressed: () => Navigator.pop(context, true),
-            child: const Text('Delete'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () {
+                final name = controller.text.trim();
+                if (name.isEmpty) return;
+                Navigator.pop(context, name);
+              },
+              child: const Text('Add'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (result == null || result.trim().isEmpty) return;
+
+    final id = result.trim().toLowerCase().replaceAll(RegExp(r'\s+'), '_');
+
+    await collectionRepo.insertCollection(
+      id: id,
+      name: result.trim(),
+    );
+
+    await loadCollections();
+
+    setState(() {
+      selectedCollectionId = id;
+    });
+
+    await load();
+  }
+
+  Future<void> openDeleteCollection(VaultCollection collection) async {
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Delete Collection'),
+          content: Text(
+            'Delete "${collection.name}"?\n\nAll entries will be permanently deleted.',
           ),
-        ],
-      );
-    },
-  );
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, false),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context, true),
+              child: const Text('Delete'),
+            ),
+          ],
+        );
+      },
+    );
 
-  if (confirmed != true) return;
+    if (confirmed != true) return;
 
-  await collectionRepo.deleteCollection(collection.id);
+    await collectionRepo.deleteCollection(collection.id);
 
-  await loadCollections();
+    await loadCollections();
 
-  setState(() {
-    selectedCollectionId = 'default';
-  });
+    setState(() {
+      selectedCollectionId = 'default';
+    });
 
-  await load();
+    await load();
+  }
 }
 
-  
+class _VaultHeaderCard extends StatelessWidget {
+  final int totalItems;
+  final String currentCollectionName;
+  final bool isLocked;
+
+  const _VaultHeaderCard({
+    required this.totalItems,
+    required this.currentCollectionName,
+    required this.isLocked,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      margin: const EdgeInsets.only(bottom: 6),
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Colors.white.withOpacity(0.04),
+            Colors.white.withOpacity(0.02),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(22),
+        border: Border.all(
+          color: const Color(0xFF334155).withOpacity(0.65),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.18),
+            blurRadius: 24,
+            offset: const Offset(0, 12),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          Container(
+            width: 54,
+            height: 54,
+            decoration: BoxDecoration(
+              color: const Color(0xFF22D3EE).withOpacity(0.12),
+              borderRadius: BorderRadius.circular(16),
+              border: Border.all(
+                color: const Color(0xFF22D3EE).withOpacity(0.22),
+              ),
+            ),
+            child: Icon(
+              isLocked ? Icons.lock_outline : Icons.lock_open_rounded,
+              color: const Color(0xFF22D3EE),
+              size: 28,
+            ),
+          ),
+          const SizedBox(width: 14),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'My Vault',
+                  style: TextStyle(
+                    color: Color(0xFFE2E8F0),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  '$currentCollectionName • $totalItems item${totalItems == 1 ? '' : 's'}',
+                  style: const TextStyle(
+                    color: Color(0xFF94A3B8),
+                    fontSize: 13,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _VaultCard extends StatelessWidget {
@@ -370,110 +488,120 @@ class _VaultCard extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback onLongPress;
   final bool shouldHide;
-  
+
   const _VaultCard({
     required this.item,
     required this.formattedDate,
     required this.onTap,
     required this.onLongPress,
-	required this.shouldHide,
+    required this.shouldHide,
   });
-String randomFakeText() {
-  final fake = [
-    "system buffer",
-    "encrypted block",
-    "null segment",
-    "hidden layer",
-    "data masked",
-  ];
-  fake.shuffle();
-  return fake.first;
-}
+
+  String randomFakeText() {
+    final fake = [
+      "system buffer",
+      "encrypted block",
+      "null segment",
+      "hidden layer",
+      "data masked",
+    ];
+    fake.shuffle();
+    return fake.first;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
+    return Container(
       margin: const EdgeInsets.only(bottom: 10),
-      shape: RoundedRectangleBorder(
+      decoration: BoxDecoration(
+        color: const Color(0xFF0F172A),
         borderRadius: BorderRadius.circular(18),
-        side: BorderSide(
+        border: Border.all(
           color: Colors.white.withOpacity(0.05),
         ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.14),
+            blurRadius: 18,
+            offset: const Offset(0, 8),
+          ),
+        ],
       ),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(18),
-        onTap: onTap,
-        onLongPress: onLongPress,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-          child: Row(
-            children: [
-              Container(
-                width: 46,
-                height: 46,
-                decoration: BoxDecoration(
-                  color: const Color(0xFF22D3EE).withOpacity(0.12),
-                  borderRadius: BorderRadius.circular(14),
-                ),
-                child: Center(
-				  child: Text(
-					(item.title.isNotEmpty
-							? item.title[0]
-							: '?')
-						.toUpperCase(),
-					style: const TextStyle(
-					  fontSize: 26,
-					  fontWeight: FontWeight.w700,
-					  color: Color(0xFF22D3EE),
-					),
-				  ),
-				),
-              ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      shouldHide
-						? randomFakeText()
-						: (item.title.isEmpty ? 'Untitled' : item.title),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(18),
+          onTap: onTap,
+          onLongPress: onLongPress,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            child: Row(
+              children: [
+                Container(
+                  width: 48,
+                  height: 48,
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF22D3EE).withOpacity(0.12),
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: Center(
+                    child: Text(
+                      (item.title.isNotEmpty ? item.title[0] : '?').toUpperCase(),
                       style: const TextStyle(
-                        fontSize: 16,
+                        fontSize: 24,
                         fontWeight: FontWeight.w700,
+                        color: Color(0xFF22D3EE),
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    Text(
-                      shouldHide
-						? randomFakeText()
-						: (item.username.isEmpty ? 'No username' : item.username),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 13,
-                        color: Colors.white.withOpacity(0.68),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      'Updated $formattedDate',
-                      style: TextStyle(
-                        fontSize: 11,
-                        color: Colors.white.withOpacity(0.42),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 8),
-              Icon(
-                Icons.chevron_right_rounded,
-                color: Colors.white.withOpacity(0.45),
-              ),
-            ],
+                const SizedBox(width: 14),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        shouldHide
+                            ? randomFakeText()
+                            : (item.title.isEmpty ? 'Untitled' : item.title),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: Color(0xFFE2E8F0),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        shouldHide
+                            ? randomFakeText()
+                            : (item.username.isEmpty ? 'No username' : item.username),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 13,
+                          color: Colors.white.withOpacity(0.68),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Updated $formattedDate',
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: Colors.white.withOpacity(0.42),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 8),
+                Icon(
+                  Icons.chevron_right_rounded,
+                  color: Colors.white.withOpacity(0.45),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -493,15 +621,18 @@ class _EmptyState extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              width: 74,
-              height: 74,
+              width: 78,
+              height: 78,
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.05),
                 borderRadius: BorderRadius.circular(22),
+                border: Border.all(
+                  color: Colors.white.withOpacity(0.05),
+                ),
               ),
               child: const Icon(
                 Icons.lock_outline,
-                size: 34,
+                size: 36,
                 color: Color(0xFF22D3EE),
               ),
             ),
@@ -509,6 +640,7 @@ class _EmptyState extends StatelessWidget {
             const Text(
               'No entries yet',
               style: TextStyle(
+                color: Color(0xFFE2E8F0),
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),
@@ -528,19 +660,20 @@ class _EmptyState extends StatelessWidget {
     );
   }
 }
+
 class _CollectionBar extends StatelessWidget {
   final List<VaultCollection> collections;
   final String selectedCollectionId;
   final ValueChanged<String> onSelected;
   final VoidCallback onAdd;
   final Function(VaultCollection) onDelete;
-  
+
   const _CollectionBar({
     required this.collections,
     required this.selectedCollectionId,
     required this.onSelected,
-	required this.onAdd,
-	required this.onDelete,
+    required this.onAdd,
+    required this.onDelete,
   });
 
   @override
@@ -550,54 +683,69 @@ class _CollectionBar extends StatelessWidget {
     }
 
     return SizedBox(
-  height: 58,
-  child: ListView.separated(
-    padding: const EdgeInsets.fromLTRB(12, 10, 12, 6),
-    scrollDirection: Axis.horizontal,
-    itemCount: collections.length + 1,
-    separatorBuilder: (_, __) => const SizedBox(width: 8),
-    itemBuilder: (context, index) {
-      if (index == collections.length) {
-        return ActionChip(
-          label: const Text('+'),
-          onPressed: onAdd,
-          backgroundColor: const Color(0xFF1E293B),
-          labelStyle: const TextStyle(
-            color: Color(0xFF22D3EE),
-            fontWeight: FontWeight.w700,
-            fontSize: 18,
-          ),
-          shape: RoundedRectangleBorder(
+      height: 62,
+      child: ListView.separated(
+        padding: const EdgeInsets.fromLTRB(12, 10, 12, 8),
+        scrollDirection: Axis.horizontal,
+        itemCount: collections.length + 1,
+        separatorBuilder: (_, __) => const SizedBox(width: 8),
+        itemBuilder: (context, index) {
+          if (index == collections.length) {
+            return ActionChip(
+              avatar: const Icon(
+                Icons.add,
+                size: 16,
+                color: Color(0xFF22D3EE),
+              ),
+              label: const Text('Collection'),
+              onPressed: onAdd,
+              backgroundColor: const Color(0xFF1E293B),
+              side: BorderSide(
+                color: Colors.white.withOpacity(0.05),
+              ),
+              labelStyle: const TextStyle(
+                color: Color(0xFF22D3EE),
+                fontWeight: FontWeight.w700,
+                fontSize: 13,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+              ),
+            );
+          }
+
+          final collection = collections[index];
+          final selected = collection.id == selectedCollectionId;
+
+          return InkWell(
             borderRadius: BorderRadius.circular(14),
-          ),
-        );
-      }
-
-      final collection = collections[index];
-      final selected = collection.id == selectedCollectionId;
-
-return InkWell(
-  borderRadius: BorderRadius.circular(14),
-  onLongPress: collection.id == 'default'
-      ? null
-      : () => onDelete(collection),
-  child: ChoiceChip(
-    label: Text(collection.name),
-    selected: selected,
-    onSelected: (_) => onSelected(collection.id),
-    selectedColor: const Color(0xFF22D3EE),
-    labelStyle: TextStyle(
-      color: selected ? Colors.black : Colors.white,
-      fontWeight: FontWeight.w600,
-    ),
-    backgroundColor: const Color(0xFF1E293B),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(14),
-    ),
-  ),
-);
-    },
-  ),
-);
+            onLongPress: collection.id == 'default' ? null : () => onDelete(collection),
+            child: ChoiceChip(
+              label: Text(collection.name),
+              selected: selected,
+              onSelected: (_) => onSelected(collection.id),
+              selectedColor: const Color(0xFF22D3EE),
+              backgroundColor: const Color(0xFF1E293B),
+              side: BorderSide(
+                color: selected
+                    ? const Color(0xFF22D3EE)
+                    : Colors.white.withOpacity(0.05),
+              ),
+              labelStyle: TextStyle(
+                color: selected ? Colors.black : Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(14),
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
+}
+
+extension<T> on Iterable<T> {
+  T? get firstOrNull => isEmpty ? null : first;
 }

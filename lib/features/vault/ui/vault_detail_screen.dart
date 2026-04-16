@@ -15,13 +15,17 @@ class VaultDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final maskedTitle =
+    final pageTitle =
         shouldHide ? randomFakeText() : (item.title.isEmpty ? 'Entry Details' : item.title);
 
     return Scaffold(
+	backgroundColor: const Color(0xFF020617),
       appBar: AppBar(
+	    backgroundColor: const Color(0xFF020617), // 👈 EKLE
+  surfaceTintColor: const Color(0xFF020617), // 👈 EKLE (çok önemli)
+  elevation: 0,
         title: Text(
-          maskedTitle,
+          pageTitle,
           style: const TextStyle(
             fontWeight: FontWeight.w700,
             letterSpacing: 0.2,
@@ -59,12 +63,6 @@ class VaultDetailScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
         children: [
-          _HeaderCard(
-            item: item,
-            shouldHide: shouldHide,
-          ),
-          const SizedBox(height: 14),
-
           if (item.type == "standard") ...[
             if (shouldHide) ...[
               _InfoCard(
@@ -103,7 +101,6 @@ class VaultDetailScreen extends StatelessWidget {
               const SizedBox(height: 12),
             ],
           ],
-
           _InfoCard(
             label: 'Note',
             value: shouldHide
@@ -113,90 +110,6 @@ class VaultDetailScreen extends StatelessWidget {
           const SizedBox(height: 12),
           _MetaCard(item: item),
         ],
-      ),
-    );
-  }
-}
-
-class _HeaderCard extends StatelessWidget {
-  final VaultItem item;
-  final bool shouldHide;
-
-  const _HeaderCard({
-    required this.item,
-    required this.shouldHide,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final avatarChar =
-        shouldHide ? '?' : (item.title.isNotEmpty ? item.title[0] : '?').toUpperCase();
-
-    final titleText =
-        shouldHide ? randomFakeText() : (item.title.isEmpty ? 'Untitled Entry' : item.title);
-
-    final usernameText =
-        shouldHide ? randomFakeText() : (item.username.isEmpty ? 'No username' : item.username);
-
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(22),
-        side: BorderSide(
-          color: Colors.white.withOpacity(0.05),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(18),
-        child: Row(
-          children: [
-            Container(
-              width: 58,
-              height: 58,
-              decoration: BoxDecoration(
-                color: const Color(0xFF22D3EE).withOpacity(0.12),
-                borderRadius: BorderRadius.circular(18),
-              ),
-              child: Center(
-                child: Text(
-                  avatarChar,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF22D3EE),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(width: 14),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    titleText,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    usernameText,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white.withOpacity(0.65),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
@@ -215,51 +128,44 @@ class _CopyTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Colors.white.withOpacity(0.6),
-              ),
+    return _CardWrapper(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: Colors.white.withOpacity(0.6),
             ),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    value.isEmpty ? '-' : value,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  value.isEmpty ? '-' : value,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
-                IconButton(
-                  icon: const Icon(Icons.copy_rounded),
-                  onPressed: value.isEmpty
-                      ? null
-                      : () {
-                          Clipboard.setData(ClipboardData(text: value));
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text(snackText)),
-                          );
-                        },
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+              IconButton(
+                icon: const Icon(Icons.copy_rounded),
+                onPressed: value.isEmpty
+                    ? null
+                    : () {
+                        Clipboard.setData(ClipboardData(text: value));
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(snackText)),
+                        );
+                      },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -279,66 +185,59 @@ class _PasswordTileState extends State<_PasswordTile> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Password',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Colors.white.withOpacity(0.6),
+    return _CardWrapper(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Password',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: Colors.white.withOpacity(0.6),
+            ),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              Expanded(
+                child: Text(
+                  hidden ? '••••••••' : widget.password,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    hidden ? '••••••••' : widget.password,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+              IconButton(
+                icon: const Icon(Icons.copy_rounded),
+                onPressed: widget.password.isEmpty
+                    ? null
+                    : () {
+                        Clipboard.setData(
+                          ClipboardData(text: widget.password),
+                        );
+                        setState(() {
+                          hidden = true;
+                        });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Password copied')),
+                        );
+                      },
+              ),
+              IconButton(
+                icon: Icon(
+                  hidden ? Icons.visibility_rounded : Icons.visibility_off_rounded,
                 ),
-                IconButton(
-                  icon: const Icon(Icons.copy_rounded),
-                  onPressed: widget.password.isEmpty
-                      ? null
-                      : () {
-                          Clipboard.setData(
-                            ClipboardData(text: widget.password),
-                          );
-                          setState(() {
-                            hidden = true;
-                          });
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Password copied')),
-                          );
-                        },
-                ),
-                IconButton(
-                  icon: Icon(
-                    hidden ? Icons.visibility_rounded : Icons.visibility_off_rounded,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      hidden = !hidden;
-                    });
-                  },
-                ),
-              ],
-            ),
-          ],
-        ),
+                onPressed: () {
+                  setState(() {
+                    hidden = !hidden;
+                  });
+                },
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -355,34 +254,27 @@ class _InfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Colors.white.withOpacity(0.6),
-              ),
+    return _CardWrapper(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label,
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: Colors.white.withOpacity(0.6),
             ),
-            const SizedBox(height: 8),
-            Text(
-              value,
-              style: const TextStyle(
-                fontSize: 16,
-                height: 1.4,
-              ),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            value,
+            style: const TextStyle(
+              fontSize: 16,
+              height: 1.4,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -405,30 +297,23 @@ class _MetaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Details',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
-                color: Colors.white.withOpacity(0.6),
-              ),
+    return _CardWrapper(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Details',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: Colors.white.withOpacity(0.6),
             ),
-            const SizedBox(height: 10),
-            _MetaRow(label: 'Created', value: _formatTs(item.createdAt)),
-            const SizedBox(height: 10),
-            _MetaRow(label: 'Modified', value: _formatTs(item.updatedAt)),
-          ],
-        ),
+          ),
+          const SizedBox(height: 10),
+          _MetaRow(label: 'Created', value: _formatTs(item.createdAt)),
+          const SizedBox(height: 10),
+          _MetaRow(label: 'Modified', value: _formatTs(item.updatedAt)),
+        ],
       ),
     );
   }
@@ -465,6 +350,28 @@ class _MetaRow extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _CardWrapper extends StatelessWidget {
+  final Widget child;
+
+  const _CardWrapper({required this.child});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+      decoration: BoxDecoration(
+        color: const Color(0xFF0F172A),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(
+          color: Colors.white.withOpacity(0.05),
+        ),
+      ),
+      child: child,
     );
   }
 }
