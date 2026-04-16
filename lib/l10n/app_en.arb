@@ -1,11 +1,20 @@
 {
-	"confirmPattern": "Draw the same pattern again to confirm",
-	"createVaultKey": "Create Your Vault Key",
-	"drawNewPattern": "Draw a new pattern",
-	"lynraSecurity": "Lynra Security",
-	"min4Dots": "Use at least 4 dots",
+	"confirmPattern":  "Draw the same pattern again to confirm",
+	"continueText":    "Continue",
+	"createVaultKey":  "Create Your Vault Key",
+	"drawNewPattern":  "Draw a new pattern",
+	"drawVaultKey":    "Draw your vault key",
+	"lynraSecurity":   "Lynra Security",
+	"min4Dots":        "Use at least 4 dots",
+	"onboardingDescription": 	"Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.",
 	"patternMismatch": "Patterns did not match. Start again",
-    
+	"privateByDesign": 	"Private by Design",
+    "wrongPattern":    "Wrong pattern. Try again",
+	"unlock": 		   "Unlock",
+	"unlockVault": 	   "Unlock Vault",
+	
+	
+	
   "@@locale": "en",
   "appTitle": "LynraGreyNote",
   "settings": "Settings",

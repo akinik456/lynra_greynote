@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../../../l10n/app_localizations.dart';
+
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
 
@@ -32,9 +34,9 @@ class OnboardingScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 28),
-              const Center(
-                child: Text(
-                  "Private by Design",
+              Center(
+				child: Text(
+				AppLocalizations.of(context)!.privateByDesign,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 28,
@@ -44,12 +46,7 @@ class OnboardingScreen extends StatelessWidget {
               ),
               const SizedBox(height: 18),
               Text(
-                "Your data stays on your device.\n\n"
-                "LynraGreyNote does not use servers, does not track you, and does not collect any information.\n\n"
-                "Everything you save is encrypted and stored locally.\n"
-                "You are the only one who can access it.\n\n"
-                "Use Secondary PIN or Biometrics for quick and secure access.\n"
-                "Enable Vault Word to add an extra layer of privacy and hide your content when needed.",
+			  AppLocalizations.of(context)!.onboardingDescription,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 15,
@@ -71,7 +68,7 @@ class OnboardingScreen extends StatelessWidget {
                       Navigator.pop(context, true);
                     }
                   },
-                  child: const Text("Continue"),
+                  child: Text(AppLocalizations.of(context)!.continueText),
                 ),
               ),
             ],

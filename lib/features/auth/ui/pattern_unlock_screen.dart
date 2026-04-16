@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../../l10n/app_localizations.dart';
 
 class PatternUnlockScreen extends StatefulWidget {
   final String savedPattern;
@@ -14,7 +15,7 @@ class PatternUnlockScreen extends StatefulWidget {
 }
 
 class _PatternUnlockScreenState extends State<PatternUnlockScreen> {
-  String message = 'Draw your vault key';
+  String messageKey = 'drawVaultKey';
 
   static const Color _bgBottom = Color(0xFF020617);
   static const Color _primary = Color(0xFF14B8A6);
@@ -28,7 +29,7 @@ class _PatternUnlockScreenState extends State<PatternUnlockScreen> {
       Navigator.pop(context, true);
     } else {
       setState(() {
-        message = 'Wrong pattern. Try again';
+        messageKey = 'wrongPattern';
       });
     }
   }
@@ -46,8 +47,8 @@ class _PatternUnlockScreenState extends State<PatternUnlockScreen> {
         backgroundColor: const Color(0xFF020617),
 surfaceTintColor: const Color(0xFF020617),
         elevation: 0,
-        title: const Text(
-          'Unlock',
+        title: Text(
+		AppLocalizations.of(context)!.unlock,
           style: TextStyle(
             color: _textPrimary,
             fontSize: 18,
@@ -104,8 +105,8 @@ surfaceTintColor: const Color(0xFF020617),
                           ),
                         ),
                         const SizedBox(height: 16),
-                        const Text(
-                          'Unlock Vault',
+                        Text(
+						AppLocalizations.of(context)!.unlockVault,
                           style: TextStyle(
                             color: _textPrimary,
                             fontSize: 20,
@@ -114,8 +115,7 @@ surfaceTintColor: const Color(0xFF020617),
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Text(
-                          message,
+						Text(_t(context, messageKey),
                           style: const TextStyle(
                             color: _textSecondary,
                             fontSize: 15,
@@ -373,5 +373,16 @@ class _PatternPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _PatternPainter oldDelegate) {
     return oldDelegate.selected != selected;
+  }
+}
+
+String _t(BuildContext context, String key) {
+  final l = AppLocalizations.of(context)!;
+
+  switch (key) {
+    case 'wrongPattern':
+      return l.wrongPattern;
+    default:
+      return l.drawVaultKey;
   }
 }

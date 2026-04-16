@@ -12,10 +12,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get confirmPattern => 'Draw the same pattern again to confirm';
 
   @override
+  String get continueText => 'Continue';
+
+  @override
   String get createVaultKey => 'Create Your Vault Key';
 
   @override
   String get drawNewPattern => 'Draw a new pattern';
+
+  @override
+  String get drawVaultKey => 'Draw your vault key';
 
   @override
   String get lynraSecurity => 'Lynra Security';
@@ -24,7 +30,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get min4Dots => 'Use at least 4 dots';
 
   @override
+  String get onboardingDescription => 'Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.';
+
+  @override
   String get patternMismatch => 'Patterns did not match. Start again';
+
+  @override
+  String get privateByDesign => 'Private by Design';
+
+  @override
+  String get wrongPattern => 'Wrong pattern. Try again';
+
+  @override
+  String get unlock => 'Unlock';
+
+  @override
+  String get unlockVault => 'Unlock Vault';
 
   @override
   String get appTitle => 'LynraGreyNote';
@@ -43,9 +64,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cancel => 'Cancel';
-
-  @override
-  String get unlock => 'Unlock';
 
   @override
   String get editEntry => 'Edit Entry';

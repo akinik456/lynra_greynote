@@ -101,6 +101,12 @@ abstract class AppLocalizations {
   /// **'Draw the same pattern again to confirm'**
   String get confirmPattern;
 
+  /// No description provided for @continueText.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continueText;
+
   /// No description provided for @createVaultKey.
   ///
   /// In en, this message translates to:
@@ -112,6 +118,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Draw a new pattern'**
   String get drawNewPattern;
+
+  /// No description provided for @drawVaultKey.
+  ///
+  /// In en, this message translates to:
+  /// **'Draw your vault key'**
+  String get drawVaultKey;
 
   /// No description provided for @lynraSecurity.
   ///
@@ -125,11 +137,41 @@ abstract class AppLocalizations {
   /// **'Use at least 4 dots'**
   String get min4Dots;
 
+  /// No description provided for @onboardingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.'**
+  String get onboardingDescription;
+
   /// No description provided for @patternMismatch.
   ///
   /// In en, this message translates to:
   /// **'Patterns did not match. Start again'**
   String get patternMismatch;
+
+  /// No description provided for @privateByDesign.
+  ///
+  /// In en, this message translates to:
+  /// **'Private by Design'**
+  String get privateByDesign;
+
+  /// No description provided for @wrongPattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong pattern. Try again'**
+  String get wrongPattern;
+
+  /// No description provided for @unlock.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get unlock;
+
+  /// No description provided for @unlockVault.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Vault'**
+  String get unlockVault;
 
   /// No description provided for @appTitle.
   ///
@@ -166,12 +208,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cancel'**
   String get cancel;
-
-  /// No description provided for @unlock.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock'**
-  String get unlock;
 
   /// No description provided for @editEntry.
   ///
