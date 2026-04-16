@@ -8,6 +8,7 @@ import 'security_screen.dart';
 import '../../vault/data/vault_repository.dart';
 import 'vault_word_screen.dart';
 import '../../../core/db/database_helper.dart';
+import '../../../l10n/app_localizations.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

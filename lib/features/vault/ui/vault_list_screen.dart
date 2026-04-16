@@ -8,6 +8,8 @@ import 'vault_detail_screen.dart';
 import '../data/collection_repository.dart';
 import '../models/vault_collection.dart';
 import '../../settings/ui/settings_screen.dart';
+import '../../../l10n/app_localizations.dart';
+
 
 class VaultListScreen extends StatefulWidget {
   const VaultListScreen({super.key});
@@ -100,16 +102,16 @@ class _VaultListScreenState extends State<VaultListScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Delete entry'),
-          content: Text('Delete "${item.title}"?'),
+          title: Text(AppLocalizations.of(context)!.deleteEntry),
+          content: Text(AppLocalizations.of(context)!.deleteEntryConfirm(item.title)),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context, false),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context, true),
-              child: const Text('Delete'),
+              child: Text(AppLocalizations.of(context)!.delete),
             ),
           ],
         );
@@ -274,8 +276,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
-              "Unlock Content",
+            Text(AppLocalizations.of(context)!.unlockContent,
               style: TextStyle(
                 color: Color(0xFFE2E8F0),
                 fontWeight: FontWeight.w700,
@@ -311,8 +312,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
                 Expanded(
                   child: TextButton(
                     onPressed: () => Navigator.pop(context, false),
-                    child: const Text(
-                      "Cancel",
+                    child: Text(AppLocalizations.of(context)!.cancel,
                       style: TextStyle(color: Color(0xFF94A3B8)),
                     ),
                   ),
@@ -335,7 +335,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
 
                       Navigator.pop(context, ok);
                     },
-                    child: const Text("Unlock"),
+                    child: Text(AppLocalizations.of(context)!.unlock),
                   ),
                 ),
               ],
@@ -357,8 +357,8 @@ class _VaultListScreenState extends State<VaultListScreen> {
   Future<void> openAddCollection() async {
     if (collections.length >= 5) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Maximum 5 collections allowed'),
+        SnackBar(
+          content: Text(AppLocalizations.of(context)!.max5Collections),
         ),
       );
       return;
@@ -369,18 +369,18 @@ class _VaultListScreenState extends State<VaultListScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('New Collection'),
+          title: Text(AppLocalizations.of(context)!.newCollection),
           content: TextField(
             controller: controller,
             autofocus: true,
-            decoration: const InputDecoration(
-              hintText: 'e.g. Mom',
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context)!.collectionExample,
             ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () {
@@ -388,7 +388,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
                 if (name.isEmpty) return;
                 Navigator.pop(context, name);
               },
-              child: const Text('Add'),
+              child: Text(AppLocalizations.of(context)!.add),
             ),
           ],
         );
@@ -418,18 +418,18 @@ class _VaultListScreenState extends State<VaultListScreen> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Delete Collection'),
-          content: Text(
-            'Delete "${collection.name}"?\n\nAll entries will be permanently deleted.',
-          ),
+          title: Text(AppLocalizations.of(context)!.deleteCollection),
+		content: Text(
+            AppLocalizations.of(context)!.deleteCollectionConfirm(collection.name),
+			),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context, false),
-              child: const Text('Cancel'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context, true),
-              child: const Text('Delete'),
+              child: Text(AppLocalizations.of(context)!.delete),
             ),
           ],
         );
@@ -506,13 +506,13 @@ class _VaultHeaderCard extends StatelessWidget {
               size: 28,
             ),
           ),
-          const SizedBox(width: 14),
+          SizedBox(width: 14),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'My Vault',
+                Text(
+                  AppLocalizations.of(context)!.myVault,
                   style: TextStyle(
                     color: Color(0xFFE2E8F0),
                     fontSize: 18,
@@ -521,7 +521,10 @@ class _VaultHeaderCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  '$currentCollectionName • $totalItems item${totalItems == 1 ? '' : 's'}',
+				  AppLocalizations.of(context)!.vaultHeaderStats(
+					currentCollectionName,
+					totalItems,
+				  ),
                   style: const TextStyle(
                     color: Color(0xFF94A3B8),
                     fontSize: 13,
@@ -617,7 +620,9 @@ class _VaultCard extends StatelessWidget {
                       Text(
                         shouldHide
                             ? randomFakeText()
-                            : (item.title.isEmpty ? 'Untitled' : item.title),
+                            : (item.title.isEmpty
+							? AppLocalizations.of(context)!.untitled
+							: item.title),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
@@ -630,7 +635,9 @@ class _VaultCard extends StatelessWidget {
                       Text(
                         shouldHide
                             ? randomFakeText()
-                            : (item.username.isEmpty ? 'No username' : item.username),
+                            : (item.username.isEmpty
+							? AppLocalizations.of(context)!.noUsername
+							: item.username),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -640,7 +647,7 @@ class _VaultCard extends StatelessWidget {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Updated $formattedDate',
+                        AppLocalizations.of(context)!.updatedDate(formattedDate),
                         style: TextStyle(
                           fontSize: 11,
                           color: Colors.white.withOpacity(0.42),
@@ -691,8 +698,8 @@ class _EmptyState extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 18),
-            const Text(
-              'No entries yet',
+            Text(
+			AppLocalizations.of(context)!.noEntriesYet,
               style: TextStyle(
                 color: Color(0xFFE2E8F0),
                 fontSize: 20,
@@ -701,7 +708,7 @@ class _EmptyState extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'Tap the + button to add your first secure entry.',
+			AppLocalizations.of(context)!.addFirstSecureEntry,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
@@ -751,7 +758,7 @@ class _CollectionBar extends StatelessWidget {
                 size: 16,
                 color: Color(0xFF22D3EE),
               ),
-              label: const Text('Collection'),
+              label: Text(AppLocalizations.of(context)!.collection),
               onPressed: onAdd,
               backgroundColor: const Color(0xFF1E293B),
               side: BorderSide(

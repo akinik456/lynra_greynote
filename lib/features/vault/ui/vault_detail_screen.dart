@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../models/vault_item.dart';
 import 'add_edit_screen.dart';
+import '../../../l10n/app_localizations.dart';
 
 class VaultDetailScreen extends StatelessWidget {
   final VaultItem item;

@@ -48,6 +48,71 @@ class AppLocalizationsTr extends AppLocalizations {
   String get unlockVault => 'Kasayı Aç';
 
   @override
+  String get deleteEntry => 'Kaydı Sil';
+
+  @override
+  String deleteEntryConfirm(Object name) {
+    return '\"$name\" silinsin mi?';
+  }
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
+  String get delete => 'Sil';
+
+  @override
+  String get unlockContent => 'İçeriğin Kilidini Aç';
+
+  @override
+  String get max5Collections => 'En fazla 5 koleksiyon eklenebilir';
+
+  @override
+  String get newCollection => 'Yeni Koleksiyon';
+
+  @override
+  String get collectionExample => 'örn. Annem';
+
+  @override
+  String get add => 'Ekle';
+
+  @override
+  String get deleteCollection => 'Koleksiyonu Sil';
+
+  @override
+  String deleteCollectionConfirm(Object name) {
+    return '\"$name\" silinsin mi?\n\nTüm kayıtlar kalıcı olarak silinecek.';
+  }
+
+  @override
+  String get myVault => 'Kasam';
+
+  @override
+  String vaultHeaderStats(Object collection, int count) {
+    return '$collection • $count öğe';
+  }
+
+  @override
+  String get untitled => 'Başlıksız';
+
+  @override
+  String get noUsername => 'Kullanıcı adı yok';
+
+  @override
+  String updatedDate(Object date) {
+    return 'Güncellendi: $date';
+  }
+
+  @override
+  String get noEntriesYet => 'Henüz kayıt yok';
+
+  @override
+  String get addFirstSecureEntry => 'İlk güvenli kaydını eklemek için + butonuna dokun.';
+
+  @override
+  String get collection => 'Koleksiyon';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
@@ -61,9 +126,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get save => 'Kaydet';
-
-  @override
-  String get cancel => 'İptal';
 
   @override
   String get editEntry => 'Kaydı Düzenle';

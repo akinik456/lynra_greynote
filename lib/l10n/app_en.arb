@@ -13,6 +13,49 @@
 	"unlock": 		   "Unlock",
 	"unlockVault": 	   "Unlock Vault",
 	
+"deleteEntry": "Delete entry",
+"deleteEntryConfirm": "Delete \"{name}\"?",
+"@deleteEntryConfirm": {
+  "placeholders": {
+    "name": {}
+  }
+},
+"cancel": "Cancel",
+"delete": "Delete",
+"unlockContent": "Unlock Content",
+"max5Collections": "Maximum 5 collections allowed",
+"newCollection": "New Collection",
+"collectionExample": "e.g. Mom",
+"add": "Add",
+"deleteCollection": "Delete Collection",
+"deleteCollectionConfirm": "Delete \"{name}\"?\n\nAll entries will be permanently deleted.",
+"@deleteCollectionConfirm": {
+  "placeholders": {
+    "name": {}
+  }
+},
+"myVault": "My Vault",
+"vaultHeaderStats": "{collection} • {count} {count,plural, =1{item} other{items}}",
+"@vaultHeaderStats": {
+  "placeholders": {
+    "collection": {},
+    "count": {
+      "type": "int"
+    }
+  }
+},
+"untitled": "Untitled",
+"noUsername": "No username",
+"updatedDate": "Updated {date}",
+"@updatedDate": {
+  "placeholders": {
+    "date": {}
+  }
+},
+"noEntriesYet": "No entries yet",
+"addFirstSecureEntry": "Tap the + button to add your first secure entry.",
+"collection": "Collection",	
+	
 	
 	
   "@@locale": "en",

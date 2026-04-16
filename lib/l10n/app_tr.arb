@@ -13,6 +13,48 @@
 	"unlock": 		    "Kilidi Aç",
 	"unlockVault": 	    "Kasayı Aç",
 
+"deleteEntry": "Kaydı Sil",
+"deleteEntryConfirm": "\"{name}\" silinsin mi?",
+"@deleteEntryConfirm": {
+  "placeholders": {
+    "name": {}
+  }
+},
+"cancel": "İptal",
+"delete": "Sil",
+"unlockContent": "İçeriğin Kilidini Aç",
+"max5Collections": "En fazla 5 koleksiyon eklenebilir",
+"newCollection": "Yeni Koleksiyon",
+"collectionExample": "örn. Annem",
+"add": "Ekle",
+"deleteCollection": "Koleksiyonu Sil",
+"deleteCollectionConfirm": "\"{name}\" silinsin mi?\n\nTüm kayıtlar kalıcı olarak silinecek.",
+"@deleteCollectionConfirm": {
+  "placeholders": {
+    "name": {}
+  }
+},
+"myVault": "Kasam",
+"vaultHeaderStats": "{collection} • {count} öğe",
+"@vaultHeaderStats": {
+  "placeholders": {
+    "collection": {},
+    "count": {
+      "type": "int"
+    }
+  }
+},
+"untitled": "Başlıksız",
+"noUsername": "Kullanıcı adı yok",
+"updatedDate": "Güncellendi: {date}",
+"@updatedDate": {
+  "placeholders": {
+    "date": {}
+  }
+},
+"noEntriesYet": "Henüz kayıt yok",
+"addFirstSecureEntry": "İlk güvenli kaydını eklemek için + butonuna dokun.",
+"collection": "Koleksiyon",
 	
   "@@locale": "tr",
   "appTitle": "LynraGreyNote",

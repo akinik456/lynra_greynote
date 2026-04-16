@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'pin_setup_screen.dart';
+import '../../../l10n/app_localizations.dart';
 
 class SecurityScreen extends StatefulWidget {
   const SecurityScreen({super.key});

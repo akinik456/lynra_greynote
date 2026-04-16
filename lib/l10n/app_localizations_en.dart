@@ -48,6 +48,77 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unlockVault => 'Unlock Vault';
 
   @override
+  String get deleteEntry => 'Delete entry';
+
+  @override
+  String deleteEntryConfirm(Object name) {
+    return 'Delete \"$name\"?';
+  }
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get delete => 'Delete';
+
+  @override
+  String get unlockContent => 'Unlock Content';
+
+  @override
+  String get max5Collections => 'Maximum 5 collections allowed';
+
+  @override
+  String get newCollection => 'New Collection';
+
+  @override
+  String get collectionExample => 'e.g. Mom';
+
+  @override
+  String get add => 'Add';
+
+  @override
+  String get deleteCollection => 'Delete Collection';
+
+  @override
+  String deleteCollectionConfirm(Object name) {
+    return 'Delete \"$name\"?\n\nAll entries will be permanently deleted.';
+  }
+
+  @override
+  String get myVault => 'My Vault';
+
+  @override
+  String vaultHeaderStats(Object collection, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'items',
+      one: 'item',
+    );
+    return '$collection • $count $_temp0';
+  }
+
+  @override
+  String get untitled => 'Untitled';
+
+  @override
+  String get noUsername => 'No username';
+
+  @override
+  String updatedDate(Object date) {
+    return 'Updated $date';
+  }
+
+  @override
+  String get noEntriesYet => 'No entries yet';
+
+  @override
+  String get addFirstSecureEntry => 'Tap the + button to add your first secure entry.';
+
+  @override
+  String get collection => 'Collection';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
@@ -61,9 +132,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get save => 'Save';
-
-  @override
-  String get cancel => 'Cancel';
 
   @override
   String get editEntry => 'Edit Entry';

@@ -173,6 +173,120 @@ abstract class AppLocalizations {
   /// **'Unlock Vault'**
   String get unlockVault;
 
+  /// No description provided for @deleteEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete entry'**
+  String get deleteEntry;
+
+  /// No description provided for @deleteEntryConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?'**
+  String deleteEntryConfirm(Object name);
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @delete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get delete;
+
+  /// No description provided for @unlockContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock Content'**
+  String get unlockContent;
+
+  /// No description provided for @max5Collections.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum 5 collections allowed'**
+  String get max5Collections;
+
+  /// No description provided for @newCollection.
+  ///
+  /// In en, this message translates to:
+  /// **'New Collection'**
+  String get newCollection;
+
+  /// No description provided for @collectionExample.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Mom'**
+  String get collectionExample;
+
+  /// No description provided for @add.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get add;
+
+  /// No description provided for @deleteCollection.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete Collection'**
+  String get deleteCollection;
+
+  /// No description provided for @deleteCollectionConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?\n\nAll entries will be permanently deleted.'**
+  String deleteCollectionConfirm(Object name);
+
+  /// No description provided for @myVault.
+  ///
+  /// In en, this message translates to:
+  /// **'My Vault'**
+  String get myVault;
+
+  /// No description provided for @vaultHeaderStats.
+  ///
+  /// In en, this message translates to:
+  /// **'{collection} • {count} {count,plural, =1{item} other{items}}'**
+  String vaultHeaderStats(Object collection, int count);
+
+  /// No description provided for @untitled.
+  ///
+  /// In en, this message translates to:
+  /// **'Untitled'**
+  String get untitled;
+
+  /// No description provided for @noUsername.
+  ///
+  /// In en, this message translates to:
+  /// **'No username'**
+  String get noUsername;
+
+  /// No description provided for @updatedDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Updated {date}'**
+  String updatedDate(Object date);
+
+  /// No description provided for @noEntriesYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No entries yet'**
+  String get noEntriesYet;
+
+  /// No description provided for @addFirstSecureEntry.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the + button to add your first secure entry.'**
+  String get addFirstSecureEntry;
+
+  /// No description provided for @collection.
+  ///
+  /// In en, this message translates to:
+  /// **'Collection'**
+  String get collection;
+
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
@@ -202,12 +316,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
-
-  /// No description provided for @cancel.
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
 
   /// No description provided for @editEntry.
   ///

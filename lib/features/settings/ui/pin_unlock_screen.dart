@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../../../l10n/app_localizations.dart';
 
 class PinUnlockScreen extends StatefulWidget {
   const PinUnlockScreen({super.key});
