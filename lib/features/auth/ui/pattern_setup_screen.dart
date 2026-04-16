@@ -60,7 +60,8 @@ class _PatternSetupScreenState extends State<PatternSetupScreen> {
   child:   Scaffold(
       backgroundColor: _bgBottom,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color(0xFF020617),
+surfaceTintColor: const Color(0xFF020617),
         elevation: 0,
         centerTitle: false,
         title: const Text(

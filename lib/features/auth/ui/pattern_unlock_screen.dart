@@ -43,7 +43,8 @@ class _PatternUnlockScreenState extends State<PatternUnlockScreen> {
   child:   Scaffold(
       backgroundColor: _bgBottom,
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: const Color(0xFF020617),
+surfaceTintColor: const Color(0xFF020617),
         elevation: 0,
         title: const Text(
           'Unlock',
