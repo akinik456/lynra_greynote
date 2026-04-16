@@ -7,7 +7,7 @@ import 'features/vault/ui/vault_list_screen.dart';
 import 'features/settings/ui/pin_unlock_screen.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
-
+import 'splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,8 +29,8 @@ class LynraApp extends StatelessWidget {
           primary: Color(0xFF22D3EE),
         ),
       ),
-      home: const AppGate(),
-    );
+	home: const SplashScreen(),    
+	);
   }
 }
 
