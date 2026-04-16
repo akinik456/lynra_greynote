@@ -138,6 +138,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get wrongPattern => 'Yanlış desen. Tekrar dene';
 
   @override
+  String get wrongPin => 'Yanlış PIN';
+
+  @override
   String get unlock => 'Kilidi Aç';
 
   @override

@@ -144,6 +144,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get wrongPattern => 'Wrong pattern. Try again';
 
   @override
+  String get wrongPin => 'Wrong PIN';
+
+  @override
   String get unlock => 'Unlock';
 
   @override

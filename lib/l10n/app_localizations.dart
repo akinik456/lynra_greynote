@@ -341,6 +341,12 @@ abstract class AppLocalizations {
   /// **'Wrong pattern. Try again'**
   String get wrongPattern;
 
+  /// No description provided for @wrongPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong PIN'**
+  String get wrongPin;
+
   /// No description provided for @unlock.
   ///
   /// In en, this message translates to:

@@ -31,7 +31,7 @@ class _PinUnlockScreenState extends State<PinUnlockScreen> {
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Wrong PIN")),
+      SnackBar(content: Text(AppLocalizations.of(context)!.wrongPin)),
     );
   }
 
@@ -49,8 +49,8 @@ class _PinUnlockScreenState extends State<PinUnlockScreen> {
           surfaceTintColor: _bgColor,
           elevation: 0,
           centerTitle: true,
-          title: const Text(
-            "Enter PIN",
+          title: Text(
+			AppLocalizations.of(context)!.enterPin,
             style: TextStyle(
               color: _textPrimary,
               fontWeight: FontWeight.w700,
@@ -67,7 +67,7 @@ class _PinUnlockScreenState extends State<PinUnlockScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _FieldCard(
-                label: "Enter PIN",
+                label: AppLocalizations.of(context)!.enterPin,
                 child: TextField(
                   controller: pinCtrl,
                   keyboardType: TextInputType.number,
@@ -113,9 +113,8 @@ class _PinUnlockScreenState extends State<PinUnlockScreen> {
                     ),
                   ),
                   onPressed: checkPin,
-                  child: const Text(
-                    "Unlock",
-                    style: TextStyle(fontWeight: FontWeight.w700),
+                  child: Text(
+					AppLocalizations.of(context)!.unlock,
                   ),
                 ),
               ),

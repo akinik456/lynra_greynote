@@ -62,6 +62,7 @@
 
 "vaultWord": 				"Vault Word",
 "wrongPattern":    			"Wrong pattern. Try again",
+"wrongPin": 				"Wrong PIN",
 "unlock": 		   			"Unlock",
 "unlockContent": 			"Unlock Content",
 "unlockVault": 	   			"Unlock Vault",
