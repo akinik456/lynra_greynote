@@ -29,8 +29,8 @@ class LynraApp extends StatelessWidget {
           primary: Color(0xFF22D3EE),
         ),
       ),
-	home: const SplashScreen(),    
-	);
+      home: const AppGate(),
+    );
   }
 }
 
