@@ -1,0 +1,19 @@
+{
+	"confirmPattern": "Onaylamak için aynı deseni tekrar çiz",
+	"createVaultKey": "Kasa Anahtarı Oluştur",
+	"drawNewPattern": "Yeni bir desen çiz",
+	"lynraSecurity": "Lynra Güvenlik",
+	"min4Dots": "En az 4 nokta kullan",
+	"patternMismatch": "Desenler eşleşmedi. Tekrar başla",
+
+  "@@locale": "tr",
+  "appTitle": "LynraGreyNote",
+  "settings": "Ayarlar",
+  "security": "Güvenlik",
+  "vaultWord": "Kasa Kelimesi",
+  "save": "Kaydet",
+  "cancel": "İptal",
+  "unlock": "Kilidi Aç",
+  "editEntry": "Kaydı Düzenle",
+  "newEntry": "Yeni Kayıt"
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../../../l10n/app_localizations.dart';
 
 class PatternSetupScreen extends StatefulWidget {
   const PatternSetupScreen({super.key});
@@ -10,8 +11,8 @@ class PatternSetupScreen extends StatefulWidget {
 
 class _PatternSetupScreenState extends State<PatternSetupScreen> {
   List<int>? firstPattern;
-  String message = 'Draw a new pattern';
-
+  String messageKey = 'drawNewPattern';
+  
   static const Color _bgTop = Color(0xFF0F172A);
   static const Color _bgBottom = Color(0xFF020617);
   static const Color _primary = Color(0xFF14B8A6);
@@ -22,7 +23,7 @@ class _PatternSetupScreenState extends State<PatternSetupScreen> {
   void onPatternComplete(List<int> pattern) {
     if (pattern.length < 4) {
       setState(() {
-        message = 'Use at least 4 dots';
+		messageKey = 'min4Dots';
       });
       return;
     }
@@ -30,7 +31,7 @@ class _PatternSetupScreenState extends State<PatternSetupScreen> {
     if (firstPattern == null) {
       setState(() {
         firstPattern = List<int>.from(pattern);
-        message = 'Draw the same pattern again to confirm';
+		messageKey = 'confirmPattern';
       });
       return;
     }
@@ -42,7 +43,7 @@ class _PatternSetupScreenState extends State<PatternSetupScreen> {
     if (!same) {
       setState(() {
         firstPattern = null;
-        message = 'Patterns did not match. Start again';
+		messageKey = 'patternMismatch';
       });
       return;
     }
@@ -64,8 +65,8 @@ class _PatternSetupScreenState extends State<PatternSetupScreen> {
 surfaceTintColor: const Color(0xFF020617),
         elevation: 0,
         centerTitle: false,
-        title: const Text(
-          'Create Your Vault Key',
+        title: Text(
+		AppLocalizations.of(context)!.createVaultKey,
           style: TextStyle(
             color: _textPrimary,
             fontSize: 18,
@@ -123,8 +124,8 @@ surfaceTintColor: const Color(0xFF020617),
                           ),
                         ),
                         const SizedBox(height: 18),
-                        const Text(
-                          'Lynra Security',
+                        Text(
+						AppLocalizations.of(context)!.lynraSecurity,
                           style: TextStyle(
                             color: _textPrimary,
                             fontSize: 20,
@@ -135,7 +136,7 @@ surfaceTintColor: const Color(0xFF020617),
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          message,
+						_t(context, messageKey),
                           style: const TextStyle(
                             color: _textSecondary,
                             fontSize: 15,
@@ -385,4 +386,19 @@ class _PatternPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
+}
+
+String _t(BuildContext context, String key) {
+  final l = AppLocalizations.of(context)!;
+
+  switch (key) {
+    case 'min4Dots':
+      return l.min4Dots;
+    case 'confirmPattern':
+      return l.confirmPattern;
+    case 'patternMismatch':
+      return l.patternMismatch;
+    default:
+      return l.drawNewPattern;
+  }
 }

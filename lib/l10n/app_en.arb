@@ -1,0 +1,19 @@
+{
+	"confirmPattern": "Draw the same pattern again to confirm",
+	"createVaultKey": "Create Your Vault Key",
+	"drawNewPattern": "Draw a new pattern",
+	"lynraSecurity": "Lynra Security",
+	"min4Dots": "Use at least 4 dots",
+	"patternMismatch": "Patterns did not match. Start again",
+    
+  "@@locale": "en",
+  "appTitle": "LynraGreyNote",
+  "settings": "Settings",
+  "security": "Security",
+  "vaultWord": "Vault Word",
+  "save": "Save",
+  "cancel": "Cancel",
+  "unlock": "Unlock",
+  "editEntry": "Edit Entry",
+  "newEntry": "New Entry"
+}

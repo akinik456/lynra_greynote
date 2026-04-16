@@ -3,6 +3,9 @@ import 'core/db/database_helper.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'l10n/app_localizations.dart';
 import 'features/auth/data/auth_storage.dart';
 import 'features/auth/ui/pattern_setup_screen.dart';
 import 'features/auth/ui/pattern_unlock_screen.dart';
@@ -24,6 +27,18 @@ class LynraApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+	  localizationsDelegates: const [
+		AppLocalizations.delegate,
+		GlobalMaterialLocalizations.delegate,
+		GlobalWidgetsLocalizations.delegate,
+		GlobalCupertinoLocalizations.delegate,
+	  ],
+
+	  supportedLocales: const [
+		Locale('en'),
+		Locale('tr'),
+	  ],
+
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: const Color(0xFF0F172A),
         cardColor: const Color(0xFF1E293B),
