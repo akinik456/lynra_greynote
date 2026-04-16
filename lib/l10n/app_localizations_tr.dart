@@ -82,13 +82,22 @@ class AppLocalizationsTr extends AppLocalizations {
   String get editEntry => 'Kaydı Düzenle';
 
   @override
+  String get enableVaultWord => 'Kasa Anahtarını Etkinleştir';
+
+  @override
   String get enterPin => 'PIN Gir';
+
+  @override
+  String get enterVaultWord => 'Kasa anahtarını gir';
 
   @override
   String get exportComingNext => 'Dışa aktarma yakında';
 
   @override
   String get exportData => 'Veriyi Dışa Aktar';
+
+  @override
+  String get hideSensitiveContent => 'Hassas içerikleri kilit açılana kadar gizle';
 
   @override
   String get importData => 'Veriyi İçe Aktar';

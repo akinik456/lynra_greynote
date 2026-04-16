@@ -45,8 +45,7 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
         surfaceTintColor: _bgColor,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          "Vault Word",
+        title: Text(AppLocalizations.of(context)!.vaultWord,
           style: TextStyle(
             color: _textPrimary,
             fontWeight: FontWeight.w700,
@@ -69,15 +68,13 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
               child: SwitchListTile(
                 contentPadding: EdgeInsets.zero,
                 activeColor: _primary,
-                title: const Text(
-                  "Enable Vault Word",
+                title: Text(AppLocalizations.of(context)!.enableVaultWord,
                   style: TextStyle(
                     color: _textPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                subtitle: const Text(
-                  "Hide sensitive content until unlocked",
+                subtitle: Text(AppLocalizations.of(context)!.hideSensitiveContent,
                   style: TextStyle(
                     color: _textSecondary,
                   ),
@@ -102,11 +99,11 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
               ),
               child: TextField(
                 controller: wordCtrl,
-                style: const TextStyle(color: _textPrimary),
-                decoration: const InputDecoration(
-                  labelText: "Vault Word",
+                style: TextStyle(color: _textPrimary),
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.vaultWord,
                   labelStyle: TextStyle(color: _textSecondary),
-                  hintText: "Enter your vault word",
+                  hintText: AppLocalizations.of(context)!.enterVaultWord,
                   hintStyle: TextStyle(color: _textSecondary),
                   border: InputBorder.none,
                 ),
@@ -136,8 +133,7 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
 
                   Navigator.pop(context, true);
                 },
-                child: const Text(
-                  "Save",
+                child: Text(AppLocalizations.of(context)!.save,
                   style: TextStyle(fontWeight: FontWeight.w700),
                 ),
               ),

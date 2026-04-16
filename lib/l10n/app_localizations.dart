@@ -233,11 +233,23 @@ abstract class AppLocalizations {
   /// **'Edit Entry'**
   String get editEntry;
 
+  /// No description provided for @enableVaultWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Vault Word'**
+  String get enableVaultWord;
+
   /// No description provided for @enterPin.
   ///
   /// In en, this message translates to:
   /// **'Enter PIN'**
   String get enterPin;
+
+  /// No description provided for @enterVaultWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your vault word'**
+  String get enterVaultWord;
 
   /// No description provided for @exportComingNext.
   ///
@@ -250,6 +262,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Export Data'**
   String get exportData;
+
+  /// No description provided for @hideSensitiveContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Hide sensitive content until unlocked'**
+  String get hideSensitiveContent;
 
   /// No description provided for @importData.
   ///

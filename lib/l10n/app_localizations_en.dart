@@ -82,13 +82,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get editEntry => 'Edit Entry';
 
   @override
+  String get enableVaultWord => 'Enable Vault Word';
+
+  @override
   String get enterPin => 'Enter PIN';
+
+  @override
+  String get enterVaultWord => 'Enter your vault word';
 
   @override
   String get exportComingNext => 'Export coming next';
 
   @override
   String get exportData => 'Export Data';
+
+  @override
+  String get hideSensitiveContent => 'Hide sensitive content until unlocked';
 
   @override
   String get importData => 'Import Data';
