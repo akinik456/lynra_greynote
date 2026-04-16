@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class PinUnlockScreen extends StatefulWidget {
@@ -29,9 +30,16 @@ class _PinUnlockScreenState extends State<PinUnlockScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+  print('PATTERN UNLOCK BUILD');
+    return WillPopScope(
+  onWillPop: () async {
+    SystemNavigator.pop();
+    return false;
+  },
+  child:  Scaffold(
       appBar: AppBar(
         title: const Text("Enter PIN"),
+		leading: BackButton(onPressed: () => SystemNavigator.pop()),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -72,6 +80,7 @@ class _PinUnlockScreenState extends State<PinUnlockScreen> {
           ],
         ),
       ),
+	  ),
     );
   }
 }
