@@ -57,6 +57,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           _Item(
+            title: "Vault Word",
+            onTap: () async {
+              final result = await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const VaultWordScreen(),
+                ),
+              );
+
+              if (result == true) {
+                setState(() {});
+              }
+            },
+          ),  
+          _Item(
             title: "Export Data",
             onTap: exportPlaceholder,
           ),
@@ -91,21 +106,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("Import completed")),
                 );
-              }
-            },
-          ),
-          _Item(
-            title: "Vault Word",
-            onTap: () async {
-              final result = await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const VaultWordScreen(),
-                ),
-              );
-
-              if (result == true) {
-                setState(() {});
               }
             },
           ),

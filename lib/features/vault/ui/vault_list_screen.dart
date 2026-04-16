@@ -262,36 +262,90 @@ class _VaultListScreenState extends State<VaultListScreen> {
     final ctrl = TextEditingController();
 
     final result = await showDialog<bool>(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text("Unlock Content"),
-          content: TextField(
-            controller: ctrl,
-            decoration: const InputDecoration(
-              hintText: "Enter Vault Word",
+  context: context,
+  builder: (context) {
+    return Dialog(
+      backgroundColor: const Color(0xFF0F172A),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              "Unlock Content",
+              style: TextStyle(
+                color: Color(0xFFE2E8F0),
+                fontWeight: FontWeight.w700,
+                fontSize: 16,
+              ),
             ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: const Text("Cancel"),
+            const SizedBox(height: 12),
+
+            Container(
+              padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+              decoration: BoxDecoration(
+                color: const Color(0xFF020617),
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: Colors.white.withOpacity(0.05),
+                ),
+              ),
+              child: TextField(
+                controller: ctrl,
+                style: const TextStyle(color: Color(0xFFE2E8F0)),
+                decoration: const InputDecoration(
+                  hintText: "Enter Vault Word",
+                  hintStyle: TextStyle(color: Color(0xFF94A3B8)),
+                  border: InputBorder.none,
+                ),
+              ),
             ),
-            TextButton(
-              onPressed: () async {
-                final saved = await storage.read(key: "vault_word");
 
-                final ok =
-                    saved != null && saved.toLowerCase() == ctrl.text.toLowerCase();
+            const SizedBox(height: 16),
 
-                Navigator.pop(context, ok);
-              },
-              child: const Text("Unlock"),
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: const Text(
+                      "Cancel",
+                      style: TextStyle(color: Color(0xFF94A3B8)),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF22D3EE),
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    onPressed: () async {
+                      final saved = await storage.read(key: "vault_word");
+
+                      final ok = saved != null &&
+                          saved.toLowerCase() ==
+                              ctrl.text.toLowerCase();
+
+                      Navigator.pop(context, ok);
+                    },
+                    child: const Text("Unlock"),
+                  ),
+                ),
+              ],
             ),
           ],
-        );
-      },
+        ),
+      ),
     );
+  },
+);
 
     if (result == true) {
       setState(() {
