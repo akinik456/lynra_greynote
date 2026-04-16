@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'core/db/database_helper.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:local_auth/local_auth.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'features/auth/data/auth_storage.dart';
 import 'features/auth/ui/pattern_setup_screen.dart';
 import 'features/auth/ui/pattern_unlock_screen.dart';
 import 'features/vault/ui/vault_list_screen.dart';
 import 'features/settings/ui/pin_unlock_screen.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:local_auth/local_auth.dart';
 import 'splash_screen.dart';
+import '/features/onboarding/ui/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -86,6 +88,17 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   }
 
   Future<void> _start() async {
+    final storage = const FlutterSecureStorage();
+	final seen = await storage.read(key: "onboarding_seen");
+
+	if (seen != "true") {
+	  await Navigator.push(
+		context,
+		MaterialPageRoute(
+		  builder: (_) => const OnboardingScreen(),
+		),
+	  );
+	}
     final saved = await AuthStorage.getPattern();
 
     if (!mounted) return;
