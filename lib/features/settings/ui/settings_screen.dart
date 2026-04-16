@@ -35,8 +35,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         surfaceTintColor: _bgColor,
         elevation: 0,
         centerTitle: true,
-        title: const Text(
-          "Settings",
+        title: Text(AppLocalizations.of(context)!.settings,
           style: TextStyle(
             color: _textPrimary,
             fontWeight: FontWeight.w700,
@@ -47,7 +46,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         padding: const EdgeInsets.all(16),
         children: [
           _Item(
-            title: "Security",
+            title: AppLocalizations.of(context)!.security,
             onTap: () {
               Navigator.push(
                 context,
@@ -58,7 +57,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),
           _Item(
-            title: "Vault Word",
+            title: AppLocalizations.of(context)!.vaultWord,
             onTap: () async {
               final result = await Navigator.push(
                 context,
@@ -73,11 +72,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
             },
           ),  
           _Item(
-            title: "Export Data",
+            title: AppLocalizations.of(context)!.exportData,
             onTap: exportPlaceholder,
           ),
           _Item(
-            title: "Import Data",
+            title: AppLocalizations.of(context)!.importData,
             onTap: () async {
               final result = await FilePicker.pickFiles(
                 type: FileType.custom,
@@ -105,7 +104,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 }
 
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Import completed")),
+                  SnackBar(content: Text(AppLocalizations.of(context)!.importCompleted)),
                 );
               }
             },
@@ -133,7 +132,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Export coming next")),
+      SnackBar(content: Text(AppLocalizations.of(context)!.exportComingNext)),
     );
   }
 }

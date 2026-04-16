@@ -239,6 +239,30 @@ abstract class AppLocalizations {
   /// **'Enter PIN'**
   String get enterPin;
 
+  /// No description provided for @exportComingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Export coming next'**
+  String get exportComingNext;
+
+  /// No description provided for @exportData.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Data'**
+  String get exportData;
+
+  /// No description provided for @importData.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Data'**
+  String get importData;
+
+  /// No description provided for @importCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Import completed'**
+  String get importCompleted;
+
   /// No description provided for @lynraSecurity.
   ///
   /// In en, this message translates to:

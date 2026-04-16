@@ -85,6 +85,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterPin => 'Enter PIN';
 
   @override
+  String get exportComingNext => 'Export coming next';
+
+  @override
+  String get exportData => 'Export Data';
+
+  @override
+  String get importData => 'Import Data';
+
+  @override
+  String get importCompleted => 'Import completed';
+
+  @override
   String get lynraSecurity => 'Lynra Security';
 
   @override

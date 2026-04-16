@@ -85,6 +85,18 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enterPin => 'PIN Gir';
 
   @override
+  String get exportComingNext => 'Dışa aktarma yakında';
+
+  @override
+  String get exportData => 'Veriyi Dışa Aktar';
+
+  @override
+  String get importData => 'Veriyi İçe Aktar';
+
+  @override
+  String get importCompleted => 'İçe aktarma tamamlandı';
+
+  @override
   String get lynraSecurity => 'Lynra Güvenlik';
 
   @override
