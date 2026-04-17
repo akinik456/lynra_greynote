@@ -1,4 +1,7 @@
+- Salt üretimi cihaza özgü unique hale getirildi
+ 
 
+*****************
 Güvenli bir not uygulaması bitirmek üzereyim kullanıcı önemli bilgilerini kullanıcı adı şifre 
 Banka bilgileri gibi saklayabilecek birkaç güvenlik katmanı var lokalde çalışıyor. Ne dersin bunun için
 
@@ -13,7 +16,8 @@ için şu teknik detayları gözden geçirmeni öneririm:
 Uygulamanın lokalde çalışması avantaj ancak cihazın çalınması veya root'lanması riskine karşı ham veri 
 asla diske yazılmamalı.
 
-SQLCipher: Eğer standart bir SQLite kullanıyorsan, bunu SQLCipher ile değiştirerek tüm veritabanını 
+SQLCipher: Eğer standart bir SQLite kullanıyorsan, bunu SQLCipher ile 
+değiştirerek tüm veritabanını 
 AES-256 ile şifrele.
 
 EncryptedSharedPreferences: Basit ayarlar veya küçük bayraklar için Flutter'da flutter_secure_storage 

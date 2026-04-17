@@ -6,7 +6,8 @@ class AuthStorage {
   static const _storage = FlutterSecureStorage();
   static const _patternKey = 'app_pattern';
   static const _saltKey = 'secure_salt'; // Yeni anahtarımız
-
+  static const _masterKey = 'master_key'; // Yeni: Veri şifreleme anahtarımız
+ 
   static Future<void> savePattern(String pattern) async {
     await _storage.write(key: _patternKey, value: pattern);
   }
@@ -19,19 +20,33 @@ class AuthStorage {
     await _storage.delete(key: _patternKey);
   }
   
-  /// Cihaza özel 256-bit benzersiz salt üretir ve güvenli saklar.
-  static Future<void> initializeSecureSalt() async {
-    // Eğer daha önce üretilmişse tekrar üretme (mevcut şifrelemeler bozulmasın)
-    final existing = await _storage.read(key: _saltKey);
-    if (existing != null) return;
+/// Hem Salt hem de Master Key'i Onboarding sırasında bir kez üretir.
+  static Future<void> initializeSecurity() async {
+    final existingSalt = await _storage.read(key: _saltKey);
+    final existingMK = await _storage.read(key: _masterKey);
+    
+    // Eğer üretilmemişlerse üret
+    if (existingSalt == null) {
+      final salt = base64Encode(List<int>.generate(32, (i) => Random.secure().nextInt(256)));
+      await _storage.write(key: _saltKey, value: salt);
+    }
 
-    // Kriptografik olarak güvenli rastgele 32 byte üret
-    final random = Random.secure();
-    final values = List<int>.generate(32, (i) => random.nextInt(256));
-    final saltBase64 = base64Encode(values);
-}
+    if (existingMK == null) {
+      // Her cihaza özel 256-bit rastgele Master Key
+      final mk = base64Encode(List<int>.generate(32, (i) => Random.secure().nextInt(256)));
+      await _storage.write(key: _masterKey, value: mk);
+    }
+  }
+
+  /// Master Key'i okur
+  static Future<String?> getMasterKey() async {
+    return await _storage.read(key: _masterKey);
+  }  
+
 /// Saklanan salt değerini (cihaz parmak izini) geri okur.
   static Future<String?> getSecureSalt() async {
     return await _storage.read(key: _saltKey);
   }
+  
+  
 }

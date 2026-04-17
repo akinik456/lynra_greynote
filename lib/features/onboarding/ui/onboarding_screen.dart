@@ -63,7 +63,7 @@ class OnboardingScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () async {
 				  // 1. Cihaza özel tuzu (salt) sessizce üret ve sakla
-					await AuthStorage.initializeSecureSalt();
+					await AuthStorage.initializeSecurity();
                     await storage.write(
                       key: "onboarding_seen",
                       value: "true",

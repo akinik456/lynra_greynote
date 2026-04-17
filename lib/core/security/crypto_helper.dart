@@ -6,6 +6,51 @@ import '../../features/auth/data/auth_storage.dart';
 class CryptoHelper {
   static final _algorithm = AesGcm.with256bits();
 
+/// Master Key'i (MK) başka bir anahtar ile paketler (şifreler).
+  /// [keyToWrap]: Cihazdaki ham Master Key
+  /// [password]: Kullanıcının Pattern/PIN stringi
+  /// [vaultWord]: Varsa Vault Word, yoksa ""
+  static Future<String> wrapMasterKey({
+    required String mkBase64,
+    required String password,
+    String vaultWord = "",
+  }) async {
+    // 1. Paketleme anahtarını türet (Pass + VW + Salt)
+    // Not: Buradaki şifreleme için mevcut deriveKey fonksiyonumuzu kullanıyoruz
+    final wrappingKey = await deriveKey(password + vaultWord);
+
+    // 2. Master Key'i bu yeni anahtarla şifrele
+    final mkBytes = base64Decode(mkBase64);
+    final secretBox = await _algorithm.encrypt(
+      mkBytes,
+      secretKey: wrappingKey,
+    );
+
+    // 3. Şifrelenmiş paketi geri döndür
+    return base64Encode(secretBox.concatenation());
+  }
+
+  /// Paketlenmiş Master Key'i çözer.
+  static Future<String> unwrapMasterKey({
+    required String wrappedMKBase64,
+    required String password,
+    String vaultWord = "",
+  }) async {
+    final wrappingKey = await deriveKey(password + vaultWord);
+    final concatenation = base64Decode(wrappedMKBase64);
+    final secretBox = SecretBox.fromConcatenation(
+      concatenation,
+      nonceLength: _algorithm.nonceLength,
+      macLength: _algorithm.macAlgorithm.macLength,
+    );
+
+    final decryptedBytes = await _algorithm.decrypt(
+      secretBox,
+      secretKey: wrappingKey,
+    );
+
+    return base64Encode(decryptedBytes);
+  }
   static Future<SecretKey> deriveKey(String password) async {
   // Cihaza özel güvenli tuzu (salt) AuthStorage'dan çek
   final saltBase64 = await AuthStorage.getSecureSalt();
