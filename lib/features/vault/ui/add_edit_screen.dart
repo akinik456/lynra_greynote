@@ -86,11 +86,11 @@ class _AddEditScreenState extends State<AddEditScreen> {
     if (RegExp(r'[!@#\$%&*_\-]').hasMatch(password)) score++;
 
     if (score <= 2) {
-      passwordStrengthKey  = "Weak";
+      passwordStrengthKey  = "weak";
     } else if (score <= 4) {
-      passwordStrengthKey  = "Medium";
+      passwordStrengthKey  = "medium";
     } else {
-      passwordStrengthKey  = "Strong";
+      passwordStrengthKey  = "strong";
     }
 
     setState(() {});
@@ -246,7 +246,6 @@ class _AddEditScreenState extends State<AddEditScreen> {
                     ],
                   ),
                   if (passwordStrengthKey.isNotEmpty)
-                    if (passwordStrengthKey.isNotEmpty)
 				  Padding(
 					padding: const EdgeInsets.only(top: 6),
 					child: Text(
@@ -255,8 +254,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
 						color: passwordStrengthKey == "weak"
 							? Colors.redAccent
 							: passwordStrengthKey == "medium"
-								? Colors.orangeAccent
-								: Colors.greenAccent,
+							? Colors.orangeAccent
+							: Colors.greenAccent,
 						fontSize: 12,
 						fontWeight: FontWeight.w600,
 					  ),
