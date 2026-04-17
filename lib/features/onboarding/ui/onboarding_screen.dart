@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../auth/data/auth_storage.dart';
+
+
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -59,6 +62,8 @@ class OnboardingScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
+				  // 1. Cihaza özel tuzu (salt) sessizce üret ve sakla
+					await AuthStorage.initializeSecureSalt();
                     await storage.write(
                       key: "onboarding_seen",
                       value: "true",

@@ -1,79 +1,54 @@
-Türkiye de playstore rakamları hakkında konuşsana biraz
 
-Türkiye'deki Google Play Store ve mobil uygulama pazarı, 2025 ve 2026 başı verilerine göre oldukça dinamik bir seyir izliyor. Senin gibi gömülü sistemler ve mobil uygulama (Flutter/Firebase) tarafında aktif olan biri için pazarın büyüklüğünü ve trendlerini şu ana başlıklarla özetleyebilirim:
+Güvenli bir not uygulaması bitirmek üzereyim kullanıcı önemli bilgilerini kullanıcı adı şifre 
+Banka bilgileri gibi saklayabilecek birkaç güvenlik katmanı var lokalde çalışıyor. Ne dersin bunun için
 
-1. Pazar Büyüklüğü ve İndirme Rakamları
-Türkiye, küresel ölçekte mobil uygulama indirmelerinde hala "Devler Ligi"nde yer alıyor.
+Banka bilgileri ve şifre gibi kritik verileri saklayacak bir uygulama üzerinde çalışman hem teknik 
+bir meydan okuma hem de büyük bir sorumluluk. Türkiye pazarında bu tür yerel (local-first) uygulamalara 
+olan güven, veri sızıntılarının arttığı bu dönemde oldukça yüksek.
 
-İndirme Sayıları: 2025 yılı verilerine göre Türkiye, yaklaşık 3,1 milyar indirme ile dünyada en çok uygulama indirilen ilk 10 ülke (genellikle 7. veya 8. sıra) arasında kalmaya devam ediyor.
-
-Pazar Payı: Android'in Türkiye'deki domine edici yapısı (yaklaşık %75-80 seviyelerinde) Play Store rakamlarını yerel geliştiriciler için hala ana odak noktası yapıyor.
-
-2. Gelir ve Harcama Eğilimleri
-Toplam Gelir: Türkiye mobil uygulama pazarının toplam gelirinin 2029 yılına kadar 1,65 milyar $ seviyesine ulaşması bekleniyor.
-
-Kullanıcı Başına Harcama: Türkiye'de indirme sayıları çok yüksek olsa da, kullanıcı başına düşen harcama (ARPU) hala küresel ortalamanın altında. Ancak oyun tarafında ciddi bir ivme var. 2025'te sadece mobil oyun gelirlerinin Türkiye'de 427,5 milyon $ civarında olduğu tahmin ediliyor.
-
-GenAI Etkisi: 2025'in genel trendi Türkiye'de de geçerli; ChatGPT ve benzeri yapay zeka araçları hem indirme hem de abonelik geliri tarafında en üst sıralara tırmandı.
-
-3. Popüler Kategoriler ve Yerel Başarılar
-Türkiye'de Play Store'u domine eden üç ana dikey var:
-
-Oyunlar: PUBG Mobile, 101 YüzBir Okey Plus ve Subway Surfers gibi "klasikler" hala zirvede. Ancak yerli stüdyoların (Dream Games, Peak vb.) etkisiyle "Hybridcasual" ve "Puzzle" türlerinde yerel harcamalar yüksek.
-
-E-Ticaret ve Finans: Trendyol, Hepsiburada ve bankacılık uygulamaları günlük aktif kullanıcı (DAU) sayısında sosyal medyadan sonra en güçlü kategori.
-
-Hizmet ve Takip: Senin de üzerinde çalıştığın Bluetooth/GPS tabanlı takip veya IoT entegrasyonlu uygulama nişleri, Türkiye'deki "akıllı cihaz" kullanım oranının artmasıyla (77 milyon internet kullanıcısı) yükselen bir ivmeye sahip.
-
-4. Geliştiriciler İçin Kritik Değişim: "Temizlik"
-Google, 2024 ve 2025 yıllarında Play Store'da ciddi bir kalite temizliği yaptı.
-
-Uygulama Sayısı: 2024 başında 3,4 milyon olan global uygulama sayısı, düşük kaliteli ve işlevsiz uygulamaların silinmesiyle 2025 sonunda 1,8 milyona kadar geriledi.
-
-Anlamı: Artık Play Store'da sadece "çalışan" değil, "yüksek kaliteli ve güvenli" olan uygulamalar barınabiliyor. Bu durum, senin gibi mühendislik odaklı ve temiz kod (Clean Code) prensibiyle çalışan geliştiriciler için rekabetin kalitesini artıran bir avantaj.
-
-Özet Tablo (2025 Tahmini Veriler)
-Veri Başlığı	Yaklaşık Değer
-Yıllık Uygulama İndirme (Türkiye)	~3.1 Milyar
-Mobil Oyun Geliri (Türkiye)	~427.5 Milyon $
-Toplam İnternet Kullanıcısı	77.3 Milyon
-Android Pazar Payı (Türkiye)	~%78
-Türkiye pazarı indirme hacmiyle "test ve büyüme" için harika bir yer, ancak yüksek gelir hedefliyorsan uygulamanı küresel pazara (özellikle ABD ve Avrupa) optimize etmen hala en mantıklı strateji gibi duruyor.
-
-Türkiye'deki bu rakamlar üzerinden spesifik bir niş (mesela IoT veya takip uygulamaları) hakkında daha derin teknik bir analiz istersen oradan devam edebiliriz.
-
-Güvenli bir not uygulaması bitirmek üzereyim kullanıcı önemli bilgilerini kullanıcı adı şifre Banka bilgileri gibi saklayabilecek birkaç güvenlik katmanı var lokalde çalışıyor. Ne dersin bunun için
-
-Banka bilgileri ve şifre gibi kritik verileri saklayacak bir uygulama üzerinde çalışman hem teknik bir meydan okuma hem de büyük bir sorumluluk. Türkiye pazarında bu tür yerel (local-first) uygulamalara olan güven, veri sızıntılarının arttığı bu dönemde oldukça yüksek.
-
-Embedded geçmişine ve Flutter/Firebase deneyimine dayanarak, mimariyi "kurşun geçirmez" hale getirmek için şu teknik detayları gözden geçirmeni öneririm:
+Embedded geçmişine ve Flutter/Firebase deneyimine dayanarak, mimariyi "kurşun geçirmez" hale getirmek 
+için şu teknik detayları gözden geçirmeni öneririm:
 
 1. Veri Depolama ve Şifreleme (Data at Rest)
-Uygulamanın lokalde çalışması avantaj ancak cihazın çalınması veya root'lanması riskine karşı ham veri asla diske yazılmamalı.
+Uygulamanın lokalde çalışması avantaj ancak cihazın çalınması veya root'lanması riskine karşı ham veri 
+asla diske yazılmamalı.
 
-SQLCipher: Eğer standart bir SQLite kullanıyorsan, bunu SQLCipher ile değiştirerek tüm veritabanını AES-256 ile şifrele.
+SQLCipher: Eğer standart bir SQLite kullanıyorsan, bunu SQLCipher ile değiştirerek tüm veritabanını 
+AES-256 ile şifrele.
 
-EncryptedSharedPreferences: Basit ayarlar veya küçük bayraklar için Flutter'da flutter_secure_storage kullanıyorsundur; bu arka planda Android'de Keystore, iOS'ta Keychain kullanır. Ancak büyük veriler için mutlaka veritabanı seviyesinde şifreleme şart.
+EncryptedSharedPreferences: Basit ayarlar veya küçük bayraklar için Flutter'da flutter_secure_storage 
+kullanıyorsundur; bu arka planda Android'de Keystore, iOS'ta Keychain kullanır. Ancak büyük veriler için 
+mutlaka veritabanı seviyesinde şifreleme şart.
 
 2. Anahtar Yönetimi (Key Management)
 En büyük risk şifreleme anahtarını uygulamanın içine "hardcoded" yazmaktır.
 
-Android Keystore / iOS Keychain: Şifreleme anahtarını asla kodun içinde tutma. Anahtarı cihazın donanımsal güvenlik modülünde (TEE veya Secure Element) oluştur ve orada sakla. Uygulaman sadece bu anahtarı "kullanma yetkisi" ister, anahtarı asla görmez.
+Android Keystore / iOS Keychain: Şifreleme anahtarını asla kodun içinde tutma. Anahtarı cihazın donanımsal 
+güvenlik modülünde (TEE veya Secure Element) oluştur ve orada sakla. Uygulaman sadece bu anahtarı 
+"kullanma yetkisi" ister, anahtarı asla görmez.
 
-BiometricPrompt: Kullanıcı veriye erişmek istediğinde sadece biyometrik doğrulama (parmak izi/yüz tanıma) başarılı olursa anahtara erişim izni verilmeli.
+BiometricPrompt: Kullanıcı veriye erişmek istediğinde sadece biyometrik doğrulama (parmak izi/yüz tanıma) 
+başarılı olursa anahtara erişim izni verilmeli.
 
 3. Ekran Güvenliği ve "Snapshot" Koruması
 Mobil işletim sistemleri uygulama arka plana alındığında ekranın bir fotoğrafını çeker.
 
-FLAG_SECURE: Android tarafında bu flag'i kullanarak uygulamanın ekran görüntüsü alınmasını ve uygulama geçiş ekranında (app switcher) içeriğin görünmesini engellemelisin. Banka bilgileri görünüyor olması büyük bir açık olur.
+FLAG_SECURE: Android tarafında bu flag'i kullanarak uygulamanın ekran görüntüsü alınmasını ve uygulama 
+geçiş ekranında (app switcher) içeriğin görünmesini engellemelisin. Banka bilgileri görünüyor olması büyük 
+bir açık olur.
 
 4. RAM Güvenliği (Data in Memory)
-Veriyi veritabanından çektin ve ekranda gösteriyorsun. Kullanıcı işini bitirdiğinde bu verinin RAM'den temizlenmesi gerekir.
+Veriyi veritabanından çektin ve ekranda gösteriyorsun. Kullanıcı işini bitirdiğinde bu verinin RAM'den 
+temizlenmesi gerekir.
 
-Değişkenleri mümkün olduğunca kısa süreli tut ve hassas verileri içeren string'leri işleri bittiğinde "null" yaparak veya üzerine rastgele veri yazarak temizle (Flutter'da çöp toplayıcı -GC- kontrolü kısıtlıdır ama nesne referanslarını öldürmek önemli).
+Değişkenleri mümkün olduğunca kısa süreli tut ve hassas verileri içeren string'leri işleri bittiğinde "null" 
+yaparak veya üzerine rastgele veri yazarak temizle (Flutter'da çöp toplayıcı -GC- kontrolü kısıtlıdır ama 
+nesne referanslarını öldürmek önemli).
 
 5. Root/Jailbreak Tespiti
-Uygulama başladığında cihazın güvenliğini kontrol et. Eğer cihaz root'luysa, veritabanı şifreli olsa bile saldırganın RAM'den veri okuma ihtimali artar. Bu durumda kullanıcıya uyarı verebilir veya uygulamayı kısıtlı modda çalıştırabilirsin.
+Uygulama başladığında cihazın güvenliğini kontrol et. Eğer cihaz root'luysa, veritabanı şifreli olsa bile 
+saldırganın RAM'den veri okuma ihtimali artar. Bu durumda kullanıcıya uyarı verebilir veya uygulamayı 
+kısıtlı modda çalıştırabilirsin.
 
 Mühendis Gözüyle Bir "Checklist":
 Katman	Öneri
@@ -82,27 +57,38 @@ Key Storage	Hardware-backed Keystore (Android) / Keychain (iOS)
 Auth	Biometric Auth + Fallback PIN (App-specific, not device-wide)
 Privacy	Screen Obfuscation (Arka planda ekranı karartma)
 Clipboard	"Kopyala" özelliğine süre sınırı koyma veya temizleme
-Küçük bir tavsiye: Eğer kullanıcı adı ve şifre saklanacaksa, kullanıcıya bu şifrelerin ne kadar güçlü olduğunu gösteren bir "strength meter" eklemek hem UX'i artırır hem de güven hissini pekiştirir.
+Küçük bir tavsiye: Eğer kullanıcı adı ve şifre saklanacaksa, kullanıcıya bu şifrelerin ne kadar güçlü 
+olduğunu gösteren bir "strength meter" eklemek hem UX'i artırır hem de güven hissini pekiştirir.
 
-Bu güvenlik katmanlarından hangilerini hallettin? Özellikle anahtar yönetimi (key management) kısmında nasıl bir yol izledin?
+Bu güvenlik katmanlarından hangilerini hallettin? Özellikle anahtar yönetimi (key management) kısmında 
+nasıl bir yol izledin?
 
-Aes256 ile db tutuyoruz giriş desen korumalı kullanıcı isterse. Pin veya biometrik ikinci korumayı aktif edebiliyor ayrıca vault Word özelliği ile aktif edilirse kayıtlar doğru kelime girilmeden anlamsız kalıyor
+Aes256 ile db tutuyoruz giriş desen korumalı kullanıcı isterse. Pin veya biometrik ikinci korumayı aktif 
+edebiliyor ayrıca vault Word özelliği ile aktif edilirse kayıtlar doğru kelime girilmeden anlamsız kalıyor
 
-Güvenlik mimarisini katmanlı düşünmen oldukça yerinde. Özellikle "Vault Word" (Kasa Kelimesi) yaklaşımı, standart şifreleme yöntemlerine "Knowledge Factor" (Bilgi Faktörü) eklediği için profesyonel bir dokunuş olmuş.
+Güvenlik mimarisini katmanlı düşünmen oldukça yerinde. Özellikle "Vault Word" (Kasa Kelimesi) yaklaşımı, 
+standart şifreleme yöntemlerine "Knowledge Factor" (Bilgi Faktörü) eklediği için profesyonel bir dokunuş 
+olmuş.
 
 Bu yapı üzerinden bir mühendislik okuması yaparsak, dikkat etmen gereken birkaç kritik nokta var:
 
 1. Vault Word (Derişim Anahtarı) Mantığı
 Kullanıcının girdiği bu kelimeyi doğrudan anahtar olarak kullanmıyorsundur diye tahmin ediyorum.
 
-PBKDF2 / Argon2: Vault Word'ü doğrudan kullanmak yerine, güçlü bir Key Derivation Function (KDF) ile "tuzlayarak" (salt) türetmelisin.
+PBKDF2 / Argon2: Vault Word'ü doğrudan kullanmak yerine, güçlü bir Key Derivation Function (KDF) ile 
+"tuzlayarak" (salt) türetmelisin.
 
-Etki: Eğer Vault Word yanlışsa, türetilen AES anahtarı da yanlış olacaktır. AES doğası gereği yanlış anahtarla çözme (decryption) yaptığında hata vermez, sadece ortaya "Garbage Data" (anlamsız veri) çıkarır. Bu da saldırganın doğru anahtarı bulup bulmadığını anlamasını zorlaştıran bir "deneme-yanılma" bariyeri oluşturur.
+Etki: Eğer Vault Word yanlışsa, türetilen AES anahtarı da yanlış olacaktır. AES doğası gereği yanlış 
+anahtarla çözme (decryption) yaptığında hata vermez, sadece ortaya "Garbage Data" (anlamsız veri) çıkarır. 
+Bu da saldırganın doğru anahtarı bulup bulmadığını anlamasını zorlaştıran bir "deneme-yanılma" bariyeri 
+oluşturur.
 
 2. Giriş Deseni ve Biometrik Ayrımı
 Giriş deseni (Pattern) genelde kullanıcı kolaylığı içindir ancak biometrik veri kadar güvenli değildir.
 
-Master Key Entegrasyonu: Biometrik doğrulamayı sadece "uygulamayı açan bir anahtar" olarak değil, veritabanı şifresini çözen anahtarın (Master Key) donanımsal katmanda serbest bırakılmasını sağlayan bir tetikleyici olarak kullanmalısın.
+Master Key Entegrasyonu: Biometrik doğrulamayı sadece "uygulamayı açan bir anahtar" olarak değil, veritabanı 
+şifresini çözen anahtarın (Master Key) donanımsal katmanda serbest bırakılmasını sağlayan bir tetikleyici 
+olarak kullanmalısın.
 
 Senaryo: Kullanıcı Vault Word kullanmıyorsa, Master Key sadece biometrik veya PIN ile Keystore'dan çekilmeli. Vault Word aktifse, veriyi çözmek için hem Keystore'dan gelen anahtar hem de kullanıcının o an girdiği kelime birleştirilmelidir (Key 
 final
@@ -110,9 +96,12 @@ final
  =KDF(VaultWord,DeviceKey)).
 
 3. "Anlamsız Kalma" Durumu (Zero-Knowledge)
-Kaydedilen verilerin Vault Word olmadan anlamsız kalması, senin bile (eğer cloud senkronizasyonu gelirse) verilere erişemeyeceğin anlamına gelir. Bu bir "Zero-Knowledge Architecture" örneğidir.
+Kaydedilen verilerin Vault Word olmadan anlamsız kalması, senin bile (eğer cloud senkronizasyonu gelirse) 
+verilere erişemeyeceğin anlamına gelir. Bu bir "Zero-Knowledge Architecture" örneğidir.
 
-Risk: Kullanıcı Vault Word'ü unutursa veriler matematiksel olarak geri döndürülemez. Kullanıcıya bu özelliği aktif ederken "Geri dönüşü yoktur" uyarısını net bir şekilde yapman, Play Store'daki "Verilerim silindi/açılmıyor" yorumlarının önüne geçer.
+Risk: Kullanıcı Vault Word'ü unutursa veriler matematiksel olarak geri döndürülemez. Kullanıcıya bu özelliği 
+aktif ederken "Geri dönüşü yoktur" uyarısını net bir şekilde yapman, Play Store'daki 
+"Verilerim silindi/açılmıyor" yorumlarının önüne geçer.
 
 Güvenlik Katmanları Şeması
 Katman	İşlev	Güvenlik Seviyesi
@@ -123,18 +112,25 @@ Vault Word	Matematiksel erişim bariyeri (Knowledge base)	En Yüksek
 Uygulama İpucu: Bellek Temizliği (Memory Wiping)
 Vault Word'ü kullanıcıdan aldın, veriyi çözdün ve gösterdin. O "Vault Word" string'i RAM'de ne kadar kalıyor?
 
-Flutter tarafında String nesneleri immutable olduğu için RAM'de kalma eğilimindedir. Kritik kelimeleri işledikten sonra değişkeni temizlediğinden emin olman uygulamanın "güvenli" etiketini gerçekten hak etmesini sağlar.
+Flutter tarafında String nesneleri immutable olduğu için RAM'de kalma eğilimindedir. Kritik kelimeleri 
+işledikten sonra değişkeni temizlediğinden emin olman uygulamanın "güvenli" etiketini gerçekten hak etmesini 
+sağlar.
 
-Bu "Vault Word" ile yapılan şifreleme işlemi her kayıt (row) için ayrı bir Salt (tuz) ile mi yapılıyor, yoksa tüm DB için tek bir türetilmiş anahtar mı kullanıyorsun?
+Bu "Vault Word" ile yapılan şifreleme işlemi her kayıt (row) için ayrı bir Salt (tuz) ile mi yapılıyor, 
+yoksa tüm DB için tek bir türetilmiş anahtar mı kullanıyorsun?
 
 Anahtar
 
-"Anahtar" (Key) meselesi, bu tip güvenlik uygulamalarının hem en güçlü hem de en zayıf halkasıdır. Gömülü sistemler (embedded) tarafındaki tecrübenle de bileceğin üzere, kilit ne kadar sağlam olursa olsun, anahtarı paspasın altına koyarsan kilidin bir anlamı kalmaz.
+"Anahtar" (Key) meselesi, bu tip güvenlik uygulamalarının hem en güçlü hem de en zayıf halkasıdır. 
+Gömülü sistemler (embedded) tarafındaki tecrübenle de bileceğin üzere, kilit ne kadar sağlam olursa olsun, 
+anahtarı paspasın altına koyarsan kilidin bir anlamı kalmaz.
 
-Senin kurguladığın Vault Word + Biometrik/PIN yapısında anahtar hiyerarşisini şu şekilde yönetmen güvenliği bir üst seviyeye taşır:
+Senin kurguladığın Vault Word + Biometrik/PIN yapısında anahtar hiyerarşisini şu şekilde yönetmen güvenliği 
+bir üst seviyeye taşır:
 
 1. Anahtar Türetme Mimarisi (KDF)
-Kullanıcının girdiği "Vault Word" doğrudan şifreleme anahtarı olmamalıdır. Bir saldırganın deneme-yanılma (brute-force) yapmasını zorlaştırmak için PBKDF2, Scrypt veya tercihen Argon2 kullanmalısın.
+Kullanıcının girdiği "Vault Word" doğrudan şifreleme anahtarı olmamalıdır. Bir saldırganın deneme-yanılma 
+(brute-force) yapmasını zorlaştırmak için PBKDF2, Scrypt veya tercihen Argon2 kullanmalısın.
 
 Iteration (Yineleme): Anahtar türetilirken binlerce kez hash'leme yapılarak işlem kasıtlı olarak yavaşlatılır. Bu, senin uygulaman için milisaniyeler sürerken, saniyede milyonlarca deneme yapan bir saldırgan için süreci imkansız hale getirir.
 
@@ -791,3 +787,53 @@ Kolay gelsin, Lynra GreyNote'un kodları sana emanet. Bir sonraki kritik güvenl
 
 
 
+Eyvallah brom, "başla" komutunu aldım. Lynra GreyNote'un tüm iskeletini (23 dosya) derinlemesine inceledim. Gömülü sistemci titizliğiyle yaptığın dokunuşlar kodun her yerinde belli oluyor; temiz, modüler ve hedefe odaklı bir yapı kurmuşsun.
+
+Ancak "%101 güvenlik" hedefimiz olduğu için, "iyi" olanı "kusursuz" hale getirmemiz gereken noktalar var. İşte Lynra'nın mevcut durumunun röntgeni ve ilk müdahale planımız:
+
+1. Genel Güvenlik Analizi (Röntgen)
+Güçlü Yanlar:
+
+Kripto Seçimi: AesGcm ve Pbkdf2 kullanımı harika. GCM modu bütünlük kontrolü (MAC) sağladığı için verinin manipüle edilmediğinden emin oluyoruz.
+
+Offline Mimari: İnternet izni olmaması en büyük kalen.
+
+Secure Storage: Hassas anahtarları düz metin yerine donanım destekli bir yapıda tutman doğru.
+
+Zayıf Halkalar ve Riskler:
+
+Statik Salt (Tuz): crypto_helper.dart içinde lynra_salt ifadesini statik (hardcoded) kullanmışsın. Bu, gömülü sistemlerde "global key" kullanmak gibidir; bir cihazın salt'ı çözülürse hepsi risk altına girer.
+
+Vault Word (Maskeleme): vault_list_screen.dart ve vault_detail_screen.dart dosyalarında Vault Word sadece UI katmanında bir "if-else" kontrolü olarak duruyor. Veri RAM'de çoktan çözülmüş durumda, sadece ekranda farklı yazı gösteriyorsun. Bu bir sızma anında veriyi korumaz.
+
+Master Key Sorunu: vaultKey = '1234' ifadesi geçici olarak mı duruyor bilmiyorum ama şu an sistemde gerçek bir anahtar hiyerarşisi henüz tam oturmamış.
+
+2. Stratejik Yol Haritası (Adım Adım)
+Güvenliği katman katman artıracağız. Hiçbir adımı bitirmeden diğerine geçmeyeceğiz.
+
+ADIM 1: Kriptografik Temelleri Zırhlandırmak (KDF ve Salt)
+Önce "Anahtar Türetme" (Key Derivation) kısmını kırılamaz hale getirmeliyiz. 
+Statik salt'tan kurtulup, her cihaza özel benzersiz bir salt oluşturacağız.
+
+ADIM 2: Vault Word'ü "Kilit" Haline Getirmek
+Vault Word'ü sadece bir maske olmaktan çıkarıp, AES anahtarının bir parçası yapacağız. 
+O kelime girilmeden veri fiziksel olarak çözülemeyecek (Decryption fail edecek).
+
+ADIM 3: Donanım Kilidi (Biometric & Keystore)
+flutter_secure_storage üzerindeki anahtarları biometrik doğrulama şartına 
+(authentication required) bağlayacağız.
+
+ADIM 4: RAM ve Ekran Güvenliği
+FLAG_SECURE entegrasyonu ve RAM'deki hassas string'lerin temizlenmesi.
+
+İlk Görev: Adım 1 - "Salt" ve Anahtar Türetme Güvenliği
+Şimdi crypto_helper.dart ve auth_storage.dart üzerinden ilk müdahaleyi yapalım.
+
+Mevcut Sorun: static const salt = "lynra_salt"; kullanımı.
+Çözüm: Uygulama ilk kurulduğunda (Onboarding aşamasında) rastgele bir secure_salt üretip bunu 
+SecureStorage içine saklayacağız. Pbkdf2 bu cihaz-özel salt'ı kullanacak.
+
+Brom, hazırsan başlıyoruz. İlk iş olarak "Unique Salt" (Cihaza Özel Tuz) mantığını koda dökelim mi? 
+Sen "tamam" dediğinde, auth_storage.dart içinde salt üretme ve crypto_helper.dart içinde 
+bunu kullanma mantığını içeren güncel yapıyı konuşacağız. Kod istemeden verilmeyecek kuralına 
+sadık kalarak, önce mantığı onaylamanı bekliyorum.
