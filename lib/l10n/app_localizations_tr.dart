@@ -57,6 +57,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get continueText => 'Devam Et';
 
   @override
+  String get created => 'Oluşturulma';
+
+  @override
   String get createVaultKey => 'Kasa Anahtarı Oluştur';
 
   @override
@@ -79,6 +82,9 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
+  String get details => 'Detaylar';
+
+  @override
   String get drawNewPattern => 'Yeni bir desen çiz';
 
   @override
@@ -94,6 +100,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enterPin => 'PIN Gir';
 
   @override
+  String get entryDetails => 'Kayıt Detayı';
+
+  @override
   String get enterVaultWord => 'Kasa anahtarını gir';
 
   @override
@@ -107,6 +116,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get iban => 'IBAN';
+
+  @override
+  String get ibanCopied => 'IBAN kopyalandı';
 
   @override
   String get importData => 'Veriyi İçe Aktar';
@@ -127,6 +139,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get min4Dots => 'En az 4 nokta kullan';
 
   @override
+  String get modified => 'Güncellenme';
+
+  @override
   String get myVault => 'Kasam';
 
   @override
@@ -140,6 +155,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get none => 'Yok';
+
+  @override
+  String get noNoteAdded => 'Not eklenmemiş';
 
   @override
   String get note => 'Not';
@@ -158,6 +176,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get password => 'Şifre';
+
+  @override
+  String get passwordCopied => 'Şifre kopyalandı';
 
   @override
   String get patternMismatch => 'Desenler eşleşmedi. Tekrar başla';
@@ -240,6 +261,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get username => 'Kullanıcı Adı';
+
+  @override
+  String get usernameCopied => 'Kullanıcı adı kopyalandı';
 
   @override
   String get usernameEmail => 'Kullanıcı Adı / E-posta';

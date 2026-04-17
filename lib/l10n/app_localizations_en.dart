@@ -57,6 +57,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continueText => 'Continue';
 
   @override
+  String get created => 'Created';
+
+  @override
   String get createVaultKey => 'Create Your Vault Key';
 
   @override
@@ -79,6 +82,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get details => 'Details';
+
+  @override
   String get drawNewPattern => 'Draw a new pattern';
 
   @override
@@ -94,6 +100,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get enterPin => 'Enter PIN';
 
   @override
+  String get entryDetails => 'Entry Details';
+
+  @override
   String get enterVaultWord => 'Enter your vault word';
 
   @override
@@ -107,6 +116,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get iban => 'IBAN';
+
+  @override
+  String get ibanCopied => 'IBAN copied';
 
   @override
   String get importData => 'Import Data';
@@ -127,6 +139,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get min4Dots => 'Use at least 4 dots';
 
   @override
+  String get modified => 'Modified';
+
+  @override
   String get myVault => 'My Vault';
 
   @override
@@ -140,6 +155,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get none => 'None';
+
+  @override
+  String get noNoteAdded => 'No note added';
 
   @override
   String get note => 'Note';
@@ -158,6 +176,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get password => 'Password';
+
+  @override
+  String get passwordCopied => 'Password copied';
 
   @override
   String get patternMismatch => 'Patterns did not match. Start again';
@@ -246,6 +267,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get username => 'Username';
+
+  @override
+  String get usernameCopied => 'Username copied';
 
   @override
   String get usernameEmail => 'Username / Email';

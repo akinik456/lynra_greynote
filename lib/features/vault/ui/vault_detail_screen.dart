@@ -17,7 +17,7 @@ class VaultDetailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pageTitle =
-        shouldHide ? randomFakeText() : (item.title.isEmpty ? 'Entry Details' : item.title);
+        shouldHide ? randomFakeText() : (item.title.isEmpty ? AppLocalizations.of(context)!.entryDetails : item.title);
 
     return Scaffold(
 	backgroundColor: const Color(0xFF020617),
@@ -67,34 +67,34 @@ class VaultDetailScreen extends StatelessWidget {
           if (item.type == "standard") ...[
             if (shouldHide) ...[
               _InfoCard(
-                label: 'Username',
+                label: AppLocalizations.of(context)!.username,
                 value: randomFakeText(),
               ),
               if (item.iban.isNotEmpty) ...[
                 const SizedBox(height: 12),
                 _InfoCard(
-                  label: 'IBAN',
+                  label: AppLocalizations.of(context)!.iban,
                   value: randomFakeText(),
                 ),
               ],
               const SizedBox(height: 12),
               _InfoCard(
-                label: 'Password',
+                label: AppLocalizations.of(context)!.password,
                 value: randomFakeText(),
               ),
               const SizedBox(height: 12),
             ] else ...[
               _CopyTile(
-                label: 'Username',
+                label: AppLocalizations.of(context)!.username,
                 value: item.username,
-                snackText: 'Username copied',
+                snackText: AppLocalizations.of(context)!.usernameCopied,
               ),
               if (item.iban.isNotEmpty) ...[
                 const SizedBox(height: 12),
                 _CopyTile(
-                  label: 'IBAN',
+                  label: AppLocalizations.of(context)!.iban,
                   value: item.iban,
-                  snackText: 'IBAN copied',
+                  snackText: AppLocalizations.of(context)!.ibanCopied,
                 ),
               ],
               const SizedBox(height: 12),
@@ -103,10 +103,10 @@ class VaultDetailScreen extends StatelessWidget {
             ],
           ],
           _InfoCard(
-            label: 'Note',
+            label: AppLocalizations.of(context)!.note,
             value: shouldHide
                 ? randomFakeText()
-                : (item.note.isEmpty ? 'No note added' : item.note),
+                : (item.note.isEmpty ? AppLocalizations.of(context)!.noNoteAdded : item.note),
           ),
           const SizedBox(height: 12),
           _MetaCard(item: item),
@@ -222,7 +222,7 @@ class _PasswordTileState extends State<_PasswordTile> {
                           hidden = true;
                         });
                         ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Password copied')),
+                          SnackBar(content: Text(AppLocalizations.of(context)!.passwordCopied)),
                         );
                       },
               ),
@@ -303,7 +303,7 @@ class _MetaCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Details',
+            AppLocalizations.of(context)!.details,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -311,9 +311,9 @@ class _MetaCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          _MetaRow(label: 'Created', value: _formatTs(item.createdAt)),
+          _MetaRow(label: AppLocalizations.of(context)!.created, value: _formatTs(item.createdAt)),
           const SizedBox(height: 10),
-          _MetaRow(label: 'Modified', value: _formatTs(item.updatedAt)),
+          _MetaRow(label: AppLocalizations.of(context)!.modified, value: _formatTs(item.updatedAt)),
         ],
       ),
     );

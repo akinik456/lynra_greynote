@@ -191,6 +191,12 @@ abstract class AppLocalizations {
   /// **'Continue'**
   String get continueText;
 
+  /// No description provided for @created.
+  ///
+  /// In en, this message translates to:
+  /// **'Created'**
+  String get created;
+
   /// No description provided for @createVaultKey.
   ///
   /// In en, this message translates to:
@@ -227,6 +233,12 @@ abstract class AppLocalizations {
   /// **'Delete \"{name}\"?'**
   String deleteEntryConfirm(Object name);
 
+  /// No description provided for @details.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get details;
+
   /// No description provided for @drawNewPattern.
   ///
   /// In en, this message translates to:
@@ -257,6 +269,12 @@ abstract class AppLocalizations {
   /// **'Enter PIN'**
   String get enterPin;
 
+  /// No description provided for @entryDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Entry Details'**
+  String get entryDetails;
+
   /// No description provided for @enterVaultWord.
   ///
   /// In en, this message translates to:
@@ -286,6 +304,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'IBAN'**
   String get iban;
+
+  /// No description provided for @ibanCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'IBAN copied'**
+  String get ibanCopied;
 
   /// No description provided for @importData.
   ///
@@ -323,6 +347,12 @@ abstract class AppLocalizations {
   /// **'Use at least 4 dots'**
   String get min4Dots;
 
+  /// No description provided for @modified.
+  ///
+  /// In en, this message translates to:
+  /// **'Modified'**
+  String get modified;
+
   /// No description provided for @myVault.
   ///
   /// In en, this message translates to:
@@ -352,6 +382,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'None'**
   String get none;
+
+  /// No description provided for @noNoteAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'No note added'**
+  String get noNoteAdded;
 
   /// No description provided for @note.
   ///
@@ -388,6 +424,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Password'**
   String get password;
+
+  /// No description provided for @passwordCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Password copied'**
+  String get passwordCopied;
 
   /// No description provided for @patternMismatch.
   ///
@@ -544,6 +586,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Username'**
   String get username;
+
+  /// No description provided for @usernameCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Username copied'**
+  String get usernameCopied;
 
   /// No description provided for @usernameEmail.
   ///
