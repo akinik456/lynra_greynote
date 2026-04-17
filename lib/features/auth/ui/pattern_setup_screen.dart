@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../auth/data/auth_storage.dart';
+import '../../../core/security/crypto_helper.dart';
 
 class PatternSetupScreen extends StatefulWidget {
   const PatternSetupScreen({super.key});
@@ -20,37 +22,54 @@ class _PatternSetupScreenState extends State<PatternSetupScreen> {
   static const Color _textSecondary = Color(0xFF94A3B8);
   static const Color _dotIdle = Color(0xFFCBD5E1);
 
-  void onPatternComplete(List<int> pattern) {
-    if (pattern.length < 4) {
-      setState(() {
-		messageKey = 'min4Dots';
-      });
-      return;
-    }
-
-    if (firstPattern == null) {
-      setState(() {
-        firstPattern = List<int>.from(pattern);
-		messageKey = 'confirmPattern';
-      });
-      return;
-    }
-
-    final same =
-        firstPattern!.length == pattern.length &&
-        firstPattern!.asMap().entries.every((e) => e.value == pattern[e.key]);
-
-    if (!same) {
-      setState(() {
-        firstPattern = null;
-		messageKey = 'patternMismatch';
-      });
-      return;
-    }
-
-    Navigator.pop(context, pattern.join('-'));
+void onPatternComplete(List<int> pattern) async { // async ekledik
+  if (pattern.length < 4) {
+    setState(() { messageKey = 'min4Dots'; });
+    return;
   }
 
+  if (firstPattern == null) {
+    setState(() {
+      firstPattern = List<int>.from(pattern);
+      messageKey = 'confirmPattern';
+    });
+    return;
+  }
+
+  final same = firstPattern!.length == pattern.length &&
+      firstPattern!.asMap().entries.every((e) => e.value == pattern[e.key]);
+
+  if (!same) {
+    setState(() {
+      firstPattern = null;
+      messageKey = 'patternMismatch';
+    });
+    return;
+  }
+
+  // --- KALE İNŞASI BURADA BAŞLIYOR ---
+  final patternString = pattern.join('-');
+  
+  // 1. Onboarding'de üretilen ham Master Key'i al
+  final rawMK = await AuthStorage.getRawMasterKey();
+  
+  if (rawMK != null) {
+    // 2. Master Key'i kullanıcının yeni deseniyle mühürle
+    final wrappedMK = await CryptoHelper.wrapMasterKey(
+      mkBase64: rawMK,
+      password: patternString, // '0-1-2-5' gibi
+      vaultWord: "",           // İlk kurulumda boş
+    );
+    
+    // 3. Paketli anahtarı sakla. Artık unwrap yapılabilecek.
+    await AuthStorage.saveWrappedMasterKey(wrappedMK);
+  }
+  // --- KALE İNŞASI BİTTİ ---
+
+  if (mounted) {
+    Navigator.pop(context, patternString);
+  }
+}
   @override
   Widget build(BuildContext context) {
     return WillPopScope(

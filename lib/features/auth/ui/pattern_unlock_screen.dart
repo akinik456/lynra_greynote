@@ -22,18 +22,21 @@ class _PatternUnlockScreenState extends State<PatternUnlockScreen> {
   static const Color _textPrimary = Color(0xFFE2E8F0);
   static const Color _textSecondary = Color(0xFF94A3B8);
 
-  void onPatternComplete(List<int> pattern) {
-    final input = pattern.join('-');
+// Mevcut onPatternComplete fonksiyonunu şu şekilde güncelle:
+void onPatternComplete(List<int> pattern) {
+  // 1. Deseni her zaman tireli formatta birleştiriyoruz (Örn: "0-1-2-5")
+  final input = pattern.join('-');
 
-    if (input == widget.savedPattern) {
-      Navigator.pop(context, true);
-    } else {
-      setState(() {
-        messageKey = 'wrongPattern';
-      });
-    }
+  if (input == widget.savedPattern) {
+    // 2. Sadece true değil, deseni (vaultKey) geri gönderiyoruz.
+    // Bu sayede Master Key'i çözmek için elimizde doğru formatlı anahtar olacak.
+    Navigator.pop(context, input); 
+  } else {
+    setState(() {
+      messageKey = 'wrongPattern';
+    });
   }
-
+}
   @override
   Widget build(BuildContext context) {
     return WillPopScope(

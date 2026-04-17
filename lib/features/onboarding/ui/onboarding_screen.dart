@@ -3,6 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_storage.dart';
+import '../../../core/security/crypto_helper.dart';
 
 
 
@@ -62,17 +63,19 @@ class OnboardingScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
-				  // 1. Cihaza özel tuzu (salt) sessizce üret ve sakla
-					await AuthStorage.initializeSecurity();
-                    await storage.write(
-                      key: "onboarding_seen",
-                      value: "true",
-                    );
+  // Sadece ham bileşenleri (Salt ve Raw Master Key) üret ve sakla
+  await AuthStorage.initializeSecurity();
 
-                    if (context.mounted) {
-                      Navigator.pop(context, true);
-                    }
-                  },
+  await storage.write(
+    key: "onboarding_seen",
+    value: "true",
+  );
+
+  if (context.mounted) {
+    // Desen belirleme ekranına yönlendir
+    Navigator.pop(context, true); 
+  }
+},
                   child: Text(AppLocalizations.of(context)!.continueText),
                 ),
               ),

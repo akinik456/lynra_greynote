@@ -97,6 +97,8 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   bool _unlocked = false;
   bool _unlockScreenOpen = false;
   String? _savedPattern;
+  String? vaultKey;
+  
 final storage = const FlutterSecureStorage();
   @override
   void initState() {
@@ -231,30 +233,41 @@ final storage = const FlutterSecureStorage();
 }
 
   Future<void> _unlockExistingPattern() async {
-    if (_savedPattern == null || _savedPattern!.isEmpty) return;
-    if (!mounted) return;
-    if (_unlockScreenOpen) return;
+  if (_savedPattern == null || _savedPattern!.isEmpty) return;
+  if (!mounted) return;
+  if (_unlockScreenOpen) return;
 
-    _unlockScreenOpen = true;
+  _unlockScreenOpen = true;
 
-    final unlocked = await Navigator.push<bool>(
-      context,
-      MaterialPageRoute(
-        builder: (_) => PatternUnlockScreen(savedPattern: _savedPattern!),
-      ),
-    );
+  // 1. Tipi bool'dan String'e çektik
+  final String? resultPattern = await Navigator.push<String>(
+    context,
+    MaterialPageRoute(
+      builder: (_) => PatternUnlockScreen(savedPattern: _savedPattern!),
+    ),
+  );
 
-    _unlockScreenOpen = false;
+  _unlockScreenOpen = false;
 
-    if (!mounted) return;
+  if (!mounted) return;
 
-    if (unlocked == true) {
-  final ok = await _checkSecondaryLock();
-  setState(() {
-    _unlocked = ok;
-  });
-}
+  // 2. Eğer desen null değilse (yani başarıyla girildiyse)
+  if (resultPattern != null) {
+    // 3. KRİTİK: Buradaki resultPattern senin artık asıl 'vaultKey'in!
+    // Eğer bu fonksiyon bir State içindeyse, vaultKey'i burada güncelliyoruz.
+    setState(() {
+      vaultKey = resultPattern; 
+    });
+
+    final ok = await _checkSecondaryLock();
+    setState(() {
+      _unlocked = ok;
+    });
+    
+    // 4. Verileri yükle (Artık elimizde Master Key'i çözecek doğru anahtar var)
+   // await load(); 
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -267,7 +280,9 @@ final storage = const FlutterSecureStorage();
     }
 
     if (_unlocked) {
-      return const VaultListScreen();
+      if (vaultKey != null) {
+  return VaultListScreen(vaultKey: vaultKey!); // vaultKey = "0-3-6-7"
+}
     }
 
     return Scaffold(

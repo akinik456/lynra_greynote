@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'features/vault/ui/vault_list_screen.dart';
+import '../../../main.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,14 +16,19 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(const Duration(milliseconds: 900), () {
+      if (!mounted) return;
+      
+      // DOĞRU YOL: Direkt VaultList'e değil, AppGate'e gidiyoruz.
+      // Çünkü vaultKey henüz üretilmedi, onu AppGate içindeki kilit ekranı üretecek.
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (_) => const VaultListScreen(),
+          builder: (_) =>  AppGate(), 
         ),
       );
     });
   }
+
 
   @override
   Widget build(BuildContext context) {

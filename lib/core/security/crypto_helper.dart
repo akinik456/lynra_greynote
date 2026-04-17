@@ -54,7 +54,8 @@ class CryptoHelper {
   static Future<SecretKey> deriveKey(String password) async {
   // Cihaza özel güvenli tuzu (salt) AuthStorage'dan çek
   final saltBase64 = await AuthStorage.getSecureSalt();
-  
+  print("DEBUG: Using Salt: $saltBase64");
+  print("DEBUG: Deriving key for password: $password");
   if (saltBase64 == null) {
     // Eğer salt yoksa (hata durumu), güvenliği korumak için işlemi durdur
     throw Exception("Security Error: Secure Salt not initialized!");

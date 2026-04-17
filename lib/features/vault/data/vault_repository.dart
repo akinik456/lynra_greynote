@@ -7,15 +7,16 @@ class VaultRepository {
   final _dbHelper = DatabaseHelper.instance;
   final _uuid = const Uuid();
 
+  // 1. INSERT: vaultKey -> masterKey
   Future<void> insertItem({
-    required String vaultKey,
+    required String masterKey, 
     required String title,
     required String username,
     required String password,
     required String note,
     required String iban,
     required String collectionId,
-	required String type,
+    required String type,
   }) async {
     final db = await _dbHelper.database;
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -32,11 +33,11 @@ class VaultRepository {
       updatedAt: now,
       lastChangedAt: now,
       isFavorite: false,
-	  type: type,
+      type: type,
     );
 
     final encryptedPayload =
-        await CryptoHelper.encrypt(item.toEncodedJson(), vaultKey);
+        await CryptoHelper.encrypt(item.toEncodedJson(), masterKey);
 
     await db.insert('vault', {
       'id': item.id,
@@ -48,8 +49,9 @@ class VaultRepository {
     });
   }
 
+  // 2. GET: vaultKey -> masterKey
   Future<List<VaultItem>> getItems({
-    required String vaultKey,
+    required String masterKey,
     required String collectionId,
   }) async {
     final db = await _dbHelper.database;
@@ -66,24 +68,29 @@ class VaultRepository {
     for (final row in rows) {
       try {
         final encryptedPayload = row['payload'] as String;
+        // Master Key ile çözüyoruz
         final decrypted =
-            await CryptoHelper.decrypt(encryptedPayload, vaultKey);
+            await CryptoHelper.decrypt(encryptedPayload, masterKey);
         items.add(VaultItem.fromEncodedJson(decrypted));
-      } catch (_) {}
+      } catch (e) {
+        // Çözülemezse (yanlış anahtar/bozuk veri) listeye eklemiyoruz
+        print("Decryption error in getItems: $e");
+      }
     }
 
     return items;
   }
 
+  // 3. UPDATE: vaultKey -> masterKey
   Future<void> updateItem({
-    required String vaultKey,
+    required String masterKey,
     required VaultItem oldItem,
     required String title,
     required String username,
     required String password,
     required String note,
     required String iban,
-	required String type,
+    required String type,
   }) async {
     final db = await _dbHelper.database;
     final now = DateTime.now().millisecondsSinceEpoch;
@@ -102,11 +109,11 @@ class VaultRepository {
       updatedAt: now,
       lastChangedAt: passwordChanged ? now : oldItem.lastChangedAt,
       isFavorite: oldItem.isFavorite,
-	  type: type,
+      type: type,
     );
 
     final encryptedPayload =
-        await CryptoHelper.encrypt(updatedItem.toEncodedJson(), vaultKey);
+        await CryptoHelper.encrypt(updatedItem.toEncodedJson(), masterKey);
 
     await db.update(
       'vault',
@@ -121,12 +128,11 @@ class VaultRepository {
     );
   }
 
-  Future<void> deleteItem(String id) async {
+Future<void> deleteItem(String id) async {
     final db = await _dbHelper.database;
     await db.delete(
       'vault',
       where: 'id = ?',
       whereArgs: [id],
     );
-  }
-}
+  }}

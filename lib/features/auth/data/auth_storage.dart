@@ -7,7 +7,8 @@ class AuthStorage {
   static const _patternKey = 'app_pattern';
   static const _saltKey = 'secure_salt'; // Yeni anahtarımız
   static const _masterKey = 'master_key'; // Yeni: Veri şifreleme anahtarımız
- 
+  static const _wrappedMasterKey = 'wrapped_master_key'; // Şifrelenmiş paket
+
   static Future<void> savePattern(String pattern) async {
     await _storage.write(key: _patternKey, value: pattern);
   }
@@ -47,6 +48,19 @@ class AuthStorage {
   static Future<String?> getSecureSalt() async {
     return await _storage.read(key: _saltKey);
   }
-  
+/// Ham Master Key'i okur (Sadece paketleme işlemi için kullanılır)
+  static Future<String?> getRawMasterKey() async {
+    return await _storage.read(key: _masterKey);
+  }
+
+  /// Paketlenmiş (Şifrelenmiş) Master Key'i saklar
+  static Future<void> saveWrappedMasterKey(String wrappedMK) async {
+    await _storage.write(key: _wrappedMasterKey, value: wrappedMK);
+  }
+
+  /// Paketlenmiş Master Key'i okur (Uygulama içinde asıl kullanılacak olan budur)
+  static Future<String?> getWrappedMasterKey() async {
+    return await _storage.read(key: _wrappedMasterKey);
+  }  
   
 }

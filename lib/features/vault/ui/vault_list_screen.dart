@@ -9,18 +9,22 @@ import '../data/collection_repository.dart';
 import '../models/vault_collection.dart';
 import '../../settings/ui/settings_screen.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../auth/data/auth_storage.dart';
+import '../../../core/security/crypto_helper.dart';
 
 
 class VaultListScreen extends StatefulWidget {
-  const VaultListScreen({super.key});
-
-  @override
+  final String vaultKey ;
+  const VaultListScreen({
+    super.key,
+    required this.vaultKey, // Zorunlu hale getir
+  });
+@override
   State<VaultListScreen> createState() => _VaultListScreenState();
 }
-
 class _VaultListScreenState extends State<VaultListScreen> {
   final repo = VaultRepository();
-  final vaultKey = '1234';
+  
   String selectedCollectionId = 'default';
   final collectionRepo = CollectionRepository();
   bool isVaultUnlocked = false;
@@ -46,13 +50,50 @@ class _VaultListScreenState extends State<VaultListScreen> {
     load();
   }
 
-  Future<void> load() async {
-    final result = await repo.getItems(
-      vaultKey: vaultKey,
-      collectionId: selectedCollectionId,
-    );
-    setState(() => items = result);
+Future<String?> _getUnwrappedMasterKey() async {
+  // 1. Paketli anahtarı oku
+  final wrappedMK = await AuthStorage.getWrappedMasterKey();
+  
+  // 2. Eğer henüz paketli anahtar yoksa (Onboarding hatası veya ilk kurulum)
+  if (wrappedMK == null) {
+    print("DEBUG: Paketli Master Key bulunamadı. Lütfen onboarding akışını kontrol et.");
+    return null;
   }
+
+  try {
+    // 3. Çözme işlemini başlat
+    return await CryptoHelper.unwrapMasterKey(
+      wrappedMKBase64: wrappedMK,
+      password: widget.vaultKey, // Pattern/PIN
+      vaultWord: "",      // Şimdilik boş, Settings'e bağlayacağız
+    );
+  } catch (e) {
+    // Eğer buraya düşüyorsa: Ya şifre yanlış ya da paketleme hatalı (MAC Hatası)
+    print("DEBUG: Master Key Unwrapping hatası: $e");
+    return null;
+  }
+}
+
+  Future<void> load() async {
+  // 1. Paketlemiş Master Key'i kullanıcının şifresiyle çözüyoruz
+  // Not: _getUnwrappedMasterKey senin şifre (vaultKey) ve güncel Vault Word'ünü kullanır.
+  final mk = await _getUnwrappedMasterKey();
+
+  // 2. Eğer anahtar çözülemezse (Yanlış şifre veya bozuk anahtar) işlemi durdur
+  if (mk == null) {
+    print("HATA: Master Key çözülemedi, veriler çekilemiyor.");
+    return;
+  }
+
+  // 3. Çözülmüş Master Key'i Repository'ye paslıyoruz
+  final result = await repo.getItems(
+    masterKey: mk, 
+    collectionId: selectedCollectionId,
+  );
+
+  // 4. Arayüzü güncelle
+  setState(() => items = result);
+}
 
   Future<void> loadCollections() async {
     final result = await collectionRepo.getCollections();
@@ -65,6 +106,8 @@ class _VaultListScreenState extends State<VaultListScreen> {
       }
     });
   }
+  
+  
 
   Future<void> loadVaultWordSettings() async {
     final enabled = await storage.read(key: "vault_word_enabled");
@@ -75,27 +118,28 @@ class _VaultListScreenState extends State<VaultListScreen> {
   }
 
   Future<void> openAdd() async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => const AddEditScreen(),
-      ),
-    );
+  final result = await Navigator.push(
+    context,
+    MaterialPageRoute(builder: (_) => const AddEditScreen()),
+  );
 
-    if (result != null) {
-      await repo.insertItem(
-        vaultKey: vaultKey,
-        title: result["title"] ?? "",
-        username: result["username"] ?? "",
-        password: result["password"] ?? "",
-        note: result["note"] ?? "",
-        iban: result["iban"] ?? "",
-        collectionId: selectedCollectionId,
-        type: result["type"] ?? "standard",
-      );
-      await load();
-    }
+  if (result != null) {
+    final mk = await _getUnwrappedMasterKey();
+    if (mk == null) return;
+
+    await repo.insertItem(
+      masterKey: mk,
+      title: result["title"] ?? "",
+      username: result["username"] ?? "",
+      password: result["password"] ?? "",
+      note: result["note"] ?? "",
+      iban: result["iban"] ?? "",
+      collectionId: selectedCollectionId,
+      type: result["type"] ?? "standard",
+    );
+    await load();
   }
+}
 
   Future<void> delete(VaultItem item) async {
     final confirmed = await showDialog<bool>(
@@ -229,19 +273,21 @@ class _VaultListScreenState extends State<VaultListScreen> {
                             );
 
                             if (result != null) {
-                              await repo.updateItem(
-                                vaultKey: vaultKey,
-                                oldItem: item,
-                                title: result["title"] ?? "",
-                                username: result["username"] ?? "",
-                                password: result["password"] ?? "",
-                                note: result["note"] ?? "",
-                                iban: result["iban"] ?? "",
-                                type: result["type"] ?? "standard",
-                              );
+  final mk = await _getUnwrappedMasterKey();
+  if (mk == null) return;
 
-                              await load();
-                            }
+  await repo.updateItem(
+    masterKey: mk,
+    oldItem: item,
+    title: result["title"] ?? "",
+    username: result["username"] ?? "",
+    password: result["password"] ?? "",
+    note: result["note"] ?? "",
+    iban: result["iban"] ?? "",
+    type: result["type"] ?? "standard",
+  );
+  await load();
+}
                           },
                           onLongPress: () => delete(item),
                         );
