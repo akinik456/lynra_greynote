@@ -107,6 +107,12 @@ abstract class AppLocalizations {
   /// **'Tap the + button to add your first secure entry.'**
   String get addFirstSecureEntry;
 
+  /// No description provided for @addIban.
+  ///
+  /// In en, this message translates to:
+  /// **'Add IBAN'**
+  String get addIban;
+
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
@@ -118,6 +124,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Authenticate to continue'**
   String get authenticateToContinue;
+
+  /// No description provided for @bankDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'Bank Details'**
+  String get bankDetails;
 
   /// No description provided for @biometric.
   ///
@@ -269,6 +281,12 @@ abstract class AppLocalizations {
   /// **'Hide sensitive content until unlocked'**
   String get hideSensitiveContent;
 
+  /// No description provided for @iban.
+  ///
+  /// In en, this message translates to:
+  /// **'IBAN'**
+  String get iban;
+
   /// No description provided for @importData.
   ///
   /// In en, this message translates to:
@@ -292,6 +310,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Maximum 5 collections allowed'**
   String get max5Collections;
+
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
 
   /// No description provided for @min4Dots.
   ///
@@ -329,6 +353,18 @@ abstract class AppLocalizations {
   /// **'None'**
   String get none;
 
+  /// No description provided for @note.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get note;
+
+  /// No description provided for @noteType.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get noteType;
+
   /// No description provided for @noUsername.
   ///
   /// In en, this message translates to:
@@ -340,6 +376,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.'**
   String get onboardingDescription;
+
+  /// No description provided for @optionalNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Optional note'**
+  String get optionalNote;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
 
   /// No description provided for @patternMismatch.
   ///
@@ -374,7 +422,7 @@ abstract class AppLocalizations {
   /// No description provided for @privateByDesign.
   ///
   /// In en, this message translates to:
-  /// **'Private by Design'**
+  /// **'Privacy is a fundamental, not a feature'**
   String get privateByDesign;
 
   /// No description provided for @save.
@@ -413,6 +461,18 @@ abstract class AppLocalizations {
   /// **'Set PIN'**
   String get setPin;
 
+  /// No description provided for @standard.
+  ///
+  /// In en, this message translates to:
+  /// **'Standard'**
+  String get standard;
+
+  /// No description provided for @strong.
+  ///
+  /// In en, this message translates to:
+  /// **'Strong'**
+  String get strong;
+
   /// No description provided for @vaultHeaderStats.
   ///
   /// In en, this message translates to:
@@ -425,6 +485,12 @@ abstract class AppLocalizations {
   /// **'Vault Word'**
   String get vaultWord;
 
+  /// No description provided for @weak.
+  ///
+  /// In en, this message translates to:
+  /// **'Weak'**
+  String get weak;
+
   /// No description provided for @wrongPattern.
   ///
   /// In en, this message translates to:
@@ -436,6 +502,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Wrong PIN'**
   String get wrongPin;
+
+  /// No description provided for @title.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get title;
 
   /// No description provided for @unlock.
   ///
@@ -466,6 +538,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Updated {date}'**
   String updatedDate(Object date);
+
+  /// No description provided for @username.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get username;
+
+  /// No description provided for @usernameEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Username / Email'**
+  String get usernameEmail;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -24,7 +24,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
   bool showBankDetails = false;
   bool hidePassword = true;
   String entryType = "standard";
-  String passwordStrength = "";
+  String passwordStrengthKey  = "";
 
   static const Color _bgColor = Color(0xFF020617);
   static const Color _cardColor = Color(0xFF0F172A);
@@ -73,7 +73,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
 
   void updatePasswordStrength(String password) {
     if (password.isEmpty) {
-      setState(() => passwordStrength = "");
+      setState(() => passwordStrengthKey = "");
       return;
     }
 
@@ -86,11 +86,11 @@ class _AddEditScreenState extends State<AddEditScreen> {
     if (RegExp(r'[!@#\$%&*_\-]').hasMatch(password)) score++;
 
     if (score <= 2) {
-      passwordStrength = "Weak";
+      passwordStrengthKey  = "Weak";
     } else if (score <= 4) {
-      passwordStrength = "Medium";
+      passwordStrengthKey  = "Medium";
     } else {
-      passwordStrength = "Strong";
+      passwordStrengthKey  = "Strong";
     }
 
     setState(() {});
@@ -108,7 +108,9 @@ class _AddEditScreenState extends State<AddEditScreen> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          isEdit ? "Edit Entry" : "New Entry",
+          isEdit
+  ? AppLocalizations.of(context)!.editEntry
+  : AppLocalizations.of(context)!.newEntry,
           style: const TextStyle(
             color: _textPrimary,
             fontWeight: FontWeight.w700,
@@ -123,7 +125,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
             children: [
               Expanded(
                 child: _TypeButton(
-                  label: "Standard",
+                  label: AppLocalizations.of(context)!.standard,
                   selected: entryType == "standard",
                   onTap: () {
                     setState(() => entryType = "standard");
@@ -133,7 +135,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
               const SizedBox(width: 8),
               Expanded(
                 child: _TypeButton(
-                  label: "Note",
+                  label: AppLocalizations.of(context)!.noteType,
                   selected: entryType == "note",
                   onTap: () {
                     setState(() => entryType = "note");
@@ -144,12 +146,12 @@ class _AddEditScreenState extends State<AddEditScreen> {
           ),
           const SizedBox(height: 14),
           _FieldCard(
-            label: "Title",
+            label: AppLocalizations.of(context)!.title,
             child: TextField(
               controller: titleCtrl,
-              style: const TextStyle(color: _textPrimary),
-              decoration: const InputDecoration(
-                hintText: "Title",
+              style: TextStyle(color: _textPrimary),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.title,
                 hintStyle: TextStyle(color: _textSecondary),
                 border: InputBorder.none,
               ),
@@ -157,19 +159,19 @@ class _AddEditScreenState extends State<AddEditScreen> {
           ),
           if (entryType == "standard") ...[
             _FieldCard(
-              label: "Username",
+              label: AppLocalizations.of(context)!.username,
               child: TextField(
                 controller: usernameCtrl,
-                style: const TextStyle(color: _textPrimary),
-                decoration: const InputDecoration(
-                  hintText: "Username / Email",
+                style: TextStyle(color: _textPrimary),
+                decoration: InputDecoration(
+                  hintText: AppLocalizations.of(context)!.usernameEmail,
                   hintStyle: TextStyle(color: _textSecondary),
                   border: InputBorder.none,
                 ),
               ),
             ),
             _FieldCard(
-              label: "Bank Details",
+              label: AppLocalizations.of(context)!.bankDetails,
               child: SwitchListTile(
                 contentPadding: EdgeInsets.zero,
                 value: showBankDetails,
@@ -182,15 +184,12 @@ class _AddEditScreenState extends State<AddEditScreen> {
                     }
                   });
                 },
-                title: const Text(
-                  "Add IBAN",
-                  style: TextStyle(color: _textPrimary),
-                ),
+                title: Text(AppLocalizations.of(context)!.addIban),
               ),
             ),
             if (showBankDetails)
               _FieldCard(
-                label: "IBAN",
+                label: AppLocalizations.of(context)!.iban,
                 child: TextField(
                   controller: ibanCtrl,
                   style: const TextStyle(color: _textPrimary),
@@ -202,7 +201,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 ),
               ),
             _FieldCard(
-              label: "Password",
+              label: AppLocalizations.of(context)!.password,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -223,9 +222,9 @@ class _AddEditScreenState extends State<AddEditScreen> {
                           controller: passwordCtrl,
                           obscureText: hidePassword,
                           onChanged: updatePasswordStrength,
-                          style: const TextStyle(color: _textPrimary),
-                          decoration: const InputDecoration(
-                            hintText: "Password",
+                          style: TextStyle(color: _textPrimary),
+                          decoration: InputDecoration(
+                            hintText: AppLocalizations.of(context)!.password,
                             hintStyle: TextStyle(color: _textSecondary),
                             border: InputBorder.none,
                           ),
@@ -246,34 +245,35 @@ class _AddEditScreenState extends State<AddEditScreen> {
                       ),
                     ],
                   ),
-                  if (passwordStrength.isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 6),
-                      child: Text(
-                        passwordStrength,
-                        style: TextStyle(
-                          color: passwordStrength == "Weak"
-                              ? Colors.redAccent
-                              : passwordStrength == "Medium"
-                                  ? Colors.orangeAccent
-                                  : Colors.greenAccent,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
+                  if (passwordStrengthKey.isNotEmpty)
+                    if (passwordStrengthKey.isNotEmpty)
+				  Padding(
+					padding: const EdgeInsets.only(top: 6),
+					child: Text(
+					  _strengthText(context),
+					  style: TextStyle(
+						color: passwordStrengthKey == "weak"
+							? Colors.redAccent
+							: passwordStrengthKey == "medium"
+								? Colors.orangeAccent
+								: Colors.greenAccent,
+						fontSize: 12,
+						fontWeight: FontWeight.w600,
+					  ),
+					),
+				  ),
                 ],
               ),
             ),
           ],
           _FieldCard(
-            label: "Note",
+            label: AppLocalizations.of(context)!.note,
             child: TextField(
               controller: noteCtrl,
               maxLines: entryType == "note" ? 10 : 3,
-              style: const TextStyle(color: _textPrimary),
-              decoration: const InputDecoration(
-                hintText: "Optional note",
+              style: TextStyle(color: _textPrimary),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.optionalNote,
                 hintStyle: TextStyle(color: _textSecondary),
                 border: InputBorder.none,
               ),
@@ -285,11 +285,26 @@ class _AddEditScreenState extends State<AddEditScreen> {
         backgroundColor: _primary,
         foregroundColor: Colors.black,
         onPressed: save,
-        label: const Text("Save"),
+        label: Text(AppLocalizations.of(context)!.save),
         icon: const Icon(Icons.check),
       ),
     );
   }
+String _strengthText(BuildContext context) {
+  final l = AppLocalizations.of(context)!;
+
+  switch (passwordStrengthKey) {
+    case "weak":
+      return l.weak;
+    case "medium":
+      return l.medium;
+    case "strong":
+      return l.strong;
+    default:
+      return "";
+  }
+}
+ 
 }
 
 class _FieldCard extends StatelessWidget {

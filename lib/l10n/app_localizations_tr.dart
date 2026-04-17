@@ -15,10 +15,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addFirstSecureEntry => 'İlk güvenli kaydını eklemek için + butonuna dokun.';
 
   @override
+  String get addIban => 'IBAN Ekle';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
   String get authenticateToContinue => 'Devam etmek için doğrulayın';
+
+  @override
+  String get bankDetails => 'Banka Bilgileri';
 
   @override
   String get biometric => 'Biyometrik';
@@ -100,6 +106,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get hideSensitiveContent => 'Hassas içerikleri kilit açılana kadar gizle';
 
   @override
+  String get iban => 'IBAN';
+
+  @override
   String get importData => 'Veriyi İçe Aktar';
 
   @override
@@ -110,6 +119,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get max5Collections => 'En fazla 5 koleksiyon eklenebilir';
+
+  @override
+  String get medium => 'Orta';
 
   @override
   String get min4Dots => 'En az 4 nokta kullan';
@@ -130,10 +142,22 @@ class AppLocalizationsTr extends AppLocalizations {
   String get none => 'Yok';
 
   @override
+  String get note => 'Not';
+
+  @override
+  String get noteType => 'Not';
+
+  @override
   String get noUsername => 'Kullanıcı adı yok';
 
   @override
   String get onboardingDescription => 'Verileriniz cihazınızda kalır.\n\nLynraGreyNote sunucu kullanmaz, sizi takip etmez ve hiçbir veri toplamaz.\n\nKaydettiğiniz her şey şifrelenir ve cihazda saklanır.\nSadece siz erişebilirsiniz.\n\nHızlı ve güvenli erişim için PIN veya Biyometri kullanabilirsiniz.\nEkstra gizlilik için Kasa Anahtarı özelliğini açabilirsiniz.';
+
+  @override
+  String get optionalNote => 'Opsiyonel not';
+
+  @override
+  String get password => 'Şifre';
 
   @override
   String get patternMismatch => 'Desenler eşleşmedi. Tekrar başla';
@@ -151,7 +175,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get pinsDoNotMatch => 'PIN\'ler eşleşmiyor';
 
   @override
-  String get privateByDesign => 'Gizlilik Önceliğimiz';
+  String get privateByDesign => 'Gizlilik Özellik Değil Temeldir';
 
   @override
   String get save => 'Kaydet';
@@ -172,6 +196,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get setPin => 'PIN Ayarla';
 
   @override
+  String get standard => 'Standart';
+
+  @override
+  String get strong => 'Güçlü';
+
+  @override
   String vaultHeaderStats(Object collection, int count) {
     return '$collection • $count öğe';
   }
@@ -180,10 +210,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get vaultWord => 'Kasa Kelimesi';
 
   @override
+  String get weak => 'Zayıf';
+
+  @override
   String get wrongPattern => 'Yanlış desen. Tekrar dene';
 
   @override
   String get wrongPin => 'Yanlış PIN';
+
+  @override
+  String get title => 'Başlık';
 
   @override
   String get unlock => 'Kilidi Aç';
@@ -201,4 +237,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Güncellendi $date';
   }
+
+  @override
+  String get username => 'Kullanıcı Adı';
+
+  @override
+  String get usernameEmail => 'Kullanıcı Adı / E-posta';
 }

@@ -3,8 +3,10 @@
 "@@locale": 				"en",
 "add": 						"Add",
 "addFirstSecureEntry": 		"Tap the + button to add your first secure entry.",
+"addIban": 					"Add IBAN",
 "appTitle": 				"LynraGreyNote",
 "authenticateToContinue": 	"Authenticate to continue",
+"bankDetails": 				"Bank Details",
 "biometric": 				"Biometric",
 "biometricFailed": 			"Biometric failed",
 "biometricNotAvailable": 	"Biometric not available",
@@ -40,30 +42,38 @@
 "exportComingNext": 		"Export coming next",
 "exportData": 				"Export Data",
 "hideSensitiveContent": 	"Hide sensitive content until unlocked",
+"iban": 					"IBAN",
 "importData": 				"Import Data",
 "importCompleted": 			"Import completed",
 "lynraSecurity":   			"Lynra Security",
 "max5Collections": 			"Maximum 5 collections allowed",
+"medium": 					"Medium",
 "min4Dots":        			"Use at least 4 dots",
 "myVault": 					"My Vault",
 "newCollection": 			"New Collection",
 "newEntry": 				"New Entry",
 "noEntriesYet": 			"No entries yet",
 "none": 					"None",
+"note": 					"Note",
+"noteType": 				"Note",
 "noUsername": 				"No username",
 "onboardingDescription": 	"Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.",
+"optionalNote": 			"Optional note",
+"password": 				"Password",
 "patternMismatch": 			"Patterns did not match. Start again",
 "pin": 						"PIN",
 "pinMustBe6Digits": 		"PIN must be 6 digits",
 "pinSaved": 				"PIN saved",
 "pinsDoNotMatch": 			"PINs do not match",
-"privateByDesign": 			"Private by Design",
+"privateByDesign": 			"Privacy is a fundamental, not a feature",
 "save": 					"Save",
 "savePin": 					"Save PIN",
 "secondaryLock": 			"Secondary Lock",
 "security": 				"Security",
 "settings": 				"Settings",
 "setPin": 					"Set PIN",
+"standard": 				"Standard",
+"strong": 					"Strong",
 "vaultHeaderStats": 		"{collection} • {count} {count,plural, =1{item} other{items}}",
 "@vaultHeaderStats": {
   "placeholders": {
@@ -73,11 +83,11 @@
     }
   }
 },
-
-
 "vaultWord": 				"Vault Word",
+"weak": 					"Weak",
 "wrongPattern":    			"Wrong pattern. Try again",
 "wrongPin": 				"Wrong PIN",
+"title": 					"Title",
 "unlock": 		   			"Unlock",
 "unlockContent": 			"Unlock Content",
 "unlockVault": 	   			"Unlock Vault",
@@ -87,7 +97,9 @@
   "placeholders": {
     "date": {}
   }
-}
+},
+"username": 				"Username",
+"usernameEmail": 			"Username / Email"
 }
 	
 	

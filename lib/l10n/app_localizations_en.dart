@@ -15,10 +15,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addFirstSecureEntry => 'Tap the + button to add your first secure entry.';
 
   @override
+  String get addIban => 'Add IBAN';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
   String get authenticateToContinue => 'Authenticate to continue';
+
+  @override
+  String get bankDetails => 'Bank Details';
 
   @override
   String get biometric => 'Biometric';
@@ -100,6 +106,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get hideSensitiveContent => 'Hide sensitive content until unlocked';
 
   @override
+  String get iban => 'IBAN';
+
+  @override
   String get importData => 'Import Data';
 
   @override
@@ -110,6 +119,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get max5Collections => 'Maximum 5 collections allowed';
+
+  @override
+  String get medium => 'Medium';
 
   @override
   String get min4Dots => 'Use at least 4 dots';
@@ -130,10 +142,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get none => 'None';
 
   @override
+  String get note => 'Note';
+
+  @override
+  String get noteType => 'Note';
+
+  @override
   String get noUsername => 'No username';
 
   @override
   String get onboardingDescription => 'Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.';
+
+  @override
+  String get optionalNote => 'Optional note';
+
+  @override
+  String get password => 'Password';
 
   @override
   String get patternMismatch => 'Patterns did not match. Start again';
@@ -151,7 +175,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get pinsDoNotMatch => 'PINs do not match';
 
   @override
-  String get privateByDesign => 'Private by Design';
+  String get privateByDesign => 'Privacy is a fundamental, not a feature';
 
   @override
   String get save => 'Save';
@@ -172,6 +196,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get setPin => 'Set PIN';
 
   @override
+  String get standard => 'Standard';
+
+  @override
+  String get strong => 'Strong';
+
+  @override
   String vaultHeaderStats(Object collection, int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
@@ -186,10 +216,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get vaultWord => 'Vault Word';
 
   @override
+  String get weak => 'Weak';
+
+  @override
   String get wrongPattern => 'Wrong pattern. Try again';
 
   @override
   String get wrongPin => 'Wrong PIN';
+
+  @override
+  String get title => 'Title';
 
   @override
   String get unlock => 'Unlock';
@@ -207,4 +243,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Updated $date';
   }
+
+  @override
+  String get username => 'Username';
+
+  @override
+  String get usernameEmail => 'Username / Email';
 }
