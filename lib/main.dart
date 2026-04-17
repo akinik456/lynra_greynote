@@ -20,12 +20,46 @@ void main() async {
   runApp(const LynraApp());
 }
 
-class LynraApp extends StatelessWidget {
+class LynraApp extends StatefulWidget  {
   const LynraApp({super.key});
+  
+	static _LynraAppState of(BuildContext context) {
+	  return context.findAncestorStateOfType<_LynraAppState>()!;
+	}
+	@override
+	  State<LynraApp> createState() => _LynraAppState();
+}
+
+class _LynraAppState extends State<LynraApp> {
+  Locale? _locale;
+  final storage = const FlutterSecureStorage();
+  
+  @override
+  void initState() {
+    super.initState();
+    loadLocale();
+  }
+Future<void> loadLocale() async {
+  final code = await storage.read(key: "app_locale");
+
+  if (code != null) {
+    setState(() {
+      _locale = Locale(code);
+    });
+  }
+}
+
+Future<void>  setLocale(Locale locale) async  {
+  await storage.write(key: "app_locale", value: locale.languageCode);
+    setState(() {
+      _locale = locale;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+	  locale: _locale,
       debugShowCheckedModeBanner: false,
 	  localizationsDelegates: const [
 		AppLocalizations.delegate,
@@ -63,7 +97,7 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   bool _unlocked = false;
   bool _unlockScreenOpen = false;
   String? _savedPattern;
-
+final storage = const FlutterSecureStorage();
   @override
   void initState() {
     super.initState();
@@ -71,7 +105,7 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _start();
-    });
+    });	
   }
 
   @override
@@ -161,7 +195,6 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   }
   
   Future<bool> _checkSecondaryLock() async {
-  const storage = FlutterSecureStorage();
 
   final secondaryLock = await storage.read(key: "secondary_lock");
 

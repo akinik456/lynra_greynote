@@ -9,6 +9,7 @@ import '../../vault/data/vault_repository.dart';
 import 'vault_word_screen.dart';
 import '../../../core/db/database_helper.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../main.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -109,6 +110,38 @@ class _SettingsScreenState extends State<SettingsScreen> {
               }
             },
           ),
+		  _Item(
+  title: AppLocalizations.of(context)!.language,
+  onTap: () {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          title: Text(AppLocalizations.of(context)!.selectLanguage),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: const Text("English"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('en'));
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: const Text("Türkçe"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('tr'));
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  },
+),
         ],
       ),
     );

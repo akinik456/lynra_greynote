@@ -127,6 +127,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get importCompleted => 'İçe aktarma tamamlandı';
 
   @override
+  String get language => 'Dil';
+
+  @override
   String get lynraSecurity => 'Lynra Güvenlik';
 
   @override
@@ -209,6 +212,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get security => 'Güvenlik';
+
+  @override
+  String get selectLanguage => 'Dil Seç';
 
   @override
   String get settings => 'Ayarlar';

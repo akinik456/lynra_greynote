@@ -323,6 +323,12 @@ abstract class AppLocalizations {
   /// **'Import completed'**
   String get importCompleted;
 
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
   /// No description provided for @lynraSecurity.
   ///
   /// In en, this message translates to:
@@ -490,6 +496,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Security'**
   String get security;
+
+  /// No description provided for @selectLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Language'**
+  String get selectLanguage;
 
   /// No description provided for @settings.
   ///
