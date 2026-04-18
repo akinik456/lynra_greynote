@@ -76,7 +76,7 @@ for (int i = 0; i < 10000; i++) {
 
 final secretKey = await CryptoHelper.deriveKey(mk);
 final dbKeyBytes  = await secretKey.extractBytes();
-final derivedDbKey = base64Encode(dbKeyBytes );
+final derivedDbKey = await CryptoHelper.deriveDbKey(mk);
 
   // 4. DB aç
   await DatabaseHelper.instance.openWithKey(derivedDbKey);
@@ -232,16 +232,21 @@ Future<String?> _getUnwrappedMasterKey() async {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.settings_outlined, color: _textPrimary),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => const SettingsScreen(),
-                ),
-              );
-            },
-          ),
+  icon: const Icon(Icons.settings_outlined, color: _textPrimary),
+  onPressed: () async {
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const SettingsScreen(),
+      ),
+    );
+
+    if (result == true) {
+      await loadCollections();
+      await load();
+    }
+  },
+),
           IconButton(
             icon: Icon(
               shouldHide ? Icons.lock_outline : Icons.lock_open_rounded,

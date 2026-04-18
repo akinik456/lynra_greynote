@@ -78,39 +78,50 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onTap: exportPlaceholder,
           ),
           _Item(
-            title: AppLocalizations.of(context)!.importData,
-            onTap: () async {
-              final result = await FilePicker.pickFiles(
-                type: FileType.custom,
-                allowedExtensions: ['json'],
-              );
+  title: AppLocalizations.of(context)!.importData,
+  onTap: () async {
+    LynraApp.of(context).setSuspendAutoLock(true);
 
-              if (result != null) {
-                final path = result.files.single.path;
-                final file = File(path!);
-                final content = await file.readAsString();
-                final data = jsonDecode(content);
-                final vaultRows = data["vault"];
-                final collectionRows = data["collections"];
-                final db = DatabaseHelper.instance.getDb();
+    try {
+      final result = await FilePicker.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['json'],
+      );
 
-                await db.delete('vault');
-                await db.delete('collections');
+      if (result == null) return;
 
-                for (final row in collectionRows) {
-                  await db.insert('collections', Map<String, dynamic>.from(row));
-                }
+      final path = result.files.single.path;
+      final file = File(path!);
+      final content = await file.readAsString();
+      final data = jsonDecode(content);
 
-                for (final row in vaultRows) {
-                  await db.insert('vault', Map<String, dynamic>.from(row));
-                }
+      final vaultRows = data["vault"];
+      final collectionRows = data["collections"];
 
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(AppLocalizations.of(context)!.importCompleted)),
-                );
-              }
-            },
-          ),
+      final db = DatabaseHelper.instance.getDb();
+
+      await db.delete('vault');
+      await db.delete('collections');
+
+      for (final row in collectionRows) {
+        await db.insert('collections', Map<String, dynamic>.from(row));
+      }
+
+      for (final row in vaultRows) {
+        await db.insert('vault', Map<String, dynamic>.from(row));
+      }
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(AppLocalizations.of(context)!.importCompleted)),
+      );
+
+      Navigator.pop(context, true); // 🔥 BURASI
+
+    } finally {
+      LynraApp.of(context).setSuspendAutoLock(false);
+    }
+  },
+),
 		  _Item(
   title: AppLocalizations.of(context)!.language,
   onTap: () {

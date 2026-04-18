@@ -54,7 +54,7 @@ class CryptoHelper {
   }
   static Future<SecretKey> deriveKey(String password) async {
   // Cihaza özel güvenli tuzu (salt) AuthStorage'dan çek
-  final saltBase64 = await AuthStorage.getDbSalt();
+  final saltBase64 = await AuthStorage.getSecureSalt();
   print("DEBUG: Using Salt: $saltBase64");
   print("DEBUG: Deriving key for password: $password");
   if (saltBase64 == null) {
@@ -75,7 +75,29 @@ class CryptoHelper {
     nonce: saltBytes,
   );
 }
+static Future<String> deriveDbKey(String masterKey) async {
+  final saltBase64 = await AuthStorage.getDbSalt();
 
+  if (saltBase64 == null) {
+    throw Exception("Security Error: DB Salt not initialized!");
+  }
+
+  final saltBytes = base64Decode(saltBase64);
+
+  final pbkdf2 = Pbkdf2(
+    macAlgorithm: Hmac.sha256(),
+    iterations: 100000,
+    bits: 256,
+  );
+
+  final secretKey = await pbkdf2.deriveKey(
+    secretKey: SecretKey(utf8.encode(masterKey)),
+    nonce: saltBytes,
+  );
+
+  final keyBytes = await secretKey.extractBytes();
+  return base64Encode(keyBytes);
+}
   static Future<String> encrypt(String plainText, String password) async {
     final key = await deriveKey(password);
 

@@ -32,7 +32,16 @@ class LynraApp extends StatefulWidget  {
 class _LynraAppState extends State<LynraApp> {
   Locale? _locale;
   final storage = const FlutterSecureStorage();
+  bool _suspendAutoLock = false;
   
+  void setSuspendAutoLock(bool value) {
+  setState(() {
+    _suspendAutoLock = value;
+  });
+}
+bool get suspendAutoLock => _suspendAutoLock;
+
+
   @override
   void initState() {
     super.initState();
@@ -97,6 +106,7 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   bool _unlockScreenOpen = false;
   String? _savedPattern;
   String? vaultKey;
+  bool _suspendAutoLock = false;
   
 final storage = const FlutterSecureStorage();
   @override
@@ -120,6 +130,7 @@ final storage = const FlutterSecureStorage();
     if (state == AppLifecycleState.inactive ||
         state == AppLifecycleState.paused ||
         state == AppLifecycleState.hidden) {
+	  if (LynraApp.of(context).suspendAutoLock) return;
       if (_unlocked) {
   DatabaseHelper.instance.close(); // 🔒 DB kapat
 
