@@ -63,19 +63,19 @@ class OnboardingScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
-  // Sadece ham bileşenleri (Salt ve Raw Master Key) üret ve sakla
-  await AuthStorage.initializeSecurity();
+				  // Sadece ham bileşenleri (Salt ve Raw Master Key) üret ve sakla
+				  await AuthStorage.initializeSecurity();
 
-  await storage.write(
-    key: "onboarding_seen",
-    value: "true",
-  );
+				  await storage.write(
+					key: "onboarding_seen",
+					value: "true",
+				  );
 
-  if (context.mounted) {
-    // Desen belirleme ekranına yönlendir
-    Navigator.pop(context, true); 
-  }
-},
+				  if (context.mounted) {
+					// Desen belirleme ekranına yönlendir
+					Navigator.pop(context, true); 
+				  }
+				},
                   child: Text(AppLocalizations.of(context)!.continueText),
                 ),
               ),

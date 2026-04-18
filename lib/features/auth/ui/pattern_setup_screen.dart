@@ -58,11 +58,12 @@ void onPatternComplete(List<int> pattern) async { // async ekledik
     final wrappedMK = await CryptoHelper.wrapMasterKey(
       mkBase64: rawMK,
       password: patternString, // '0-1-2-5' gibi
-      vaultWord: "",           // İlk kurulumda boş
     );
     
     // 3. Paketli anahtarı sakla. Artık unwrap yapılabilecek.
     await AuthStorage.saveWrappedMasterKey(wrappedMK);
+	
+	await AuthStorage.deleteRawMasterKey();
   }
   // --- KALE İNŞASI BİTTİ ---
 

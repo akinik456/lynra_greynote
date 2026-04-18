@@ -13,11 +13,10 @@ class CryptoHelper {
   static Future<String> wrapMasterKey({
     required String mkBase64,
     required String password,
-    String vaultWord = "",
   }) async {
-    // 1. Paketleme anahtarını türet (Pass + VW + Salt)
+    // 1. Paketleme anahtarını türet (Pass + Salt)
     // Not: Buradaki şifreleme için mevcut deriveKey fonksiyonumuzu kullanıyoruz
-    final wrappingKey = await deriveKey(password + vaultWord);
+    final wrappingKey = await deriveKey(password );
 
     // 2. Master Key'i bu yeni anahtarla şifrele
     final mkBytes = base64Decode(mkBase64);
@@ -34,11 +33,13 @@ class CryptoHelper {
   static Future<String> unwrapMasterKey({
     required String wrappedMKBase64,
     required String password,
-    String vaultWord = "",
   }) async {
-    final wrappingKey = await deriveKey(password + vaultWord);
+  // 1. Anahtar Türetme: deriveKey içeride AuthStorage.getSecureSalt()
+    // çağırarak cihazın özel tuzunu zaten karışıma ekliyor.
+    final wrappingKey = await deriveKey(password);
     final concatenation = base64Decode(wrappedMKBase64);
-    final secretBox = SecretBox.fromConcatenation(
+    // 2. Paketin parçalarına (nonce, mac, ciphertext) ayrılması
+	final secretBox = SecretBox.fromConcatenation(
       concatenation,
       nonceLength: _algorithm.nonceLength,
       macLength: _algorithm.macAlgorithm.macLength,
@@ -48,7 +49,7 @@ class CryptoHelper {
       secretBox,
       secretKey: wrappingKey,
     );
-
+	// 4. Ham Master Key'i (MK) geri döndürür.
     return base64Encode(decryptedBytes);
   }
   static Future<SecretKey> deriveKey(String password) async {

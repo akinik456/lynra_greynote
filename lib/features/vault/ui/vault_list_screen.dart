@@ -65,7 +65,6 @@ Future<String?> _getUnwrappedMasterKey() async {
     return await CryptoHelper.unwrapMasterKey(
       wrappedMKBase64: wrappedMK,
       password: widget.vaultKey, // Pattern/PIN
-      vaultWord: "",      // Şimdilik boş, Settings'e bağlayacağız
     );
   } catch (e) {
     // Eğer buraya düşüyorsa: Ya şifre yanlış ya da paketleme hatalı (MAC Hatası)
