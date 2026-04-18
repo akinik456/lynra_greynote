@@ -74,7 +74,10 @@ for (int i = 0; i < 10000; i++) {
   result = Hmac(sha256, keyBytes).convert(result).bytes;
 }
 
-final derivedDbKey = base64Encode(result);
+final secretKey = await CryptoHelper.deriveKey(mk);
+final dbKeyBytes  = await secretKey.extractBytes();
+final derivedDbKey = base64Encode(dbKeyBytes );
+
   // 4. DB aç
   await DatabaseHelper.instance.openWithKey(derivedDbKey);
 
