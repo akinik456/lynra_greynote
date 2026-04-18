@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'package:crypto/crypto.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../core/db/database_helper.dart';
 
@@ -63,9 +64,17 @@ Future<void> _initFlow() async {
   final dbSalt = await AuthStorage.getDbSalt();
   if (dbSalt == null) return;
 
-  // 3. derived DB key üret (geçici basit versiyon)
-  final derivedDbKey = base64Encode(utf8.encode(mk + dbSalt));
+final keyBytes = utf8.encode(mk);
+final saltBytes = base64Decode(dbSalt);
 
+// PBKDF2 benzeri (HMAC-SHA256 iteratif)
+var result = Hmac(sha256, keyBytes).convert(saltBytes).bytes;
+
+for (int i = 0; i < 10000; i++) {
+  result = Hmac(sha256, keyBytes).convert(result).bytes;
+}
+
+final derivedDbKey = base64Encode(result);
   // 4. DB aç
   await DatabaseHelper.instance.openWithKey(derivedDbKey);
 
