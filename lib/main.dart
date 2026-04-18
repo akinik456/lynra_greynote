@@ -121,10 +121,12 @@ final storage = const FlutterSecureStorage();
         state == AppLifecycleState.paused ||
         state == AppLifecycleState.hidden) {
       if (_unlocked) {
-        setState(() {
-          _unlocked = false;
-        });
-      }
+  DatabaseHelper.instance.close(); // 🔒 DB kapat
+
+  setState(() {
+    _unlocked = false;
+  });
+}
       return;
     }
 
