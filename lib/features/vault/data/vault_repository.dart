@@ -2,6 +2,8 @@ import 'package:uuid/uuid.dart';
 import '../../../core/db/database_helper.dart';
 import '../../../core/security/crypto_helper.dart';
 import '../models/vault_item.dart';
+import '../../../core/db/database_helper.dart';
+import '../../auth/data/auth_storage.dart';
 
 class VaultRepository {
   final _dbHelper = DatabaseHelper.instance;
@@ -18,7 +20,7 @@ class VaultRepository {
     required String collectionId,
     required String type,
   }) async {
-    final db = await _dbHelper.database;
+    final db =  _dbHelper.getDb();
     final now = DateTime.now().millisecondsSinceEpoch;
 
     final item = VaultItem(
@@ -54,7 +56,7 @@ class VaultRepository {
     required String masterKey,
     required String collectionId,
   }) async {
-    final db = await _dbHelper.database;
+    final db =  _dbHelper.getDb();
 
     final rows = await db.query(
       'vault',
@@ -92,7 +94,7 @@ class VaultRepository {
     required String iban,
     required String type,
   }) async {
-    final db = await _dbHelper.database;
+    final db =  _dbHelper.getDb();
     final now = DateTime.now().millisecondsSinceEpoch;
 
     final passwordChanged = oldItem.password != password;
@@ -129,7 +131,7 @@ class VaultRepository {
   }
 
 Future<void> deleteItem(String id) async {
-    final db = await _dbHelper.database;
+    final db =  _dbHelper.getDb();
     await db.delete(
       'vault',
       where: 'id = ?',

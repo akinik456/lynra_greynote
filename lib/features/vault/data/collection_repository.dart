@@ -1,11 +1,14 @@
 import '../../../core/db/database_helper.dart';
 import '../models/vault_collection.dart';
+import '../../../core/db/database_helper.dart';
+import '../../auth/data/auth_storage.dart';
+
 
 class CollectionRepository {
   final _dbHelper = DatabaseHelper.instance;
 
   Future<List<VaultCollection>> getCollections() async {
-    final db = await _dbHelper.database;
+    final db =  _dbHelper.getDb();
 
     final rows = await db.query(
       'collections',
@@ -19,7 +22,7 @@ class CollectionRepository {
     required String id,
     required String name,
   }) async {
-    final db = await _dbHelper.database;
+    final db =  _dbHelper.getDb();
     final now = DateTime.now().millisecondsSinceEpoch;
 
     await db.insert('collections', {
@@ -30,7 +33,7 @@ class CollectionRepository {
     });
   }
 Future<void> deleteCollection(String collectionId) async {
-  final db = await _dbHelper.database;
+  final db =  _dbHelper.getDb();
 
   if (collectionId == 'default') return;
 

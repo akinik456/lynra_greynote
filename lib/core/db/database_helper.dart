@@ -1,5 +1,5 @@
 import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:sqflite_sqlcipher/sqflite.dart';
 
 class DatabaseHelper {
   static final DatabaseHelper instance = DatabaseHelper._init();
@@ -10,25 +10,37 @@ class DatabaseHelper {
 
   DatabaseHelper._init();
 
-  Future<Database> get database async {
-    if (_database != null) return _database!;
-    _database = await _initDB(_dbName);
-    return _database!;
-  }
-
-  Future<Database> _initDB(String filePath) async {
+  Future<Database> _initDB(String filePath, String password) async {
     final dbPath = await getDatabasesPath();
     final path = join(dbPath, filePath);
 
     return await openDatabase(
       path,
+	  password: password,
       version: _dbVersion,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
       onOpen: _onOpen,
     );
   }
-
+  
+Future<Database> openWithKey(String password) async {
+  if (_database != null) return _database!;
+  _database = await _initDB(_dbName, password);
+  return _database!;
+}  
+Future<void> close() async {
+  if (_database != null) {
+    await _database!.close();
+    _database = null;
+  }
+}
+Database getDb() {
+  if (_database == null) {
+    throw Exception('DB not opened yet!');
+  }
+  return _database!;
+}
   Future<void> _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE vault (

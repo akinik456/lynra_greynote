@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../../../core/db/database_helper.dart';
 
 import '../data/vault_repository.dart';
 import '../models/vault_item.dart';
@@ -11,6 +13,7 @@ import '../../settings/ui/settings_screen.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../core/security/crypto_helper.dart';
+import '../../auth/data/auth_storage.dart';
 
 
 class VaultListScreen extends StatefulWidget {
@@ -46,9 +49,30 @@ class _VaultListScreenState extends State<VaultListScreen> {
   void initState() {
     super.initState();
     loadVaultWordSettings();
-    loadCollections();
-    load();
+	_initFlow();
+    //loadCollections();
+    //load();
   }
+  
+Future<void> _initFlow() async {
+  // 1. Master Key çöz
+  final mk = await _getUnwrappedMasterKey();
+  if (mk == null) return;
+
+  // 2. dbSalt al
+  final dbSalt = await AuthStorage.getDbSalt();
+  if (dbSalt == null) return;
+
+  // 3. derived DB key üret (geçici basit versiyon)
+  final derivedDbKey = base64Encode(utf8.encode(mk + dbSalt));
+
+  // 4. DB aç
+  await DatabaseHelper.instance.openWithKey(derivedDbKey);
+
+  // 5. Artık güvenli şekilde veri yükleyebiliriz
+  await loadCollections();
+  await load();
+}  
 
 Future<String?> _getUnwrappedMasterKey() async {
   // 1. Paketli anahtarı oku

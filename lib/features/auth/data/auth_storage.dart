@@ -51,11 +51,15 @@ class AuthStorage {
   static Future<String?> getSecureSalt() async {
     return await _storage.read(key: _saltKey);
   }
+  
+  
 /// Ham Master Key'i okur (Sadece paketleme işlemi için kullanılır)
   static Future<String?> getRawMasterKey() async {
     return await _storage.read(key: _masterKey);
   }
-
+static Future<String?> getDbSalt() async {
+  return await _storage.read(key: _dbSaltKey);
+}
   /// Paketlenmiş (Şifrelenmiş) Master Key'i saklar
   static Future<void> saveWrappedMasterKey(String wrappedMK) async {
     await _storage.write(key: _wrappedMasterKey, value: wrappedMK);

@@ -10,6 +10,7 @@ import 'vault_word_screen.dart';
 import '../../../core/db/database_helper.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../main.dart';
+import '../../../core/db/database_helper.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -91,7 +92,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 final data = jsonDecode(content);
                 final vaultRows = data["vault"];
                 final collectionRows = data["collections"];
-                final db = await DatabaseHelper.instance.database;
+                final db = DatabaseHelper.instance.getDb();
 
                 await db.delete('vault');
                 await db.delete('collections');
@@ -148,7 +149,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Future<void> exportPlaceholder() async {
-    final db = await DatabaseHelper.instance.database;
+    final db = DatabaseHelper.instance.getDb();
     final rows = await db.query('vault');
     final collectionRows = await db.query('collections');
 

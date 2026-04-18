@@ -16,7 +16,6 @@ import '/features/onboarding/ui/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await DatabaseHelper.instance.database;
   runApp(const LynraApp());
 }
 
