@@ -237,7 +237,9 @@ Future<String?> _getUnwrappedMasterKey() async {
     final result = await Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => const SettingsScreen(),
+        builder: (_) => SettingsScreen(
+			vaultKey: widget.vaultKey,
+		),
       ),
     );
 

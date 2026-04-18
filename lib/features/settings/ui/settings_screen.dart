@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_saver/file_saver.dart';
 import 'package:file_picker/file_picker.dart';
-
+import 'package:uuid/uuid.dart';
 import 'security_screen.dart';
 import '../../vault/data/vault_repository.dart';
 import 'vault_word_screen.dart';
@@ -11,9 +11,15 @@ import '../../../core/db/database_helper.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../main.dart';
 import '../../../core/db/database_helper.dart';
+import '../../auth/data/auth_storage.dart';
+import '../../../core/security/crypto_helper.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+  final String vaultKey;
+  const SettingsScreen({
+    super.key,
+    required this.vaultKey,
+  });
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -28,6 +34,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
   static const Color _textPrimary = Color(0xFFE2E8F0);
   static const Color _textSecondary = Color(0xFF94A3B8);
 
+Future<String?> _getUnwrappedMasterKey() async {
+  final wrappedMK = await AuthStorage.getWrappedMasterKey();
+
+  if (wrappedMK == null) return null;
+
+  try {
+    return await CryptoHelper.unwrapMasterKey(
+      wrappedMKBase64: wrappedMK,
+      password: widget.vaultKey,
+    );
+  } catch (e) {
+    print("unwrap error: $e");
+    return null;
+  }
+}  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,32 +112,89 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
       if (result == null) return;
 
-      final path = result.files.single.path;
-      final file = File(path!);
+      final path = result.files.single.path!;
+      final file = File(path);
       final content = await file.readAsString();
       final data = jsonDecode(content);
 
-      final vaultRows = data["vault"];
-      final collectionRows = data["collections"];
+      final vaultRows = List<Map<String, dynamic>>.from(data["vault"] ?? []);
+      final collectionRows = List<Map<String, dynamic>>.from(data["collections"] ?? []);
 
       final db = DatabaseHelper.instance.getDb();
 
-      await db.delete('vault');
-      await db.delete('collections');
+      // 🔑 mevcut cihazın masterKey’ini al
+      final mk = await _getUnwrappedMasterKey();
+      if (mk == null) throw Exception("MasterKey alınamadı");
 
-      for (final row in collectionRows) {
-        await db.insert('collections', Map<String, dynamic>.from(row));
+      // 📂 mevcut collection’ları al (isim → id map)
+      final existingCollections = await db.query('collections');
+      final Map<String, String> nameToId = {
+  for (final c in existingCollections)
+    (c['name'] ?? 'Unknown').toString():
+        (c['id'] ?? '').toString(),
+};
+
+      // 🧩 export collection id → yeni cihaz collection id map
+      final Map<String, String> importColIdMap = {};
+
+      for (final col in collectionRows) {
+        final name = (col['name'] ?? 'Imported').toString();
+
+        if (nameToId.containsKey(name)) {
+          // varsa mevcut id’ye bağla
+          importColIdMap[col['id']] = nameToId[name]!;
+        } else {
+          // yoksa yeni oluştur
+          final newId = const Uuid().v4();
+          final now = DateTime.now().millisecondsSinceEpoch;
+
+          await db.insert('collections', {
+            'id': newId,
+            'name': name,
+            'createdAt': now,
+            'updatedAt': now,
+          });
+
+          nameToId[name] = newId;
+          importColIdMap[col['id']] = newId;
+        }
       }
 
+      // 📦 vault kayıtlarını işle
       for (final row in vaultRows) {
-        await db.insert('vault', Map<String, dynamic>.from(row));
+        try {
+          final encryptedPayload = row['payload'] as String;
+
+          // 🔓 eski payload’ı çöz (export’un geldiği cihazın key’iyle)
+          final plain = await CryptoHelper.decrypt(encryptedPayload, mk);
+
+          // 🔐 yeni cihaz için tekrar şifrele
+          final newPayload = await CryptoHelper.encrypt(plain, mk);
+
+          final newId = const Uuid().v4();
+          final now = DateTime.now().millisecondsSinceEpoch;
+
+          final oldColId = row['collectionId'];
+          final newColId = importColIdMap[oldColId] ?? 'default';
+
+          await db.insert('vault', {
+            'id': newId,
+            'payload': newPayload,
+            'createdAt': now,
+            'updatedAt': now,
+            'isFavorite': row['isFavorite'] ?? 0,
+            'collectionId': newColId,
+          });
+        } catch (e) {
+          print("Import item skip (decrypt fail): $e");
+        }
       }
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(AppLocalizations.of(context)!.importCompleted)),
       );
 
-      Navigator.pop(context, true); // 🔥 BURASI
+      Navigator.pop(context, true); // 🔄 refresh trigger
 
     } finally {
       LynraApp.of(context).setSuspendAutoLock(false);
