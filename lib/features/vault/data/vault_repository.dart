@@ -4,6 +4,8 @@ import '../../../core/security/crypto_helper.dart';
 import '../models/vault_item.dart';
 import '../../../core/db/database_helper.dart';
 import '../../auth/data/auth_storage.dart';
+import 'package:crypto/crypto.dart';
+import 'package:cryptography/cryptography.dart';
 
 class VaultRepository {
   final _dbHelper = DatabaseHelper.instance;
@@ -11,7 +13,7 @@ class VaultRepository {
 
   // 1. INSERT: vaultKey -> masterKey
   Future<void> insertItem({
-    required String masterKey, 
+    required SecretKey payloadKey,
     required String title,
     required String username,
     required String password,
@@ -37,9 +39,9 @@ class VaultRepository {
       isFavorite: false,
       type: type,
     );
-
+	//final payloadKey = await CryptoHelper.deriveKey(masterKey);
     final encryptedPayload =
-        await CryptoHelper.encrypt(item.toEncodedJson(), masterKey);
+    await CryptoHelper.encryptWithKey(item.toEncodedJson(), payloadKey);
 
     await db.insert('vault', {
       'id': item.id,
@@ -53,39 +55,41 @@ class VaultRepository {
 
   // 2. GET: vaultKey -> masterKey
   Future<List<VaultItem>> getItems({
-    required String masterKey,
-    required String collectionId,
-  }) async {
-    final db =  _dbHelper.getDb();
+  required SecretKey payloadKey,
+  required String collectionId,
+}) async {
+  final db = _dbHelper.getDb();
 
-    final rows = await db.query(
-      'vault',
-      where: 'collectionId = ?',
-      whereArgs: [collectionId],
-      orderBy: 'updatedAt DESC',
-    );
+  final rows = await db.query(
+    'vault',
+    where: 'collectionId = ?',
+    whereArgs: [collectionId],
+    orderBy: 'updatedAt DESC',
+  );
+print("ROWS COUNT = ${rows.length}");
+  final items = <VaultItem>[];
 
-    final items = <VaultItem>[];
+  //final payloadKey = await CryptoHelper.deriveKey(masterKey);
 
-    for (final row in rows) {
-      try {
-        final encryptedPayload = row['payload'] as String;
-        // Master Key ile çözüyoruz
-        final decrypted =
-            await CryptoHelper.decrypt(encryptedPayload, masterKey);
-        items.add(VaultItem.fromEncodedJson(decrypted));
-      } catch (e) {
-        // Çözülemezse (yanlış anahtar/bozuk veri) listeye eklemiyoruz
-        print("Decryption error in getItems: $e");
-      }
+  for (final row in rows) {
+    try {
+	print("TRY ITEM ID = ${row['id']}");
+      final encryptedPayload = row['payload'] as String;
+      final decrypted =
+          await CryptoHelper.decryptWithKey(encryptedPayload, payloadKey);
+      items.add(VaultItem.fromEncodedJson(decrypted));
+    } catch (e) {
+      print("Decryption error in getItems: $e");
+	  print("ITEM FAILED => id=${row['id']} error=$e");
     }
-
-    return items;
   }
+
+  return items;
+}
 
   // 3. UPDATE: vaultKey -> masterKey
   Future<void> updateItem({
-    required String masterKey,
+    required SecretKey payloadKey,
     required VaultItem oldItem,
     required String title,
     required String username,
@@ -113,9 +117,9 @@ class VaultRepository {
       isFavorite: oldItem.isFavorite,
       type: type,
     );
-
+	//final payloadKey = await CryptoHelper.deriveKey(masterKey);
     final encryptedPayload =
-        await CryptoHelper.encrypt(updatedItem.toEncodedJson(), masterKey);
+    await CryptoHelper.encryptWithKey(updatedItem.toEncodedJson(), payloadKey);
 
     await db.update(
       'vault',

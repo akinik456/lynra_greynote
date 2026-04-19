@@ -16,6 +16,8 @@ import '/features/onboarding/ui/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  print(DateTime.now());
+  print("Time_Check1");
   runApp(const LynraApp());
 }
 
@@ -153,7 +155,8 @@ final storage = const FlutterSecureStorage();
   Future<void> _start() async {
     final storage = const FlutterSecureStorage();
 	final seen = await storage.read(key: "onboarding_seen");
-
+print(DateTime.now());
+  print("Time_Check2");
 	if (seen != "true") {
 	  await Navigator.push(
 		context,
@@ -274,6 +277,8 @@ final storage = const FlutterSecureStorage();
     final ok = await _checkSecondaryLock();
     setState(() {
       _unlocked = ok;
+	  print(DateTime.now());
+  print("Time_Check3");
     });
     
     // 4. Verileri yükle (Artık elimizde Master Key'i çözecek doğru anahtar var)

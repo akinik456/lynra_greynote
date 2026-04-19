@@ -67,7 +67,7 @@ class CryptoHelper {
 
   final pbkdf2 = Pbkdf2(
     macAlgorithm: Hmac.sha256(),
-    iterations: 100000, // 100k iterasyon brute-force'u yavaşlatır
+    iterations: 40000, // 100k iterasyon brute-force'u yavaşlatır
     bits: 256,
   );
 
@@ -87,7 +87,7 @@ static Future<String> deriveDbKey(String masterKey) async {
 
   final pbkdf2 = Pbkdf2(
     macAlgorithm: Hmac.sha256(),
-    iterations: 100000,
+    iterations: 20000,
     bits: 256,
   );
 
@@ -222,5 +222,48 @@ static Future<String> decryptBackupBlob({
 
   return utf8.decode(decryptedBytes);
 }
-  
+static Future<String> encryptWithKey(
+  String plainText,
+  SecretKey key,
+) async {
+  final nonce = _algorithm.newNonce();
+
+  final secretBox = await _algorithm.encrypt(
+    utf8.encode(plainText),
+    secretKey: key,
+    nonce: nonce,
+  );
+
+  final combined = <int>[
+    ...nonce,
+    ...secretBox.cipherText,
+    ...secretBox.mac.bytes,
+  ];
+
+  return base64Encode(combined);
+}
+
+static Future<String> decryptWithKey(
+  String encrypted,
+  SecretKey key,
+) async {
+  final combined = base64Decode(encrypted);
+
+  final nonce = combined.sublist(0, 12);
+  final mac = Mac(combined.sublist(combined.length - 16));
+  final cipherText = combined.sublist(12, combined.length - 16);
+
+  final secretBox = SecretBox(cipherText, nonce: nonce, mac: mac);
+
+  final decrypted = await _algorithm.decrypt(
+    secretBox,
+    secretKey: key,
+  );
+
+  return utf8.decode(decrypted);
+}
+
+static Future<SecretKey> derivePayloadKey(String masterKey) async {
+  return SecretKey(base64Decode(masterKey));
+}  
 }

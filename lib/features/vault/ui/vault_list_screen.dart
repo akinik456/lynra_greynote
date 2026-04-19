@@ -15,7 +15,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../core/security/crypto_helper.dart';
 import '../../auth/data/auth_storage.dart';
-
+import 'package:cryptography/cryptography.dart';
 
 class VaultListScreen extends StatefulWidget {
   final String vaultKey ;
@@ -45,7 +45,9 @@ class _VaultListScreenState extends State<VaultListScreen> {
   static const Color _textPrimary = Color(0xFFE2E8F0);
   static const Color _textSecondary = Color(0xFF94A3B8);
   static const Color _borderColor = Color(0xFF334155);
-
+  String? _masterKey;
+  SecretKey? _payloadKey;
+  
   @override
   void initState() {
     super.initState();
@@ -56,35 +58,29 @@ class _VaultListScreenState extends State<VaultListScreen> {
   }
   
 Future<void> _initFlow() async {
-  // 1. Master Key çöz
+print(DateTime.now());
+  print("Time_Check4");
   final mk = await _getUnwrappedMasterKey();
   if (mk == null) return;
-
-  // 2. dbSalt al
-  final dbSalt = await AuthStorage.getDbSalt();
-  if (dbSalt == null) return;
-
-final keyBytes = utf8.encode(mk);
-final saltBytes = base64Decode(dbSalt);
-
-// PBKDF2 benzeri (HMAC-SHA256 iteratif)
-var result = Hmac(sha256, keyBytes).convert(saltBytes).bytes;
-
-for (int i = 0; i < 10000; i++) {
-  result = Hmac(sha256, keyBytes).convert(result).bytes;
-}
-
-final secretKey = await CryptoHelper.deriveKey(mk);
-final dbKeyBytes  = await secretKey.extractBytes();
-final derivedDbKey = await CryptoHelper.deriveDbKey(mk);
-
-  // 4. DB aç
+print(DateTime.now());
+  print("Time_Check5");
+  _masterKey = mk;
+  _payloadKey = await CryptoHelper.derivePayloadKey(mk);
+print(DateTime.now());
+  print("Time_Check6");  
+  final derivedDbKey = await CryptoHelper.deriveDbKey(mk);
+print(DateTime.now());
+  print("Time_Check7");
   await DatabaseHelper.instance.openWithKey(derivedDbKey);
-
-  // 5. Artık güvenli şekilde veri yükleyebiliriz
+print(DateTime.now());
+  print("Time_Check8");
   await loadCollections();
+print(DateTime.now());
+  print("Time_Check9");  
   await load();
-}  
+  print(DateTime.now());
+  print("Time_Check10");
+}
 
 Future<String?> _getUnwrappedMasterKey() async {
   // 1. Paketli anahtarı oku
@@ -110,23 +106,13 @@ Future<String?> _getUnwrappedMasterKey() async {
 }
 
   Future<void> load() async {
-  // 1. Paketlemiş Master Key'i kullanıcının şifresiyle çözüyoruz
-  // Not: _getUnwrappedMasterKey senin şifre (vaultKey) ve güncel Vault Word'ünü kullanır.
-  final mk = await _getUnwrappedMasterKey();
-
-  // 2. Eğer anahtar çözülemezse (Yanlış şifre veya bozuk anahtar) işlemi durdur
-  if (mk == null) {
-    print("HATA: Master Key çözülemedi, veriler çekilemiyor.");
-    return;
-  }
-
-  // 3. Çözülmüş Master Key'i Repository'ye paslıyoruz
+  //if (_masterKey == null) return;
+  if (_payloadKey == null) return;
   final result = await repo.getItems(
-    masterKey: mk, 
+    payloadKey: _payloadKey!,
     collectionId: selectedCollectionId,
   );
 
-  // 4. Arayüzü güncelle
   setState(() => items = result);
 }
 
@@ -163,7 +149,7 @@ Future<String?> _getUnwrappedMasterKey() async {
     if (mk == null) return;
 
     await repo.insertItem(
-      masterKey: mk,
+      payloadKey: _payloadKey!,
       title: result["title"] ?? "",
       username: result["username"] ?? "",
       password: result["password"] ?? "",
@@ -319,7 +305,7 @@ Future<String?> _getUnwrappedMasterKey() async {
   if (mk == null) return;
 
   await repo.updateItem(
-    masterKey: mk,
+    payloadKey: _payloadKey!,
     oldItem: item,
     title: result["title"] ?? "",
     username: result["username"] ?? "",
