@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:file_saver/file_saver.dart';
 import 'package:file_picker/file_picker.dart';
@@ -97,108 +98,14 @@ Future<String?> _getUnwrappedMasterKey() async {
           ),  
           _Item(
             title: AppLocalizations.of(context)!.exportData,
-            onTap: exportPlaceholder,
+            onTap: () async {
+  await exportBackupBlob();
+},
           ),
           _Item(
   title: AppLocalizations.of(context)!.importData,
   onTap: () async {
-    LynraApp.of(context).setSuspendAutoLock(true);
-
-    try {
-      final result = await FilePicker.pickFiles(
-        type: FileType.custom,
-        allowedExtensions: ['json'],
-      );
-
-      if (result == null) return;
-
-      final path = result.files.single.path!;
-      final file = File(path);
-      final content = await file.readAsString();
-      final data = jsonDecode(content);
-
-      final vaultRows = List<Map<String, dynamic>>.from(data["vault"] ?? []);
-      final collectionRows = List<Map<String, dynamic>>.from(data["collections"] ?? []);
-
-      final db = DatabaseHelper.instance.getDb();
-
-      // 🔑 mevcut cihazın masterKey’ini al
-      final mk = await _getUnwrappedMasterKey();
-      if (mk == null) throw Exception("MasterKey alınamadı");
-
-      // 📂 mevcut collection’ları al (isim → id map)
-      final existingCollections = await db.query('collections');
-      final Map<String, String> nameToId = {
-  for (final c in existingCollections)
-    (c['name'] ?? 'Unknown').toString():
-        (c['id'] ?? '').toString(),
-};
-
-      // 🧩 export collection id → yeni cihaz collection id map
-      final Map<String, String> importColIdMap = {};
-
-      for (final col in collectionRows) {
-        final name = (col['name'] ?? 'Imported').toString();
-
-        if (nameToId.containsKey(name)) {
-          // varsa mevcut id’ye bağla
-          importColIdMap[col['id']] = nameToId[name]!;
-        } else {
-          // yoksa yeni oluştur
-          final newId = const Uuid().v4();
-          final now = DateTime.now().millisecondsSinceEpoch;
-
-          await db.insert('collections', {
-            'id': newId,
-            'name': name,
-            'createdAt': now,
-            'updatedAt': now,
-          });
-
-          nameToId[name] = newId;
-          importColIdMap[col['id']] = newId;
-        }
-      }
-
-      // 📦 vault kayıtlarını işle
-      for (final row in vaultRows) {
-        try {
-          final encryptedPayload = row['payload'] as String;
-
-          // 🔓 eski payload’ı çöz (export’un geldiği cihazın key’iyle)
-          final plain = await CryptoHelper.decrypt(encryptedPayload, mk);
-
-          // 🔐 yeni cihaz için tekrar şifrele
-          final newPayload = await CryptoHelper.encrypt(plain, mk);
-
-          final newId = const Uuid().v4();
-          final now = DateTime.now().millisecondsSinceEpoch;
-
-          final oldColId = row['collectionId'];
-          final newColId = importColIdMap[oldColId] ?? 'default';
-
-          await db.insert('vault', {
-            'id': newId,
-            'payload': newPayload,
-            'createdAt': now,
-            'updatedAt': now,
-            'isFavorite': row['isFavorite'] ?? 0,
-            'collectionId': newColId,
-          });
-        } catch (e) {
-          print("Import item skip (decrypt fail): $e");
-        }
-      }
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.importCompleted)),
-      );
-
-      Navigator.pop(context, true); // 🔄 refresh trigger
-
-    } finally {
-      LynraApp.of(context).setSuspendAutoLock(false);
-    }
+    await importBackupBlob();
   },
 ),
 		  _Item(
@@ -237,28 +144,248 @@ Future<String?> _getUnwrappedMasterKey() async {
       ),
     );
   }
+  
+Future<void> exportBackupBlob() async {
+  LynraApp.of(context).setSuspendAutoLock(true);
 
-  Future<void> exportPlaceholder() async {
+  try {
+    final exportPinController = TextEditingController();
+
+    final exportPin = await showDialog<String>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Export PIN'),
+          content: TextField(
+            controller: exportPinController,
+            keyboardType: TextInputType.number,
+            maxLength: 5,
+            obscureText: true,
+            decoration: const InputDecoration(
+              hintText: 'Enter 5-digit PIN',
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('CANCEL'),
+            ),
+            TextButton(
+              onPressed: () {
+                final pin = exportPinController.text.trim();
+                if (pin.length == 5 && RegExp(r'^\d{5}$').hasMatch(pin)) {
+                  Navigator.pop(context, pin);
+                }
+              },
+              child: const Text('EXPORT'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (exportPin == null) return;
+
     final db = DatabaseHelper.instance.getDb();
-    final rows = await db.query('vault');
-    final collectionRows = await db.query('collections');
+    final mk = await _getUnwrappedMasterKey();
+    if (mk == null) throw Exception('MasterKey alınamadı');
 
-    final jsonString = jsonEncode({
-      "vault": rows,
-      "collections": collectionRows,
+    final vaultRowsRaw = await db.query('vault');
+    final collectionRowsRaw = await db.query('collections');
+
+    final collectionIdToName = {
+      for (final c in collectionRowsRaw)
+        (c['id'] as String): (c['name'] as String),
+    };
+
+    final List<Map<String, dynamic>> portableVault = [];
+
+    for (final row in vaultRowsRaw) {
+      final encryptedPayload = row['payload'] as String;
+      final plainPayload = await CryptoHelper.decrypt(encryptedPayload, mk);
+      final payloadMap = jsonDecode(plainPayload) as Map<String, dynamic>;
+
+      portableVault.add({
+        'payloadData': payloadMap,
+        'createdAt': row['createdAt'],
+        'updatedAt': row['updatedAt'],
+        'isFavorite': row['isFavorite'],
+        'collectionName':
+            collectionIdToName[(row['collectionId'] ?? 'default').toString()] ??
+            'My Vault',
+      });
+    }
+
+    final portableJson = jsonEncode({
+      'vault': portableVault,
     });
 
+    final backupFileJson = await CryptoHelper.encryptBackupBlob(
+      plainJson: portableJson,
+      pattern: widget.vaultKey,
+      exportPin: exportPin,
+    );
+
     await FileSaver.instance.saveAs(
-      name: "lynra_backup",
-      bytes: utf8.encode(jsonString),
-      ext: "json",
+      name: 'lynra_backup',
+      bytes: Uint8List.fromList(
+        utf8.encode(jsonEncode(backupFileJson)),
+      ),
+      ext: 'json',
       mimeType: MimeType.json,
     );
 
+    if (!mounted) return;
+
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppLocalizations.of(context)!.exportComingNext)),
+      const SnackBar(content: Text('Export completed')),
     );
+  } finally {
+    LynraApp.of(context).setSuspendAutoLock(false);
   }
+}  
+Future<void> importBackupBlob() async {
+  LynraApp.of(context).setSuspendAutoLock(true);
+
+  try {
+    final result = await FilePicker.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['json'],
+    );
+
+    if (result == null) return;
+
+    final path = result.files.single.path!;
+    final file = File(path);
+    final content = await file.readAsString();
+    final backupJson = jsonDecode(content);
+
+    // 🔐 PIN sor
+    final pinController = TextEditingController();
+
+    final exportPin = await showDialog<String>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Import PIN'),
+          content: TextField(
+            controller: pinController,
+            keyboardType: TextInputType.number,
+            maxLength: 5,
+            obscureText: true,
+            decoration: const InputDecoration(
+              hintText: 'Enter 5-digit PIN',
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('CANCEL'),
+            ),
+            TextButton(
+              onPressed: () {
+                final pin = pinController.text.trim();
+                if (pin.length == 5 && RegExp(r'^\d{5}$').hasMatch(pin)) {
+                  Navigator.pop(context, pin);
+                }
+              },
+              child: const Text('IMPORT'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (exportPin == null) return;
+
+    // 🔓 blob çöz
+    final decryptedJsonString = await CryptoHelper.decryptBackupBlob(
+      backupJson: backupJson,
+      pattern: widget.vaultKey,
+      exportPin: exportPin,
+    );
+
+    final data = jsonDecode(decryptedJsonString);
+    final vaultRows = List<Map<String, dynamic>>.from(data["vault"] ?? []);
+
+    final db = DatabaseHelper.instance.getDb();
+    final mk = await _getUnwrappedMasterKey();
+    if (mk == null) throw Exception("MasterKey alınamadı");
+
+    // 📂 mevcut collection’ları al
+    final existingCollections = await db.query('collections');
+    final Map<String, String> nameToId = {
+      for (final c in existingCollections)
+        (c['name'] as String): (c['id'] as String),
+    };
+
+    for (final item in vaultRows) {
+      try {
+        final collectionName =
+            (item['collectionName'] ?? 'My Vault').toString();
+
+        String collectionId;
+
+        if (nameToId.containsKey(collectionName)) {
+          collectionId = nameToId[collectionName]!;
+        } else {
+          collectionId = const Uuid().v4();
+
+          final now = DateTime.now().millisecondsSinceEpoch;
+
+          await db.insert('collections', {
+            'id': collectionId,
+            'name': collectionName,
+            'createdAt': now,
+            'updatedAt': now,
+          });
+
+          nameToId[collectionName] = collectionId;
+        }
+
+        // 🔐 yeniden encrypt
+        final payloadMap = Map<String, dynamic>.from(item['payloadData'] ?? {});
+
+        final newPayload = await CryptoHelper.encrypt(
+          jsonEncode(payloadMap),
+          mk,
+        );
+
+        final newId = const Uuid().v4();
+        final now = DateTime.now().millisecondsSinceEpoch;
+
+        await db.insert('vault', {
+          'id': newId,
+          'payload': newPayload,
+          'createdAt': now,
+          'updatedAt': now,
+          'isFavorite': item['isFavorite'] ?? 0,
+          'collectionId': collectionId,
+        });
+      } catch (e) {
+        print("Import skip: $e");
+      }
+    }
+
+    if (!mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Import completed')),
+    );
+
+    Navigator.pop(context, true); // 🔄 refresh trigger
+  } catch (e) {
+    print("Import error: $e");
+
+    if (!mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Import failed')),
+    );
+  } finally {
+    LynraApp.of(context).setSuspendAutoLock(false);
+  }
+}
 }
 
 class _Item extends StatelessWidget {

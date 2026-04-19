@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:typed_data';
+import 'dart:math';
 import 'package:cryptography/cryptography.dart';
 import '../../features/auth/data/auth_storage.dart';
 
@@ -136,4 +137,90 @@ static Future<String> deriveDbKey(String masterKey) async {
 
     return utf8.decode(decrypted);
   }
+static Future<SecretKey> deriveBackupKey({
+  required String pattern,
+  required String exportPin,
+  required String saltBase64,
+}) async {
+  final saltBytes = base64Decode(saltBase64);
+
+  final pbkdf2 = Pbkdf2(
+    macAlgorithm: Hmac.sha256(),
+    iterations: 100000,
+    bits: 256,
+  );
+
+  return await pbkdf2.deriveKey(
+    secretKey: SecretKey(utf8.encode('$pattern|$exportPin')),
+    nonce: saltBytes,
+  );
+}
+
+static Future<Map<String, dynamic>> encryptBackupBlob({
+  required String plainJson,
+  required String pattern,
+  required String exportPin,
+}) async {
+  final backupSalt = base64Encode(
+    List<int>.generate(32, (_) => Random.secure().nextInt(256)),
+  );
+
+  final key = await deriveBackupKey(
+    pattern: pattern,
+    exportPin: exportPin,
+    saltBase64: backupSalt,
+  );
+
+  final nonce = _algorithm.newNonce();
+
+  final secretBox = await _algorithm.encrypt(
+    utf8.encode(plainJson),
+    secretKey: key,
+    nonce: nonce,
+  );
+
+  return {
+    'type': 'lynra_backup',
+    'version': 1,
+    'kdf': 'pbkdf2-sha256',
+    'iterations': 100000,
+    'salt': backupSalt,
+    'blob': base64Encode(secretBox.concatenation()),
+  };
+}  
+
+static Future<String> decryptBackupBlob({
+  required Map<String, dynamic> backupJson,
+  required String pattern,
+  required String exportPin,
+}) async {
+  final saltBase64 = (backupJson['salt'] ?? '').toString();
+  final blobBase64 = (backupJson['blob'] ?? '').toString();
+
+  if (saltBase64.isEmpty || blobBase64.isEmpty) {
+    throw Exception('Invalid backup file');
+  }
+
+  final key = await deriveBackupKey(
+    pattern: pattern,
+    exportPin: exportPin,
+    saltBase64: saltBase64,
+  );
+
+  final concatenation = base64Decode(blobBase64);
+
+  final secretBox = SecretBox.fromConcatenation(
+    concatenation,
+    nonceLength: _algorithm.nonceLength,
+    macLength: _algorithm.macAlgorithm.macLength,
+  );
+
+  final decryptedBytes = await _algorithm.decrypt(
+    secretBox,
+    secretKey: key,
+  );
+
+  return utf8.decode(decryptedBytes);
+}
+  
 }
