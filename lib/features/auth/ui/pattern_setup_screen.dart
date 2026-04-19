@@ -23,8 +23,8 @@ class _PatternSetupScreenState extends State<PatternSetupScreen> {
   static const Color _dotIdle = Color(0xFFCBD5E1);
 
 void onPatternComplete(List<int> pattern) async { // async ekledik
-  if (pattern.length < 4) {
-    setState(() { messageKey = 'min4Dots'; });
+  if (pattern.length < 5) {
+    setState(() { messageKey = 'min5Dots'; });
     return;
   }
 
@@ -412,8 +412,8 @@ String _t(BuildContext context, String key) {
   final l = AppLocalizations.of(context)!;
 
   switch (key) {
-    case 'min4Dots':
-      return l.min4Dots;
+    case 'min5Dots':
+      return l.min5Dots;
     case 'confirmPattern':
       return l.confirmPattern;
     case 'patternMismatch':

@@ -211,8 +211,8 @@ Future<void> exportBackupBlob() async {
         'updatedAt': row['updatedAt'],
         'isFavorite': row['isFavorite'],
         'collectionName':
-            collectionIdToName[(row['collectionId'] ?? 'default').toString()] ??
-            'My Vault',
+           collectionIdToName[(row['collectionId'] ?? 'default').toString()] ??
+			AppLocalizations.of(context)!.myVault
       });
     }
 
@@ -238,7 +238,9 @@ Future<void> exportBackupBlob() async {
     if (!mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Export completed')),
+      SnackBar(
+  content: Text(AppLocalizations.of(context)!.exportCompleted),
+),
     );
   } finally {
     LynraApp.of(context).setSuspendAutoLock(false);
@@ -321,14 +323,20 @@ Future<void> importBackupBlob() async {
 
     for (final item in vaultRows) {
       try {
-        final collectionName =
-            (item['collectionName'] ?? 'My Vault').toString();
+        final rawName = (item['collectionName'] ?? '').toString();
+
+final collectionName =
+    rawName == 'My Vault' || rawName.isEmpty
+        ? AppLocalizations.of(context)!.myVault
+        : rawName;
 
         String collectionId;
 
-        if (nameToId.containsKey(collectionName)) {
-          collectionId = nameToId[collectionName]!;
-        } else {
+        if (collectionName.isEmpty || collectionName == 'My Vault') {
+  collectionId = 'default';
+} else if (nameToId.containsKey(collectionName)) {
+  collectionId = nameToId[collectionName]!;
+} else {
           collectionId = const Uuid().v4();
 
           final now = DateTime.now().millisecondsSinceEpoch;
@@ -370,8 +378,10 @@ Future<void> importBackupBlob() async {
     if (!mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Import completed')),
-    );
+  SnackBar(
+    content: Text(AppLocalizations.of(context)!.importCompleted),
+  ),
+);
 
     Navigator.pop(context, true); // 🔄 refresh trigger
   } catch (e) {
@@ -380,8 +390,10 @@ Future<void> importBackupBlob() async {
     if (!mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Import failed')),
-    );
+  SnackBar(
+    content: Text(AppLocalizations.of(context)!.importFailed),
+  ),
+);
   } finally {
     LynraApp.of(context).setSuspendAutoLock(false);
   }

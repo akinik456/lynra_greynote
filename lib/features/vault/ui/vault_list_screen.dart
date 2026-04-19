@@ -251,11 +251,16 @@ Future<String?> _getUnwrappedMasterKey() async {
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: _VaultHeaderCard(
               totalItems: items.length,
-              currentCollectionName: collections
-                      .where((c) => c.id == selectedCollectionId)
-                      .map((c) => c.name)
-                      .firstOrNull ??
-                  'Vault',
+              currentCollectionName: (() {
+  final selected = collections
+      .where((c) => c.id == selectedCollectionId)
+      .cast<VaultCollection?>()
+      .firstWhere((c) => c != null, orElse: () => null);
+
+  if (selected == null) return AppLocalizations.of(context)!.myVault;
+  if (selected.id == 'default') return AppLocalizations.of(context)!.myVault;
+  return selected.name;
+})(),
               isLocked: shouldHide,
             ),
           ),
@@ -856,7 +861,11 @@ class _CollectionBar extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
             onLongPress: collection.id == 'default' ? null : () => onDelete(collection),
             child: ChoiceChip(
-              label: Text(collection.name),
+              label: Text(
+  collection.id == 'default'
+      ? AppLocalizations.of(context)!.myVault
+      : collection.name,
+),
               selected: selected,
               onSelected: (_) => onSelected(collection.id),
               selectedColor: const Color(0xFF22D3EE),

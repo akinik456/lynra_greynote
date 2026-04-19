@@ -1,4 +1,6 @@
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_windowmanager_plus/flutter_windowmanager_plus.dart';
 import 'core/db/database_helper.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
@@ -16,6 +18,9 @@ import '/features/onboarding/ui/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
   print(DateTime.now());
   print("Time_Check1");
   runApp(const LynraApp());
@@ -115,7 +120,7 @@ final storage = const FlutterSecureStorage();
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-
+	_secureScreen();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _start();
     });	
@@ -151,7 +156,11 @@ final storage = const FlutterSecureStorage();
       }
     }
   }
-
+Future<void> _secureScreen() async {
+  await FlutterWindowManagerPlus.addFlags(
+  FlutterWindowManagerPlus.FLAG_SECURE,
+);
+}
   Future<void> _start() async {
     final storage = const FlutterSecureStorage();
 	final seen = await storage.read(key: "onboarding_seen");
@@ -310,7 +319,7 @@ print(DateTime.now());
               _unlockExistingPattern();
             });
           },
-          child: const Text('Unlock'),
+          child: Text(AppLocalizations.of(context)!.unlock),
         ),
       ),
     );

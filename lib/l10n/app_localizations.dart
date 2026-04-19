@@ -287,6 +287,12 @@ abstract class AppLocalizations {
   /// **'Export coming next'**
   String get exportComingNext;
 
+  /// No description provided for @exportCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Export completed'**
+  String get exportCompleted;
+
   /// No description provided for @exportData.
   ///
   /// In en, this message translates to:
@@ -323,6 +329,12 @@ abstract class AppLocalizations {
   /// **'Import completed'**
   String get importCompleted;
 
+  /// No description provided for @importFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Import failed'**
+  String get importFailed;
+
   /// No description provided for @language.
   ///
   /// In en, this message translates to:
@@ -347,11 +359,11 @@ abstract class AppLocalizations {
   /// **'Medium'**
   String get medium;
 
-  /// No description provided for @min4Dots.
+  /// No description provided for @min5Dots.
   ///
   /// In en, this message translates to:
   /// **'Use at least 4 dots'**
-  String get min4Dots;
+  String get min5Dots;
 
   /// No description provided for @modified.
   ///

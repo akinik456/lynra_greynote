@@ -109,6 +109,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get exportComingNext => 'Export coming next';
 
   @override
+  String get exportCompleted => 'Export completed';
+
+  @override
   String get exportData => 'Export Data';
 
   @override
@@ -127,6 +130,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get importCompleted => 'Import completed';
 
   @override
+  String get importFailed => 'Import failed';
+
+  @override
   String get language => 'Language';
 
   @override
@@ -139,7 +145,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get medium => 'Medium';
 
   @override
-  String get min4Dots => 'Use at least 4 dots';
+  String get min5Dots => 'Use at least 4 dots';
 
   @override
   String get modified => 'Modified';

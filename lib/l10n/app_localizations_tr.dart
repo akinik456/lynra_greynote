@@ -109,6 +109,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get exportComingNext => 'Dışa aktarma yakında';
 
   @override
+  String get exportCompleted => 'Dışa aktarma tamamlandı';
+
+  @override
   String get exportData => 'Veriyi Dışa Aktar';
 
   @override
@@ -127,6 +130,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get importCompleted => 'İçe aktarma tamamlandı';
 
   @override
+  String get importFailed => 'İçe aktarma başarısız';
+
+  @override
   String get language => 'Dil';
 
   @override
@@ -139,7 +145,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get medium => 'Orta';
 
   @override
-  String get min4Dots => 'En az 4 nokta kullan';
+  String get min5Dots => 'En az 5 nokta kullan';
 
   @override
   String get modified => 'Güncellenme';
