@@ -133,6 +133,13 @@ Future<String?> _getUnwrappedMasterKey() async {
                   Navigator.pop(context);
                 },
               ),
+			  ListTile(
+                title: const Text("Español"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('es'));
+                  Navigator.pop(context);
+                },
+              ),
             ],
           ),
         );

@@ -86,6 +86,7 @@ Future<void>  setLocale(Locale locale) async  {
 	  supportedLocales: const [
 		Locale('en'),
 		Locale('tr'),
+		Locale('es'),
 	  ],
 
       theme: ThemeData.dark().copyWith(

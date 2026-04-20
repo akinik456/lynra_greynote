@@ -1,3 +1,22 @@
+I have a Flutter .arb localization file for a mobile app called "Lynra GreyNote".
+
+The app is a privacy-focused, offline "secure vault" app (stores passwords, notes, credentials). It has a professional, minimal and trustworthy tone.
+
+Translate the following JSON (.arb file) into Spanish.
+
+IMPORTANT RULES:
+- Keep all keys exactly the same
+- Only translate the values
+- Do NOT break JSON format
+- Keep placeholders like {name}, {date}, {count} exactly as they are
+- Use cybersecurity / app terminology correctly (not literal translation)
+- Tone must feel premium, secure, and clean
+- "Vault" should be translated as "Bóveda"
+- "Vault Word" should be translated consistently (e.g., "Clave de bóveda")
+- Do not overcomplicate language, keep it simple and natural
+
+Here is the file:
+
 {
 
 "@@locale": 				"en",
@@ -55,7 +74,7 @@
 "lynraSecurity":   			"Lynra Security",
 "max5Collections": 			"Maximum 5 collections allowed",
 "medium": 					"Medium",
-"min5Dots":        			"Use at least 5 dots",
+"min5Dots":        			"Use at least 4 dots",
 "modified": 				"Modified",
 "myVault": 					"My Vault",
 "newCollection": 			"New Collection",

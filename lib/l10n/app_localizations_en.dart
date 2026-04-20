@@ -145,7 +145,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get medium => 'Medium';
 
   @override
-  String get min5Dots => 'Use at least 4 dots';
+  String get min5Dots => 'Use at least 5 dots';
 
   @override
   String get modified => 'Modified';
