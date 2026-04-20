@@ -100,10 +100,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enterPin => 'PIN Gir';
 
   @override
-  String get entryDetails => 'Kayıt Detayı';
+  String get enterPinHint => '5 haneli PIN gir';
 
   @override
   String get enterVaultWord => 'Kasa anahtarını gir';
+
+  @override
+  String get entryDetails => 'Kayıt Detayı';
+
+  @override
+  String get export => 'Dışa Aktar';
 
   @override
   String get exportComingNext => 'Dışa aktarma yakında';
@@ -115,6 +121,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get exportData => 'Veriyi Dışa Aktar';
 
   @override
+  String get exportPin => 'Yedekleme PIN’i';
+
+  @override
   String get hideSensitiveContent => 'Hassas içerikleri kilit açılana kadar gizle';
 
   @override
@@ -124,13 +133,19 @@ class AppLocalizationsTr extends AppLocalizations {
   String get ibanCopied => 'IBAN kopyalandı';
 
   @override
-  String get importData => 'Veriyi İçe Aktar';
+  String get import => 'İçe Aktar';
 
   @override
   String get importCompleted => 'İçe aktarma tamamlandı';
 
   @override
+  String get importData => 'Veriyi İçe Aktar';
+
+  @override
   String get importFailed => 'İçe aktarma başarısız';
+
+  @override
+  String get importPin => 'Geri Yükleme PIN’i';
 
   @override
   String get language => 'Dil';

@@ -140,6 +140,38 @@ Future<String?> _getUnwrappedMasterKey() async {
                   Navigator.pop(context);
                 },
               ),
+			  
+			  ListTile(
+                title: const Text("Deutsch"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('de'));
+                  Navigator.pop(context);
+                },
+              ),
+			  ListTile(
+                title: const Text("Français"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('fr'));
+                  Navigator.pop(context);
+                },
+              ),
+			  ListTile(
+                title: const Text("Italiano"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('it'));
+                  Navigator.pop(context);
+                },
+              ),
+			  ListTile(
+                title: const Text("Português (Brasil)"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('pt', 'BR'));
+                  Navigator.pop(context);
+                },
+              ),
+			  
+			  
+			  
             ],
           ),
         );
@@ -162,20 +194,20 @@ Future<void> exportBackupBlob() async {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Export PIN'),
+          title: Text(AppLocalizations.of(context)!.exportPin),
           content: TextField(
             controller: exportPinController,
             keyboardType: TextInputType.number,
             maxLength: 5,
             obscureText: true,
-            decoration: const InputDecoration(
-              hintText: 'Enter 5-digit PIN',
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context)!.enterPinHint,
             ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('CANCEL'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () {
@@ -184,7 +216,7 @@ Future<void> exportBackupBlob() async {
                   Navigator.pop(context, pin);
                 }
               },
-              child: const Text('EXPORT'),
+              child: Text(AppLocalizations.of(context)!.export.toUpperCase()),
             ),
           ],
         );
@@ -276,20 +308,20 @@ Future<void> importBackupBlob() async {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text('Import PIN'),
+          title: Text(AppLocalizations.of(context)!.importPin),
           content: TextField(
             controller: pinController,
             keyboardType: TextInputType.number,
             maxLength: 5,
             obscureText: true,
-            decoration: const InputDecoration(
-              hintText: 'Enter 5-digit PIN',
+            decoration: InputDecoration(
+              hintText: AppLocalizations.of(context)!.enterPinHint,
             ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('CANCEL'),
+              child: Text(AppLocalizations.of(context)!.cancel),
             ),
             TextButton(
               onPressed: () {
@@ -298,7 +330,7 @@ Future<void> importBackupBlob() async {
                   Navigator.pop(context, pin);
                 }
               },
-              child: const Text('IMPORT'),
+              child: Text(AppLocalizations.of(context)!.import.toUpperCase()),
             ),
           ],
         );

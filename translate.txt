@@ -1,19 +1,52 @@
+English → en
+Türkçe → tr
+Spanish → es
+German → de
+French → fr
+Italian → it
+Portuguese (Brazil) → pt_BR
+
+	
+Master Prompt *****************************	
+	
 I have a Flutter .arb localization file for a mobile app called "Lynra GreyNote".
 
-The app is a privacy-focused, offline "secure vault" app (stores passwords, notes, credentials). It has a professional, minimal and trustworthy tone.
+The app is a privacy-focused, offline, secure vault app that stores sensitive user data such as passwords, notes, and credentials.
 
-Translate the following JSON (.arb file) into Spanish.
+Your task is to translate the following JSON (.arb file).
+
+TARGET LANGUAGE: Português (Brasil)
 
 IMPORTANT RULES:
-- Keep all keys exactly the same
-- Only translate the values
+- Keep all keys EXACTLY the same
+- Only translate the VALUES
 - Do NOT break JSON format
-- Keep placeholders like {name}, {date}, {count} exactly as they are
-- Use cybersecurity / app terminology correctly (not literal translation)
-- Tone must feel premium, secure, and clean
-- "Vault" should be translated as "Bóveda"
-- "Vault Word" should be translated consistently (e.g., "Clave de bóveda")
-- Do not overcomplicate language, keep it simple and natural
+- Do NOT add or remove any keys
+- Keep placeholders like {name}, {date}, {count} EXACTLY as they are
+- Keep capitalization consistent where appropriate
+- Keep sentences SHORT, CLEAN, and UI-friendly
+- Avoid overly long or complex phrasing
+- Tone must be: PREMIUM, SECURE, MINIMAL, TRUSTWORTHY
+- Avoid casual, playful, or slang language
+
+APP TERMINOLOGY RULES:
+- "Vault" = [TRANSLATE NATURALLY FOR TARGET LANGUAGE]
+- "Vault Word" = [CONSISTENT TERM based on Vault translation]
+- "Secure Entry" = [Natural cybersecurity-friendly term]
+- "Unlock Vault" = [Natural and clear action phrase]
+- "Delete" should feel safe (not aggressive if possible)
+
+LOCALIZATION QUALITY RULES:
+- This is a mobile UI, not a paragraph → keep it concise
+- Buttons must feel like native OS-level wording
+- Prefer terminology used in real apps, not literal translation
+- If a direct translation sounds unnatural, ADAPT it
+
+OUTPUT RULES:
+- Return ONLY valid JSON
+- Do NOT include explanations
+- Do NOT include comments
+- Do NOT include markdown formatting
 
 Here is the file:
 
@@ -59,22 +92,27 @@ Here is the file:
 "editEntry": 				"Edit Entry",
 "enableVaultWord": 			"Enable Vault Word",
 "enterPin": 				"Enter PIN",
-"entryDetails": 			"Entry Details",
+"enterPinHint": 			"Enter 5-digit PIN",
 "enterVaultWord": 			"Enter your vault word",
+"entryDetails": 			"Entry Details",
+"export": 					"Export",
 "exportComingNext": 		"Export coming next",
 "exportCompleted": 			"Export completed",
 "exportData": 				"Export Data",
+"exportPin": 				"Backup PIN",
 "hideSensitiveContent": 	"Hide sensitive content until unlocked",
 "iban": 					"IBAN",
 "ibanCopied": 				"IBAN copied",
-"importData": 				"Import Data",
+"import": 					"Import",
 "importCompleted": 			"Import completed",
+"importData": 				"Import Data",
 "importFailed": 			"Import failed",
+"importPin": 				"Restore Pin",
 "language": 				"Language",
 "lynraSecurity":   			"Lynra Security",
 "max5Collections": 			"Maximum 5 collections allowed",
 "medium": 					"Medium",
-"min5Dots":        			"Use at least 4 dots",
+"min5Dots":        			"Use at least 5 dots",
 "modified": 				"Modified",
 "myVault": 					"My Vault",
 "newCollection": 			"New Collection",

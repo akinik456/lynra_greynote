@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import '../../../core/db/database_helper.dart';
 
+import '../../../l10n/app_localizations.dart';
+import '../../../core/db/database_helper.dart';
 import '../data/vault_repository.dart';
 import '../models/vault_item.dart';
 import 'add_edit_screen.dart';
@@ -376,8 +377,8 @@ Future<String?> _getUnwrappedMasterKey() async {
               child: TextField(
                 controller: ctrl,
                 style: const TextStyle(color: Color(0xFFE2E8F0)),
-                decoration: const InputDecoration(
-                  hintText: "Enter Vault Word",
+                decoration: InputDecoration(
+                  hintText: AppLocalizations.of(context)!.enterVaultWord,
                   hintStyle: TextStyle(color: Color(0xFF94A3B8)),
                   border: InputBorder.none,
                 ),

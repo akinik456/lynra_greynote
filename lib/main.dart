@@ -87,6 +87,10 @@ Future<void>  setLocale(Locale locale) async  {
 		Locale('en'),
 		Locale('tr'),
 		Locale('es'),
+		Locale('de'),
+		Locale('fr'),
+		Locale('it'),
+		Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
 	  ],
 
       theme: ThemeData.dark().copyWith(

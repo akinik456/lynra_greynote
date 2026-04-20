@@ -100,10 +100,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enterPin => 'Introduce el PIN';
 
   @override
-  String get entryDetails => 'Detalles de la entrada';
+  String get enterPinHint => 'Introduce un PIN de 5 dígitos';
 
   @override
   String get enterVaultWord => 'Introduce tu clave de bóveda';
+
+  @override
+  String get entryDetails => 'Detalles de la entrada';
+
+  @override
+  String get export => 'Exportar';
 
   @override
   String get exportComingNext => 'Exportación disponible próximamente';
@@ -115,6 +121,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get exportData => 'Exportar datos';
 
   @override
+  String get exportPin => 'PIN de copia de seguridad';
+
+  @override
   String get hideSensitiveContent => 'Ocultar contenido sensible hasta desbloquear';
 
   @override
@@ -124,13 +133,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get ibanCopied => 'IBAN copiado';
 
   @override
-  String get importData => 'Importar datos';
+  String get import => 'Importar';
 
   @override
   String get importCompleted => 'Importación completada correctamente';
 
   @override
+  String get importData => 'Importar datos';
+
+  @override
   String get importFailed => 'Error al importar';
+
+  @override
+  String get importPin => 'PIN de restauración';
 
   @override
   String get language => 'Idioma';
