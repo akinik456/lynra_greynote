@@ -108,7 +108,7 @@ Future<String?> _getUnwrappedMasterKey() async {
     await importBackupBlob();
   },
 ),
-		  _Item(
+_Item(
   title: AppLocalizations.of(context)!.language,
   onTap: () {
     showDialog(
@@ -116,89 +116,154 @@ Future<String?> _getUnwrappedMasterKey() async {
       builder: (_) {
         return AlertDialog(
           title: Text(AppLocalizations.of(context)!.selectLanguage),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title: const Text("English"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('en'));
-                  Navigator.pop(context);
-                },
+          content: SizedBox(
+            width: double.maxFinite,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ListTile(
+                    title: const Text("English"),
+                    onTap: () {
+                      LynraApp.of(context).setLocale(const Locale('en'));
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    title: const Text("Türkçe"),
+                    onTap: () {
+                      LynraApp.of(context).setLocale(const Locale('tr'));
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    title: const Text("Español"),
+                    onTap: () {
+                      LynraApp.of(context).setLocale(const Locale('es'));
+                      Navigator.pop(context);
+                    },
+                  ),
+				  ListTile(
+					title: const Text("Deutsch"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('de'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Français"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('fr'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Italiano"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('it'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Português (Brasil)"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('pt', 'BR'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("हिन्दी"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('hi'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("한국어"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('ko'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("日本語"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('ja'));
+					  Navigator.pop(context);
+					},
+				  ),			  
+				  ListTile(
+					title: const Text("简体中文"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('zh'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("العربية"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('ar'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Русский"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('ru'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Bahasa Indonesia"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('id'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Tiếng Việt"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('vi'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("ไทย"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('th'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Nederlands"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('nl'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Polski"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('pl'));
+					  Navigator.pop(context);
+					},
+				  ),
+				  ListTile(
+					title: const Text("Svenska"),
+					onTap: () {
+					  LynraApp.of(context).setLocale(const Locale('sv'));
+					  Navigator.pop(context);
+					},
+				  ),	  				  
+                ],
               ),
-              ListTile(
-                title: const Text("Türkçe"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('tr'));
-                  Navigator.pop(context);
-                },
-              ),
-			  ListTile(
-                title: const Text("Español"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('es'));
-                  Navigator.pop(context);
-                },
-              ),
-			  
-			  ListTile(
-                title: const Text("Deutsch"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('de'));
-                  Navigator.pop(context);
-                },
-              ),
-			  ListTile(
-                title: const Text("Français"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('fr'));
-                  Navigator.pop(context);
-                },
-              ),
-			  ListTile(
-                title: const Text("Italiano"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('it'));
-                  Navigator.pop(context);
-                },
-              ),
-			  ListTile(
-                title: const Text("Português (Brasil)"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('pt', 'BR'));
-                  Navigator.pop(context);
-                },
-              ),
-			  ListTile(
-                title: const Text("Hindi"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('hi'));
-                  Navigator.pop(context);
-                },
-              ),
-			  ListTile(
-                title: const Text("Korean"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('ko'));
-                  Navigator.pop(context);
-                },
-              ),
-			  ListTile(
-                title: const Text("Japanese"),
-                onTap: () {
-                  LynraApp.of(context).setLocale(const Locale('ja'));
-                  Navigator.pop(context);
-                },
-              ),
-			  
-			  
-            ],
+            ),
           ),
         );
       },
     );
   },
-),
+),		  
         ],
       ),
     );

@@ -94,6 +94,19 @@ Future<void>  setLocale(Locale locale) async  {
 		Locale('hi'),
 		Locale('ko'),
 		Locale('ja'),
+		
+		Locale('zh'),
+		Locale('ar'),
+		Locale('ru'),
+		Locale('id'),
+		Locale('vi'),
+		Locale('th'),
+		Locale('nl'),
+		Locale('pl'),
+		Locale('sv'),
+		
+		
+		
 	  ],
 
       theme: ThemeData.dark().copyWith(

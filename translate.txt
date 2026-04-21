@@ -1,188 +1,31 @@
 
 flutter gen-l10n
 
+English / English 							— en
+Turkish / Türkçe 							— tr
+Spanish / Español 							— es
+German / Deutsch 							— de
+French / Français 							— fr
+Italian / Italiano 							— it
+Portuguese (Brazil) / Português (Brasil) 	— pt_BR
+Hindi / हिन्दी 								— hi
+Korean / 한국어 								— ko
+Japanese / 日本語 							— ja
 
-English 			→ en
-Türkçe 				→ tr
-Spanish	 			→ es
-German 				→ de
-French 				→ fr
-Italian 			→ it
-Portuguese (Brazil) → pt_BR
-Hindi 				→ hi
-Korean 				→ ko
-Japanese 			→ ja
+Chinese (Simplified) / 简体中文 				— zh
+Arabic / العربية 							— ar
+Russian / Русский						 	— ru
+Indonesian / Bahasa Indonesia 				— id
+Vietnamese / Tiếng Việt 					— vi
+Thai / ไทย 									— th
+Dutch / Nederlands 							— nl
+Polish / Polski 							— pl
+Swedish / Svenska 							— sv
 
 	
 Master Prompt *****************************	
 	
-I have a Flutter .arb localization file for a mobile app called "Lynra GreyNote".
 
-The app is a privacy-focused, offline, secure vault app that stores sensitive user data such as passwords, notes, and credentials.
-
-Your task is to translate the following JSON (.arb file).
-
-TARGET LANGUAGE: Japanese ja
-
-IMPORTANT RULES:
-- Keep all keys EXACTLY the same
-- Only translate the VALUES
-- Do NOT break JSON format
-- Do NOT add or remove any keys
-- Keep placeholders like {name}, {date}, {count} EXACTLY as they are
-- Keep capitalization consistent where appropriate
-- Keep sentences SHORT, CLEAN, and UI-friendly
-- Avoid overly long or complex phrasing
-- Tone must be: PREMIUM, SECURE, MINIMAL, TRUSTWORTHY
-- Avoid casual, playful, or slang language
-
-APP TERMINOLOGY RULES:
-- "Vault" = [TRANSLATE NATURALLY FOR TARGET LANGUAGE]
-- "Vault Word" = [CONSISTENT TERM based on Vault translation]
-- "Secure Entry" = [Natural cybersecurity-friendly term]
-- "Unlock Vault" = [Natural and clear action phrase]
-- "Delete" should feel safe (not aggressive if possible)
-
-LOCALIZATION QUALITY RULES:
-- This is a mobile UI, not a paragraph → keep it concise
-- Buttons must feel like native OS-level wording
-- Prefer terminology used in real apps, not literal translation
-- If a direct translation sounds unnatural, ADAPT it
-
-OUTPUT RULES:
-- Return ONLY valid JSON
-- Do NOT include explanations
-- Do NOT include comments
-- Do NOT include markdown formatting
-
-Here is the file:
-
-{
-
-"@@locale": 				"en",
-"add": 						"Add",
-"addFirstSecureEntry": 		"Tap the + button to add your first secure entry.",
-"addIban": 					"Add IBAN",
-"appTitle": 				"LynraGreyNote",
-"authenticateToContinue": 	"Authenticate to continue",
-"bankDetails": 				"Bank Details",
-"biometric": 				"Biometric",
-"biometricFailed": 			"Biometric failed",
-"biometricNotAvailable": 	"Biometric not available",
-"biometricSuccess": 		"Biometric success",
-"cancel": 					"Cancel",
-"collection": 				"Collection",	
-"collectionExample": 		"e.g. Backups",
-"confirmPattern":  			"Draw the same pattern again to confirm",
-"confirmPin": 				"Confirm PIN",
-"continueText":    			"Continue",
-"created": 					"Created",
-"createVaultKey":  			"Create Your Vault Key",
-"delete": 					"Delete",
-"deleteCollection": 		"Delete Collection",
-"deleteCollectionConfirm": 	"Delete \"{name}\"?\n\nAll entries will be permanently deleted.",
-"@deleteCollectionConfirm": {
-  "placeholders": {
-    "name": {}
-  }
-},
-"deleteEntry": 				"Delete entry",
-"deleteEntryConfirm": 		"Delete \"{name}\"?",
-"@deleteEntryConfirm": {
-  "placeholders": {
-    "name": {}
-  }
-},
-"details": 					"Details",
-"drawNewPattern":  			"Draw a new pattern",
-"drawVaultKey":    			"Draw your vault key",
-"editEntry": 				"Edit Entry",
-"enableVaultWord": 			"Enable Vault Word",
-"enterPin": 				"Enter PIN",
-"enterPinHint": 			"Enter 5-digit PIN",
-"enterVaultWord": 			"Enter your vault word",
-"entryDetails": 			"Entry Details",
-"export": 					"Export",
-"exportComingNext": 		"Export coming next",
-"exportCompleted": 			"Export completed",
-"exportData": 				"Export Data",
-"exportPin": 				"Backup PIN",
-"generatePassword": 		"Generate Password",
-"generatePasswordDescription": "Create a strong password below. Copying it will also fill the password field.",
-"generate": 				"Generate",
-"hideSensitiveContent": 	"Hide sensitive content until unlocked",
-"iban": 					"IBAN",
-"ibanCopied": 				"IBAN copied",
-"import": 					"Import",
-"importCompleted": 			"Import completed",
-"importData": 				"Import Data",
-"importFailed": 			"Import failed",
-"importPin": 				"Restore Pin",
-"language": 				"Language",
-"lynraSecurity":   			"Lynra Security",
-"max5Collections": 			"Maximum 5 collections allowed",
-"medium": 					"Medium",
-"min5Dots":        			"Use at least 5 dots",
-"modified": 				"Modified",
-"myVault": 					"My Vault",
-"newCollection": 			"New Collection",
-"newEntry": 				"New Entry",
-"noEntriesYet": 			"No entries yet",
-"none": 					"None",
-"noNoteAdded": 				"No note added",
-"noPasswordGenerated": 		"No password generated yet",
-"note": 					"Note",
-"noteType": 				"Note",
-"noUsername": 				"No username",
-"onboardingDescription": 	"Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.",
-"optionalNote": 			"Optional note",
-"password": 				"Password",
-"passwordCopied": 			"Password copied",
-"patternMismatch": 			"Patterns did not match. Start again",
-"pin": 						"PIN",
-"pinMustBe6Digits": 		"PIN must be 6 digits",
-"pinSaved": 				"PIN saved",
-"pinsDoNotMatch": 			"PINs do not match",
-"privateByDesign": 			"Privacy is a fundamental, not a feature",
-"save": 					"Save",
-"savePin": 					"Save PIN",
-"secondaryLock": 			"Secondary Lock",
-"security": 				"Security",
-"selectLanguage": 			"Select Language",
-"settings": 				"Settings",
-"setPin": 					"Set PIN",
-"standard": 				"Standard",
-"strong": 					"Strong",
-"vaultHeaderStats": 		"{collection} • {count} {count,plural, =1{item} other{items}}",
-"@vaultHeaderStats": {
-  "placeholders": {
-    "collection": {},
-    "count": {
-      "type": "int"
-    }
-  }
-},
-"vaultWord": 				"Vault Word",
-"weak": 					"Weak",
-"wrongPattern":    			"Wrong pattern. Try again",
-"wrongPin": 				"Wrong PIN",
-"title": 					"Title",
-"unlock": 		   			"Unlock",
-"unlockContent": 			"Unlock Content",
-"unlockVault": 	   			"Unlock Vault",
-"untitled": 				"Untitled",	
-"updatedDate": 				"Updated {date}",
-"@updatedDate": {
-  "placeholders": {
-    "date": {}
-  }
-},
-"username": 				"Username",
-"usernameCopied": 			"Username copied",
-"usernameEmail": 			"Username / Email"
-}
-	
-	
 	
 
 	
