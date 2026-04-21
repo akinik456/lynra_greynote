@@ -111,159 +111,261 @@ Future<String?> _getUnwrappedMasterKey() async {
 _Item(
   title: AppLocalizations.of(context)!.language,
   onTap: () {
-    showDialog(
+    final currentLocale = Localizations.localeOf(context);
+
+    final languages = <Map<String, dynamic>>[
+      {
+        "label": "English",
+        "search": "English",
+        "locale": const Locale('en'),
+      },
+      {
+        "label": "Türkçe",
+        "search": "Turkish Türkçe",
+        "locale": const Locale('tr'),
+      },
+      {
+        "label": "Español",
+        "search": "Spanish Español",
+        "locale": const Locale('es'),
+      },
+      {
+        "label": "Deutsch",
+        "search": "German Deutsch",
+        "locale": const Locale('de'),
+      },
+      {
+        "label": "Français",
+        "search": "French Français",
+        "locale": const Locale('fr'),
+      },
+      {
+        "label": "Italiano",
+        "search": "Italian Italiano",
+        "locale": const Locale('it'),
+      },
+      {
+        "label": "Português (Brasil)",
+        "search": "Portuguese Brazil Português Brasil",
+        "locale": const Locale('pt', 'BR'),
+      },
+      {
+        "label": "हिन्दी",
+        "search": "Hindi हिन्दी",
+        "locale": const Locale('hi'),
+      },
+      {
+        "label": "한국어",
+        "search": "Korean 한국어",
+        "locale": const Locale('ko'),
+      },
+      {
+        "label": "日本語",
+        "search": "Japanese 日本語",
+        "locale": const Locale('ja'),
+      },
+      {
+        "label": "简体中文",
+        "search": "Chinese Simplified 简体中文",
+        "locale": const Locale('zh'),
+      },
+      {
+        "label": "العربية",
+        "search": "Arabic العربية",
+        "locale": const Locale('ar'),
+      },
+      {
+        "label": "Русский",
+        "search": "Russian Русский",
+        "locale": const Locale('ru'),
+      },
+      {
+        "label": "Bahasa Indonesia",
+        "search": "Indonesian Bahasa Indonesia",
+        "locale": const Locale('id'),
+      },
+      {
+        "label": "Tiếng Việt",
+        "search": "Vietnamese Tiếng Việt",
+        "locale": const Locale('vi'),
+      },
+      {
+        "label": "ไทย",
+        "search": "Thai ไทย",
+        "locale": const Locale('th'),
+      },
+      {
+        "label": "Nederlands",
+        "search": "Dutch Nederlands",
+        "locale": const Locale('nl'),
+      },
+      {
+        "label": "Polski",
+        "search": "Polish Polski",
+        "locale": const Locale('pl'),
+      },
+      {
+        "label": "Svenska",
+        "search": "Swedish Svenska",
+        "locale": const Locale('sv'),
+      },
+    ];
+
+    bool isSameLocale(Locale a, Locale b) {
+      return a.languageCode == b.languageCode &&
+          (a.countryCode ?? '') == (b.countryCode ?? '');
+    }
+
+    final selected = languages.where((item) {
+      final locale = item["locale"] as Locale;
+      return isSameLocale(locale, currentLocale);
+    }).toList();
+
+    final others = languages.where((item) {
+      final locale = item["locale"] as Locale;
+      return !isSameLocale(locale, currentLocale);
+    }).toList()
+      ..sort((a, b) => (a["label"] as String).compareTo(b["label"] as String));
+
+    final sortedLanguages = [...selected, ...others];
+
+    showModalBottomSheet(
       context: context,
-      builder: (_) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.selectLanguage),
-          content: SizedBox(
-            width: double.maxFinite,
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  ListTile(
-                    title: const Text("English"),
-                    onTap: () {
-                      LynraApp.of(context).setLocale(const Locale('en'));
-                      Navigator.pop(context);
-                    },
+      isScrollControlled: true,
+      backgroundColor: const Color(0xFF020617),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+      ),
+      builder: (sheetContext) {
+        String query = '';
+
+        return StatefulBuilder(
+          builder: (context, setModalState) {
+            final filtered = sortedLanguages.where((item) {
+              if (query.trim().isEmpty) return true;
+              final q = query.toLowerCase();
+              final label = (item["label"] as String).toLowerCase();
+              final search = (item["search"] as String).toLowerCase();
+              return label.contains(q) || search.contains(q);
+            }).toList();
+
+            return SafeArea(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(
+                  16,
+                  12,
+                  16,
+                  16 + MediaQuery.of(sheetContext).viewInsets.bottom,
+                ),
+                child: SizedBox(
+                  height: MediaQuery.of(sheetContext).size.height * 0.78,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 42,
+                        height: 4,
+                        decoration: BoxDecoration(
+                          color: Colors.white24,
+                          borderRadius: BorderRadius.circular(999),
+                        ),
+                      ),
+                      const SizedBox(height: 16),
+                      Text(
+                        AppLocalizations.of(context)!.selectLanguage,
+                        style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF0F172A),
+                          borderRadius: BorderRadius.circular(14),
+                          border: Border.all(color: Colors.white10),
+                        ),
+                        child: TextField(
+                          onChanged: (value) {
+                            setModalState(() {
+                              query = value;
+                            });
+                          },
+                          style: const TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                            hintText: "Search language...",
+                            hintStyle: const TextStyle(color: Colors.white54),
+                            prefixIcon: const Icon(
+                              Icons.search,
+                              color: Colors.white54,
+                            ),
+                            border: InputBorder.none,
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 14,
+                              vertical: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 14),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: ListView.separated(
+                            itemCount: filtered.length,
+                            separatorBuilder: (_, __) =>
+                                const Divider(height: 1, color: Colors.white10),
+                            itemBuilder: (context, index) {
+                              final item = filtered[index];
+                              final locale = item["locale"] as Locale;
+                              final label = item["label"] as String;
+                              final selected =
+                                  isSameLocale(locale, currentLocale);
+
+                              return Material(
+                                color: selected
+                                    ? const Color(0xFF0F172A)
+                                    : Colors.transparent,
+                                child: ListTile(
+                                  minTileHeight: 56,
+                                  title: Text(
+                                    label,
+                                    style: TextStyle(
+                                      color: selected
+                                          ? const Color(0xFF22D3EE)
+                                          : Colors.white,
+                                      fontWeight: selected
+                                          ? FontWeight.w600
+                                          : FontWeight.w400,
+                                    ),
+                                  ),
+                                  trailing: selected
+                                      ? const Icon(
+                                          Icons.check,
+                                          color: Color(0xFF22D3EE),
+                                        )
+                                      : null,
+                                  onTap: () {
+                                    LynraApp.of(context).setLocale(locale);
+                                    Navigator.pop(sheetContext);
+                                  },
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  ListTile(
-                    title: const Text("Türkçe"),
-                    onTap: () {
-                      LynraApp.of(context).setLocale(const Locale('tr'));
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    title: const Text("Español"),
-                    onTap: () {
-                      LynraApp.of(context).setLocale(const Locale('es'));
-                      Navigator.pop(context);
-                    },
-                  ),
-				  ListTile(
-					title: const Text("Deutsch"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('de'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Français"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('fr'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Italiano"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('it'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Português (Brasil)"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('pt', 'BR'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("हिन्दी"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('hi'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("한국어"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('ko'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("日本語"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('ja'));
-					  Navigator.pop(context);
-					},
-				  ),			  
-				  ListTile(
-					title: const Text("简体中文"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('zh'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("العربية"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('ar'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Русский"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('ru'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Bahasa Indonesia"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('id'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Tiếng Việt"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('vi'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("ไทย"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('th'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Nederlands"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('nl'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Polski"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('pl'));
-					  Navigator.pop(context);
-					},
-				  ),
-				  ListTile(
-					title: const Text("Svenska"),
-					onTap: () {
-					  LynraApp.of(context).setLocale(const Locale('sv'));
-					  Navigator.pop(context);
-					},
-				  ),	  				  
-                ],
+                ),
               ),
-            ),
-          ),
+            );
+          },
         );
       },
     );
   },
-),		  
+),
         ],
       ),
     );
