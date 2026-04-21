@@ -2,13 +2,16 @@
 flutter gen-l10n
 
 
-English → en
-Türkçe → tr
-Spanish → es
-German → de
-French → fr
-Italian → it
+English 			→ en
+Türkçe 				→ tr
+Spanish	 			→ es
+German 				→ de
+French 				→ fr
+Italian 			→ it
 Portuguese (Brazil) → pt_BR
+Hindi 				→ hi
+Korean 				→ ko
+Japanese 			→ ja
 
 	
 Master Prompt *****************************	
@@ -19,7 +22,7 @@ The app is a privacy-focused, offline, secure vault app that stores sensitive us
 
 Your task is to translate the following JSON (.arb file).
 
-TARGET LANGUAGE: Português (Brasil)
+TARGET LANGUAGE: Japanese ja
 
 IMPORTANT RULES:
 - Keep all keys EXACTLY the same
@@ -69,7 +72,7 @@ Here is the file:
 "biometricSuccess": 		"Biometric success",
 "cancel": 					"Cancel",
 "collection": 				"Collection",	
-"collectionExample": 		"e.g. Mom",
+"collectionExample": 		"e.g. Backups",
 "confirmPattern":  			"Draw the same pattern again to confirm",
 "confirmPin": 				"Confirm PIN",
 "continueText":    			"Continue",
@@ -104,6 +107,9 @@ Here is the file:
 "exportCompleted": 			"Export completed",
 "exportData": 				"Export Data",
 "exportPin": 				"Backup PIN",
+"generatePassword": 		"Generate Password",
+"generatePasswordDescription": "Create a strong password below. Copying it will also fill the password field.",
+"generate": 				"Generate",
 "hideSensitiveContent": 	"Hide sensitive content until unlocked",
 "iban": 					"IBAN",
 "ibanCopied": 				"IBAN copied",
@@ -124,6 +130,7 @@ Here is the file:
 "noEntriesYet": 			"No entries yet",
 "none": 					"None",
 "noNoteAdded": 				"No note added",
+"noPasswordGenerated": 		"No password generated yet",
 "note": 					"Note",
 "noteType": 				"Note",
 "noUsername": 				"No username",
@@ -174,6 +181,10 @@ Here is the file:
 "usernameCopied": 			"Username copied",
 "usernameEmail": 			"Username / Email"
 }
+	
+	
+	
+
 	
 	
 	

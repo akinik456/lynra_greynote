@@ -169,7 +169,27 @@ Future<String?> _getUnwrappedMasterKey() async {
                   Navigator.pop(context);
                 },
               ),
-			  
+			  ListTile(
+                title: const Text("Hindi"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('hi'));
+                  Navigator.pop(context);
+                },
+              ),
+			  ListTile(
+                title: const Text("Korean"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('ko'));
+                  Navigator.pop(context);
+                },
+              ),
+			  ListTile(
+                title: const Text("Japanese"),
+                onTap: () {
+                  LynraApp.of(context).setLocale(const Locale('ja'));
+                  Navigator.pop(context);
+                },
+              ),
 			  
 			  
             ],

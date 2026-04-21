@@ -9,307 +9,307 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get add => 'Add';
+  String get add => '追加';
 
   @override
-  String get addFirstSecureEntry => 'Tap the + button to add your first secure entry.';
+  String get addFirstSecureEntry => '+ ボタンをタップして最初のセキュアエントリを追加してください。';
 
   @override
-  String get addIban => 'Add IBAN';
+  String get addIban => 'IBANを追加';
 
   @override
   String get appTitle => 'LynraGreyNote';
 
   @override
-  String get authenticateToContinue => 'Authenticate to continue';
+  String get authenticateToContinue => '続行するには認証してください';
 
   @override
-  String get bankDetails => 'Bank Details';
+  String get bankDetails => '銀行情報';
 
   @override
-  String get biometric => 'Biometric';
+  String get biometric => '生体認証';
 
   @override
-  String get biometricFailed => 'Biometric failed';
+  String get biometricFailed => '生体認証に失敗しました';
 
   @override
-  String get biometricNotAvailable => 'Biometric not available';
+  String get biometricNotAvailable => '生体認証は利用できません';
 
   @override
-  String get biometricSuccess => 'Biometric success';
+  String get biometricSuccess => '生体認証に成功しました';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'キャンセル';
 
   @override
-  String get collection => 'Collection';
+  String get collection => 'コレクション';
 
   @override
-  String get collectionExample => 'e.g. Backups';
+  String get collectionExample => '例：バックアップ';
 
   @override
-  String get confirmPattern => 'Draw the same pattern again to confirm';
+  String get confirmPattern => '確認のため同じパターンをもう一度描いてください';
 
   @override
-  String get confirmPin => 'Confirm PIN';
+  String get confirmPin => 'PINを確認';
 
   @override
-  String get continueText => 'Continue';
+  String get continueText => '続行';
 
   @override
-  String get created => 'Created';
+  String get created => '作成日';
 
   @override
-  String get createVaultKey => 'Create Your Vault Key';
+  String get createVaultKey => 'ボルトキーを作成';
 
   @override
-  String get delete => 'Delete';
+  String get delete => '削除';
 
   @override
-  String get deleteCollection => 'Delete Collection';
+  String get deleteCollection => 'コレクションを削除';
 
   @override
   String deleteCollectionConfirm(Object name) {
-    return 'Delete \"$name\"?\n\nAll entries will be permanently deleted.';
+    return '「$name」を削除しますか？\n\nすべてのエントリは完全に削除されます。';
   }
 
   @override
-  String get deleteEntry => 'Delete entry';
+  String get deleteEntry => 'エントリを削除';
 
   @override
   String deleteEntryConfirm(Object name) {
-    return 'Delete \"$name\"?';
+    return '「$name」を削除しますか？';
   }
 
   @override
-  String get details => 'Details';
+  String get details => '詳細';
 
   @override
-  String get drawNewPattern => 'Draw a new pattern';
+  String get drawNewPattern => '新しいパターンを描く';
 
   @override
-  String get drawVaultKey => 'Draw your vault key';
+  String get drawVaultKey => 'ボルトキーを描いてください';
 
   @override
-  String get editEntry => 'Edit Entry';
+  String get editEntry => 'エントリを編集';
 
   @override
-  String get enableVaultWord => 'Enable Vault Word';
+  String get enableVaultWord => 'ボルトワードを有効化';
 
   @override
-  String get enterPin => 'Enter PIN';
+  String get enterPin => 'PINを入力';
 
   @override
-  String get enterPinHint => 'Enter 5-digit PIN';
+  String get enterPinHint => '5桁のPINを入力';
 
   @override
-  String get enterVaultWord => 'Enter your vault word';
+  String get enterVaultWord => 'ボルトワードを入力';
 
   @override
-  String get entryDetails => 'Entry Details';
+  String get entryDetails => 'エントリ詳細';
 
   @override
-  String get export => 'Export';
+  String get export => 'エクスポート';
 
   @override
-  String get exportComingNext => 'Export coming next';
+  String get exportComingNext => 'エクスポート機能は近日公開';
 
   @override
-  String get exportCompleted => 'Export completed';
+  String get exportCompleted => 'エクスポート完了';
 
   @override
-  String get exportData => 'Export Data';
+  String get exportData => 'データをエクスポート';
 
   @override
-  String get exportPin => 'Backup PIN';
+  String get exportPin => 'バックアップPIN';
 
   @override
-  String get generatePassword => 'Generate Password';
+  String get generatePassword => 'パスワード生成';
 
   @override
-  String get generatePasswordDescription => 'Create a strong password below. Copying it will also fill the password field.';
+  String get generatePasswordDescription => '強力なパスワードを作成してください。コピーするとパスワード欄にも入力されます。';
 
   @override
-  String get generate => 'Generate';
+  String get generate => '生成';
 
   @override
-  String get hideSensitiveContent => 'Hide sensitive content until unlocked';
+  String get hideSensitiveContent => 'ロック解除まで機密内容を非表示';
 
   @override
   String get iban => 'IBAN';
 
   @override
-  String get ibanCopied => 'IBAN copied';
+  String get ibanCopied => 'IBANをコピーしました';
 
   @override
-  String get import => 'Import';
+  String get import => 'インポート';
 
   @override
-  String get importCompleted => 'Import completed';
+  String get importCompleted => 'インポート完了';
 
   @override
-  String get importData => 'Import Data';
+  String get importData => 'データをインポート';
 
   @override
-  String get importFailed => 'Import failed';
+  String get importFailed => 'インポートに失敗しました';
 
   @override
-  String get importPin => 'Restore Pin';
+  String get importPin => '復元PIN';
 
   @override
-  String get language => 'Language';
+  String get language => '言語';
 
   @override
-  String get lynraSecurity => 'Lynra Security';
+  String get lynraSecurity => 'Lynraセキュリティ';
 
   @override
-  String get max5Collections => 'Maximum 5 collections allowed';
+  String get max5Collections => '最大5つのコレクションまで';
 
   @override
-  String get medium => 'Medium';
+  String get medium => '中';
 
   @override
-  String get min5Dots => 'Use at least 5 dots';
+  String get min5Dots => '少なくとも5つのポイントを使用してください';
 
   @override
-  String get modified => 'Modified';
+  String get modified => '更新日';
 
   @override
-  String get myVault => 'My Vault';
+  String get myVault => 'マイボルト';
 
   @override
-  String get newCollection => 'New Collection';
+  String get newCollection => '新しいコレクション';
 
   @override
-  String get newEntry => 'New Entry';
+  String get newEntry => '新しいエントリ';
 
   @override
-  String get noEntriesYet => 'No entries yet';
+  String get noEntriesYet => 'まだエントリはありません';
 
   @override
-  String get none => 'None';
+  String get none => 'なし';
 
   @override
-  String get noNoteAdded => 'No note added';
+  String get noNoteAdded => 'ノートが追加されていません';
 
   @override
-  String get noPasswordGenerated => 'No password generated yet';
+  String get noPasswordGenerated => 'まだパスワードが生成されていません';
 
   @override
-  String get note => 'Note';
+  String get note => 'ノート';
 
   @override
-  String get noteType => 'Note';
+  String get noteType => 'ノート';
 
   @override
-  String get noUsername => 'No username';
+  String get noUsername => 'ユーザー名なし';
 
   @override
-  String get onboardingDescription => 'Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.';
+  String get onboardingDescription => 'データはデバイス内にのみ保存されます。\n\nLynraGreyNoteはサーバーを使用せず、追跡や情報収集を行いません。\n\n保存されたすべてのデータは暗号化され、ローカルに保管されます。\nアクセスできるのはあなただけです。\n\n素早く安全にアクセスするためにセカンダリPINまたは生体認証を使用してください。\nボルトワードを有効にすると、追加のプライバシー保護と必要に応じたコンテンツの非表示が可能になります。';
 
   @override
-  String get optionalNote => 'Optional note';
+  String get optionalNote => '任意のノート';
 
   @override
-  String get password => 'Password';
+  String get password => 'パスワード';
 
   @override
-  String get passwordCopied => 'Password copied';
+  String get passwordCopied => 'パスワードをコピーしました';
 
   @override
-  String get patternMismatch => 'Patterns did not match. Start again';
+  String get patternMismatch => 'パターンが一致しません。もう一度やり直してください';
 
   @override
   String get pin => 'PIN';
 
   @override
-  String get pinMustBe6Digits => 'PIN must be 6 digits';
+  String get pinMustBe6Digits => 'PINは6桁である必要があります';
 
   @override
-  String get pinSaved => 'PIN saved';
+  String get pinSaved => 'PINを保存しました';
 
   @override
-  String get pinsDoNotMatch => 'PINs do not match';
+  String get pinsDoNotMatch => 'PINが一致しません';
 
   @override
-  String get privateByDesign => 'Privacy is a fundamental, not a feature';
+  String get privateByDesign => 'プライバシーは機能ではなく基本です';
 
   @override
-  String get save => 'Save';
+  String get save => '保存';
 
   @override
-  String get savePin => 'Save PIN';
+  String get savePin => 'PINを保存';
 
   @override
-  String get secondaryLock => 'Secondary Lock';
+  String get secondaryLock => 'セカンダリロック';
 
   @override
-  String get security => 'Security';
+  String get security => 'セキュリティ';
 
   @override
-  String get selectLanguage => 'Select Language';
+  String get selectLanguage => '言語を選択';
 
   @override
-  String get settings => 'Settings';
+  String get settings => '設定';
 
   @override
-  String get setPin => 'Set PIN';
+  String get setPin => 'PINを設定';
 
   @override
-  String get standard => 'Standard';
+  String get standard => '標準';
 
   @override
-  String get strong => 'Strong';
+  String get strong => '強い';
 
   @override
   String vaultHeaderStats(Object collection, int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'items',
-      one: 'item',
+      other: '項目',
+      one: '項目',
     );
     return '$collection • $count $_temp0';
   }
 
   @override
-  String get vaultWord => 'Vault Word';
+  String get vaultWord => 'ボルトワード';
 
   @override
-  String get weak => 'Weak';
+  String get weak => '弱い';
 
   @override
-  String get wrongPattern => 'Wrong pattern. Try again';
+  String get wrongPattern => '誤ったパターンです。もう一度お試しください';
 
   @override
-  String get wrongPin => 'Wrong PIN';
+  String get wrongPin => '誤ったPIN';
 
   @override
-  String get title => 'Title';
+  String get title => 'タイトル';
 
   @override
-  String get unlock => 'Unlock';
+  String get unlock => 'ロック解除';
 
   @override
-  String get unlockContent => 'Unlock Content';
+  String get unlockContent => 'コンテンツをロック解除';
 
   @override
-  String get unlockVault => 'Unlock Vault';
+  String get unlockVault => 'ボルトをロック解除';
 
   @override
-  String get untitled => 'Untitled';
+  String get untitled => '無題';
 
   @override
   String updatedDate(Object date) {
-    return 'Updated $date';
+    return '$dateに更新';
   }
 
   @override
-  String get username => 'Username';
+  String get username => 'ユーザー名';
 
   @override
-  String get usernameCopied => 'Username copied';
+  String get usernameCopied => 'ユーザー名をコピーしました';
 
   @override
-  String get usernameEmail => 'Username / Email';
+  String get usernameEmail => 'ユーザー名 / メール';
 }

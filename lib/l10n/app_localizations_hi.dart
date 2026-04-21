@@ -9,307 +9,307 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
-  String get add => 'Add';
+  String get add => 'जोड़ें';
 
   @override
-  String get addFirstSecureEntry => 'Tap the + button to add your first secure entry.';
+  String get addFirstSecureEntry => 'अपनी पहली सुरक्षित एंट्री जोड़ने के लिए + बटन दबाएँ।';
 
   @override
-  String get addIban => 'Add IBAN';
+  String get addIban => 'IBAN जोड़ें';
 
   @override
   String get appTitle => 'LynraGreyNote';
 
   @override
-  String get authenticateToContinue => 'Authenticate to continue';
+  String get authenticateToContinue => 'जारी रखने के लिए सत्यापित करें';
 
   @override
-  String get bankDetails => 'Bank Details';
+  String get bankDetails => 'बैंक विवरण';
 
   @override
-  String get biometric => 'Biometric';
+  String get biometric => 'बायोमेट्रिक';
 
   @override
-  String get biometricFailed => 'Biometric failed';
+  String get biometricFailed => 'बायोमेट्रिक विफल';
 
   @override
-  String get biometricNotAvailable => 'Biometric not available';
+  String get biometricNotAvailable => 'बायोमेट्रिक उपलब्ध नहीं';
 
   @override
-  String get biometricSuccess => 'Biometric success';
+  String get biometricSuccess => 'बायोमेट्रिक सफल';
 
   @override
-  String get cancel => 'Cancel';
+  String get cancel => 'रद्द करें';
 
   @override
-  String get collection => 'Collection';
+  String get collection => 'संग्रह';
 
   @override
-  String get collectionExample => 'e.g. Backups';
+  String get collectionExample => 'जैसे बैकअप';
 
   @override
-  String get confirmPattern => 'Draw the same pattern again to confirm';
+  String get confirmPattern => 'पुष्टि के लिए वही पैटर्न फिर से बनाएं';
 
   @override
-  String get confirmPin => 'Confirm PIN';
+  String get confirmPin => 'PIN की पुष्टि करें';
 
   @override
-  String get continueText => 'Continue';
+  String get continueText => 'जारी रखें';
 
   @override
-  String get created => 'Created';
+  String get created => 'बनाया गया';
 
   @override
-  String get createVaultKey => 'Create Your Vault Key';
+  String get createVaultKey => 'अपनी वॉल्ट कुंजी बनाएं';
 
   @override
-  String get delete => 'Delete';
+  String get delete => 'हटाएँ';
 
   @override
-  String get deleteCollection => 'Delete Collection';
+  String get deleteCollection => 'संग्रह हटाएँ';
 
   @override
   String deleteCollectionConfirm(Object name) {
-    return 'Delete \"$name\"?\n\nAll entries will be permanently deleted.';
+    return '\"$name\" हटाएँ?\n\nसभी एंट्री स्थायी रूप से हट जाएंगी।';
   }
 
   @override
-  String get deleteEntry => 'Delete entry';
+  String get deleteEntry => 'एंट्री हटाएँ';
 
   @override
   String deleteEntryConfirm(Object name) {
-    return 'Delete \"$name\"?';
+    return '\"$name\" हटाएँ?';
   }
 
   @override
-  String get details => 'Details';
+  String get details => 'विवरण';
 
   @override
-  String get drawNewPattern => 'Draw a new pattern';
+  String get drawNewPattern => 'नया पैटर्न बनाएं';
 
   @override
-  String get drawVaultKey => 'Draw your vault key';
+  String get drawVaultKey => 'अपनी वॉल्ट कुंजी बनाएं';
 
   @override
-  String get editEntry => 'Edit Entry';
+  String get editEntry => 'एंट्री संपादित करें';
 
   @override
-  String get enableVaultWord => 'Enable Vault Word';
+  String get enableVaultWord => 'वॉल्ट शब्द सक्षम करें';
 
   @override
-  String get enterPin => 'Enter PIN';
+  String get enterPin => 'PIN दर्ज करें';
 
   @override
-  String get enterPinHint => 'Enter 5-digit PIN';
+  String get enterPinHint => '5-अंकीय PIN दर्ज करें';
 
   @override
-  String get enterVaultWord => 'Enter your vault word';
+  String get enterVaultWord => 'अपना वॉल्ट शब्द दर्ज करें';
 
   @override
-  String get entryDetails => 'Entry Details';
+  String get entryDetails => 'एंट्री विवरण';
 
   @override
-  String get export => 'Export';
+  String get export => 'निर्यात';
 
   @override
-  String get exportComingNext => 'Export coming next';
+  String get exportComingNext => 'निर्यात जल्द आ रहा है';
 
   @override
-  String get exportCompleted => 'Export completed';
+  String get exportCompleted => 'निर्यात पूरा हुआ';
 
   @override
-  String get exportData => 'Export Data';
+  String get exportData => 'डेटा निर्यात करें';
 
   @override
-  String get exportPin => 'Backup PIN';
+  String get exportPin => 'बैकअप PIN';
 
   @override
-  String get generatePassword => 'Generate Password';
+  String get generatePassword => 'पासवर्ड बनाएँ';
 
   @override
-  String get generatePasswordDescription => 'Create a strong password below. Copying it will also fill the password field.';
+  String get generatePasswordDescription => 'नीचे एक मजबूत पासवर्ड बनाएँ। कॉपी करने पर यह पासवर्ड फ़ील्ड में भर जाएगा।';
 
   @override
-  String get generate => 'Generate';
+  String get generate => 'बनाएँ';
 
   @override
-  String get hideSensitiveContent => 'Hide sensitive content until unlocked';
+  String get hideSensitiveContent => 'अनलॉक होने तक संवेदनशील सामग्री छिपाएँ';
 
   @override
   String get iban => 'IBAN';
 
   @override
-  String get ibanCopied => 'IBAN copied';
+  String get ibanCopied => 'IBAN कॉपी हुआ';
 
   @override
-  String get import => 'Import';
+  String get import => 'आयात';
 
   @override
-  String get importCompleted => 'Import completed';
+  String get importCompleted => 'आयात पूरा हुआ';
 
   @override
-  String get importData => 'Import Data';
+  String get importData => 'डेटा आयात करें';
 
   @override
-  String get importFailed => 'Import failed';
+  String get importFailed => 'आयात विफल';
 
   @override
-  String get importPin => 'Restore Pin';
+  String get importPin => 'रीस्टोर PIN';
 
   @override
-  String get language => 'Language';
+  String get language => 'भाषा';
 
   @override
-  String get lynraSecurity => 'Lynra Security';
+  String get lynraSecurity => 'Lynra सुरक्षा';
 
   @override
-  String get max5Collections => 'Maximum 5 collections allowed';
+  String get max5Collections => 'अधिकतम 5 संग्रह की अनुमति है';
 
   @override
-  String get medium => 'Medium';
+  String get medium => 'मध्यम';
 
   @override
-  String get min5Dots => 'Use at least 5 dots';
+  String get min5Dots => 'कम से कम 5 बिंदु उपयोग करें';
 
   @override
-  String get modified => 'Modified';
+  String get modified => 'संशोधित';
 
   @override
-  String get myVault => 'My Vault';
+  String get myVault => 'मेरा वॉल्ट';
 
   @override
-  String get newCollection => 'New Collection';
+  String get newCollection => 'नया संग्रह';
 
   @override
-  String get newEntry => 'New Entry';
+  String get newEntry => 'नई एंट्री';
 
   @override
-  String get noEntriesYet => 'No entries yet';
+  String get noEntriesYet => 'अभी कोई एंट्री नहीं';
 
   @override
-  String get none => 'None';
+  String get none => 'कोई नहीं';
 
   @override
-  String get noNoteAdded => 'No note added';
+  String get noNoteAdded => 'कोई नोट नहीं जोड़ा गया';
 
   @override
-  String get noPasswordGenerated => 'No password generated yet';
+  String get noPasswordGenerated => 'अभी तक कोई पासवर्ड नहीं बनाया गया';
 
   @override
-  String get note => 'Note';
+  String get note => 'नोट';
 
   @override
-  String get noteType => 'Note';
+  String get noteType => 'नोट';
 
   @override
-  String get noUsername => 'No username';
+  String get noUsername => 'कोई उपयोगकर्ता नाम नहीं';
 
   @override
-  String get onboardingDescription => 'Your data stays on your device.\n\nLynraGreyNote does not use servers, does not track you, and does not collect any information.\n\nEverything you save is encrypted and stored locally.\nYou are the only one who can access it.\n\nUse Secondary PIN or Biometrics for quick and secure access.\nEnable Vault Word to add an extra layer of privacy and hide your content when needed.';
+  String get onboardingDescription => 'आपका डेटा आपके डिवाइस पर ही रहता है.\n\nLynraGreyNote सर्वर का उपयोग नहीं करता, आपको ट्रैक नहीं करता, और कोई जानकारी एकत्र नहीं करता.\n\nआपका सारा डेटा एन्क्रिप्ट होकर लोकली सुरक्षित रहता है.\nकेवल आप ही इसे एक्सेस कर सकते हैं.\n\nतेज़ और सुरक्षित पहुँच के लिए सेकेंडरी PIN या बायोमेट्रिक का उपयोग करें.\nअतिरिक्त गोपनीयता के लिए वॉल्ट शब्द सक्षम करें और आवश्यकता अनुसार सामग्री छिपाएँ.';
 
   @override
-  String get optionalNote => 'Optional note';
+  String get optionalNote => 'वैकल्पिक नोट';
 
   @override
-  String get password => 'Password';
+  String get password => 'पासवर्ड';
 
   @override
-  String get passwordCopied => 'Password copied';
+  String get passwordCopied => 'पासवर्ड कॉपी हुआ';
 
   @override
-  String get patternMismatch => 'Patterns did not match. Start again';
+  String get patternMismatch => 'पैटर्न मेल नहीं खाए। फिर से शुरू करें';
 
   @override
   String get pin => 'PIN';
 
   @override
-  String get pinMustBe6Digits => 'PIN must be 6 digits';
+  String get pinMustBe6Digits => 'PIN 6 अंकों का होना चाहिए';
 
   @override
-  String get pinSaved => 'PIN saved';
+  String get pinSaved => 'PIN सहेजा गया';
 
   @override
-  String get pinsDoNotMatch => 'PINs do not match';
+  String get pinsDoNotMatch => 'PIN मेल नहीं खाते';
 
   @override
-  String get privateByDesign => 'Privacy is a fundamental, not a feature';
+  String get privateByDesign => 'गोपनीयता एक मूल सिद्धांत है, सुविधा नहीं';
 
   @override
-  String get save => 'Save';
+  String get save => 'सहेजें';
 
   @override
-  String get savePin => 'Save PIN';
+  String get savePin => 'PIN सहेजें';
 
   @override
-  String get secondaryLock => 'Secondary Lock';
+  String get secondaryLock => 'द्वितीयक लॉक';
 
   @override
-  String get security => 'Security';
+  String get security => 'सुरक्षा';
 
   @override
-  String get selectLanguage => 'Select Language';
+  String get selectLanguage => 'भाषा चुनें';
 
   @override
-  String get settings => 'Settings';
+  String get settings => 'सेटिंग्स';
 
   @override
-  String get setPin => 'Set PIN';
+  String get setPin => 'PIN सेट करें';
 
   @override
-  String get standard => 'Standard';
+  String get standard => 'मानक';
 
   @override
-  String get strong => 'Strong';
+  String get strong => 'मजबूत';
 
   @override
   String vaultHeaderStats(Object collection, int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'items',
-      one: 'item',
+      other: 'आइटम्स',
+      one: 'आइटम',
     );
     return '$collection • $count $_temp0';
   }
 
   @override
-  String get vaultWord => 'Vault Word';
+  String get vaultWord => 'वॉल्ट शब्द';
 
   @override
-  String get weak => 'Weak';
+  String get weak => 'कमज़ोर';
 
   @override
-  String get wrongPattern => 'Wrong pattern. Try again';
+  String get wrongPattern => 'गलत पैटर्न। फिर से प्रयास करें';
 
   @override
-  String get wrongPin => 'Wrong PIN';
+  String get wrongPin => 'गलत PIN';
 
   @override
-  String get title => 'Title';
+  String get title => 'शीर्षक';
 
   @override
-  String get unlock => 'Unlock';
+  String get unlock => 'अनलॉक';
 
   @override
-  String get unlockContent => 'Unlock Content';
+  String get unlockContent => 'सामग्री अनलॉक करें';
 
   @override
-  String get unlockVault => 'Unlock Vault';
+  String get unlockVault => 'वॉल्ट अनलॉक करें';
 
   @override
-  String get untitled => 'Untitled';
+  String get untitled => 'बिना शीर्षक';
 
   @override
   String updatedDate(Object date) {
-    return 'Updated $date';
+    return '$date को अपडेट किया गया';
   }
 
   @override
-  String get username => 'Username';
+  String get username => 'उपयोगकर्ता नाम';
 
   @override
-  String get usernameCopied => 'Username copied';
+  String get usernameCopied => 'उपयोगकर्ता नाम कॉपी हुआ';
 
   @override
-  String get usernameEmail => 'Username / Email';
+  String get usernameEmail => 'उपयोगकर्ता नाम / ईमेल';
 }
