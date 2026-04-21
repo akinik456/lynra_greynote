@@ -67,7 +67,7 @@ class CryptoHelper {
 
   final pbkdf2 = Pbkdf2(
     macAlgorithm: Hmac.sha256(),
-    iterations: 40000, // 100k iterasyon brute-force'u yavaşlatır
+    iterations: 10000, // 100k iterasyon brute-force'u yavaşlatır
     bits: 256,
   );
 
@@ -87,7 +87,7 @@ static Future<String> deriveDbKey(String masterKey) async {
 
   final pbkdf2 = Pbkdf2(
     macAlgorithm: Hmac.sha256(),
-    iterations: 20000,
+    iterations: 10000,
     bits: 256,
   );
 
@@ -146,7 +146,7 @@ static Future<SecretKey> deriveBackupKey({
 
   final pbkdf2 = Pbkdf2(
     macAlgorithm: Hmac.sha256(),
-    iterations: 100000,
+    iterations: 10000,
     bits: 256,
   );
 
@@ -183,7 +183,7 @@ static Future<Map<String, dynamic>> encryptBackupBlob({
     'type': 'lynra_backup',
     'version': 1,
     'kdf': 'pbkdf2-sha256',
-    'iterations': 100000,
+    'iterations': 10000,
     'salt': backupSalt,
     'blob': base64Encode(secretBox.concatenation()),
   };

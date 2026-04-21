@@ -45,7 +45,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get collection => 'Koleksiyon';
 
   @override
-  String get collectionExample => 'örn. Annem';
+  String get collectionExample => 'örn. Yedek';
 
   @override
   String get confirmPattern => 'Onaylamak için aynı deseni tekrar çiz';
@@ -124,6 +124,15 @@ class AppLocalizationsTr extends AppLocalizations {
   String get exportPin => 'Yedekleme PIN’i';
 
   @override
+  String get generatePassword => 'Şifre oluştur';
+
+  @override
+  String get generatePasswordDescription => 'Aşağıda güçlü bir şifre oluşturun. Kopyaladığınızda şifre alanına da yazılır.';
+
+  @override
+  String get generate => 'Oluştur';
+
+  @override
   String get hideSensitiveContent => 'Hassas içerikleri kilit açılana kadar gizle';
 
   @override
@@ -182,6 +191,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get noNoteAdded => 'Not eklenmemiş';
+
+  @override
+  String get noPasswordGenerated => 'Henüz şifre oluşturulmadı';
 
   @override
   String get note => 'Not';

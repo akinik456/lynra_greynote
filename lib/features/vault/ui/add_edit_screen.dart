@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'dart:math';
 import '../../../l10n/app_localizations.dart';
 
@@ -25,7 +26,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
   bool hidePassword = true;
   String entryType = "standard";
   String passwordStrengthKey  = "";
-
+  String generatedPassword = "";
+  
   static const Color _bgColor = Color(0xFF020617);
   static const Color _cardColor = Color(0xFF0F172A);
   static const Color _primary = Color(0xFF22D3EE);
@@ -194,76 +196,143 @@ class _AddEditScreenState extends State<AddEditScreen> {
                   controller: ibanCtrl,
                   style: const TextStyle(color: _textPrimary),
                   decoration: const InputDecoration(
-                    hintText: "TR00 0000 0000 0000 0000 0000 00",
+                    hintText: "XX00 0000 0000 0000 0000 0000 00",
                     hintStyle: TextStyle(color: _textSecondary),
                     border: InputBorder.none,
                   ),
                 ),
               ),
             _FieldCard(
-              label: AppLocalizations.of(context)!.password,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.refresh, color: _primary),
-                        onPressed: () {
-                          final generated = generatePassword();
-                          setState(() {
-                            passwordCtrl.text = generated;
-                            updatePasswordStrength(generated);
-                          });
-                        },
-                      ),
-                      Expanded(
-                        child: TextField(
-                          controller: passwordCtrl,
-                          obscureText: hidePassword,
-                          onChanged: updatePasswordStrength,
-                          style: TextStyle(color: _textPrimary),
-                          decoration: InputDecoration(
-                            hintText: AppLocalizations.of(context)!.password,
-                            hintStyle: TextStyle(color: _textSecondary),
-                            border: InputBorder.none,
-                          ),
-                        ),
-                      ),
-                      IconButton(
-                        icon: Icon(
-                          hidePassword
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          color: _textSecondary,
-                        ),
-                        onPressed: () {
-                          setState(() {
-                            hidePassword = !hidePassword;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                  if (passwordStrengthKey.isNotEmpty)
+			  label: AppLocalizations.of(context)!.password,
+			  child: Column(
+				crossAxisAlignment: CrossAxisAlignment.start,
+				children: [
+				  Row(
+					children: [
+					  Expanded(
+						child: TextField(
+						  controller: passwordCtrl,
+						  obscureText: hidePassword,
+						  onChanged: updatePasswordStrength,
+						  style: TextStyle(color: _textPrimary),
+						  decoration: InputDecoration(
+							hintText: AppLocalizations.of(context)!.password,
+							hintStyle: TextStyle(color: _textSecondary),
+							border: InputBorder.none,
+						  ),
+						),
+					  ),
+					  IconButton(
+						icon: Icon(
+						  hidePassword ? Icons.visibility : Icons.visibility_off,
+						  color: _textSecondary,
+						),
+						onPressed: () {
+						  setState(() {
+							hidePassword = !hidePassword;
+						  });
+						},
+					  ),
+					],
+				  ),
+				  if (passwordStrengthKey.isNotEmpty)
 				  Padding(
 					padding: const EdgeInsets.only(top: 6),
 					child: Text(
-					  _strengthText(context),
+					  passwordStrengthKey == "weak"
+						  ? AppLocalizations.of(context)!.weak
+						  : passwordStrengthKey == "medium"
+							  ? AppLocalizations.of(context)!.medium
+							  : passwordStrengthKey == "strong"
+								  ? AppLocalizations.of(context)!.strong
+								  : "",
 					  style: TextStyle(
 						color: passwordStrengthKey == "weak"
 							? Colors.redAccent
 							: passwordStrengthKey == "medium"
-							? Colors.orangeAccent
-							: Colors.greenAccent,
+								? Colors.orangeAccent
+								: Colors.greenAccent,
 						fontSize: 12,
 						fontWeight: FontWeight.w600,
 					  ),
 					),
 				  ),
-                ],
-              ),
-            ),
+				],
+			  ),
+			),
+			_FieldCard(
+			  label: AppLocalizations.of(context)!.generatePassword,
+			  child: Column(
+				crossAxisAlignment: CrossAxisAlignment.start,
+				children: [
+				  Text(
+					AppLocalizations.of(context)!.generatePasswordDescription,
+					style: TextStyle(
+					  color: _textSecondary,
+					  fontSize: 13,
+					  height: 1.4,
+					),
+				  ),
+				  const SizedBox(height: 12),
+				  Row(
+					children: [
+					  OutlinedButton.icon(
+						onPressed: () {
+						  final generated = generatePassword();
+						  setState(() {
+							generatedPassword = generated;
+						  });
+						},
+						icon: const Icon(Icons.auto_awesome, color: _primary),
+						label: Text(AppLocalizations.of(context)!.generate),
+					  ),
+					  const SizedBox(width: 12),
+					  Expanded(
+						child: Text(
+						  generatedPassword.isEmpty
+							  ? AppLocalizations.of(context)!.noPasswordGenerated
+							  : generatedPassword,
+						  maxLines: 1,
+						  overflow: TextOverflow.ellipsis,
+						  style: TextStyle(
+							color: generatedPassword.isEmpty ? _textSecondary : _textPrimary,
+							fontSize: 14,
+						  ),
+						),
+					  ),
+					  IconButton(
+						icon: const Icon(Icons.copy, color: _primary),
+						onPressed: generatedPassword.isEmpty
+							? null
+							: () async {
+								await Clipboard.setData(
+								  ClipboardData(text: generatedPassword),
+								);
+
+								setState(() {
+								  passwordCtrl.text = generatedPassword;
+								  passwordStrengthKey = "strong";
+								});
+							  },
+					  ),
+					],
+				  ),
+				  if (generatedPassword.isNotEmpty)
+					Padding(
+					  padding: const EdgeInsets.only(top: 6),
+					  child: Text(
+						AppLocalizations.of(context)!.strong,
+						style: const TextStyle(
+						  color: Colors.greenAccent,
+						  fontSize: 12,
+						  fontWeight: FontWeight.w600,
+						),
+					  ),
+					),
+				],
+			  ),
+			),
+			
           ],
           _FieldCard(
             label: AppLocalizations.of(context)!.note,

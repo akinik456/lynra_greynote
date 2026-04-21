@@ -45,7 +45,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get collection => 'Colección';
 
   @override
-  String get collectionExample => 'Ej: Personal';
+  String get collectionExample => 'p. ej., Copias de seguridad';
 
   @override
   String get confirmPattern => 'Dibuja el mismo patrón otra vez para confirmar';
@@ -124,6 +124,15 @@ class AppLocalizationsEs extends AppLocalizations {
   String get exportPin => 'PIN de copia de seguridad';
 
   @override
+  String get generatePassword => 'Generar contraseña';
+
+  @override
+  String get generatePasswordDescription => 'Crea una contraseña segura a continuación. Al copiarla, también se insertará en el campo de contraseña.';
+
+  @override
+  String get generate => 'Generar';
+
+  @override
   String get hideSensitiveContent => 'Ocultar contenido sensible hasta desbloquear';
 
   @override
@@ -182,6 +191,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get noNoteAdded => 'No hay nota añadida';
+
+  @override
+  String get noPasswordGenerated => 'Aún no se ha generado ninguna contraseña';
 
   @override
   String get note => 'Nota';

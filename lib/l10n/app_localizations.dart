@@ -187,7 +187,7 @@ abstract class AppLocalizations {
   /// No description provided for @collectionExample.
   ///
   /// In en, this message translates to:
-  /// **'e.g. Mom'**
+  /// **'e.g. Backups'**
   String get collectionExample;
 
   /// No description provided for @confirmPattern.
@@ -334,6 +334,24 @@ abstract class AppLocalizations {
   /// **'Backup PIN'**
   String get exportPin;
 
+  /// No description provided for @generatePassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate Password'**
+  String get generatePassword;
+
+  /// No description provided for @generatePasswordDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a strong password below. Copying it will also fill the password field.'**
+  String get generatePasswordDescription;
+
+  /// No description provided for @generate.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate'**
+  String get generate;
+
   /// No description provided for @hideSensitiveContent.
   ///
   /// In en, this message translates to:
@@ -453,6 +471,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No note added'**
   String get noNoteAdded;
+
+  /// No description provided for @noPasswordGenerated.
+  ///
+  /// In en, this message translates to:
+  /// **'No password generated yet'**
+  String get noPasswordGenerated;
 
   /// No description provided for @note.
   ///

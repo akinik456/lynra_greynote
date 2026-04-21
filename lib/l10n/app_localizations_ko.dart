@@ -45,7 +45,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get collection => 'Collection';
 
   @override
-  String get collectionExample => 'e.g. Mom';
+  String get collectionExample => 'e.g. Backups';
 
   @override
   String get confirmPattern => 'Draw the same pattern again to confirm';
@@ -124,6 +124,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get exportPin => 'Backup PIN';
 
   @override
+  String get generatePassword => 'Generate Password';
+
+  @override
+  String get generatePasswordDescription => 'Create a strong password below. Copying it will also fill the password field.';
+
+  @override
+  String get generate => 'Generate';
+
+  @override
   String get hideSensitiveContent => 'Hide sensitive content until unlocked';
 
   @override
@@ -182,6 +191,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get noNoteAdded => 'No note added';
+
+  @override
+  String get noPasswordGenerated => 'No password generated yet';
 
   @override
   String get note => 'Note';

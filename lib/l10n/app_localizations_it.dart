@@ -45,7 +45,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get collection => 'Collezione';
 
   @override
-  String get collectionExample => 'es. Mamma';
+  String get collectionExample => 'es. Backup';
 
   @override
   String get confirmPattern => 'Disegna di nuovo lo stesso schema per confermare';
@@ -124,6 +124,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get exportPin => 'PIN di backup';
 
   @override
+  String get generatePassword => 'Genera password';
+
+  @override
+  String get generatePasswordDescription => 'Crea una password sicura qui sotto. Copiandola verrà inserita anche nel campo password.';
+
+  @override
+  String get generate => 'Genera';
+
+  @override
   String get hideSensitiveContent => 'Nascondi i contenuti sensibili fino allo sblocco';
 
   @override
@@ -182,6 +191,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get noNoteAdded => 'Nessuna nota aggiunta';
+
+  @override
+  String get noPasswordGenerated => 'Nessuna password generata';
 
   @override
   String get note => 'Nota';

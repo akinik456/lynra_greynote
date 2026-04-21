@@ -45,7 +45,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get collection => 'Collection';
 
   @override
-  String get collectionExample => 'e.g. Mom';
+  String get collectionExample => 'e.g. Backups';
 
   @override
   String get confirmPattern => 'Draw the same pattern again to confirm';
@@ -124,6 +124,15 @@ class AppLocalizationsPt extends AppLocalizations {
   String get exportPin => 'Backup PIN';
 
   @override
+  String get generatePassword => 'Generate Password';
+
+  @override
+  String get generatePasswordDescription => 'Create a strong password below. Copying it will also fill the password field.';
+
+  @override
+  String get generate => 'Generate';
+
+  @override
   String get hideSensitiveContent => 'Hide sensitive content until unlocked';
 
   @override
@@ -182,6 +191,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get noNoteAdded => 'No note added';
+
+  @override
+  String get noPasswordGenerated => 'No password generated yet';
 
   @override
   String get note => 'Note';
@@ -343,7 +355,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get collection => 'Coleção';
 
   @override
-  String get collectionExample => 'ex: Mãe';
+  String get collectionExample => 'ex.: Backups';
 
   @override
   String get confirmPattern => 'Desenhe o mesmo padrão novamente para confirmar';
@@ -422,6 +434,15 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get exportPin => 'PIN de backup';
 
   @override
+  String get generatePassword => 'Gerar senha';
+
+  @override
+  String get generatePasswordDescription => 'Crie uma senha segura abaixo. Ao copiá-la, ela também será inserida no campo de senha.';
+
+  @override
+  String get generate => 'Gerar';
+
+  @override
   String get hideSensitiveContent => 'Ocultar conteúdo sensível até desbloquear';
 
   @override
@@ -480,6 +501,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get noNoteAdded => 'Nenhuma nota adicionada';
+
+  @override
+  String get noPasswordGenerated => 'Nenhuma senha gerada ainda';
 
   @override
   String get note => 'Nota';

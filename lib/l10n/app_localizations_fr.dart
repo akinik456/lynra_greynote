@@ -45,7 +45,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get collection => 'Collection';
 
   @override
-  String get collectionExample => 'ex. Maman';
+  String get collectionExample => 'ex. : Sauvegardes';
 
   @override
   String get confirmPattern => 'Redessinez le même schéma pour confirmer';
@@ -124,6 +124,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get exportPin => 'Code PIN de sauvegarde';
 
   @override
+  String get generatePassword => 'Générer un mot de passe';
+
+  @override
+  String get generatePasswordDescription => 'Créez un mot de passe sécurisé ci-dessous. En le copiant, il sera également inséré dans le champ mot de passe.';
+
+  @override
+  String get generate => 'Générer';
+
+  @override
   String get hideSensitiveContent => 'Masquer le contenu sensible jusqu’au déverrouillage';
 
   @override
@@ -182,6 +191,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get noNoteAdded => 'Aucune note ajoutée';
+
+  @override
+  String get noPasswordGenerated => 'Aucun mot de passe généré';
 
   @override
   String get note => 'Note';
