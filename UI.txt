@@ -1,0 +1,92 @@
+flutter pub run flutter_launcher_icons
+
+flutter pub run flutter_native_splash:create
+
+********************************
+
+Lynra GreyNote UI REF (Copy-Paste)
+
+Tema
+
+Dark-first, minimal, güven veren
+Düz yüzeyler + hafif border + yumuşak köşeler
+
+Renkler
+
+// Base
+const bgMain = Color(0xFF020617);   // sayfa arka plan
+const bgCard = Color(0xFF0F172A);   // kart
+const border = Color(0xFF334155);   // border (low opacity ile)
+
+// Accent
+const primary = Color(0xFF22D3EE);  // cyan
+
+// Text
+const textPrimary = Color(0xFFE2E8F0);
+const textSecondary = Color(0xFF94A3B8);
+
+Opacities
+
+border: withOpacity(0.05)
+secondary text: 0.6 - 0.7
+meta text: 0.4 - 0.5
+
+Tipografi
+
+// Title
+fontSize: 18-20
+fontWeight: w700
+
+// Body
+fontSize: 15-16
+fontWeight: w500
+
+// Label / meta
+fontSize: 12-13
+fontWeight: w600
+color: textSecondary
+
+Kart sistemi
+
+Container(
+  padding: EdgeInsets.fromLTRB(16, 14, 16, 16),
+  decoration: BoxDecoration(
+    color: bgCard,
+    borderRadius: BorderRadius.circular(18),
+    border: Border.all(
+      color: Colors.white.withOpacity(0.05),
+    ),
+  ),
+)
+
+Butonlar
+
+Primary: cyan (#22D3EE)
+Text button: sade, border yok
+Full width, height ~48
+
+Spacing
+
+Ana padding: 16
+Eleman arası: 8 / 12 / 14
+Kartlar arası: 10-12
+
+İkon stili
+
+Outline (örn: Icons.edit_outlined)
+Çok kalın / dolu ikon yok
+
+Genel his
+
+Gürültü yok
+Gölgeler minimum
+Renk yerine kontrast kullan
+“premium + güvenli” hissi
+🎯 Yeni sohbete yazacağın mesaj
+
+Şunu yapıştır:
+
+“Lynra GreyNote UI sistemim bu (yukarıdaki). Şu ekranı buna göre iyileştirelim: [dosya / screenshot]”
+
+👊 SON
+

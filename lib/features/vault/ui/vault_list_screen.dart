@@ -113,7 +113,6 @@ Future<String?> _getUnwrappedMasterKey() async {
     payloadKey: _payloadKey!,
     collectionId: selectedCollectionId,
   );
-
   setState(() => items = result);
 }
 
@@ -253,15 +252,15 @@ Future<String?> _getUnwrappedMasterKey() async {
             child: _VaultHeaderCard(
               totalItems: items.length,
               currentCollectionName: (() {
-  final selected = collections
-      .where((c) => c.id == selectedCollectionId)
-      .cast<VaultCollection?>()
-      .firstWhere((c) => c != null, orElse: () => null);
+				  final selected = collections
+					  .where((c) => c.id == selectedCollectionId)
+					  .cast<VaultCollection?>()
+					  .firstWhere((c) => c != null, orElse: () => null);
 
-  if (selected == null) return AppLocalizations.of(context)!.myVault;
-  if (selected.id == 'default') return AppLocalizations.of(context)!.myVault;
-  return selected.name;
-})(),
+				  if (selected == null) return AppLocalizations.of(context)!.myVault;
+				  if (selected.id == 'default') return AppLocalizations.of(context)!.myVault;
+				  return selected.name;
+				})(),
               isLocked: shouldHide,
             ),
           ),
@@ -592,7 +591,7 @@ class _VaultHeaderCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.myVault,
+                  AppLocalizations.of(context)!.collection,
                   style: TextStyle(
                     color: Color(0xFFE2E8F0),
                     fontSize: 18,

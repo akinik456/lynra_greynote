@@ -45,10 +45,11 @@ void onPatternComplete(List<int> pattern) {
     return false;
   },
   child:   Scaffold(
-      backgroundColor: _bgBottom,
+      backgroundColor:  Colors.transparent,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: const Color(0xFF020617),
-surfaceTintColor: const Color(0xFF020617),
+        backgroundColor: Colors.transparent,
+		surfaceTintColor: Colors.transparent,
         elevation: 0,
         title: Text(
 		AppLocalizations.of(context)!.unlock,

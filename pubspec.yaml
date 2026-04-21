@@ -48,6 +48,7 @@ flutter:
   uses-material-design: true
   
   assets:
+    - assets/icon/
     - assets/icon/app_icon.png
 
 l10n:
@@ -57,10 +58,10 @@ l10n:
     
 flutter_native_splash:
   color: "#020617"
-  image: assets/icon/app_icon.png
+  image: assets/icon/icon_dark.png
   android: true
   ios: true
 
   android_12:
     color: "#020617"
-    image: assets/icon/app_icon.png
+    image: assets/icon/icon_dark.png

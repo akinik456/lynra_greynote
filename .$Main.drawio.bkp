@@ -1,0 +1,85 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36">
+  <diagram name="Sayfa-1" id="mjXwaBpn7Vqgqj6Jnpwr">
+    <mxGraphModel dx="1013" dy="523" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-14" edge="1" parent="1" source="7TJ0hkCJdxTzRgpvU9K6-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="7TJ0hkCJdxTzRgpvU9K6-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=0" value="OnboardingScreen()" vertex="1">
+          <mxGeometry height="60" width="120" x="10" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Main" vertex="1">
+          <mxGeometry height="30" width="50" x="30" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-3" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="Pattern ?&lt;div&gt;Exist&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="120" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-4" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="PatternSetup&lt;div&gt;Screen()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="10" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-12" edge="1" parent="1" source="7TJ0hkCJdxTzRgpvU9K6-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="7TJ0hkCJdxTzRgpvU9K6-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-5" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="unlockExisting&lt;div&gt;Pattern()&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;_checkSecondary&lt;/div&gt;&lt;div&gt;Lock()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="120" width="120" x="100" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-6" edge="1" parent="1" source="7TJ0hkCJdxTzRgpvU9K6-1" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="7TJ0hkCJdxTzRgpvU9K6-3" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="220" as="sourcePoint" />
+            <mxPoint x="190" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-7" edge="1" parent="1" source="7TJ0hkCJdxTzRgpvU9K6-3" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="7TJ0hkCJdxTzRgpvU9K6-4" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="220" as="sourcePoint" />
+            <mxPoint x="430" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-8" edge="1" parent="1" source="7TJ0hkCJdxTzRgpvU9K6-3" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="7TJ0hkCJdxTzRgpvU9K6-5" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="380" y="220" as="sourcePoint" />
+            <mxPoint x="430" y="170" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="_unlocked = ok;" vertex="1">
+          <mxGeometry height="60" width="120" x="100" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="initializeSecurity();" vertex="1">
+          <mxGeometry height="60" width="120" x="160" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="initializeSecurity" vertex="1">
+          <mxGeometry height="30" width="110" x="315" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-18" edge="1" parent="1" source="7TJ0hkCJdxTzRgpvU9K6-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="7TJ0hkCJdxTzRgpvU9K6-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-16" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="Salt Yoksa Üret" vertex="1">
+          <mxGeometry height="80" width="80" x="330" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-17" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="MasterKey&lt;div&gt;Yoksa üret&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="330" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-19" parent="1" style="whiteSpace=wrap;html=1;aspect=fixed;" value="onPattern&lt;div&gt;Complete&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;rawMK,patternString,VW&lt;/div&gt;&lt;div&gt;kullanarak&amp;nbsp;&lt;/div&gt;&lt;div&gt;Wrap MasterKey&lt;/div&gt;" vertex="1">
+          <mxGeometry height="140" width="140" x="270" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="load ( kayıtları getirir)" vertex="1">
+          <mxGeometry height="30" width="140" x="440" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-26" edge="1" parent="1" source="7TJ0hkCJdxTzRgpvU9K6-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="7TJ0hkCJdxTzRgpvU9K6-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="_getUnwrapped&lt;div&gt;MasterKey()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="450" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-22" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="Paketlemiş Master Key&#39;i&amp;nbsp;&lt;div&gt;kullanıcının şifresiyle çözüyoruz&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="190" x="580" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7TJ0hkCJdxTzRgpvU9K6-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="repo.getItems&lt;div&gt;çözülmüş mK ile&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="120" x="450" y="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

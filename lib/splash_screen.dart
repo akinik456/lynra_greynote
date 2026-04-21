@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'features/vault/ui/vault_list_screen.dart';
 import '../../../main.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(const Duration(milliseconds: 900), () {
+    Timer(const Duration(milliseconds: 500), () {
       if (!mounted) return;
       
       // DOĞRU YOL: Direkt VaultList'e değil, AppGate'e gidiyoruz.
@@ -36,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
       backgroundColor: const Color(0xFF020617),
       body: Center(
         child: TweenAnimationBuilder<double>(
-          duration: const Duration(milliseconds: 600),
+          duration: const Duration(milliseconds: 300),
           tween: Tween(begin: 0.8, end: 1),
           builder: (context, value, child) {
             return Opacity(
@@ -63,7 +62,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
               child: Image.asset(
-                'assets/icon/app_icon.png', // 👈 icon dosyan
+                'assets/icon/icon_dark.png', // 👈 icon dosyan
                 fit: BoxFit.cover,
               ),
             ),

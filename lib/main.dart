@@ -27,8 +27,7 @@ void main() async {
 }
 
 class LynraApp extends StatefulWidget  {
-  const LynraApp({super.key});
-  
+  const LynraApp({super.key});  
 	static _LynraAppState of(BuildContext context) {
 	  return context.findAncestorStateOfType<_LynraAppState>()!;
 	}
@@ -46,14 +45,15 @@ class _LynraAppState extends State<LynraApp> {
     _suspendAutoLock = value;
   });
 }
-bool get suspendAutoLock => _suspendAutoLock;
 
+bool get suspendAutoLock => _suspendAutoLock;
 
   @override
   void initState() {
     super.initState();
     loadLocale();
   }
+  
 Future<void> loadLocale() async {
   final code = await storage.read(key: "app_locale");
 
@@ -118,14 +118,14 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   bool _unlockScreenOpen = false;
   String? _savedPattern;
   String? vaultKey;
-  bool _suspendAutoLock = false;
+  bool _suspendAutoLock = false;  
+  final storage = const FlutterSecureStorage();
   
-final storage = const FlutterSecureStorage();
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-	_secureScreen();
+	//??_secureScreen();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _start();
     });	
@@ -164,13 +164,14 @@ final storage = const FlutterSecureStorage();
 Future<void> _secureScreen() async {
   await FlutterWindowManagerPlus.addFlags(
   FlutterWindowManagerPlus.FLAG_SECURE,
-);
+  );
 }
-  Future<void> _start() async {
-    final storage = const FlutterSecureStorage();
-	final seen = await storage.read(key: "onboarding_seen");
+
+Future<void> _start() async {
+final storage = const FlutterSecureStorage();
+final seen = await storage.read(key: "onboarding_seen");
 print(DateTime.now());
-  print("Time_Check2");
+print("Time_Check2");
 	if (seen != "true") {
 	  await Navigator.push(
 		context,
@@ -179,51 +180,51 @@ print(DateTime.now());
 		),
 	  );
 	}
-    final saved = await AuthStorage.getPattern();
+final saved = await AuthStorage.getPattern();
 
-    if (!mounted) return;
+if (!mounted) return;
 
-    if (saved == null || saved.isEmpty) {
-      final createdPattern = await Navigator.push<String>(
-        context,
-        MaterialPageRoute(
-          builder: (_) => const PatternSetupScreen(),
-        ),
-      );
+if (saved == null || saved.isEmpty) {
+  final createdPattern = await Navigator.push<String>(
+	context,
+	MaterialPageRoute(
+	  builder: (_) => const PatternSetupScreen(),
+	),
+  );
 
-      if (createdPattern == null || createdPattern.isEmpty) {
-        setState(() {
-          _loading = false;
-          _unlocked = false;
-          _savedPattern = null;
-        });
-        return;
-      }
-
-      await AuthStorage.savePattern(createdPattern);
-      _savedPattern = createdPattern;
-
-      await _unlockExistingPattern();
-
-      if (!mounted) return;
-
-      setState(() {
-        _loading = false;
-      });
-
-      return;
-    }
-
-    _savedPattern = saved;
-
-    await _unlockExistingPattern();
-
-    if (!mounted) return;
-
-    setState(() {
-      _loading = false;
-    });
+  if (createdPattern == null || createdPattern.isEmpty) {
+	setState(() {
+	  _loading = false;
+	  _unlocked = false;
+	  _savedPattern = null;
+	});
+	return;
   }
+
+  await AuthStorage.savePattern(createdPattern);
+  _savedPattern = createdPattern;
+
+  await _unlockExistingPattern();
+
+  if (!mounted) return;
+
+  setState(() {
+	_loading = false;
+  });
+
+  return;
+}
+
+_savedPattern = saved;
+
+await _unlockExistingPattern();
+
+if (!mounted) return;
+
+setState(() {
+  _loading = false;
+});
+}
   
   Future<bool> _checkSecondaryLock() async {
 
@@ -295,8 +296,6 @@ print(DateTime.now());
   print("Time_Check3");
     });
     
-    // 4. Verileri yükle (Artık elimizde Master Key'i çözecek doğru anahtar var)
-   // await load(); 
   }
 }
 

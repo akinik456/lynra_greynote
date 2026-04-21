@@ -1,0 +1,121 @@
+<mxfile host="Electron">
+  <diagram name="Sayfa-1" id="8drn5E-zM8ByusR_sM3d">
+    <mxGraphModel dx="2026" dy="1046" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="x52I7BFvqtoLllKQRu75-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="565" width="390" x="10" y="5" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-14" edge="1" parent="1" source="x52I7BFvqtoLllKQRu75-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="x52I7BFvqtoLllKQRu75-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="220" width="120" x="40" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-5" edge="1" parent="1" source="x52I7BFvqtoLllKQRu75-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="x52I7BFvqtoLllKQRu75-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Main" vertex="1">
+          <mxGeometry height="30" width="80" x="50" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="LynraApp" vertex="1">
+          <mxGeometry height="30" width="60" x="20" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-9" edge="1" parent="1" source="x52I7BFvqtoLllKQRu75-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="x52I7BFvqtoLllKQRu75-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="loadLocale" vertex="1">
+          <mxGeometry height="40" width="90" x="50" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-11" edge="1" parent="1" source="x52I7BFvqtoLllKQRu75-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="x52I7BFvqtoLllKQRu75-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="setLocale" vertex="1">
+          <mxGeometry height="40" width="90" x="50" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="MaterialApp&lt;div&gt;AppGate&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="90" x="50" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="200" width="345" x="35" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="AppGate" vertex="1">
+          <mxGeometry height="30" width="60" x="30" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="initState&lt;div&gt;_start&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="50" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-28" edge="1" parent="1" source="x52I7BFvqtoLllKQRu75-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="x52I7BFvqtoLllKQRu75-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="OnboardingScreen&lt;div&gt;_unlockExistingPattern&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="190" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="_start" vertex="1">
+          <mxGeometry height="30" width="60" x="177.5" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="vaultKey = resultPattern;&lt;div&gt;_checkSecondaryLock();&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="170" x="190" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-23" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="_unlockExistingPattern" vertex="1">
+          <mxGeometry height="30" width="150" x="170" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="VaultListScreen&lt;div&gt;(vaultKey: vaultKey!);&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="50" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-26" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="build" vertex="1">
+          <mxGeometry height="30" width="60" x="40" y="425" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;AppGate&lt;/div&gt;&lt;div&gt;&amp;nbsp; → _start&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; → hasPattern?&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → Onboarding&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → Unlock&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → vaultKey&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → secondaryLock&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → VaultListScreen&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → initFlow&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → unwrap MK&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → open DB&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; → load data&lt;/div&gt;" vertex="1">
+          <mxGeometry height="260" width="152.5" x="227.5" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="320" width="350" x="410" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-32" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;_VaultListScreenState&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="140" x="400" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="initState()" vertex="1">
+          <mxGeometry height="20" width="80" x="420" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-34" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="loadVaultWordSettings()&lt;div&gt;_initFlow()&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="160" x="420" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="initState" vertex="1">
+          <mxGeometry height="30" width="60" x="414" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-36" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;final mk = await _getUnwrappedMasterKey();&lt;/div&gt;&lt;div&gt;&amp;nbsp; if (mk == null) return;&lt;/div&gt;&lt;div&gt;&amp;nbsp; _masterKey = mk;&lt;/div&gt;&lt;div&gt;&amp;nbsp; _payloadKey = await CryptoHelper.derivePayloadKey(mk);&lt;/div&gt;&lt;div&gt;&amp;nbsp; final derivedDbKey = await CryptoHelper.deriveDbKey(mk);&lt;/div&gt;&lt;div&gt;&amp;nbsp; await DatabaseHelper.instance.openWithKey(derivedDbKey);&lt;/div&gt;&lt;div&gt;&amp;nbsp; await loadCollections();&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; await load();&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="150" width="340" x="414" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-38" parent="1" style="text;whiteSpace=wrap;" value="_initFlow" vertex="1">
+          <mxGeometry height="30" width="60" x="420" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-39" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;// 1. Paketli anahtarı oku&lt;/div&gt;&lt;div&gt;&amp;nbsp; final wrappedMK = await AuthStorage.getWrappedMasterKey();&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; // 2. Eğer henüz paketli anahtar yoksa (Onboarding hatası veya ilk kurulum)&lt;/div&gt;&lt;div&gt;&amp;nbsp; if (wrappedMK == null) {return null;}&lt;/div&gt;&lt;div&gt;&amp;nbsp; try {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; // 3. Çözme işlemini başlat&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; return await CryptoHelper.unwrapMasterKey(wrappedMKBase64: wrappedMK,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; password: widget.vaultKey, // Pattern/PIN);&lt;/div&gt;&lt;div&gt;&amp;nbsp; } catch (e) {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; // Eğer buraya düşüyorsa: Ya şifre yanlış ya da paketleme hatalı (MAC Hatası)&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; print(&quot;DEBUG: Master Key Unwrapping hatası: $e&quot;);&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; return null;}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="240" width="390" x="420" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-40" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;_getUnwrappedMasterKey&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="460" y="375" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-42" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;/// Paketlenmiş Master Key&#39;i çözer.&lt;/div&gt;&lt;div&gt;&amp;nbsp; static Future&amp;lt;String&amp;gt; &lt;b&gt;unwrapMasterKey&lt;/b&gt;({&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; required String wrappedMKBase64,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; required String password,&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; }) async {&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; // 1. Anahtar Türetme: deriveKey içeride AuthStorage.getSecureSalt()&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; // çağırarak cihazın özel tuzunu zaten karışıma ekliyor.&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; final wrappingKey = await &lt;b&gt;deriveKey(password)&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; final concatenation = &lt;b&gt;base64Decode(wrappedMKBase64)&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; // 2. Paketin parçalarına (nonce, mac, ciphertext) ayrılması&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;final secretBox = &lt;b&gt;SecretBox.fromConcatenation&lt;/b&gt;(&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; concatenation,nonceLength: _algorithm.nonceLength,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; macLength: _algorithm.macAlgorithm.macLength,);&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; final decryptedBytes = await &lt;b&gt;_algorithm.decrypt&lt;/b&gt;(&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; secretBox,secretKey: wrappingKey,);&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;// 4. Ham Master Key&#39;i (MK) geri döndürür.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; return &lt;b&gt;base64Encode(decryptedBytes)&lt;/b&gt;;}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="250" width="380" x="20" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-43" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;unwrapMasterKey&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="120" x="20" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-44" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;static Future&amp;lt;SecretKey&amp;gt; deriveKey(String password) async {&lt;/div&gt;&lt;div&gt;&amp;nbsp; // Cihaza özel güvenli tuzu (salt) AuthStorage&#39;dan çek&lt;/div&gt;&lt;div&gt;&amp;nbsp; final saltBase64 = await AuthStorage.&lt;b&gt;getSecureSalt&lt;/b&gt;();&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; if (saltBase64 == null) {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; throw Exception(&quot;Security Error: Secure Salt not initialized!&quot;);}&lt;/div&gt;&lt;div&gt;&amp;nbsp; final saltBytes = &lt;b&gt;base64Decode&lt;/b&gt;(saltBase64);&lt;/div&gt;&lt;div&gt;&amp;nbsp; final &lt;b&gt;pbkdf2 = Pbkdf2&lt;/b&gt;(&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; macAlgorithm: Hmac.sha256(),iterations: 40000,bits: 256,);&lt;/div&gt;&lt;div&gt;&amp;nbsp; return await pbkdf2.deriveKey(secretKey: SecretKey(utf8.encode(password)),&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; nonce: saltBytes,);}&lt;/div&gt;" vertex="1">
+          <mxGeometry height="190" width="350" x="420" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-45" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;deriveKey&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="420" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-46" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="&lt;div&gt;deriveDbKey(String masterKey) async {&lt;/div&gt;&lt;div&gt;&amp;nbsp; final saltBase64 = await AuthStorage.getDbSalt();&lt;/div&gt;&lt;div&gt;&amp;nbsp; if (saltBase64 == null) {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; throw Exception(&quot;Security Error: DB Salt not initialized!&quot;);}&lt;/div&gt;&lt;div&gt;&amp;nbsp; final saltBytes = base64Decode(saltBase64);&lt;/div&gt;&lt;div&gt;&amp;nbsp; final pbkdf2 = Pbkdf2(macAlgorithm: Hmac.sha256(),&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; iterations: 20000,bits: 256,);&lt;/div&gt;&lt;div&gt;&amp;nbsp; final secretKey = await pbkdf2.deriveKey(&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; secretKey: SecretKey(utf8.encode(masterKey)),&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; nonce: saltBytes,);&lt;/div&gt;&lt;div&gt;&amp;nbsp; final keyBytes = await secretKey.extractBytes();&lt;/div&gt;&lt;div&gt;&amp;nbsp; return base64Encode(keyBytes);}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="200" width="340" x="420" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="x52I7BFvqtoLllKQRu75-47" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;deriveDbKey&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="100" x="410" y="850" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

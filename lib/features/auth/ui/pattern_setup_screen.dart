@@ -79,10 +79,12 @@ void onPatternComplete(List<int> pattern) async { // async ekledik
     return false;
   },
   child:   Scaffold(
-      backgroundColor: _bgBottom,
-      appBar: AppBar(
-        backgroundColor: const Color(0xFF020617),
-surfaceTintColor: const Color(0xFF020617),
+      backgroundColor:  Colors.transparent,
+      extendBodyBehindAppBar: true,
+	  appBar: AppBar(
+        backgroundColor: Colors.transparent,
+		surfaceTintColor: Colors.transparent,
+		
         elevation: 0,
         centerTitle: false,
         title: Text(
