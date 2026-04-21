@@ -33,7 +33,6 @@ class _SecurityScreenState extends State<SecurityScreen> {
   Future<void> saveSecondaryLock(String value) async {
     await storage.write(key: "secondary_lock", value: value);
   }
-
   Future<void> loadSecondaryLock() async {
     final value = await storage.read(key: "secondary_lock");
     if (value != null) {
@@ -43,34 +42,35 @@ class _SecurityScreenState extends State<SecurityScreen> {
     }
   }
 
-  Future<void> testBiometric() async {
-    final canCheck = await auth.canCheckBiometrics;
+  Future<bool> testBiometric() async {
+  final canCheck = await auth.canCheckBiometrics;
 
-    if (!canCheck) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppLocalizations.of(context)!.biometricNotAvailable)),
-      );
-      return;
-    }
-
-    final authenticated = await auth.authenticate(
-      localizedReason: AppLocalizations.of(context)!.authenticateToContinue,
-      options: const AuthenticationOptions(
-        biometricOnly: true,
-      ),
-    );
-
+  if (!canCheck) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text(
-         authenticated
-  ? AppLocalizations.of(context)!.biometricSuccess
-  : AppLocalizations.of(context)!.biometricFailed,
-        ),
+        content: Text(AppLocalizations.of(context)!.biometricNotAvailable),
+      ),
+    );
+    return false;
+  }
+
+  final authenticated = await auth.authenticate(
+    localizedReason: AppLocalizations.of(context)!.authenticateToContinue,
+    options: const AuthenticationOptions(
+      biometricOnly: true,
+    ),
+  );
+
+  if (!authenticated) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(AppLocalizations.of(context)!.biometricFailed),
       ),
     );
   }
 
+  return authenticated;
+}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,10 +157,14 @@ class _SecurityScreenState extends State<SecurityScreen> {
                 _DialogItem(
                   title: AppLocalizations.of(context)!.biometric,
                   onTap: () async {
-                    await testBiometric();
-                    setState(() => secondaryLock = "Biometric");
-                    saveSecondaryLock(secondaryLock);
-                    Navigator.pop(context);
+                  final ok = await testBiometric();
+
+				  if (!ok) return;
+
+				  setState(() => secondaryLock = "biometric");
+				  saveSecondaryLock(secondaryLock);
+
+				  Navigator.pop(context);
                   },
                 ),
               ],

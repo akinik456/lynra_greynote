@@ -139,20 +139,19 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.inactive ||
+    if (//state == AppLifecycleState.inactive ||
         state == AppLifecycleState.paused ||
         state == AppLifecycleState.hidden) {
 	  if (LynraApp.of(context).suspendAutoLock) return;
       if (_unlocked) {
-  DatabaseHelper.instance.close(); // 🔒 DB kapat
+		  DatabaseHelper.instance.close(); // 🔒 DB kapat
 
-  setState(() {
-    _unlocked = false;
-  });
-}
+		  setState(() {
+			_unlocked = false;
+		  });
+		}
       return;
     }
-
     if (state == AppLifecycleState.resumed) {
       if (!_loading && _savedPattern != null && !_unlocked && !_unlockScreenOpen) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -226,39 +225,29 @@ setState(() {
 });
 }
   
-  Future<bool> _checkSecondaryLock() async {
-
+Future<bool> _checkSecondaryLock() async {
   final secondaryLock = await storage.read(key: "secondary_lock");
-
-  if (secondaryLock == "PIN") {
-    final result = await Navigator.push<bool>(
-      context,
-      MaterialPageRoute(
-        builder: (_) => const PinUnlockScreen(),
-      ),
-    );
-
-    return result == true;
-  }
-  else if (secondaryLock == "Biometric") {
-  final auth = LocalAuthentication();
-
-  final canCheck = await auth.canCheckBiometrics;
-
-  if (!canCheck) {
-    return false;
-  }
-
-  final authenticated = await auth.authenticate(
-    localizedReason: "Authenticate to continue",
-    options: const AuthenticationOptions(
-      biometricOnly: true,
-    ),
-  );
-
-  return authenticated;
-}
-
+	  if (secondaryLock == "PIN") {
+		final result = await Navigator.push<bool>(
+		  context,
+		  MaterialPageRoute(
+			builder: (_) => const PinUnlockScreen(),
+		  ),
+		);
+		return result == true;
+	  }
+	  else if (secondaryLock == "biometric") {
+	  final auth = LocalAuthentication();
+	  final canCheck = await auth.canCheckBiometrics;
+		  if (!canCheck) { return false;}
+		  final authenticated = await auth.authenticate(
+		    localizedReason: AppLocalizations.of(context)!.authenticateToContinue,
+			options: const AuthenticationOptions(
+             biometricOnly: true,
+			),
+		  );
+	  return authenticated;
+	  }
   return true;
 }
 
