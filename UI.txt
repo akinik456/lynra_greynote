@@ -2,6 +2,8 @@ flutter pub run flutter_launcher_icons
 
 flutter pub run flutter_native_splash:create
 
+flutter gen-l10n
+
 ********************************
 
 Lynra GreyNote UI REF (Copy-Paste)

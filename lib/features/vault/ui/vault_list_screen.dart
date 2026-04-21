@@ -15,7 +15,11 @@ import '../../settings/ui/settings_screen.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../core/security/crypto_helper.dart';
+import '../../../core/security/inactivity_lock_wrapper.dart';
 import '../../auth/data/auth_storage.dart';
+import '../../../main.dart';
+
+
 import 'package:cryptography/cryptography.dart';
 
 class VaultListScreen extends StatefulWidget {
@@ -48,6 +52,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
   static const Color _borderColor = Color(0xFF334155);
   String? _masterKey;
   SecretKey? _payloadKey;
+  
   
   @override
   void initState() {
@@ -201,7 +206,15 @@ Future<String?> _getUnwrappedMasterKey() async {
   Widget build(BuildContext context) {
     final shouldHide = isVaultWordEnabled && !isVaultUnlocked;
 
-    return Scaffold(
+    return InactivityLockWrapper(
+  onTimeout: () {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (_) =>  AppGate()),
+      (route) => false,
+    );
+  },
+  child:  Scaffold(
       backgroundColor: _bgColor,
       appBar: AppBar(
         backgroundColor: _bgColor,
@@ -336,7 +349,9 @@ Future<String?> _getUnwrappedMasterKey() async {
         onPressed: openAdd,
         child: const Icon(Icons.add),
       ),
-    );
+    ),
+	);
+	
   }
 
   Future<void> showVaultUnlockDialog() async {

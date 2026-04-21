@@ -1,3 +1,7 @@
+
+flutter gen-l10n
+
+
 English → en
 Türkçe → tr
 Spanish → es

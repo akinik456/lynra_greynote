@@ -13,7 +13,7 @@ class SecurityScreen extends StatefulWidget {
 
 class _SecurityScreenState extends State<SecurityScreen> {
   String lockType = "Pattern";
-  String secondaryLock = "None";
+  String secondaryLock = "none";
 
   final storage = const FlutterSecureStorage();
   final auth = LocalAuthentication();
@@ -93,9 +93,12 @@ class _SecurityScreenState extends State<SecurityScreen> {
         children: [
           _Item(
             title: AppLocalizations.of(context)!.secondaryLock,
-            subtitle: secondaryLock,
+            subtitle: secondaryLock == "none"
+			? AppLocalizations.of(context)!.none
+			: secondaryLock,
             onTap: openLockSelector,
           ),
+		  
         ],
       ),
     );
@@ -123,11 +126,11 @@ class _SecurityScreenState extends State<SecurityScreen> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(height: 10),
-                _DialogItem(
+				const SizedBox(height: 10),
+				_DialogItem(
                   title: AppLocalizations.of(context)!.none,
                   onTap: () {
-                    setState(() => secondaryLock = "None");
+                    setState(() => secondaryLock = "none");
                     saveSecondaryLock(secondaryLock);
                     Navigator.pop(context);
                   },
