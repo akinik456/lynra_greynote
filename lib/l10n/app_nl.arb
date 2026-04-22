@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"nl",
 "add": 						"Toevoegen",
 "addFirstSecureEntry": 		"Tik op de + knop om je eerste veilige item toe te voegen.",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"Biometrie mislukt",
 "biometricNotAvailable": 	"Biometrie niet beschikbaar",
 "biometricSuccess": 		"Biometrie geslaagd",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"Biometrisch - met PIN-back-up",
 "cancel": 					"Annuleren",
 "collection": 				"Collectie",
 "collectionExample": 		"bijv. Back-ups",

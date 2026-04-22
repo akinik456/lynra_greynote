@@ -59,31 +59,22 @@ class VaultRepository {
   required String collectionId,
 }) async {
   final db = _dbHelper.getDb();
-
   final rows = await db.query(
     'vault',
     where: 'collectionId = ?',
     whereArgs: [collectionId],
     orderBy: 'updatedAt DESC',
   );
-print("ROWS COUNT = ${rows.length}");
   final items = <VaultItem>[];
-
-  //final payloadKey = await CryptoHelper.deriveKey(masterKey);
-
   for (final row in rows) {
     try {
-	print("TRY ITEM ID = ${row['id']}");
       final encryptedPayload = row['payload'] as String;
       final decrypted =
           await CryptoHelper.decryptWithKey(encryptedPayload, payloadKey);
       items.add(VaultItem.fromEncodedJson(decrypted));
     } catch (e) {
-      print("Decryption error in getItems: $e");
-	  print("ITEM FAILED => id=${row['id']} error=$e");
     }
   }
-
   return items;
 }
 

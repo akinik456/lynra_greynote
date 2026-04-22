@@ -3,11 +3,8 @@
 
 
 
-
 EK
-“Her açılışta PIN istenir”
-
-biometricWithBackupPin
-biometricWithBackupPinDescription
-TR: “Hızlı açılış için biyometrik, gerekirse PIN kullanılır”
-EN: Use biometric for quick access, PIN if needed.
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",

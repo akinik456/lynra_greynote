@@ -9,6 +9,18 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get limitReached => 'Limit reached';
+
+  @override
+  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+
+  @override
+  String get upgrade => 'Upgrade';
+
+  @override
+  String get cancel => '取消';
+
+  @override
   String get add => '添加';
 
   @override
@@ -39,13 +51,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get biometricSuccess => '生物识别成功';
 
   @override
-  String get biometricWithBackupPin => 'Biometric with PIN backup';
-
-  @override
-  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
-
-  @override
-  String get cancel => '取消';
+  String get biometricWithBackupPin => '生物识别 - 带PIN备用';
 
   @override
   String get collection => '集合';

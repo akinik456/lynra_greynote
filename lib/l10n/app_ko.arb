@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"ko",
 "add": 						"추가",
 "addFirstSecureEntry": 		"+ 버튼을 눌러 첫 번째 보안 항목을 추가하세요.",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"생체 인증 실패",
 "biometricNotAvailable": 	"생체 인증 사용 불가",
 "biometricSuccess": 		"생체 인증 성공",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"생체인증 - PIN 백업 포함",
 "cancel": 					"취소",
 "collection": 				"컬렉션",
 "collectionExample": 		"예: 백업",

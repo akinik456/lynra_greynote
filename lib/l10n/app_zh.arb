@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"zh",
 "add": 						"添加",
 "addFirstSecureEntry": 		"点击 + 按钮添加您的第一个安全条目。",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"生物识别失败",
 "biometricNotAvailable": 	"生物识别不可用",
 "biometricSuccess": 		"生物识别成功",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"生物识别 - 带PIN备用",
 "cancel": 					"取消",
 "collection": 				"集合",
 "collectionExample": 		"例如：备份",

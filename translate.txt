@@ -25,7 +25,7 @@ Swedish / Svenska 							— sv
 	
 Master Prompt *****************************	
 	
-
+en,tr,es,de,fr,it,pt_BR,hi,ko,ja,zh,ar,ru,id,vi,th,nl,pl,sv
 	
 
 	

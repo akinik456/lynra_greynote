@@ -9,6 +9,18 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get limitReached => 'Limit reached';
+
+  @override
+  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+
+  @override
+  String get upgrade => 'Upgrade';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
   String get add => 'Add';
 
   @override
@@ -40,12 +52,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Biometric - with PIN backup';
-
-  @override
-  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
-
-  @override
-  String get cancel => 'Cancel';
 
   @override
   String get collection => 'Collection';
@@ -325,6 +331,18 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
 
   @override
+  String get limitReached => 'Limit reached';
+
+  @override
+  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+
+  @override
+  String get upgrade => 'Upgrade';
+
+  @override
+  String get cancel => 'Cancelar';
+
+  @override
   String get add => 'Adicionar';
 
   @override
@@ -355,13 +373,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get biometricSuccess => 'Biometria bem-sucedida';
 
   @override
-  String get biometricWithBackupPin => 'Biometric with PIN backup';
-
-  @override
-  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
-
-  @override
-  String get cancel => 'Cancelar';
+  String get biometricWithBackupPin => 'Biométrico - com PIN de backup';
 
   @override
   String get collection => 'Coleção';

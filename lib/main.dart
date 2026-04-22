@@ -339,7 +339,7 @@ Future<bool> _checkSecondaryLock() async {
               _unlockExistingPattern();
             });
           },
-          //child: Text(AppLocalizations.of(context)!.unlock),
+          child: Text(AppLocalizations.of(context)!.unlock),
         ),
       ),
     );

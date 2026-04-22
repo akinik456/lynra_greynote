@@ -9,6 +9,18 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get limitReached => 'Limit reached';
+
+  @override
+  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+
+  @override
+  String get upgrade => 'Upgrade';
+
+  @override
+  String get cancel => 'Annulla';
+
+  @override
   String get add => 'Aggiungi';
 
   @override
@@ -39,13 +51,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get biometricSuccess => 'Biometria riuscita';
 
   @override
-  String get biometricWithBackupPin => 'Biometric with PIN backup';
-
-  @override
-  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
-
-  @override
-  String get cancel => 'Annulla';
+  String get biometricWithBackupPin => 'Biometrico - con PIN di backup';
 
   @override
   String get collection => 'Collezione';

@@ -9,6 +9,18 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get limitReached => 'Limit reached';
+
+  @override
+  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+
+  @override
+  String get upgrade => 'Upgrade';
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
   String get add => 'Ekle';
 
   @override
@@ -40,12 +52,6 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Biyometrik - PIN yedekli';
-
-  @override
-  String get biometricWithBackupPinDescription => 'Hızlı açılış için biyometrik, gerekirse PIN kullanılır.';
-
-  @override
-  String get cancel => 'İptal';
 
   @override
   String get collection => 'Koleksiyon';

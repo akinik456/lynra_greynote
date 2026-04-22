@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"ar",
 "add": 						"إضافة",
 "addFirstSecureEntry": 		"اضغط على زر + لإضافة أول عنصر آمن.",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"فشل التحقق الحيوي",
 "biometricNotAvailable": 	"التحقق الحيوي غير متاح",
 "biometricSuccess": 		"تم التحقق الحيوي",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"القياسات الحيوية - مع رمز PIN احتياطي",
 "cancel": 					"إلغاء",
 "collection": 				"مجموعة",
 "collectionExample": 		"مثال: نسخ احتياطية",

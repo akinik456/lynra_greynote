@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"id",
 "add": 						"Tambah",
 "addFirstSecureEntry": 		"Ketuk tombol + untuk menambahkan entri aman pertama Anda.",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"Biometrik gagal",
 "biometricNotAvailable": 	"Biometrik tidak tersedia",
 "biometricSuccess": 		"Biometrik berhasil",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"Biometrik - dengan PIN cadangan",
 "cancel": 					"Batal",
 "collection": 				"Koleksi",
 "collectionExample": 		"mis. Cadangan",

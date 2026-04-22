@@ -52,7 +52,8 @@ class _VaultListScreenState extends State<VaultListScreen> {
   static const Color _borderColor = Color(0xFF334155);
   String? _masterKey;
   SecretKey? _payloadKey;
-  
+  int itemCount = 0;
+  int collectionCount = 0;
   
   @override
   void initState() {
@@ -112,18 +113,19 @@ Future<String?> _getUnwrappedMasterKey() async {
 }
 
   Future<void> load() async {
-  //if (_masterKey == null) return;
   if (_payloadKey == null) return;
   final result = await repo.getItems(
     payloadKey: _payloadKey!,
     collectionId: selectedCollectionId,
   );
   setState(() => items = result);
+  itemCount = result.length;
 }
 
   Future<void> loadCollections() async {
     final result = await collectionRepo.getCollections();
-
+	collectionCount = result.length;
+	print("collectionCount:$collectionCount");
     setState(() {
       collections = result;
       if (collections.isNotEmpty &&
@@ -286,7 +288,13 @@ Future<String?> _getUnwrappedMasterKey() async {
               });
               await load();
             },
-            onAdd: openAddCollection,
+            onAdd: () {
+			  if (collectionCount >= 2) {
+				showUpgradeDialog();
+				return;
+			  }
+			  openAddCollection();
+			},
             onDelete: openDeleteCollection,
           ),
           Expanded(
@@ -346,7 +354,13 @@ Future<String?> _getUnwrappedMasterKey() async {
       floatingActionButton: FloatingActionButton(
         backgroundColor: _primary,
         foregroundColor: Colors.black,
-        onPressed: openAdd,
+        onPressed: () {
+		  if (itemCount >= 2) {
+			showUpgradeDialog();
+			return;
+		  }
+		  openAdd();
+		},
         child: const Icon(Icons.add),
       ),
     ),
@@ -448,8 +462,31 @@ Future<String?> _getUnwrappedMasterKey() async {
     }
   }
 
+void showUpgradeDialog() {
+  showDialog(
+    context: context,
+    builder: (_) => AlertDialog(
+      title: Text(AppLocalizations.of(context)!.limitReached),
+      content: Text(AppLocalizations.of(context)!.freeLimitEntries),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(context),
+          child: Text(AppLocalizations.of(context)!.cancel),
+        ),
+        ElevatedButton(
+          onPressed: () {
+            Navigator.pop(context);
+            // TODO: premium ekranına git
+          },
+          child: Text(AppLocalizations.of(context)!.upgrade),
+        ),
+      ],
+    ),
+  );
+}
+
   Future<void> openAddCollection() async {
-    if (collections.length >= 5) {
+    if (collections.length >= 50) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(AppLocalizations.of(context)!.max5Collections),

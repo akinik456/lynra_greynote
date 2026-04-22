@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"sv",
 "add": 						"Lägg till",
 "addFirstSecureEntry": 		"Tryck på + för att lägga till din första säkra post.",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"Biometri misslyckades",
 "biometricNotAvailable": 	"Biometri ej tillgänglig",
 "biometricSuccess": 		"Biometri lyckades",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"Biometrisk - med PIN som backup",
 "cancel": 					"Avbryt",
 "collection": 				"Samling",
 "collectionExample": 		"t.ex. Säkerhetskopior",

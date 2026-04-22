@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"ru",
 "add": 						"Добавить",
 "addFirstSecureEntry": 		"Нажмите +, чтобы добавить первую запись.",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"Сбой биометрии",
 "biometricNotAvailable": 	"Биометрия недоступна",
 "biometricSuccess": 		"Биометрия успешна",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"Биометрия — с резервным PIN",
 "cancel": 					"Отмена",
 "collection": 				"Коллекция",
 "collectionExample": 		"например: Резервные копии",

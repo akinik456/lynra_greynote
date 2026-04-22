@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"hi",
 "add": 						"जोड़ें",
 "addFirstSecureEntry": 		"अपनी पहली सुरक्षित एंट्री जोड़ने के लिए + बटन दबाएँ।",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"बायोमेट्रिक विफल",
 "biometricNotAvailable": 	"बायोमेट्रिक उपलब्ध नहीं",
 "biometricSuccess": 		"बायोमेट्रिक सफल",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"बायोमेट्रिक - PIN बैकअप के साथ",
 "cancel": 					"रद्द करें",
 "collection": 				"संग्रह",
 "collectionExample": 		"जैसे बैकअप",

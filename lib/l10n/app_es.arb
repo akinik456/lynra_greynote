@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"es",
 "add": 						"Añadir",
 "addFirstSecureEntry": 		"Toca el botón + para añadir tu primera entrada segura.",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"Error en la autenticación",
 "biometricNotAvailable": 	"La autenticación biométrica no está disponible",
 "biometricSuccess": 		"Autenticación correcta",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"Biométrico - con PIN de respaldo",
 "cancel": 					"Cancelar",
 "collection": 				"Colección",	
 "collectionExample": 		"p. ej., Copias de seguridad",

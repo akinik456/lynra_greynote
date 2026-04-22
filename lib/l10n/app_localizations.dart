@@ -130,6 +130,30 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @limitReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Limit reached'**
+  String get limitReached;
+
+  /// No description provided for @freeLimitEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'You can add up to 2 entries in the free version.'**
+  String get freeLimitEntries;
+
+  /// No description provided for @upgrade.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade'**
+  String get upgrade;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
   /// No description provided for @add.
   ///
   /// In en, this message translates to:
@@ -195,18 +219,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Biometric - with PIN backup'**
   String get biometricWithBackupPin;
-
-  /// No description provided for @biometricWithBackupPinDescription.
-  ///
-  /// In en, this message translates to:
-  /// **'Use biometric for quick access, PIN if needed.'**
-  String get biometricWithBackupPinDescription;
-
-  /// No description provided for @cancel.
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
 
   /// No description provided for @collection.
   ///

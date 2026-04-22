@@ -1,5 +1,11 @@
 {
 
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
+
 "@@locale":					"tr",
 "add": 						"Ekle",
 "addFirstSecureEntry": 		"İlk güvenli kaydını eklemek için + butonuna dokun.",
@@ -12,7 +18,6 @@
 "biometricFailed": 			"Doğrulama başarısız",
 "biometricSuccess": 		"Doğrulama başarılı",
 "biometricWithBackupPin":	"Biyometrik - PIN yedekli",
-"biometricWithBackupPinDescription": "Hızlı açılış için biyometrik, gerekirse PIN kullanılır.",
 "cancel": 					"İptal",
 "collection": 				"Koleksiyon",
 "collectionExample": 		"örn. Yedek",

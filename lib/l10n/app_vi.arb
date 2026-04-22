@@ -1,4 +1,10 @@
 {
+
+"limitReached": 			"Limit reached",
+"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"upgrade": 					"Upgrade",
+"cancel": 					"Cancel",
+
 "@@locale": 				"vi",
 "add": 						"Thêm",
 "addFirstSecureEntry": 		"Nhấn nút + để thêm mục an toàn đầu tiên.",
@@ -10,8 +16,7 @@
 "biometricFailed": 			"Sinh trắc học thất bại",
 "biometricNotAvailable": 	"Sinh trắc học không khả dụng",
 "biometricSuccess": 		"Sinh trắc học thành công",
-"biometricWithBackupPin":	"Biometric with PIN backup",
-"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
+"biometricWithBackupPin":	"Sinh trắc học - kèm PIN dự phòng",
 "cancel": 					"Hủy",
 "collection": 				"Bộ sưu tập",
 "collectionExample": 		"vd: Sao lưu",
