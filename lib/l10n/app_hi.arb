@@ -10,6 +10,8 @@
 "biometricFailed": 			"बायोमेट्रिक विफल",
 "biometricNotAvailable": 	"बायोमेट्रिक उपलब्ध नहीं",
 "biometricSuccess": 		"बायोमेट्रिक सफल",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"रद्द करें",
 "collection": 				"संग्रह",
 "collectionExample": 		"जैसे बैकअप",

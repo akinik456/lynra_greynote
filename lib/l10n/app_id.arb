@@ -10,6 +10,8 @@
 "biometricFailed": 			"Biometrik gagal",
 "biometricNotAvailable": 	"Biometrik tidak tersedia",
 "biometricSuccess": 		"Biometrik berhasil",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"Batal",
 "collection": 				"Koleksi",
 "collectionExample": 		"mis. Cadangan",

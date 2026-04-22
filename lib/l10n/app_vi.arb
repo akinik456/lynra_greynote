@@ -10,6 +10,8 @@
 "biometricFailed": 			"Sinh trắc học thất bại",
 "biometricNotAvailable": 	"Sinh trắc học không khả dụng",
 "biometricSuccess": 		"Sinh trắc học thành công",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"Hủy",
 "collection": 				"Bộ sưu tập",
 "collectionExample": 		"vd: Sao lưu",

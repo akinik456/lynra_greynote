@@ -10,6 +10,8 @@
 "biometricFailed": 			"ไบโอเมตริกล้มเหลว",
 "biometricNotAvailable": 	"ไม่รองรับไบโอเมตริก",
 "biometricSuccess": 		"ไบโอเมตริกสำเร็จ",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"ยกเลิก",
 "collection": 				"คอลเลกชัน",
 "collectionExample": 		"เช่น สำรองข้อมูล",

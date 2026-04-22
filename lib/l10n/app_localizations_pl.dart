@@ -39,6 +39,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get biometricSuccess => 'Biometria OK';
 
   @override
+  String get biometricWithBackupPin => 'Biometric with PIN backup';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
+
+  @override
   String get cancel => 'Anuluj';
 
   @override

@@ -114,101 +114,25 @@ _Item(
     final currentLocale = Localizations.localeOf(context);
 
     final languages = <Map<String, dynamic>>[
-      {
-        "label": "English",
-        "search": "English",
-        "locale": const Locale('en'),
-      },
-      {
-        "label": "Türkçe",
-        "search": "Turkish Türkçe",
-        "locale": const Locale('tr'),
-      },
-      {
-        "label": "Español",
-        "search": "Spanish Español",
-        "locale": const Locale('es'),
-      },
-      {
-        "label": "Deutsch",
-        "search": "German Deutsch",
-        "locale": const Locale('de'),
-      },
-      {
-        "label": "Français",
-        "search": "French Français",
-        "locale": const Locale('fr'),
-      },
-      {
-        "label": "Italiano",
-        "search": "Italian Italiano",
-        "locale": const Locale('it'),
-      },
-      {
-        "label": "Português (Brasil)",
-        "search": "Portuguese Brazil Português Brasil",
-        "locale": const Locale('pt', 'BR'),
-      },
-      {
-        "label": "हिन्दी",
-        "search": "Hindi हिन्दी",
-        "locale": const Locale('hi'),
-      },
-      {
-        "label": "한국어",
-        "search": "Korean 한국어",
-        "locale": const Locale('ko'),
-      },
-      {
-        "label": "日本語",
-        "search": "Japanese 日本語",
-        "locale": const Locale('ja'),
-      },
-      {
-        "label": "简体中文",
-        "search": "Chinese Simplified 简体中文",
-        "locale": const Locale('zh'),
-      },
-      {
-        "label": "العربية",
-        "search": "Arabic العربية",
-        "locale": const Locale('ar'),
-      },
-      {
-        "label": "Русский",
-        "search": "Russian Русский",
-        "locale": const Locale('ru'),
-      },
-      {
-        "label": "Bahasa Indonesia",
-        "search": "Indonesian Bahasa Indonesia",
-        "locale": const Locale('id'),
-      },
-      {
-        "label": "Tiếng Việt",
-        "search": "Vietnamese Tiếng Việt",
-        "locale": const Locale('vi'),
-      },
-      {
-        "label": "ไทย",
-        "search": "Thai ไทย",
-        "locale": const Locale('th'),
-      },
-      {
-        "label": "Nederlands",
-        "search": "Dutch Nederlands",
-        "locale": const Locale('nl'),
-      },
-      {
-        "label": "Polski",
-        "search": "Polish Polski",
-        "locale": const Locale('pl'),
-      },
-      {
-        "label": "Svenska",
-        "search": "Swedish Svenska",
-        "locale": const Locale('sv'),
-      },
+      {"label": "English - English", "search": "English", "locale": const Locale('en')},
+      {"label": "Türkçe - Turkish", "search": "Turkish Türkçe", "locale": const Locale('tr')},
+      {"label": "Español - Spanish", "search": "Spanish Español", "locale": const Locale('es')},
+      {"label": "Deutsch - German", "search": "German Deutsch", "locale": const Locale('de')},
+      {"label": "Français - French", "search": "French Français", "locale": const Locale('fr')},
+      {"label": "Italiano - Italian", "search": "Italian Italiano", "locale": const Locale('it')},
+      {"label": "Português (Brasil) - Portuguese", "search": "Portuguese Brasil Português", "locale": const Locale('pt', 'BR')},
+      {"label": "हिन्दी - Hindi", "search": "Hindi हिन्दी", "locale": const Locale('hi')},
+      {"label": "한국어 - Korean", "search": "Korean 한국어", "locale": const Locale('ko')},
+      {"label": "日本語 - Japanese", "search": "Japanese  日本語", "locale": const Locale('ja')},
+      {"label": "简体中文 - Chinese", "search": "Chinese 简体中文", "locale": const Locale('zh')},
+      {"label": "العربية - Arabic", "search": "Arabic العربية", "locale": const Locale('ar')},
+      {"label": "Русский - Russian", "search": "Russian Русский", "locale": const Locale('ru')},
+      {"label": "Bahasa Indonesia - Indonesian", "search": "Indonesian Bahasa Indonesia", "locale": const Locale('id')},
+      {"label": "Tiếng Việt - Vietnamese", "search": "Vietnamese Tiếng Việt", "locale": const Locale('vi')},
+      {"label": "ไทย - Thai", "search": "Thai ไทย", "locale": const Locale('th')},
+      {"label": "Nederlands - Dutch", "search": "Dutch Nederlands", "locale": const Locale('nl')},
+      {"label": "Polski - Polish", "search": "Polish Polski", "locale": const Locale('pl')},
+      {"label": "Svenska - Swedish", "search": "Swedish Svenska", "locale": const Locale('sv')},
     ];
 
     bool isSameLocale(Locale a, Locale b) {
@@ -292,15 +216,12 @@ _Item(
                             });
                           },
                           style: const TextStyle(color: Colors.white),
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: "Search language...",
-                            hintStyle: const TextStyle(color: Colors.white54),
-                            prefixIcon: const Icon(
-                              Icons.search,
-                              color: Colors.white54,
-                            ),
+                            hintStyle: TextStyle(color: Colors.white54),
+                            prefixIcon: Icon(Icons.search, color: Colors.white54),
                             border: InputBorder.none,
-                            contentPadding: const EdgeInsets.symmetric(
+                            contentPadding: EdgeInsets.symmetric(
                               horizontal: 14,
                               vertical: 14,
                             ),
@@ -319,27 +240,30 @@ _Item(
                               final item = filtered[index];
                               final locale = item["locale"] as Locale;
                               final label = item["label"] as String;
-                              final selected =
+                              final isSelected =
                                   isSameLocale(locale, currentLocale);
 
                               return Material(
-                                color: selected
+                                color: isSelected
                                     ? const Color(0xFF0F172A)
                                     : Colors.transparent,
                                 child: ListTile(
                                   minTileHeight: 56,
                                   title: Text(
                                     label,
+                                    textAlign: locale.languageCode == 'ar'
+                                        ? TextAlign.right
+                                        : TextAlign.left,
                                     style: TextStyle(
-                                      color: selected
+                                      color: isSelected
                                           ? const Color(0xFF22D3EE)
                                           : Colors.white,
-                                      fontWeight: selected
+                                      fontWeight: isSelected
                                           ? FontWeight.w600
                                           : FontWeight.w400,
                                     ),
                                   ),
-                                  trailing: selected
+                                  trailing: isSelected
                                       ? const Icon(
                                           Icons.check,
                                           color: Color(0xFF22D3EE),
@@ -656,6 +580,7 @@ class _Item extends StatelessWidget {
           style: const TextStyle(
             color: _textPrimary,
             fontWeight: FontWeight.w600,
+			fontSize: 15,
           ),
         ),
         trailing: const Icon(

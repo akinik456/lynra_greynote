@@ -190,6 +190,18 @@ abstract class AppLocalizations {
   /// **'Biometric success'**
   String get biometricSuccess;
 
+  /// No description provided for @biometricWithBackupPin.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric - with PIN backup'**
+  String get biometricWithBackupPin;
+
+  /// No description provided for @biometricWithBackupPinDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Use biometric for quick access, PIN if needed.'**
+  String get biometricWithBackupPinDescription;
+
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:

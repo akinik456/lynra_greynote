@@ -39,6 +39,12 @@ class AppLocalizationsTh extends AppLocalizations {
   String get biometricSuccess => 'ไบโอเมตริกสำเร็จ';
 
   @override
+  String get biometricWithBackupPin => 'Biometric with PIN backup';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
+
+  @override
   String get cancel => 'ยกเลิก';
 
   @override

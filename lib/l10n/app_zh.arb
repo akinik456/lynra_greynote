@@ -10,6 +10,8 @@
 "biometricFailed": 			"生物识别失败",
 "biometricNotAvailable": 	"生物识别不可用",
 "biometricSuccess": 		"生物识别成功",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"取消",
 "collection": 				"集合",
 "collectionExample": 		"例如：备份",

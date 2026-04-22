@@ -39,6 +39,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get biometricSuccess => 'Biometric success';
 
   @override
+  String get biometricWithBackupPin => 'Biometric - with PIN backup';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
+
+  @override
   String get cancel => 'Cancel';
 
   @override
@@ -347,6 +353,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get biometricSuccess => 'Biometria bem-sucedida';
+
+  @override
+  String get biometricWithBackupPin => 'Biometric with PIN backup';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
 
   @override
   String get cancel => 'Cancelar';

@@ -39,6 +39,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get biometricSuccess => 'Doğrulama başarılı';
 
   @override
+  String get biometricWithBackupPin => 'Biyometrik - PIN yedekli';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Hızlı açılış için biyometrik, gerekirse PIN kullanılır.';
+
+  @override
   String get cancel => 'İptal';
 
   @override

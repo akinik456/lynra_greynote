@@ -11,6 +11,8 @@
 "biometricNotAvailable": 	"Biyometrik doğrulama kullanılamıyor",
 "biometricFailed": 			"Doğrulama başarısız",
 "biometricSuccess": 		"Doğrulama başarılı",
+"biometricWithBackupPin":	"Biyometrik - PIN yedekli",
+"biometricWithBackupPinDescription": "Hızlı açılış için biyometrik, gerekirse PIN kullanılır.",
 "cancel": 					"İptal",
 "collection": 				"Koleksiyon",
 "collectionExample": 		"örn. Yedek",

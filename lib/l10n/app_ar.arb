@@ -10,6 +10,8 @@
 "biometricFailed": 			"فشل التحقق الحيوي",
 "biometricNotAvailable": 	"التحقق الحيوي غير متاح",
 "biometricSuccess": 		"تم التحقق الحيوي",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"إلغاء",
 "collection": 				"مجموعة",
 "collectionExample": 		"مثال: نسخ احتياطية",

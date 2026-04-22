@@ -1,7 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_windowmanager_plus/flutter_windowmanager_plus.dart';
-import 'core/db/database_helper.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -13,8 +12,12 @@ import 'features/auth/ui/pattern_setup_screen.dart';
 import 'features/auth/ui/pattern_unlock_screen.dart';
 import 'features/vault/ui/vault_list_screen.dart';
 import 'features/settings/ui/pin_unlock_screen.dart';
+import 'features/settings/ui/security_screen.dart';
 import 'splash_screen.dart';
-import '/features/onboarding/ui/onboarding_screen.dart';
+import 'features/onboarding/ui/onboarding_screen.dart';
+import 'core/security/biometric_helper.dart';
+import 'core/db/database_helper.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -130,6 +133,7 @@ class AppGate extends StatefulWidget {
 
 class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   bool _loading = true;
+  bool _isAuthenticating = false;
   bool _unlocked = false;
   bool _unlockScreenOpen = false;
   String? _savedPattern;
@@ -155,7 +159,8 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (//state == AppLifecycleState.inactive ||
+    if (_isAuthenticating) return;
+	if (//state == AppLifecycleState.inactive ||
         state == AppLifecycleState.paused ||
         state == AppLifecycleState.hidden) {
 	  if (LynraApp.of(context).suspendAutoLock) return;
@@ -242,31 +247,37 @@ setState(() {
 }
   
 Future<bool> _checkSecondaryLock() async {
-  final secondaryLock = await storage.read(key: "secondary_lock");
-	  if (secondaryLock == "PIN") {
-		final result = await Navigator.push<bool>(
-		  context,
-		  MaterialPageRoute(
-			builder: (_) => const PinUnlockScreen(),
-		  ),
-		);
-		return result == true;
-	  }
-	  else if (secondaryLock == "biometric") {
-	  final auth = LocalAuthentication();
-	  final canCheck = await auth.canCheckBiometrics;
-		  if (!canCheck) { return false;}
-		  final authenticated = await auth.authenticate(
-		    localizedReason: AppLocalizations.of(context)!.authenticateToContinue,
-			options: const AuthenticationOptions(
-             biometricOnly: true,
-			),
-		  );
-	  return authenticated;
-	  }
-  return true;
-}
+  _isAuthenticating = true;
 
+  try {
+    final secondaryLock = await storage.read(key: "secondary_lock");
+
+    if (secondaryLock == "pin") {
+      final result = await Navigator.push<bool>(
+        context,
+        MaterialPageRoute(builder: (_) => const PinUnlockScreen()),
+      );
+      return result == true;
+    }
+
+    if (secondaryLock == "biometric_pin") {
+      final ok = await tryBiometricUnlock();
+      if (ok) return true;
+
+      await Future.delayed(const Duration(milliseconds: 300));
+
+      final result = await Navigator.push<bool>(
+        context,
+        MaterialPageRoute(builder: (_) => const PinUnlockScreen()),
+      );
+      return result == true;
+    }
+
+    return true;
+  } finally {
+    _isAuthenticating = false;
+  }
+}
   Future<void> _unlockExistingPattern() async {
   if (_savedPattern == null || _savedPattern!.isEmpty) return;
   if (!mounted) return;
@@ -328,7 +339,7 @@ Future<bool> _checkSecondaryLock() async {
               _unlockExistingPattern();
             });
           },
-          child: Text(AppLocalizations.of(context)!.unlock),
+          //child: Text(AppLocalizations.of(context)!.unlock),
         ),
       ),
     );

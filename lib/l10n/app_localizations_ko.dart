@@ -39,6 +39,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get biometricSuccess => '생체 인증 성공';
 
   @override
+  String get biometricWithBackupPin => 'Biometric with PIN backup';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
+
+  @override
   String get cancel => '취소';
 
   @override

@@ -39,6 +39,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get biometricSuccess => 'Sinh trắc học thành công';
 
   @override
+  String get biometricWithBackupPin => 'Biometric with PIN backup';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
+
+  @override
   String get cancel => 'Hủy';
 
   @override

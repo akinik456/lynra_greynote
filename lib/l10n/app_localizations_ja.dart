@@ -39,6 +39,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get biometricSuccess => '生体認証に成功しました';
 
   @override
+  String get biometricWithBackupPin => 'Biometric with PIN backup';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
+
+  @override
   String get cancel => 'キャンセル';
 
   @override

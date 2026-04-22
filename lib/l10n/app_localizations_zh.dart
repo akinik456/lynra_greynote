@@ -39,6 +39,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get biometricSuccess => '生物识别成功';
 
   @override
+  String get biometricWithBackupPin => 'Biometric with PIN backup';
+
+  @override
+  String get biometricWithBackupPinDescription => 'Use biometric for quick access, PIN if needed.';
+
+  @override
   String get cancel => '取消';
 
   @override

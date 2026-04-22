@@ -10,6 +10,8 @@
 "biometricFailed": 			"Error en la autenticación",
 "biometricNotAvailable": 	"La autenticación biométrica no está disponible",
 "biometricSuccess": 		"Autenticación correcta",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"Cancelar",
 "collection": 				"Colección",	
 "collectionExample": 		"p. ej., Copias de seguridad",

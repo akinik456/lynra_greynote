@@ -10,6 +10,8 @@
 "biometricFailed": 			"생체 인증 실패",
 "biometricNotAvailable": 	"생체 인증 사용 불가",
 "biometricSuccess": 		"생체 인증 성공",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"취소",
 "collection": 				"컬렉션",
 "collectionExample": 		"예: 백업",

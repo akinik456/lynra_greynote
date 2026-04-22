@@ -3,7 +3,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../l10n/app_localizations.dart';
 
 class PinSetupScreen extends StatefulWidget {
-  const PinSetupScreen({super.key});
+  final String mode;
+
+  const PinSetupScreen({super.key, required this.mode});
 
   @override
   State<PinSetupScreen> createState() => _PinSetupScreenState();
@@ -147,14 +149,14 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
                     );
                     return;
                   }
-
+				  print("MODE => ${widget.mode}");
                   await storage.write(key: "user_pin", value: pin);
-
+				  await storage.write(key: "secondary_lock", value: widget.mode);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text(AppLocalizations.of(context)!.pinSaved)),
                   );
 
-                  Navigator.pop(context);
+                  Navigator.pop(context,true);
                 },
                 child: Text(AppLocalizations.of(context)!.savePin),
                   //style: TextStyle(fontWeight: FontWeight.w700),

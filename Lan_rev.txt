@@ -1,0 +1,13 @@
+
+
+
+
+
+
+EK
+“Her açılışta PIN istenir”
+
+biometricWithBackupPin
+biometricWithBackupPinDescription
+TR: “Hızlı açılış için biyometrik, gerekirse PIN kullanılır”
+EN: Use biometric for quick access, PIN if needed.

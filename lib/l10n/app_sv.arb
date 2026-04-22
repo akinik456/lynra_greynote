@@ -10,6 +10,8 @@
 "biometricFailed": 			"Biometri misslyckades",
 "biometricNotAvailable": 	"Biometri ej tillgänglig",
 "biometricSuccess": 		"Biometri lyckades",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"Avbryt",
 "collection": 				"Samling",
 "collectionExample": 		"t.ex. Säkerhetskopior",

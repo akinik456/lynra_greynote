@@ -3,8 +3,10 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:local_auth/local_auth.dart';
 import 'pin_setup_screen.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../core/security/biometric_helper.dart';
 
 class SecurityScreen extends StatefulWidget {
+  
   const SecurityScreen({super.key});
 
   @override
@@ -41,36 +43,17 @@ class _SecurityScreenState extends State<SecurityScreen> {
       });
     }
   }
-
-  Future<bool> testBiometric() async {
-  final canCheck = await auth.canCheckBiometrics;
-
-  if (!canCheck) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.biometricNotAvailable),
-      ),
-    );
-    return false;
+String getSecondaryLockText() {
+  switch (secondaryLock) {
+    case "pin":
+      return AppLocalizations.of(context)!.pin;
+    case "biometric_pin":
+      return AppLocalizations.of(context)!.biometricWithBackupPin;
+    default:
+      return AppLocalizations.of(context)!.none;
   }
-
-  final authenticated = await auth.authenticate(
-    localizedReason: AppLocalizations.of(context)!.authenticateToContinue,
-    options: const AuthenticationOptions(
-      biometricOnly: true,
-    ),
-  );
-
-  if (!authenticated) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppLocalizations.of(context)!.biometricFailed),
-      ),
-    );
-  }
-
-  return authenticated;
 }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,9 +76,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
         children: [
           _Item(
             title: AppLocalizations.of(context)!.secondaryLock,
-            subtitle: secondaryLock == "none"
-			? AppLocalizations.of(context)!.none
-			: secondaryLock,
+            subtitle: getSecondaryLockText(),
             onTap: openLockSelector,
           ),
 		  
@@ -138,34 +119,39 @@ class _SecurityScreenState extends State<SecurityScreen> {
                 _DialogItem(
                   title: AppLocalizations.of(context)!.pin,
                   onTap: () async {
-                    final existing = await storage.read(key: "secondary_lock");
-
-                    if (existing != "PIN") {
-                      setState(() => secondaryLock = "PIN");
-                      saveSecondaryLock(secondaryLock);
-                      Navigator.pop(context);
-
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const PinSetupScreen(),
-                        ),
-                      );
-                    }
-                  },
+					  Navigator.pop(context);
+					  final result = await Navigator.push<bool>(
+						context,
+						MaterialPageRoute(
+						  builder: (_) => const PinSetupScreen(mode: "pin"),
+						),
+					  );
+					  if (result == true) {
+						setState(() => secondaryLock = "pin");
+						saveSecondaryLock(secondaryLock);
+					  }
+					},
                 ),
                 _DialogItem(
-                  title: AppLocalizations.of(context)!.biometric,
+                  title: AppLocalizations.of(context)!.biometricWithBackupPin,
                   onTap: () async {
-                  final ok = await testBiometric();
+					  final ok = await testBiometricForSetup(context);
+					  if (!ok) return;
 
-				  if (!ok) return;
+					  Navigator.pop(context);
 
-				  setState(() => secondaryLock = "biometric");
-				  saveSecondaryLock(secondaryLock);
+					  final result = await Navigator.push<bool>(
+						context,
+						MaterialPageRoute(
+						  builder: (_) => const PinSetupScreen(mode: "biometric_pin"),
+						),
+					  );
 
-				  Navigator.pop(context);
-                  },
+					  if (result == true) {
+						setState(() => secondaryLock = "biometric_pin");
+						saveSecondaryLock(secondaryLock);
+					  }
+					},
                 ),
               ],
             ),

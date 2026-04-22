@@ -10,6 +10,8 @@
 "biometricFailed": 			"Biometrie fehlgeschlagen",
 "biometricNotAvailable": 	"Biometrie nicht verfügbar",
 "biometricSuccess": 		"Biometrie erfolgreich",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"Abbrechen",
 "collection": 				"Sammlung",
 "collectionExample": 		"z. B. Sicherungen",

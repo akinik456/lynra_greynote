@@ -10,6 +10,8 @@
 "biometricFailed": 			"生体認証に失敗しました",
 "biometricNotAvailable": 	"生体認証は利用できません",
 "biometricSuccess": 		"生体認証に成功しました",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"キャンセル",
 "collection": 				"コレクション",
 "collectionExample": 		"例：バックアップ",

@@ -10,6 +10,8 @@
 "biometricFailed": 			"Biometrie mislukt",
 "biometricNotAvailable": 	"Biometrie niet beschikbaar",
 "biometricSuccess": 		"Biometrie geslaagd",
+"biometricWithBackupPin":	"Biometric with PIN backup",
+"biometricWithBackupPinDescription": "Use biometric for quick access, PIN if needed.",
 "cancel": 					"Annuleren",
 "collection": 				"Collectie",
 "collectionExample": 		"bijv. Back-ups",
