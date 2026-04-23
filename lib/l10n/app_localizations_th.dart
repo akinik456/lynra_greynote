@@ -9,13 +9,19 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'ค้นหา';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'ปลดล็อกเพื่อค้นหา';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'ถึงขีดจำกัดแล้ว';
+
+  @override
+  String get freeLimitEntries => 'คุณสามารถเพิ่มได้สูงสุด 2 รายการในเวอร์ชันฟรี';
+
+  @override
+  String get upgrade => 'อัปเกรด';
 
   @override
   String get cancel => 'ยกเลิก';

@@ -130,6 +130,18 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @unlockToSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock to search'**
+  String get unlockToSearch;
+
   /// No description provided for @limitReached.
   ///
   /// In en, this message translates to:

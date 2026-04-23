@@ -1,5 +1,9 @@
 {
 
+"search": 					"Buscar",
+"unlockToSearch": 			"Desbloquea para buscar",
+
+
 "limitReached": 			"Límite alcanzado",
 "freeLimitEntries": 		"Puedes añadir hasta 2 registros en la versión gratuita.",
 "upgrade": 					"Actualizar",

@@ -9,13 +9,19 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Sök';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Lås upp för att söka';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'Gräns nådd';
+
+  @override
+  String get freeLimitEntries => 'Du kan lägga till upp till 2 poster i gratisversionen.';
+
+  @override
+  String get upgrade => 'Uppgradera';
 
   @override
   String get cancel => 'Avbryt';

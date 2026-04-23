@@ -9,10 +9,16 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Cari';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Buka kunci untuk mencari';
+
+  @override
+  String get limitReached => 'Batas tercapai';
+
+  @override
+  String get freeLimitEntries => 'Anda dapat menambahkan hingga 2 entri di versi gratis.';
 
   @override
   String get upgrade => 'Upgrade';

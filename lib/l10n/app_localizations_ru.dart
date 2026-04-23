@@ -9,13 +9,19 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Поиск';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Разблокируйте для поиска';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'Лимит достигнут';
+
+  @override
+  String get freeLimitEntries => 'В бесплатной версии можно добавить до 2 записей.';
+
+  @override
+  String get upgrade => 'Обновить';
 
   @override
   String get cancel => 'Отмена';

@@ -9,13 +9,19 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => '検索';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => '検索するにはロック解除';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => '上限に達しました';
+
+  @override
+  String get freeLimitEntries => '無料版では最大2件まで追加できます。';
+
+  @override
+  String get upgrade => 'アップグレード';
 
   @override
   String get cancel => 'キャンセル';

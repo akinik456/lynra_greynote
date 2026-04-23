@@ -9,13 +9,19 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'بحث';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'افتح القفل للبحث';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'تم الوصول إلى الحد';
+
+  @override
+  String get freeLimitEntries => 'يمكنك إضافة ما يصل إلى سجلين في النسخة المجانية.';
+
+  @override
+  String get upgrade => 'ترقية';
 
   @override
   String get cancel => 'إلغاء';

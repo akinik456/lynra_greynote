@@ -1,5 +1,9 @@
 {
 
+"search": 					"بحث",
+"unlockToSearch": 			"افتح القفل للبحث",
+
+
 "limitReached": 			"تم الوصول إلى الحد",
 "freeLimitEntries": 		"يمكنك إضافة ما يصل إلى سجلين في النسخة المجانية.",
 "upgrade": 					"ترقية",

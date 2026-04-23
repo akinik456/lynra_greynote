@@ -1,5 +1,9 @@
 {
 
+"search": 					"Ara",
+"unlockToSearch": 			"Unlock to search",
+
+
 "limitReached": 			"Limit reached",
 "freeLimitEntries": 		"You can add up to 2 entries in the free version.",
 "upgrade": 					"Upgrade",

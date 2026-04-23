@@ -9,13 +9,19 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Tìm kiếm';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Mở khóa để tìm kiếm';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'Đã đạt giới hạn';
+
+  @override
+  String get freeLimitEntries => 'Bạn có thể thêm tối đa 2 mục trong phiên bản miễn phí.';
+
+  @override
+  String get upgrade => 'Nâng cấp';
 
   @override
   String get cancel => 'Hủy';

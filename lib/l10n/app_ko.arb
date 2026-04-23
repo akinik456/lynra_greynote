@@ -1,5 +1,9 @@
 {
 
+"search": 					"검색",
+"unlockToSearch": 			"검색하려면 잠금 해제",
+
+
 "limitReached": 			"제한 도달",
 "freeLimitEntries": 		"무료 버전에서는 최대 2개의 항목을 추가할 수 있습니다.",
 "upgrade": 					"업그레이드",

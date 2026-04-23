@@ -9,6 +9,12 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get search => 'Search';
+
+  @override
+  String get unlockToSearch => 'Unlock to search';
+
+  @override
   String get limitReached => 'Limit reached';
 
   @override

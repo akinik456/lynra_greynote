@@ -106,10 +106,7 @@ Future<void>  setLocale(Locale locale) async  {
 		Locale('th'),
 		Locale('nl'),
 		Locale('pl'),
-		Locale('sv'),
-		
-		
-		
+		Locale('sv'),		
 	  ],
 
       theme: ThemeData.dark().copyWith(

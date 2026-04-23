@@ -9,10 +9,16 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Suchen';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Zum Suchen entsperren';
+
+  @override
+  String get limitReached => 'Limit erreicht';
+
+  @override
+  String get freeLimitEntries => 'In der kostenlosen Version kannst du bis zu 2 Einträge hinzufügen.';
 
   @override
   String get upgrade => 'Upgrade';

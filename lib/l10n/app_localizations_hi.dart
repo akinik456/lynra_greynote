@@ -9,13 +9,19 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'खोजें';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'खोजने के लिए अनलॉक करें';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'सीमा पूरी हो गई';
+
+  @override
+  String get freeLimitEntries => 'आप मुफ्त संस्करण में अधिकतम 2 प्रविष्टियाँ जोड़ सकते हैं।';
+
+  @override
+  String get upgrade => 'अपग्रेड करें';
 
   @override
   String get cancel => 'रद्द करें';

@@ -1,5 +1,9 @@
 {
 
+"search": 					"検索",
+"unlockToSearch": 			"検索するにはロック解除",
+
+
 "limitReached": 			"上限に達しました",
 "freeLimitEntries": 		"無料版では最大2件まで追加できます。",
 "upgrade": 					"アップグレード",

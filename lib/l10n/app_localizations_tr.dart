@@ -9,6 +9,12 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get search => 'Ara';
+
+  @override
+  String get unlockToSearch => 'Unlock to search';
+
+  @override
   String get limitReached => 'Limit reached';
 
   @override

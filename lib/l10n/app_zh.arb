@@ -1,5 +1,8 @@
 {
 
+"search": 					"搜索",
+"unlockToSearch": 			"解锁后搜索",
+
 "limitReached": 			"已达到限制",
 "freeLimitEntries": 		"免费版本最多可添加2条记录。",
 "upgrade": 					"升级",

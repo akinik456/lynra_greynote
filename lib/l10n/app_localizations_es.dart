@@ -9,13 +9,19 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Buscar';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Desbloquea para buscar';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'Límite alcanzado';
+
+  @override
+  String get freeLimitEntries => 'Puedes añadir hasta 2 registros en la versión gratuita.';
+
+  @override
+  String get upgrade => 'Actualizar';
 
   @override
   String get cancel => 'Cancelar';

@@ -1,5 +1,9 @@
 {
 
+"search": 					"Sök",
+"unlockToSearch": 			"Lås upp för att söka",
+
+
 "limitReached": 			"Gräns nådd",
 "freeLimitEntries": 		"Du kan lägga till upp till 2 poster i gratisversionen.",
 "upgrade": 					"Uppgradera",

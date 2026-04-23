@@ -9,6 +9,12 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get search => 'Search';
+
+  @override
+  String get unlockToSearch => 'Unlock to search';
+
+  @override
   String get limitReached => 'Limit reached';
 
   @override
@@ -331,13 +337,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Pesquisar';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Desbloqueie para pesquisar';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'Limite atingido';
+
+  @override
+  String get freeLimitEntries => 'Você pode adicionar até 2 registros na versão gratuita.';
+
+  @override
+  String get upgrade => 'Atualizar';
 
   @override
   String get cancel => 'Cancelar';

@@ -1,5 +1,9 @@
 {
 
+"search": 					"Rechercher",
+"unlockToSearch": 			"Déverrouillez pour rechercher",
+
+
 "limitReached": 			"Limite atteint",
 "freeLimitEntries": 		"Vous pouvez ajouter jusqu’à 2 entrées dans la version gratuite.",
 "upgrade": 					"Passer à Premium",

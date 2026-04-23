@@ -9,13 +9,19 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Cerca';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Sblocca per cercare';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'Limite raggiunto';
+
+  @override
+  String get freeLimitEntries => 'Puoi aggiungere fino a 2 elementi nella versione gratuita.';
+
+  @override
+  String get upgrade => 'Aggiorna';
 
   @override
   String get cancel => 'Annulla';

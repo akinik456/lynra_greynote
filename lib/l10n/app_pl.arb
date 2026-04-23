@@ -1,5 +1,9 @@
 {
 
+"search": 					"Szukaj",
+"unlockToSearch": 			"Odblokuj, aby wyszukać",
+
+
 "limitReached": 			"Osiągnięto limit",
 "freeLimitEntries": 		"W wersji darmowej możesz dodać maksymalnie 2 wpisy.",
 "upgrade": 					"Ulepsz",

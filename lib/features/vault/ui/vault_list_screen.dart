@@ -54,6 +54,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
   SecretKey? _payloadKey;
   int itemCount = 0;
   int collectionCount = 0;
+  String searchQuery = "";
   
   @override
   void initState() {
@@ -135,7 +136,18 @@ Future<String?> _getUnwrappedMasterKey() async {
     });
   }
   
+List<VaultItem> get filteredItems {
+  if (searchQuery.trim().isEmpty) return items;
+
+  final q = searchQuery.toLowerCase();
+
+  return items.where((item) {
+    return item.title.toLowerCase().contains(q) ||
+        item.username.toLowerCase().contains(q) ||
+        item.note.toLowerCase().contains(q);
+  }).toList();
   
+}  
 
   Future<void> loadVaultWordSettings() async {
     final enabled = await storage.read(key: "vault_word_enabled");
@@ -233,23 +245,22 @@ Future<String?> _getUnwrappedMasterKey() async {
         ),
         actions: [
           IconButton(
-  icon: const Icon(Icons.settings_outlined, color: _textPrimary),
-  onPressed: () async {
-    final result = await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => SettingsScreen(
-			vaultKey: widget.vaultKey,
-		),
-      ),
-    );
-
-    if (result == true) {
-      await loadCollections();
-      await load();
-    }
-  },
-),
+			  icon: const Icon(Icons.settings_outlined, color: _textPrimary),
+			  onPressed: () async {
+				final result = await Navigator.push(
+				  context,
+				  MaterialPageRoute(
+					builder: (_) => SettingsScreen(
+						vaultKey: widget.vaultKey,
+					),
+				  ),
+				);
+				if (result == true) {
+				  await loadCollections();
+				  await load();
+				}
+			  },
+			),
           IconButton(
             icon: Icon(
               shouldHide ? Icons.lock_outline : Icons.lock_open_rounded,
@@ -297,8 +308,31 @@ Future<String?> _getUnwrappedMasterKey() async {
 			},
             onDelete: openDeleteCollection,
           ),
+		  Padding(
+			  padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+			  child: TextField(
+			  enabled: !shouldHide,
+				onChanged: (value) {
+				  setState(() {
+					searchQuery = value;
+				  });
+				},
+				decoration: InputDecoration(
+				  hintText: shouldHide
+					? AppLocalizations.of(context)!.unlockToSearch
+					: AppLocalizations.of(context)!.search,
+				  prefixIcon: const Icon(Icons.search),
+				  filled: true,
+				  fillColor: const Color(0xFF1E293B),
+				  border: OutlineInputBorder(
+					borderRadius: BorderRadius.circular(16),
+					borderSide: BorderSide.none,
+				  ),
+				),
+			  ),
+			),
           Expanded(
-            child: items.isEmpty
+            child: filteredItems.isEmpty
                 ? const _EmptyState()
                 : RefreshIndicator(
                     onRefresh: load,
@@ -307,9 +341,9 @@ Future<String?> _getUnwrappedMasterKey() async {
                     child: ListView.builder(
                       physics: const AlwaysScrollableScrollPhysics(),
                       padding: const EdgeInsets.fromLTRB(12, 8, 12, 96),
-                      itemCount: items.length,
+                      itemCount: filteredItems.length,
                       itemBuilder: (context, index) {
-                        final item = items[index];
+                        final item = filteredItems[index];
 
                         return _VaultCard(
                           item: item,
@@ -325,23 +359,22 @@ Future<String?> _getUnwrappedMasterKey() async {
                                 ),
                               ),
                             );
-
                             if (result != null) {
-  final mk = await _getUnwrappedMasterKey();
-  if (mk == null) return;
+							  final mk = await _getUnwrappedMasterKey();
+							  if (mk == null) return;
 
-  await repo.updateItem(
-    payloadKey: _payloadKey!,
-    oldItem: item,
-    title: result["title"] ?? "",
-    username: result["username"] ?? "",
-    password: result["password"] ?? "",
-    note: result["note"] ?? "",
-    iban: result["iban"] ?? "",
-    type: result["type"] ?? "standard",
-  );
-  await load();
-}
+							  await repo.updateItem(
+								payloadKey: _payloadKey!,
+								oldItem: item,
+								title: result["title"] ?? "",
+								username: result["username"] ?? "",
+								password: result["password"] ?? "",
+								note: result["note"] ?? "",
+								iban: result["iban"] ?? "",
+								type: result["type"] ?? "standard",
+							  );
+							  await load();
+							}
                           },
                           onLongPress: () => delete(item),
                         );
@@ -364,10 +397,8 @@ Future<String?> _getUnwrappedMasterKey() async {
         child: const Icon(Icons.add),
       ),
     ),
-	);
-	
+	);	
   }
-
   Future<void> showVaultUnlockDialog() async {
     final ctrl = TextEditingController();
 
@@ -413,9 +444,7 @@ Future<String?> _getUnwrappedMasterKey() async {
                 ),
               ),
             ),
-
             const SizedBox(height: 16),
-
             Row(
               children: [
                 Expanded(

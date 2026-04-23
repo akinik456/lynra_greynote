@@ -1,5 +1,9 @@
 {
 
+"search": 					"Cerca",
+"unlockToSearch": 			"Sblocca per cercare",
+
+
 "limitReached": 			"Limite raggiunto",
 "freeLimitEntries": 		"Puoi aggiungere fino a 2 elementi nella versione gratuita.",
 "upgrade": 					"Aggiorna",

@@ -1,5 +1,9 @@
 {
 
+"search": 					"Zoeken",
+"unlockToSearch": 			"Ontgrendel om te zoeken",
+
+
 "limitReached": 			"Limiet bereikt",
 "freeLimitEntries": 		"Je kunt maximaal 2 items toevoegen in de gratis versie.",
 "upgrade": 					"Upgraden",

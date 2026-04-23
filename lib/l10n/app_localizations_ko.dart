@@ -9,13 +9,19 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => '검색';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => '검색하려면 잠금 해제';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => '제한 도달';
+
+  @override
+  String get freeLimitEntries => '무료 버전에서는 최대 2개의 항목을 추가할 수 있습니다.';
+
+  @override
+  String get upgrade => '업그레이드';
 
   @override
   String get cancel => '취소';

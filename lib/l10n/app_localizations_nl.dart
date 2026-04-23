@@ -9,13 +9,19 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => 'Zoeken';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => 'Ontgrendel om te zoeken';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => 'Limiet bereikt';
+
+  @override
+  String get freeLimitEntries => 'Je kunt maximaal 2 items toevoegen in de gratis versie.';
+
+  @override
+  String get upgrade => 'Upgraden';
 
   @override
   String get cancel => 'Annuleren';

@@ -9,13 +9,19 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get limitReached => 'Limit reached';
+  String get search => '搜索';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get unlockToSearch => '解锁后搜索';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get limitReached => '已达到限制';
+
+  @override
+  String get freeLimitEntries => '免费版本最多可添加2条记录。';
+
+  @override
+  String get upgrade => '升级';
 
   @override
   String get cancel => '取消';
