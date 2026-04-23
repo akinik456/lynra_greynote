@@ -66,28 +66,28 @@ class _VaultListScreenState extends State<VaultListScreen> {
   }
   
 Future<void> _initFlow() async {
-print(DateTime.now());
-  print("Time_Check4");
+//print(DateTime.now());
+//print("Time_Check4");
   final mk = await _getUnwrappedMasterKey();
   if (mk == null) return;
-print(DateTime.now());
-  print("Time_Check5");
+//print(DateTime.now());
+//print("Time_Check5");
   _masterKey = mk;
   _payloadKey = await CryptoHelper.derivePayloadKey(mk);
-print(DateTime.now());
-  print("Time_Check6");  
+//print(DateTime.now());
+//print("Time_Check6");  
   final derivedDbKey = await CryptoHelper.deriveDbKey(mk);
-print(DateTime.now());
-  print("Time_Check7");
+//print(DateTime.now());
+//print("Time_Check7");
   await DatabaseHelper.instance.openWithKey(derivedDbKey);
-print(DateTime.now());
-  print("Time_Check8");
+//print(DateTime.now());
+//print("Time_Check8");
   await loadCollections();
-print(DateTime.now());
-  print("Time_Check9");  
+//print(DateTime.now());
+//print("Time_Check9");  
   await load();
-  print(DateTime.now());
-  print("Time_Check10");
+//print(DateTime.now());
+//print("Time_Check10");
 }
 
 Future<String?> _getUnwrappedMasterKey() async {
@@ -96,7 +96,6 @@ Future<String?> _getUnwrappedMasterKey() async {
   
   // 2. Eğer henüz paketli anahtar yoksa (Onboarding hatası veya ilk kurulum)
   if (wrappedMK == null) {
-    print("DEBUG: Paketli Master Key bulunamadı. Lütfen onboarding akışını kontrol et.");
     return null;
   }
 
@@ -108,7 +107,6 @@ Future<String?> _getUnwrappedMasterKey() async {
     );
   } catch (e) {
     // Eğer buraya düşüyorsa: Ya şifre yanlış ya da paketleme hatalı (MAC Hatası)
-    print("DEBUG: Master Key Unwrapping hatası: $e");
     return null;
   }
 }
@@ -126,7 +124,6 @@ Future<String?> _getUnwrappedMasterKey() async {
   Future<void> loadCollections() async {
     final result = await collectionRepo.getCollections();
 	collectionCount = result.length;
-	print("collectionCount:$collectionCount");
     setState(() {
       collections = result;
       if (collections.isNotEmpty &&
@@ -416,7 +413,7 @@ List<VaultItem> get filteredItems {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(AppLocalizations.of(context)!.unlockContent,
-			textAlign: TextAlign.center,
+							textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Color(0xFFE2E8F0),
                 fontWeight: FontWeight.w700,
@@ -495,26 +492,90 @@ List<VaultItem> get filteredItems {
 void showUpgradeDialog() {
   showDialog(
     context: context,
-    builder: (_) => AlertDialog(
-      title: Text(AppLocalizations.of(context)!.limitReached),
-      content: Text(AppLocalizations.of(context)!.freeLimitEntries),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: Text(AppLocalizations.of(context)!.cancel),
+    builder: (_) => Dialog(
+      backgroundColor: const Color(0xFF0F172A),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // TITLE
+            Text(
+              AppLocalizations.of(context)!.limitReached,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Color(0xFFE2E8F0),
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
+            ),
+
+            const SizedBox(height: 16),
+
+            // CONTENT
+            Text(
+              AppLocalizations.of(context)!.freeLimitEntries,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Color(0xFF94A3B8),
+                fontSize: 14,
+              ),
+            ),
+
+            const SizedBox(height: 24),
+
+            // BUTTONS
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(
+                      AppLocalizations.of(context)!.cancel,
+                      style: const TextStyle(
+                        color: Color(0xFF94A3B8),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: SizedBox(
+                    height: 48,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color(0xFF22D3EE),
+                        foregroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        elevation: 0,
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        // TODO
+                      },
+                      child: Text(
+                        AppLocalizations.of(context)!.upgrade,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
-        ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-            // TODO: premium ekranına git
-          },
-          child: Text(AppLocalizations.of(context)!.upgrade),
-        ),
-      ],
+      ),
     ),
   );
 }
-
   Future<void> openAddCollection() async {
     if (collections.length >= 50) {
       ScaffoldMessenger.of(context).showSnackBar(

@@ -18,7 +18,6 @@ Future<bool> tryBiometricUnlock() async {
       ),
     );
   } catch (e) {
-    print("BIO ERROR => $e");
     return false;
   }
 }

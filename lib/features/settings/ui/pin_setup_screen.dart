@@ -149,7 +149,6 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
                     );
                     return;
                   }
-				  print("MODE => ${widget.mode}");
                   await storage.write(key: "user_pin", value: pin);
 				  await storage.write(key: "secondary_lock", value: widget.mode);
                   ScaffoldMessenger.of(context).showSnackBar(

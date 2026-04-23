@@ -5,6 +5,31 @@ flutter pub run flutter_native_splash:create
 flutter gen-l10n
 
 ********************************
+add_edit_screen
+onboarding_screen
+pattern_setup_screen
+pattern_unlock_screen
+pin_setup_screen
+pin_unlock_screen
+security_screen
+settings_screen
+splash_screen
+vault_detail_screen
+vault_list_screen
+vault_word_screen
+
+Select Language
+Set PIN
+
+Backup PIN
+Limit reached
+New Collection
+Secondary Lock
+
+
+
+
+********************************
 
 Lynra GreyNote UI REF (Copy-Paste)
 
@@ -84,11 +109,4 @@ Gürültü yok
 Gölgeler minimum
 Renk yerine kontrast kullan
 “premium + güvenli” hissi
-🎯 Yeni sohbete yazacağın mesaj
-
-Şunu yapıştır:
-
-“Lynra GreyNote UI sistemim bu (yukarıdaki). Şu ekranı buna göre iyileştirelim: [dosya / screenshot]”
-
-👊 SON
 

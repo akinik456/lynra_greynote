@@ -46,7 +46,6 @@ Future<String?> _getUnwrappedMasterKey() async {
       password: widget.vaultKey,
     );
   } catch (e) {
-    print("unwrap error: $e");
     return null;
   }
 }  
@@ -573,7 +572,6 @@ final collectionName =
           'collectionId': collectionId,
         });
       } catch (e) {
-        print("Import skip: $e");
       }
     }
 
@@ -587,8 +585,6 @@ final collectionName =
 
     Navigator.pop(context, true); // 🔄 refresh trigger
   } catch (e) {
-    print("Import error: $e");
-
     if (!mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
