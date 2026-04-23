@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"Limiet bereikt",
+"freeLimitEntries": 		"Je kunt maximaal 2 items toevoegen in de gratis versie.",
+"upgrade": 					"Upgraden",
 
 "@@locale": 				"nl",
 "add": 						"Toevoegen",

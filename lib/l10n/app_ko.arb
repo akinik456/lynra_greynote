@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"제한 도달",
+"freeLimitEntries": 		"무료 버전에서는 최대 2개의 항목을 추가할 수 있습니다.",
+"upgrade": 					"업그레이드",
 
 "@@locale": 				"ko",
 "add": 						"추가",

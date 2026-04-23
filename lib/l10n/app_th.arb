@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"ถึงขีดจำกัดแล้ว",
+"freeLimitEntries": 		"คุณสามารถเพิ่มได้สูงสุด 2 รายการในเวอร์ชันฟรี",
+"upgrade": 					"อัปเกรด",
 
 "@@locale": 				"th",
 "add": 						"เพิ่ม",

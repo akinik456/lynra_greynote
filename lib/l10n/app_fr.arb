@@ -1,10 +1,9 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
-
+"limitReached": 			"Limite atteint",
+"freeLimitEntries": 		"Vous pouvez ajouter jusqu’à 2 entrées dans la version gratuite.",
+"upgrade": 					"Passer à Premium",
+  
 "@@locale": 				"fr",
 "add": 						"Ajouter",
 "addFirstSecureEntry": 		"Appuyez sur + pour ajouter votre première entrée sécurisée",

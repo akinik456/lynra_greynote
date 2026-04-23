@@ -85,81 +85,91 @@ String getSecondaryLockText() {
     );
   }
 
-  void openLockSelector() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return Dialog(
-          backgroundColor: _cardColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-				AppLocalizations.of(context)!.secondaryLock,
-                  style: TextStyle(
-                    color: _textPrimary,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w700,
-                  ),
+void openLockSelector() {
+  showDialog(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        backgroundColor: _cardColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(28),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.secondaryLock,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: _textPrimary,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w700,
                 ),
-				const SizedBox(height: 10),
-				_DialogItem(
-                  title: AppLocalizations.of(context)!.none,
-                  onTap: () {
-                    setState(() => secondaryLock = "none");
+              ),
+
+              const SizedBox(height: 20),
+
+              _DialogItem(
+                title: AppLocalizations.of(context)!.none,
+                selected: secondaryLock == "none",
+                onTap: () {
+                  setState(() => secondaryLock = "none");
+                  saveSecondaryLock(secondaryLock);
+                  Navigator.pop(context);
+                },
+              ),
+
+              _DialogItem(
+                title: AppLocalizations.of(context)!.pin,
+                selected: secondaryLock == "pin",
+                onTap: () async {
+                  Navigator.pop(context);
+
+                  final result = await Navigator.push<bool>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const PinSetupScreen(mode: "pin"),
+                    ),
+                  );
+
+                  if (result == true) {
+                    setState(() => secondaryLock = "pin");
                     saveSecondaryLock(secondaryLock);
-                    Navigator.pop(context);
-                  },
-                ),
-                _DialogItem(
-                  title: AppLocalizations.of(context)!.pin,
-                  onTap: () async {
-					  Navigator.pop(context);
-					  final result = await Navigator.push<bool>(
-						context,
-						MaterialPageRoute(
-						  builder: (_) => const PinSetupScreen(mode: "pin"),
-						),
-					  );
-					  if (result == true) {
-						setState(() => secondaryLock = "pin");
-						saveSecondaryLock(secondaryLock);
-					  }
-					},
-                ),
-                _DialogItem(
-                  title: AppLocalizations.of(context)!.biometricWithBackupPin,
-                  onTap: () async {
-					  final ok = await testBiometricForSetup(context);
-					  if (!ok) return;
+                  }
+                },
+              ),
 
-					  Navigator.pop(context);
+              _DialogItem(
+                title: AppLocalizations.of(context)!.biometricWithBackupPin,
+                selected: secondaryLock == "biometric_pin",
+                onTap: () async {
+                  final ok = await testBiometricForSetup(context);
+                  if (!ok) return;
 
-					  final result = await Navigator.push<bool>(
-						context,
-						MaterialPageRoute(
-						  builder: (_) => const PinSetupScreen(mode: "biometric_pin"),
-						),
-					  );
+                  Navigator.pop(context);
 
-					  if (result == true) {
-						setState(() => secondaryLock = "biometric_pin");
-						saveSecondaryLock(secondaryLock);
-					  }
-					},
-                ),
-              ],
-            ),
+                  final result = await Navigator.push<bool>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => const PinSetupScreen(mode: "biometric_pin"),
+                    ),
+                  );
+
+                  if (result == true) {
+                    setState(() => secondaryLock = "biometric_pin");
+                    saveSecondaryLock(secondaryLock);
+                  }
+                },
+              ),
+            ],
           ),
-        );
-      },
-    );
-  }
+        ),
+      );
+    },
+  );
+}
 }
 
 class _Item extends StatelessWidget {
@@ -216,25 +226,40 @@ class _Item extends StatelessWidget {
 class _DialogItem extends StatelessWidget {
   final String title;
   final VoidCallback onTap;
+  final bool selected;
 
   const _DialogItem({
     required this.title,
     required this.onTap,
+    this.selected = false,
   });
-
-  static const Color _textPrimary = Color(0xFFE2E8F0);
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        title,
-        style: const TextStyle(
-          color: _textPrimary,
-          fontWeight: FontWeight.w600,
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(16),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+        decoration: BoxDecoration(
+          color: selected
+              ? const Color(0xFF22D3EE).withOpacity(0.1)
+              : Colors.transparent,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          children: [
+            Expanded(
+              child: Text(
+                title,
+                style: const TextStyle(color: Color(0xFFE2E8F0)),
+              ),
+            ),
+            if (selected)
+              const Icon(Icons.check, color: Color(0xFF22D3EE)),
+          ],
         ),
       ),
-      onTap: onTap,
     );
   }
 }

@@ -301,39 +301,91 @@ Future<void> exportBackupBlob() async {
   try {
     final exportPinController = TextEditingController();
 
-    final exportPin = await showDialog<String>(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.exportPin),
-          content: TextField(
-            controller: exportPinController,
-            keyboardType: TextInputType.number,
-            maxLength: 5,
-            obscureText: true,
-            decoration: InputDecoration(
-              hintText: AppLocalizations.of(context)!.enterPinHint,
+final exportPin = await showDialog<String>(
+  context: context,
+  builder: (context) {
+    return Dialog(
+      backgroundColor: const Color(0xFF0F172A),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(28),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              AppLocalizations.of(context)!.exportPin,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Color(0xFFE2E8F0),
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
             ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(AppLocalizations.of(context)!.cancel),
+
+            const SizedBox(height: 20),
+
+            TextField(
+              controller: exportPinController,
+              keyboardType: TextInputType.number,
+              maxLength: 5,
+              obscureText: true,
+              style: const TextStyle(color: Color(0xFFE2E8F0)),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.enterPinHint,
+                hintStyle: const TextStyle(color: Color(0xFF94A3B8)),
+                filled: true,
+                fillColor: const Color(0xFF020617),
+                counterText: "",
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide.none,
+                ),
+              ),
             ),
-            TextButton(
-              onPressed: () {
-                final pin = exportPinController.text.trim();
-                if (pin.length == 5 && RegExp(r'^\d{5}$').hasMatch(pin)) {
-                  Navigator.pop(context, pin);
-                }
-              },
-              child: Text(AppLocalizations.of(context)!.export.toUpperCase()),
+
+            const SizedBox(height: 24),
+
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(
+                      AppLocalizations.of(context)!.cancel,
+                      style: const TextStyle(color: Color(0xFF94A3B8)),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF22D3EE),
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {
+                      final pin = exportPinController.text.trim();
+                      if (pin.length == 5 && RegExp(r'^\d{5}$').hasMatch(pin)) {
+                        Navigator.pop(context, pin);
+                      }
+                    },
+                    child: Text(AppLocalizations.of(context)!.export.toUpperCase()),
+                  ),
+                ),
+              ],
             ),
           ],
-        );
-      },
+        ),
+      ),
     );
-
+  },
+);
     if (exportPin == null) return;
 
     final db = DatabaseHelper.instance.getDb();

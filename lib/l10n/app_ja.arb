@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"上限に達しました",
+"freeLimitEntries": 		"無料版では最大2件まで追加できます。",
+"upgrade": 					"アップグレード",
 
 "@@locale": 				"ja",
 "add": 						"追加",

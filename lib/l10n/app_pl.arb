@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"Osiągnięto limit",
+"freeLimitEntries": 		"W wersji darmowej możesz dodać maksymalnie 2 wpisy.",
+"upgrade": 					"Ulepsz",
 
 "@@locale": 				"pl",
 "add": 						"Dodaj",

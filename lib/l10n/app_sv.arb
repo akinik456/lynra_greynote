@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"Gräns nådd",
+"freeLimitEntries": 		"Du kan lägga till upp till 2 poster i gratisversionen.",
+"upgrade": 					"Uppgradera",
 
 "@@locale": 				"sv",
 "add": 						"Lägg till",

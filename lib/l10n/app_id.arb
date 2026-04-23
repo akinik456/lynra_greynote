@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
+"limitReached": 			"Batas tercapai",
+"freeLimitEntries": 		"Anda dapat menambahkan hingga 2 entri di versi gratis.",
 "upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
 
 "@@locale": 				"id",
 "add": 						"Tambah",

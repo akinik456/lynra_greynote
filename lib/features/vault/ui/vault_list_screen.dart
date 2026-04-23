@@ -380,15 +380,16 @@ Future<String?> _getUnwrappedMasterKey() async {
         borderRadius: BorderRadius.circular(18),
       ),
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 14),
+        padding: const EdgeInsets.all(24),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(AppLocalizations.of(context)!.unlockContent,
-              style: TextStyle(
+			textAlign: TextAlign.center,
+              style: const TextStyle(
                 color: Color(0xFFE2E8F0),
                 fontWeight: FontWeight.w700,
-                fontSize: 16,
+                fontSize: 18,
               ),
             ),
             const SizedBox(height: 12),
@@ -497,34 +498,86 @@ void showUpgradeDialog() {
 
     final controller = TextEditingController();
     final result = await showDialog<String>(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.newCollection),
-          content: TextField(
-            controller: controller,
-            autofocus: true,
-            decoration: InputDecoration(
-              hintText: AppLocalizations.of(context)!.collectionExample,
+  context: context,
+  builder: (context) {
+    return Dialog(
+      backgroundColor: const Color(0xFF0F172A),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(28),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              AppLocalizations.of(context)!.newCollection,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Color(0xFFE2E8F0),
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
             ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(AppLocalizations.of(context)!.cancel),
+
+            const SizedBox(height: 20),
+
+            TextField(
+              controller: controller,
+              autofocus: true,
+              style: const TextStyle(color: Color(0xFFE2E8F0)),
+              decoration: InputDecoration(
+                hintText: AppLocalizations.of(context)!.collectionExample,
+                hintStyle: const TextStyle(color: Color(0xFF94A3B8)),
+                filled: true,
+                fillColor: const Color(0xFF020617),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide.none,
+                ),
+              ),
             ),
-            TextButton(
-              onPressed: () {
-                final name = controller.text.trim();
-                if (name.isEmpty) return;
-                Navigator.pop(context, name);
-              },
-              child: Text(AppLocalizations.of(context)!.add),
+
+            const SizedBox(height: 24),
+
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: Text(
+                      AppLocalizations.of(context)!.cancel,
+                      style: const TextStyle(color: Color(0xFF94A3B8)),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF22D3EE),
+                      foregroundColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
+                    ),
+                    onPressed: () {
+                      final name = controller.text.trim();
+                      if (name.isEmpty) return;
+                      Navigator.pop(context, name);
+                    },
+                    child: Text(AppLocalizations.of(context)!.add),
+                  ),
+                ),
+              ],
             ),
           ],
-        );
-      },
+        ),
+      ),
     );
+  },
+);
 
     if (result == null || result.trim().isEmpty) return;
 

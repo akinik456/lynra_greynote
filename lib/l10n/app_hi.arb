@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"सीमा पूरी हो गई",
+"freeLimitEntries": 		"आप मुफ्त संस्करण में अधिकतम 2 प्रविष्टियाँ जोड़ सकते हैं।",
+"upgrade": 					"अपग्रेड करें",
 
 "@@locale": 				"hi",
 "add": 						"जोड़ें",

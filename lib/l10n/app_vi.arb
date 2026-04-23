@@ -1,10 +1,9 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
-
+"limitReached": 			"Đã đạt giới hạn",
+"freeLimitEntries": 		"Bạn có thể thêm tối đa 2 mục trong phiên bản miễn phí.",
+"upgrade": 					"Nâng cấp",
+  
 "@@locale": 				"vi",
 "add": 						"Thêm",
 "addFirstSecureEntry": 		"Nhấn nút + để thêm mục an toàn đầu tiên.",

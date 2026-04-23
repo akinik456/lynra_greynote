@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"Лимит достигнут",
+"freeLimitEntries": 		"В бесплатной версии можно добавить до 2 записей.",
+"upgrade": 					"Обновить",
 
 "@@locale": 				"ru",
 "add": 						"Добавить",

@@ -1,9 +1,8 @@
 {
 
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"limitReached": 			"已达到限制",
+"freeLimitEntries": 		"免费版本最多可添加2条记录。",
+"upgrade": 					"升级",
 
 "@@locale": 				"zh",
 "add": 						"添加",
