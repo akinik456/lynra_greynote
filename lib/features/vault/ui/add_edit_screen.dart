@@ -37,29 +37,26 @@ class _AddEditScreenState extends State<AddEditScreen> {
   @override
   void initState() {
     super.initState();
-
     if (widget.initialData != null) {
-      titleCtrl.text = widget.initialData!["title"] ?? "";
-      usernameCtrl.text = widget.initialData!["username"] ?? "";
-      passwordCtrl.text = widget.initialData!["password"] ?? "";
-      noteCtrl.text = widget.initialData!["note"] ?? "";
+		titleCtrl.text = widget.initialData!["title"] ?? "";
+		usernameCtrl.text = widget.initialData!["username"] ?? "";
+		passwordCtrl.text = widget.initialData!["password"] ?? "";
+		noteCtrl.text = widget.initialData!["note"] ?? "";
     }
-
-    ibanCtrl.text = widget.initialData?["iban"] ?? "";
-    showBankDetails = ibanCtrl.text.trim().isNotEmpty;
-    entryType = widget.initialData?["type"] ?? "standard";
-    updatePasswordStrength(passwordCtrl.text);
+	ibanCtrl.text = widget.initialData?["iban"] ?? "";
+	showBankDetails = ibanCtrl.text.trim().isNotEmpty;
+	entryType = widget.initialData?["type"] ?? "standard";
+	updatePasswordStrength(passwordCtrl.text);
   }
 
   String generatePassword({int length = 10}) {
-    const chars =
-        'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#\$%&*_-';
-    final random = Random.secure();
-
-    return List.generate(
-      length,
-      (_) => chars[random.nextInt(chars.length)],
-    ).join();
+	const chars =
+	'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789!@#\$%&*_-';
+	final random = Random.secure();
+		return List.generate(
+			length,
+			(_) => chars[random.nextInt(chars.length)],
+		).join();
   }
 
   void save() {
@@ -78,15 +75,12 @@ class _AddEditScreenState extends State<AddEditScreen> {
       setState(() => passwordStrengthKey = "");
       return;
     }
-
     int score = 0;
-
     if (password.length >= 8) score++;
     if (password.length >= 10) score++;
     if (RegExp(r'[A-Z]').hasMatch(password)) score++;
     if (RegExp(r'[0-9]').hasMatch(password)) score++;
     if (RegExp(r'[!@#\$%&*_\-]').hasMatch(password)) score++;
-
     if (score <= 2) {
       passwordStrengthKey  = "weak";
     } else if (score <= 4) {
@@ -94,270 +88,338 @@ class _AddEditScreenState extends State<AddEditScreen> {
     } else {
       passwordStrengthKey  = "strong";
     }
-
     setState(() {});
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final isEdit = widget.initialData != null;
+@override
+Widget build(BuildContext context) {
+  final isEdit = widget.initialData != null;
 
-    return Scaffold(
+  return Scaffold(
+    backgroundColor: _bgColor,
+    appBar: AppBar(
       backgroundColor: _bgColor,
-      appBar: AppBar(
-        backgroundColor: _bgColor,
-        surfaceTintColor: _bgColor,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          isEdit
-  ? AppLocalizations.of(context)!.editEntry
-  : AppLocalizations.of(context)!.newEntry,
-          style: const TextStyle(
-            color: _textPrimary,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 0.2,
-          ),
+      surfaceTintColor: _bgColor,
+      elevation: 0,
+      centerTitle: true,
+      title: Text(
+        isEdit
+            ? AppLocalizations.of(context)!.editEntry
+            : AppLocalizations.of(context)!.newEntry,
+        style: const TextStyle(
+          color: _textPrimary,
+          fontWeight: FontWeight.w700,
+          letterSpacing: 0.2,
         ),
       ),
-      body: ListView(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 100),
-        children: [
-          Row(
-            children: [
-              Expanded(
-                child: _TypeButton(
-                  label: AppLocalizations.of(context)!.standard,
-                  selected: entryType == "standard",
-                  onTap: () {
-                    setState(() => entryType = "standard");
-                  },
-                ),
+    ),
+    body: ListView(
+      padding: const EdgeInsets.fromLTRB(16, 0, 16, 100),
+      children: [
+        Row(
+          children: [
+            Expanded(
+              child: _TypeButton(
+                label: AppLocalizations.of(context)!.standard,
+                selected: entryType == "standard",
+                onTap: () {
+                  setState(() => entryType = "standard");
+                },
               ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: _TypeButton(
-                  label: AppLocalizations.of(context)!.noteType,
-                  selected: entryType == "note",
-                  onTap: () {
-                    setState(() => entryType = "note");
-                  },
-                ),
+            ),
+            const SizedBox(width: 8),
+            Expanded(
+              child: _TypeButton(
+                label: AppLocalizations.of(context)!.noteType,
+                selected: entryType == "note",
+                onTap: () {
+                  setState(() => entryType = "note");
+                },
               ),
-            ],
-          ),
-          const SizedBox(height: 14),
-          _FieldCard(
-            label: AppLocalizations.of(context)!.title,
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+
+        _FieldCard(
+          label: AppLocalizations.of(context)!.title,
+          child: SizedBox(
+            height: 14,
             child: TextField(
               controller: titleCtrl,
-              style: TextStyle(color: _textPrimary),
+              maxLines: 1,
+              style: const TextStyle(
+                color: _textPrimary,
+                fontSize: 15,
+              ),
               decoration: InputDecoration(
+                isDense: true,
+                contentPadding: const EdgeInsets.symmetric(vertical: 4),
                 hintText: AppLocalizations.of(context)!.title,
-                hintStyle: TextStyle(color: _textSecondary),
+                hintStyle: const TextStyle(color: _textSecondary),
                 border: InputBorder.none,
               ),
             ),
           ),
-          if (entryType == "standard") ...[
-            _FieldCard(
-              label: AppLocalizations.of(context)!.username,
+        ),
+
+        if (entryType == "standard") ...[
+          _FieldCard(
+            label: AppLocalizations.of(context)!.username,
+            child: SizedBox(
+              height: 14,
               child: TextField(
                 controller: usernameCtrl,
-                style: TextStyle(color: _textPrimary),
+                maxLines: 1,
+                style: const TextStyle(
+                  color: _textPrimary,
+                  fontSize: 15,
+                ),
                 decoration: InputDecoration(
+                  isDense: true,
+                  contentPadding: const EdgeInsets.symmetric(vertical: 4),
                   hintText: AppLocalizations.of(context)!.usernameEmail,
-                  hintStyle: TextStyle(color: _textSecondary),
+                  hintStyle: const TextStyle(color: _textSecondary),
                   border: InputBorder.none,
                 ),
               ),
             ),
+          ),
+
+          _FieldCard(
+						label: AppLocalizations.of(context)!.bankDetails,
+						child: SizedBox(
+							height: 24,
+							child: Row(
+								children: [
+									Expanded(
+										child: Text(
+											AppLocalizations.of(context)!.addIban,
+											style: const TextStyle(
+												color: _textPrimary,
+												fontSize: 15,
+											),
+										),
+									),
+									Transform.scale(
+										scale: 0.9,
+										child: Switch(
+											value: showBankDetails,
+											activeColor: _primary,
+											onChanged: (value) {
+												setState(() {
+													showBankDetails = value;
+													if (!showBankDetails) {
+														ibanCtrl.clear();
+													}
+												});
+											},
+										),
+									),
+								],
+							),
+						),
+					),
+          if (showBankDetails)
             _FieldCard(
-              label: AppLocalizations.of(context)!.bankDetails,
-              child: SwitchListTile(
-                contentPadding: EdgeInsets.zero,
-                value: showBankDetails,
-                activeColor: _primary,
-                onChanged: (value) {
-                  setState(() {
-                    showBankDetails = value;
-                    if (!showBankDetails) {
-                      ibanCtrl.clear();
-                    }
-                  });
-                },
-                title: Text(AppLocalizations.of(context)!.addIban),
-              ),
-            ),
-            if (showBankDetails)
-              _FieldCard(
-                label: AppLocalizations.of(context)!.iban,
+              label: AppLocalizations.of(context)!.iban,
+              child: SizedBox(
+                height: 20,
                 child: TextField(
                   controller: ibanCtrl,
-                  style: const TextStyle(color: _textPrimary),
+                  maxLines: 1,
+                  style: const TextStyle(
+                    color: _textPrimary,
+                    fontSize: 15,
+                  ),
                   decoration: const InputDecoration(
+                    isDense: true,
+                    contentPadding: EdgeInsets.symmetric(vertical: 4),
                     hintText: "XX00 0000 0000 0000 0000 0000 00",
                     hintStyle: TextStyle(color: _textSecondary),
                     border: InputBorder.none,
                   ),
                 ),
               ),
-            _FieldCard(
-			  label: AppLocalizations.of(context)!.password,
-			  child: Column(
-				crossAxisAlignment: CrossAxisAlignment.start,
-				children: [
-				  Row(
-					children: [
-					  Expanded(
-						child: TextField(
-						  controller: passwordCtrl,
-						  obscureText: hidePassword,
-						  onChanged: updatePasswordStrength,
-						  style: TextStyle(color: _textPrimary),
-						  decoration: InputDecoration(
-							hintText: AppLocalizations.of(context)!.password,
-							hintStyle: TextStyle(color: _textSecondary),
-							border: InputBorder.none,
-						  ),
-						),
-					  ),
-					  IconButton(
-						icon: Icon(
-						  hidePassword ? Icons.visibility : Icons.visibility_off,
-						  color: _textSecondary,
-						),
-						onPressed: () {
-						  setState(() {
-							hidePassword = !hidePassword;
-						  });
-						},
-					  ),
-					],
-				  ),
-				  if (passwordStrengthKey.isNotEmpty)
-				  Padding(
-					padding: const EdgeInsets.only(top: 6),
-					child: Text(
-					  passwordStrengthKey == "weak"
-						  ? AppLocalizations.of(context)!.weak
-						  : passwordStrengthKey == "medium"
-							  ? AppLocalizations.of(context)!.medium
-							  : passwordStrengthKey == "strong"
-								  ? AppLocalizations.of(context)!.strong
-								  : "",
-					  style: TextStyle(
-						color: passwordStrengthKey == "weak"
-							? Colors.redAccent
-							: passwordStrengthKey == "medium"
-								? Colors.orangeAccent
-								: Colors.greenAccent,
-						fontSize: 12,
-						fontWeight: FontWeight.w600,
-					  ),
-					),
-				  ),
-				],
-			  ),
-			),
-			_FieldCard(
-			  label: AppLocalizations.of(context)!.generatePassword,
-			  child: Column(
-				crossAxisAlignment: CrossAxisAlignment.start,
-				children: [
-				  Text(
-					AppLocalizations.of(context)!.generatePasswordDescription,
-					style: TextStyle(
-					  color: _textSecondary,
-					  fontSize: 13,
-					  height: 1.4,
-					),
-				  ),
-				  const SizedBox(height: 12),
-				  Row(
-					children: [
-					  OutlinedButton.icon(
-						onPressed: () {
-						  final generated = generatePassword();
-						  setState(() {
-							generatedPassword = generated;
-						  });
-						},
-						icon: const Icon(Icons.auto_awesome, color: _primary),
-						label: Text(AppLocalizations.of(context)!.generate),
-					  ),
-					  const SizedBox(width: 12),
-					  Expanded(
-						child: Text(
-						  generatedPassword.isEmpty
-							  ? AppLocalizations.of(context)!.noPasswordGenerated
-							  : generatedPassword,
-						  maxLines: 1,
-						  overflow: TextOverflow.ellipsis,
-						  style: TextStyle(
-							color: generatedPassword.isEmpty ? _textSecondary : _textPrimary,
-							fontSize: 14,
-						  ),
-						),
-					  ),
-					  IconButton(
-						icon: const Icon(Icons.copy, color: _primary),
-						onPressed: generatedPassword.isEmpty
-							? null
-							: () async {
-								await Clipboard.setData(
-								  ClipboardData(text: generatedPassword),
-								);
+            ),
 
-								setState(() {
-								  passwordCtrl.text = generatedPassword;
-								  passwordStrengthKey = "strong";
-								});
-							  },
-					  ),
-					],
-				  ),
-				  if (generatedPassword.isNotEmpty)
-					Padding(
-					  padding: const EdgeInsets.only(top: 6),
-					  child: Text(
-						AppLocalizations.of(context)!.strong,
-						style: const TextStyle(
-						  color: Colors.greenAccent,
-						  fontSize: 12,
-						  fontWeight: FontWeight.w600,
-						),
-					  ),
-					),
-				],
-			  ),
-			),
-			
-          ],
           _FieldCard(
-            label: AppLocalizations.of(context)!.note,
-            child: TextField(
-              controller: noteCtrl,
-              maxLines: entryType == "note" ? 10 : 3,
-              style: TextStyle(color: _textPrimary),
-              decoration: InputDecoration(
-                hintText: AppLocalizations.of(context)!.optionalNote,
-                hintStyle: TextStyle(color: _textSecondary),
-                border: InputBorder.none,
-              ),
+  label: AppLocalizations.of(context)!.password,
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      SizedBox(
+  height: 20,
+  child: Row(
+    children: [
+      Expanded(
+        child: TextField(
+          controller: passwordCtrl,
+          obscureText: hidePassword,
+          onChanged: updatePasswordStrength,
+          maxLines: 1,
+          style: const TextStyle(
+            color: _textPrimary,
+            fontSize: 15,
+          ),
+          decoration: InputDecoration(
+            isDense: true,
+            contentPadding: const EdgeInsets.symmetric(vertical: 4),
+            hintText: AppLocalizations.of(context)!.password,
+            hintStyle: const TextStyle(color: _textSecondary),
+            border: InputBorder.none,
+          ),
+        ),
+      ),
+      SizedBox(
+        width: 32, // burada alanı biz belirliyoruz
+        child: Align(
+          alignment: Alignment.centerLeft, // ikonu sola yaslar
+          child: GestureDetector(
+            onTap: () {
+              setState(() {
+                hidePassword = !hidePassword;
+              });
+            },
+            child: Icon(
+              hidePassword ? Icons.visibility : Icons.visibility_off,
+              color: _textSecondary,
+              size: 26,
+            ),
+          ),
+        ),
+      ),
+    ],
+  ),
+),
+      if (passwordStrengthKey.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.only(top: 6),
+          child: Text(
+            passwordStrengthKey == "weak"
+                ? AppLocalizations.of(context)!.weak
+                : passwordStrengthKey == "medium"
+                    ? AppLocalizations.of(context)!.medium
+                    : passwordStrengthKey == "strong"
+                        ? AppLocalizations.of(context)!.strong
+                        : "",
+            style: TextStyle(
+              color: passwordStrengthKey == "weak"
+                  ? Colors.redAccent
+                  : passwordStrengthKey == "medium"
+                      ? Colors.orangeAccent
+                      : Colors.greenAccent,
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+    ],
+  ),
+),
+
+          _FieldCard(
+            label: AppLocalizations.of(context)!.generatePassword,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.generatePasswordDescription,
+                  style: TextStyle(
+                    color: _textSecondary,
+                    fontSize: 13,
+                    height: 1.4,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                Row(
+                  children: [
+                    OutlinedButton.icon(
+                      onPressed: () {
+                        final generated = generatePassword();
+                        setState(() {
+                          generatedPassword = generated;
+                        });
+                      },
+                      icon: const Icon(Icons.auto_awesome, color: _primary),
+                      label: Text(AppLocalizations.of(context)!.generate),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        generatedPassword.isEmpty
+                            ? AppLocalizations.of(context)!
+                                .noPasswordGenerated
+                            : generatedPassword,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          color: generatedPassword.isEmpty
+                              ? _textSecondary
+                              : _textPrimary,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    IconButton(
+                      icon: const Icon(Icons.copy, color: _primary),
+                      onPressed: generatedPassword.isEmpty
+                          ? null
+                          : () async {
+                              await Clipboard.setData(
+                                ClipboardData(text: generatedPassword),
+                              );
+
+                              setState(() {
+                                passwordCtrl.text = generatedPassword;
+                                passwordStrengthKey = "strong";
+                              });
+                            },
+                    ),
+                  ],
+                ),
+                if (generatedPassword.isNotEmpty)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: Text(
+                      AppLocalizations.of(context)!.strong,
+                      style: const TextStyle(
+                        color: Colors.greenAccent,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+              ],
             ),
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-        backgroundColor: _primary,
-        foregroundColor: Colors.black,
-        onPressed: save,
-        label: Text(AppLocalizations.of(context)!.save),
-        icon: const Icon(Icons.check),
-      ),
-    );
-  }
+
+        _FieldCard(
+  label: AppLocalizations.of(context)!.note,
+  child: TextField(
+    controller: noteCtrl,
+    minLines: entryType == "note" ? 6 : 2,
+    maxLines: entryType == "note" ? null : 2,
+    style: const TextStyle(color: _textPrimary),
+    decoration: InputDecoration(
+      hintText: AppLocalizations.of(context)!.optionalNote,
+      hintStyle: const TextStyle(color: _textSecondary),
+      border: InputBorder.none,
+    ),
+  ),
+),
+      ],
+    ),
+    floatingActionButton: FloatingActionButton.extended(
+      backgroundColor: _primary,
+      foregroundColor: Colors.black,
+      onPressed: save,
+      label: Text(AppLocalizations.of(context)!.save),
+      icon: const Icon(Icons.check),
+    ),
+  );
+}
 String _strengthText(BuildContext context) {
   final l = AppLocalizations.of(context)!;
 
@@ -429,7 +491,7 @@ class _TypeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 46,
+      height: 36,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: 0,
