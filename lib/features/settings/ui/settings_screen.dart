@@ -436,7 +436,15 @@ for (final row in vaultRowsRaw) {
     final file = File(path);
 
     if (await file.exists()) {
-      attachments[itemId] = await file.readAsString();
+      final encryptedAttachment = await file.readAsString();
+
+		final decryptedAttachment = await CryptoHelper.decryptWithKey(
+			encryptedAttachment,
+			widget.payloadKey,
+		);
+
+		attachments[itemId] = decryptedAttachment;
+		print("EXPORT ATTACHMENT START: ${decryptedAttachment.substring(0, 20)}");
     }
   }
 }
@@ -483,12 +491,10 @@ Future<void> importBackupBlob() async {
 
     if (result == null) return;
 
-    final path = result.files.single.path!;
-    final file = File(path);
+    final file = File(result.files.single.path!);
     final content = await file.readAsString();
     final backupJson = jsonDecode(content);
 
-    // 🔐 PIN sor
     final pinController = TextEditingController();
 
     final exportPin = await showDialog<String>(
@@ -526,45 +532,45 @@ Future<void> importBackupBlob() async {
 
     if (exportPin == null) return;
 
-    // 🔓 blob çöz
     final decryptedJsonString = await CryptoHelper.decryptBackupBlob(
       backupJson: backupJson,
       pattern: widget.vaultKey,
       exportPin: exportPin,
     );
 
-    final data = jsonDecode(decryptedJsonString);
+    final data = jsonDecode(decryptedJsonString) as Map<String, dynamic>;
     final vaultRows = List<Map<String, dynamic>>.from(data["vault"] ?? []);
+    final attachments = data["attachments"] as Map<String, dynamic>?;
 
     final db = DatabaseHelper.instance.getDb();
-    final mk = await _getUnwrappedMasterKey();
-    if (mk == null) throw Exception("MasterKey alınamadı");
 
-    // 📂 mevcut collection’ları al
     final existingCollections = await db.query('collections');
     final Map<String, String> nameToId = {
       for (final c in existingCollections)
         (c['name'] as String): (c['id'] as String),
     };
 
+    final attachmentService = AttachmentService();
+
     for (final item in vaultRows) {
       try {
         final rawName = (item['collectionName'] ?? '').toString();
 
-final collectionName =
-    rawName == 'My Vault' || rawName.isEmpty
-        ? AppLocalizations.of(context)!.myVault
-        : rawName;
+        final collectionName =
+            rawName == 'My Vault' || rawName.isEmpty
+                ? AppLocalizations.of(context)!.myVault
+                : rawName;
 
         String collectionId;
 
-        if (collectionName.isEmpty || collectionName == 'My Vault') {
-  collectionId = 'default';
-} else if (nameToId.containsKey(collectionName)) {
-  collectionId = nameToId[collectionName]!;
-} else {
+        if (collectionName.isEmpty ||
+            collectionName == 'My Vault' ||
+            collectionName == AppLocalizations.of(context)!.myVault) {
+          collectionId = 'default';
+        } else if (nameToId.containsKey(collectionName)) {
+          collectionId = nameToId[collectionName]!;
+        } else {
           collectionId = const Uuid().v4();
-
           final now = DateTime.now().millisecondsSinceEpoch;
 
           await db.insert('collections', {
@@ -577,46 +583,74 @@ final collectionName =
           nameToId[collectionName] = collectionId;
         }
 
-        // 🔐 yeniden encrypt
-        final payloadMap = Map<String, dynamic>.from(item['payloadData'] ?? {});
+        final payloadMap =
+            Map<String, dynamic>.from(item['payloadData'] ?? {});
 
-        final newPayload = await CryptoHelper.encrypt(
-          jsonEncode(payloadMap),
-          mk,
-        );
+        final importedId = (payloadMap['id'] ?? '').toString().isNotEmpty
+            ? payloadMap['id'].toString()
+            : const Uuid().v4();
 
-        final newId = const Uuid().v4();
+        payloadMap['id'] = importedId;
+        payloadMap['collectionId'] = collectionId;
+
         final now = DateTime.now().millisecondsSinceEpoch;
 
-        await db.insert('vault', {
-          'id': newId,
-          'payload': newPayload,
-          'createdAt': now,
-          'updatedAt': now,
-          'isFavorite': item['isFavorite'] ?? 0,
-          'collectionId': collectionId,
-        });
+        final hasAttachment =
+            attachments != null && attachments.containsKey(importedId);
+
+        final newPayload = await CryptoHelper.encryptWithKey(
+  jsonEncode(payloadMap),
+  widget.payloadKey,
+);
+
+await db.insert('vault', {
+  'id': importedId,
+  'payload': newPayload,
+  'createdAt': item['createdAt'] ?? now,
+  'updatedAt': item['updatedAt'] ?? now,
+  'isFavorite': item['isFavorite'] ?? 0,
+  'collectionId': collectionId,
+  'hasAttachment': hasAttachment ? 1 : 0,
+});
+
+if (hasAttachment) {
+  final attachmentContent = attachments[importedId] as String;
+
+  final encryptedAttachment = await CryptoHelper.encryptWithKey(
+    attachmentContent,
+    widget.payloadKey,
+  );
+print("IMPORT ATTACHMENT START: ${attachmentContent.substring(0, 20)}");
+  final attachmentPath =
+      await attachmentService.getAttachmentPath(importedId);
+
+  await File(attachmentPath).writeAsString(
+    encryptedAttachment,
+    flush: true,
+  );
+}
       } catch (e) {
+        // skip broken imported item
       }
     }
 
     if (!mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(
-    content: Text(AppLocalizations.of(context)!.importCompleted),
-  ),
-);
+      SnackBar(
+        content: Text(AppLocalizations.of(context)!.importCompleted),
+      ),
+    );
 
-    Navigator.pop(context, true); // 🔄 refresh trigger
+    Navigator.pop(context, true);
   } catch (e) {
     if (!mounted) return;
 
     ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(
-    content: Text(AppLocalizations.of(context)!.importFailed),
-  ),
-);
+      SnackBar(
+        content: Text(AppLocalizations.of(context)!.importFailed),
+      ),
+    );
   } finally {
     LynraApp.of(context).setSuspendAutoLock(false);
   }
