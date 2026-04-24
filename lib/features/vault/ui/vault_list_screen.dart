@@ -411,7 +411,7 @@ List<VaultItem> get filteredItems {
 				if (fileBytes == null) return;
 				
 				final service = AttachmentService();
-				
+				final repository = VaultRepository();
 				final attachmentType =
 						service.detectAttachmentType(pickedFile.extension);
 
@@ -431,6 +431,13 @@ List<VaultItem> get filteredItems {
 				);
 
 				print("ENCRYPTED FILE WRITTEN");
+				
+				await repository.setHasAttachment(
+					itemId: 'test123',
+					hasAttachment: true,
+				);
+
+				print("DB FLAG SET");
 				
 				final readBytes = await service.readRawAttachment('test123');
 
@@ -480,6 +487,15 @@ if (data != null) {
 } else {
   print("READ FAILED");
 }
+
+await service.deleteAttachment('test123');
+
+await repository.setHasAttachment(
+  itemId: 'test123',
+  hasAttachment: false,
+);
+
+print("ATTACHMENT DELETED + FLAG RESET");
 			},
 				
         child: const Icon(Icons.add),

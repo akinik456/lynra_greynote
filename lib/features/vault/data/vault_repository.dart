@@ -145,4 +145,20 @@ class VaultRepository {
       whereArgs: [id],
     );
   }
+	
+	Future<void> setHasAttachment({
+		required String itemId,
+		required bool hasAttachment,
+	}) async {
+		final db = _dbHelper.getDb();
+
+		await db.update(
+			'vault',
+			{
+				'hasAttachment': hasAttachment ? 1 : 0,
+			},
+			where: 'id = ?',
+			whereArgs: [itemId],
+		);
+	}	
 }
