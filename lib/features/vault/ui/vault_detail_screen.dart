@@ -1,17 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'dart:io';
+import 'dart:typed_data';
+import 'dart:convert';
+import 'package:path_provider/path_provider.dart';
+
 import '../models/vault_item.dart';
 import 'add_edit_screen.dart';
+import 'package:cryptography/cryptography.dart';
+import '../../../core/security/crypto_helper.dart';
+
 import '../../../l10n/app_localizations.dart';
+import '../../../core/attachments/attachment_service.dart';
+import '../data/vault_repository.dart';
 
 class VaultDetailScreen extends StatelessWidget {
   final VaultItem item;
   final bool shouldHide;
-
+	final SecretKey payloadKey;
+	
   const VaultDetailScreen({
     super.key,
     required this.item,
     required this.shouldHide,
+		required this.payloadKey,
   });
 
   @override
@@ -102,6 +114,101 @@ class VaultDetailScreen extends StatelessWidget {
               const SizedBox(height: 12),
             ],
           ],
+					if (item.hasAttachment) ...[
+  Row(
+    children: [
+      Expanded(
+        child: SizedBox(
+          height: 36,
+          child: OutlinedButton.icon(
+            onPressed: () async {
+              final service = AttachmentService();
+
+              final data = await service.readEncryptedAttachment(
+                itemId: item.id,
+                key: payloadKey,
+              );
+
+              if (data == null) return;
+
+              final type = data['type'];
+              final base64Data = data['data'];
+              final bytes = base64Decode(base64Data);
+
+              if (type == 'image') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => Scaffold(
+                      backgroundColor: Colors.black,
+                      appBar: AppBar(backgroundColor: Colors.black),
+                      body: Center(
+                        child: Image.memory(bytes),
+                      ),
+                    ),
+                  ),
+                );
+                return;
+              }
+
+              if (type == 'pdf') {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => Scaffold(
+                      appBar: AppBar(),
+                      body: const Center(
+                        child: Text("PDF viewer coming soon"),
+                      ),
+                    ),
+                  ),
+                );
+              }
+            },
+            icon: const Icon(Icons.attach_file, size: 18),
+            label: const Text("View Attachment"),
+            style: OutlinedButton.styleFrom(
+              side: BorderSide(color: Colors.white.withOpacity(0.6)),
+              foregroundColor: const Color(0xFF22D3EE),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+          ),
+        ),
+      ),
+
+      const SizedBox(width: 12),
+
+      TextButton.icon(
+        onPressed: () async {
+          final service = AttachmentService();
+          final repo = VaultRepository();
+
+          await service.deleteAttachment(item.id);
+
+          await repo.setHasAttachment(
+            itemId: item.id,
+            hasAttachment: false,
+          );
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("Attachment removed")),
+          );
+
+          Navigator.pop(context, true);
+        },
+        icon: const Icon(Icons.delete, color: Colors.red, size: 18),
+        label: const Text(
+          "Remove",
+          style: TextStyle(color: Colors.red),
+        ),
+      ),
+    ],
+  ),
+],
+					
+					const SizedBox(height: 12),
           _InfoCard(
             label: AppLocalizations.of(context)!.note,
             value: shouldHide

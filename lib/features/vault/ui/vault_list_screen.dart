@@ -382,9 +382,14 @@ final itemId = Uuid().v4();
                                 builder: (_) => VaultDetailScreen(
                                   item: item,
                                   shouldHide: shouldHide,
+																	payloadKey: _payloadKey!,
                                 ),
                               ),
                             );
+														if (result == true) {
+															await load();
+															return;
+														}
                             if (result != null) {
 															final mk = await _getUnwrappedMasterKey();
 															if (mk == null) return;
