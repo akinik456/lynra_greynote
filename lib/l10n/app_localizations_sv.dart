@@ -18,7 +18,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get viewAttachment => 'Visa bilaga';
 
   @override
-  String get addAttachment => 'Lägg till bilaga';
+  String get addAttachment => 'Lägg till fil';
 
   @override
   String get attachmentReady => 'Bilaga klar';

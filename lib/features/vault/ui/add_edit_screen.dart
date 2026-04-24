@@ -427,91 +427,153 @@ Widget build(BuildContext context) {
   ),
 ),
 
+
+
 //const SizedBox(height: 18),
 
-Align(
+/*Align(
   alignment: Alignment.centerLeft,
   child: SizedBox(
     height: 36,
     child: OutlinedButton.icon(
       onPressed: () async {
 			LynraApp.of(context).setSuspendAutoLock(true);//?*?
-  final result = await FilePicker.pickFiles(
-    type: FileType.custom,
-    allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
-  );
-
-  if (result == null) return;
-
-  final pickedFile = result.files.first;
-
-  Uint8List? fileBytes = pickedFile.bytes;
-
-  if (fileBytes == null && pickedFile.path != null) {
-    fileBytes = await File(pickedFile.path!).readAsBytes();
-  }
-
-  if (fileBytes == null) return;
-
-  final service = AttachmentService();
-  final repository = VaultRepository();
-
-  final type = service.detectAttachmentType(pickedFile.extension);
-  if (type == null) return;
-
-  if (!service.isValidAttachmentSize(fileBytes.length)) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-  content: Text(AppLocalizations.of(context)!.attachmentTooLarge),
-),
-    );
-    return;
-  }
-
-  // ⚠️ BURASI GEÇİCİ (şimdilik test ID)
-  const tempId = 'temp_item';
-
-  // ⚠️ BURASI GEÇİCİ KEY (sonra gerçek bağlayacağız)
-  final algorithm = AesGcm.with256bits();
-  final payloadKey = await algorithm.newSecretKey();
-
-  setState(() {
-  _attachmentBytes = fileBytes;
-  _attachmentType = type;
-});
-
-ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(
-  content: Text(AppLocalizations.of(context)!.attachmentReady),
-),
-);
-},
-      icon: const Icon(Icons.attach_file),
-      label: Text(AppLocalizations.of(context)!.addAttachment),
-      style: OutlinedButton.styleFrom(
-        side: BorderSide(color: Colors.white),
-        foregroundColor: _primary,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+										final result = await FilePicker.pickFiles(
+											type: FileType.custom,
+											allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
+										);
+										if (result == null) return;
+										final pickedFile = result.files.first;
+										Uint8List? fileBytes = pickedFile.bytes;
+										if (fileBytes == null && pickedFile.path != null) {
+											fileBytes = await File(pickedFile.path!).readAsBytes();
+										}
+										if (fileBytes == null) return;
+										final service = AttachmentService();
+										final repository = VaultRepository();
+										final type = service.detectAttachmentType(pickedFile.extension);
+										if (type == null) return;
+										if (!service.isValidAttachmentSize(fileBytes.length)) {
+											ScaffoldMessenger.of(context).showSnackBar(
+												SnackBar(
+										content: Text(AppLocalizations.of(context)!.attachmentTooLarge),
+									),
+											);
+											return;
+										}
+										setState(() {
+										_attachmentBytes = fileBytes;
+										_attachmentType = type;
+									});
+									ScaffoldMessenger.of(context).showSnackBar(
+										SnackBar(
+										content: Text(AppLocalizations.of(context)!.attachmentReady),
+									),
+									);
+									},
+								icon: const Icon(Icons.attach_file),
+								label: Text(AppLocalizations.of(context)!.addAttachment),
+								style: OutlinedButton.styleFrom(
+									side: BorderSide(color: Colors.white),
+									foregroundColor: _primary,
+									shape: RoundedRectangleBorder(
+										borderRadius: BorderRadius.circular(16),
+									),
+								),
+							),
+						),
+					),*/
+					
+					Row(
+  children: [
+    Expanded(
+      child: SizedBox(
+        height: 48,
+        child: OutlinedButton.icon(
+          onPressed: () async {
+			LynraApp.of(context).setSuspendAutoLock(true);//?*?
+										final result = await FilePicker.pickFiles(
+											type: FileType.custom,
+											allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
+										);
+										if (result == null) return;
+										final pickedFile = result.files.first;
+										Uint8List? fileBytes = pickedFile.bytes;
+										if (fileBytes == null && pickedFile.path != null) {
+											fileBytes = await File(pickedFile.path!).readAsBytes();
+										}
+										if (fileBytes == null) return;
+										final service = AttachmentService();
+										final repository = VaultRepository();
+										final type = service.detectAttachmentType(pickedFile.extension);
+										if (type == null) return;
+										if (!service.isValidAttachmentSize(fileBytes.length)) {
+											ScaffoldMessenger.of(context).showSnackBar(
+												SnackBar(
+										content: Text(AppLocalizations.of(context)!.attachmentTooLarge),
+									),
+											);
+											return;
+										}
+										setState(() {
+										_attachmentBytes = fileBytes;
+										_attachmentType = type;
+									});
+									ScaffoldMessenger.of(context).showSnackBar(
+										SnackBar(
+										content: Text(AppLocalizations.of(context)!.attachmentReady),
+									),
+									);
+									},
+          icon: const Icon(Icons.attach_file),
+          label: Text(AppLocalizations.of(context)!.addAttachment),
+          style: OutlinedButton.styleFrom(
+            side: BorderSide(color: Colors.white.withOpacity(0.6)),
+            foregroundColor: const Color(0xFF22D3EE),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
         ),
       ),
     ),
-  ),
-),
-      ],
-    ),
 
-		
-		
-    floatingActionButton: FloatingActionButton.extended(
+    const SizedBox(width: 12),
+
+    SizedBox(
+      height: 48,
+      child: ElevatedButton.icon(
+        onPressed: save,
+        icon: const Icon(Icons.check),
+        label: Text(AppLocalizations.of(context)!.save),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: _primary,
+          foregroundColor: Colors.black,
+          padding: const EdgeInsets.symmetric(horizontal: 18),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
+      ),
+    ),
+  ],
+),
+					
+					
+					
+					
+				],
+			),
+			
+			
+			
+    /*floatingActionButton: FloatingActionButton.extended(
       backgroundColor: _primary,
       foregroundColor: Colors.black,
       onPressed: save,
       label: Text(AppLocalizations.of(context)!.save),
-      icon: const Icon(Icons.check),
-    ),
-		
-		
+      icon: const Icon(Icons.check),	
+    ),*/
   );
 }
 String _strengthText(BuildContext context) {
