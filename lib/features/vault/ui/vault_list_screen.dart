@@ -393,6 +393,8 @@ final itemId = Uuid().v4();
                             if (result != null) {
 															final mk = await _getUnwrappedMasterKey();
 															if (mk == null) return;
+															final attachmentBytes = result["attachmentBytes"] as Uint8List?;
+															final attachmentType = result["attachmentType"] as String?;
 
 															await repo.updateItem(
 															payloadKey: _payloadKey!,
@@ -404,6 +406,21 @@ final itemId = Uuid().v4();
 															iban: result["iban"] ?? "",
 															type: result["type"] ?? "standard",
 															);
+															if (attachmentBytes != null && attachmentType != null) {
+																final service = AttachmentService();
+
+																await service.saveEncryptedAttachment(
+																	itemId: item.id,
+																	type: attachmentType,
+																	bytes: attachmentBytes,
+																	key: _payloadKey!,
+																);
+
+																await repo.setHasAttachment(
+																	itemId: item.id,
+																	hasAttachment: true,
+																);
+															}
 															await load();
 														}
                           },
