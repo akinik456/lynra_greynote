@@ -9,6 +9,7 @@ import '../models/vault_item.dart';
 import 'add_edit_screen.dart';
 import 'package:cryptography/cryptography.dart';
 import '../../../core/security/crypto_helper.dart';
+import 'package:open_filex/open_filex.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../core/attachments/attachment_service.dart';
@@ -152,17 +153,14 @@ class VaultDetailScreen extends StatelessWidget {
               }
 
               if (type == 'pdf') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => Scaffold(
-                      appBar: AppBar(),
-                      body: const Center(
-                        child: Text("PDF viewer coming soon"),
-                      ),
-                    ),
-                  ),
-                );
+                if (type == 'pdf') {
+  final dir = await getTemporaryDirectory();
+  final file = File('${dir.path}/${item.id}.pdf');
+
+  await file.writeAsBytes(bytes, flush: true);
+
+  await OpenFilex.open(file.path);
+}
               }
             },
             icon: const Icon(Icons.attach_file, size: 18),
