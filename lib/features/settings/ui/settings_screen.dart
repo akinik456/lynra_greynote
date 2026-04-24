@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:file_saver/file_saver.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:uuid/uuid.dart';
+import 'package:cryptography/cryptography.dart';
+
 import 'security_screen.dart';
 import '../../vault/data/vault_repository.dart';
 import 'vault_word_screen.dart';
@@ -14,12 +16,15 @@ import '../../../main.dart';
 import '../../../core/db/database_helper.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../core/security/crypto_helper.dart';
+import '../../../core/attachments/attachment_service.dart';
 
 class SettingsScreen extends StatefulWidget {
   final String vaultKey;
+	final SecretKey payloadKey;
   const SettingsScreen({
     super.key,
     required this.vaultKey,
+		required this.payloadKey,
   });
 
   @override
@@ -401,24 +406,44 @@ final exportPin = await showDialog<String>(
 
     final List<Map<String, dynamic>> portableVault = [];
 
-    for (final row in vaultRowsRaw) {
-      final encryptedPayload = row['payload'] as String;
-      final plainPayload = await CryptoHelper.decrypt(encryptedPayload, mk);
-      final payloadMap = jsonDecode(plainPayload) as Map<String, dynamic>;
+    final Map<String, String> attachments = {};
+final attachmentService = AttachmentService();
 
-      portableVault.add({
-        'payloadData': payloadMap,
-        'createdAt': row['createdAt'],
-        'updatedAt': row['updatedAt'],
-        'isFavorite': row['isFavorite'],
-        'collectionName':
-           collectionIdToName[(row['collectionId'] ?? 'default').toString()] ??
-			AppLocalizations.of(context)!.myVault
-      });
+for (final row in vaultRowsRaw) {
+  final itemId = row['id'] as String;
+
+  final encryptedPayload = row['payload'] as String;
+  final plainPayload = await CryptoHelper.decryptWithKey(
+  encryptedPayload,
+  widget.payloadKey,
+);
+  final payloadMap = jsonDecode(plainPayload) as Map<String, dynamic>;
+
+  portableVault.add({
+    'payloadData': payloadMap,
+    'createdAt': row['createdAt'],
+    'updatedAt': row['updatedAt'],
+    'isFavorite': row['isFavorite'],
+    'collectionName':
+        collectionIdToName[(row['collectionId'] ?? 'default').toString()] ??
+            AppLocalizations.of(context)!.myVault,
+  });
+
+  final hasAttachment = (row['hasAttachment'] ?? 0) == 1;
+
+  if (hasAttachment) {
+    final path = await attachmentService.getAttachmentPath(itemId);
+    final file = File(path);
+
+    if (await file.exists()) {
+      attachments[itemId] = await file.readAsString();
     }
+  }
+}
 
     final portableJson = jsonEncode({
       'vault': portableVault,
+			'attachments': attachments,
     });
 
     final backupFileJson = await CryptoHelper.encryptBackupBlob(

@@ -278,6 +278,7 @@ final itemId = Uuid().v4();
 				  MaterialPageRoute(
 					builder: (_) => SettingsScreen(
 						vaultKey: widget.vaultKey,
+						payloadKey: _payloadKey!,
 					),
 				  ),
 				);
