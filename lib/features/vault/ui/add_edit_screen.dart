@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
+import 'dart:io';
+import 'dart:typed_data';
+import 'package:crypto/crypto.dart';
+import 'package:cryptography/cryptography.dart';
+import 'package:file_picker/file_picker.dart';
+
 import '../../../l10n/app_localizations.dart';
+import '../../../core/attachments/attachment_service.dart';
+import '../data/vault_repository.dart';
+import '../../../core/security/crypto_helper.dart';
+import '../../../main.dart';
+
 
 class AddEditScreen extends StatefulWidget {
   final Map<String, dynamic>? initialData;
@@ -27,6 +38,8 @@ class _AddEditScreenState extends State<AddEditScreen> {
   String entryType = "standard";
   String passwordStrengthKey  = "";
   String generatedPassword = "";
+	Uint8List? _attachmentBytes;
+	String? _attachmentType;
   
   static const Color _bgColor = Color(0xFF020617);
   static const Color _cardColor = Color(0xFF0F172A);
@@ -60,15 +73,17 @@ class _AddEditScreenState extends State<AddEditScreen> {
   }
 
   void save() {
-    Navigator.pop(context, {
-      "title": titleCtrl.text.trim(),
-      "username": usernameCtrl.text.trim(),
-      "password": passwordCtrl.text,
-      "note": noteCtrl.text.trim(),
-      "iban": showBankDetails ? ibanCtrl.text.trim() : "",
-      "type": entryType,
-    });
-  }
+  Navigator.pop(context, {
+    "title": titleCtrl.text.trim(),
+    "username": usernameCtrl.text.trim(),
+    "password": passwordCtrl.text,
+    "note": noteCtrl.text.trim(),
+    "iban": showBankDetails ? ibanCtrl.text.trim() : "",
+    "type": entryType,
+    "attachmentBytes": _attachmentBytes,
+    "attachmentType": _attachmentType,
+  });
+}
 
   void updatePasswordStrength(String password) {
     if (password.isEmpty) {
@@ -411,8 +426,79 @@ Widget build(BuildContext context) {
     ),
   ),
 ),
+
+//const SizedBox(height: 18),
+
+Align(
+  alignment: Alignment.centerLeft,
+  child: SizedBox(
+    height: 36,
+    child: OutlinedButton.icon(
+      onPressed: () async {
+			LynraApp.of(context).setSuspendAutoLock(true);//?*?
+  final result = await FilePicker.pickFiles(
+    type: FileType.custom,
+    allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
+  );
+
+  if (result == null) return;
+
+  final pickedFile = result.files.first;
+
+  Uint8List? fileBytes = pickedFile.bytes;
+
+  if (fileBytes == null && pickedFile.path != null) {
+    fileBytes = await File(pickedFile.path!).readAsBytes();
+  }
+
+  if (fileBytes == null) return;
+
+  final service = AttachmentService();
+  final repository = VaultRepository();
+
+  final type = service.detectAttachmentType(pickedFile.extension);
+  if (type == null) return;
+
+  if (!service.isValidAttachmentSize(fileBytes.length)) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text("Max 2MB allowed")),
+    );
+    return;
+  }
+
+  // ⚠️ BURASI GEÇİCİ (şimdilik test ID)
+  const tempId = 'temp_item';
+
+  // ⚠️ BURASI GEÇİCİ KEY (sonra gerçek bağlayacağız)
+  final algorithm = AesGcm.with256bits();
+  final payloadKey = await algorithm.newSecretKey();
+
+  setState(() {
+  _attachmentBytes = fileBytes;
+  _attachmentType = type;
+});
+
+ScaffoldMessenger.of(context).showSnackBar(
+  const SnackBar(content: Text("Attachment ready")),
+);
+},
+      icon: const Icon(Icons.attach_file),
+      label: const Text("Add Attachment"),
+      style: OutlinedButton.styleFrom(
+        side: BorderSide(color: Colors.white),
+        foregroundColor: _primary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+    ),
+  ),
+),
       ],
     ),
+
+		
+		
     floatingActionButton: FloatingActionButton.extended(
       backgroundColor: _primary,
       foregroundColor: Colors.black,

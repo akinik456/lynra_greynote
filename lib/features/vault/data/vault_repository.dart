@@ -18,12 +18,13 @@ class VaultRepository {
     required String iban,
     required String collectionId,
     required String type,
+		required String id,
   }) async {
     final db = _dbHelper.getDb();
     final now = DateTime.now().millisecondsSinceEpoch;
 
     final item = VaultItem(
-      id: _uuid.v4(),
+      id: id,
       title: title,
       username: username,
       password: password,
@@ -80,6 +81,7 @@ class VaultRepository {
             hasAttachment: (row['hasAttachment'] ?? 0) == 1,
           ),
         );
+				print("ITEM: ${item.title} ATTACH: ${(row['hasAttachment'] ?? 0)}");
       } catch (e) {
         // corrupted / wrong key / legacy payload skip
       }

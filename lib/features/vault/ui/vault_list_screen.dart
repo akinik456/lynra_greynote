@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:io';
+import 'package:uuid/uuid.dart';
 import 'package:crypto/crypto.dart';
+import 'package:cryptography/cryptography.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -24,7 +26,6 @@ import '../../auth/data/auth_storage.dart';
 import '../../../main.dart';
 
 
-import 'package:cryptography/cryptography.dart';
 
 class VaultListScreen extends StatefulWidget {
   final String vaultKey ;
@@ -164,11 +165,18 @@ List<VaultItem> get filteredItems {
     MaterialPageRoute(builder: (_) => const AddEditScreen()),
   );
 
-  if (result != null) {
+  if (result == null) return;
+
+  final attachmentBytes = result['attachmentBytes'] as Uint8List?;
+  final attachmentType = result['attachmentType'] as String?;
+
+  print("ATTACHMENT: $attachmentType / ${attachmentBytes?.length}");
+
     final mk = await _getUnwrappedMasterKey();
     if (mk == null) return;
-
+final itemId = Uuid().v4();
     await repo.insertItem(
+		id: itemId,
       payloadKey: _payloadKey!,
       title: result["title"] ?? "",
       username: result["username"] ?? "",
@@ -178,8 +186,25 @@ List<VaultItem> get filteredItems {
       collectionId: selectedCollectionId,
       type: result["type"] ?? "standard",
     );
+		
+		if (attachmentBytes != null && attachmentType != null) {
+  final service = AttachmentService();
+
+  await service.saveEncryptedAttachment(
+    itemId: itemId,
+    type: attachmentType,
+    bytes: attachmentBytes,
+    key: _payloadKey!,
+  );
+
+  await repo.setHasAttachment(
+    itemId: itemId,
+    hasAttachment: true,
+  );
+
+  print("ATTACH FLAG TRUE SET FOR: $itemId");
+}
     await load();
-  }
 }
 
   Future<void> delete(VaultItem item) async {
@@ -361,21 +386,21 @@ List<VaultItem> get filteredItems {
                               ),
                             );
                             if (result != null) {
-							  final mk = await _getUnwrappedMasterKey();
-							  if (mk == null) return;
+															final mk = await _getUnwrappedMasterKey();
+															if (mk == null) return;
 
-							  await repo.updateItem(
-								payloadKey: _payloadKey!,
-								oldItem: item,
-								title: result["title"] ?? "",
-								username: result["username"] ?? "",
-								password: result["password"] ?? "",
-								note: result["note"] ?? "",
-								iban: result["iban"] ?? "",
-								type: result["type"] ?? "standard",
-							  );
-							  await load();
-							}
+															await repo.updateItem(
+															payloadKey: _payloadKey!,
+															oldItem: item,
+															title: result["title"] ?? "",
+															username: result["username"] ?? "",
+															password: result["password"] ?? "",
+															note: result["note"] ?? "",
+															iban: result["iban"] ?? "",
+															type: result["type"] ?? "standard",
+															);
+															await load();
+														}
                           },
                           onLongPress: () => delete(item),
                         );
@@ -388,15 +413,15 @@ List<VaultItem> get filteredItems {
       floatingActionButton: FloatingActionButton(
         backgroundColor: _primary,
         foregroundColor: Colors.black,
-        /*onPressed: () {
+        onPressed: () {
 					if (itemCount >= 2) {
 					showUpgradeDialog();
 					return;
 					}
 					openAdd();
-				},*/
+				},
 				
-				onPressed: () async {
+				/*onPressed: () async {
 				LynraApp.of(context).setSuspendAutoLock(true);
 				final result = await FilePicker.pickFiles(
 					type: FileType.custom,
@@ -496,7 +521,7 @@ await repository.setHasAttachment(
 );
 
 print("ATTACHMENT DELETED + FLAG RESET");
-			},
+			},*/
 				
         child: const Icon(Icons.add),
       ),
@@ -1002,20 +1027,35 @@ class _VaultCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        shouldHide
-                            ? randomFakeText()
-                            : (item.title.isEmpty
-							? AppLocalizations.of(context)!.untitled
-							: item.title),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          color: Color(0xFFE2E8F0),
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
+                      Row(
+  children: [
+    Expanded(
+      child: Text(
+        shouldHide
+            ? randomFakeText()
+            : (item.title.isEmpty
+                ? AppLocalizations.of(context)!.untitled
+                : item.title),
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: const TextStyle(
+          color: Color(0xFFE2E8F0),
+          fontSize: 16,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    ),
+    if (item.hasAttachment)
+      const Padding(
+        padding: EdgeInsets.only(left: 6),
+        child: Icon(
+          Icons.attach_file,
+          size: 16,
+          color: Colors.white70,
+        ),
+      ),
+  ],
+),
                       const SizedBox(height: 4),
                       Text(
                         shouldHide
