@@ -9,6 +9,21 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Attachment removed';
+
+  @override
+  String get viewAttachment => 'View Attachment';
+
+  @override
+  String get addAttachment => 'Add Attachment';
+
+  @override
+  String get attachmentReady => 'Attachment ready';
+
+  @override
+  String get attachmentTooLarge => 'Max 2MB allowed';
+
+  @override
   String get search => 'Search';
 
   @override
@@ -335,6 +350,21 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get attachmentRemoved => 'Anexo removido';
+
+  @override
+  String get viewAttachment => 'Ver anexo';
+
+  @override
+  String get addAttachment => 'Adicionar anexo';
+
+  @override
+  String get attachmentReady => 'Anexo pronto';
+
+  @override
+  String get attachmentTooLarge => 'Máximo de 2 MB';
 
   @override
   String get search => 'Pesquisar';

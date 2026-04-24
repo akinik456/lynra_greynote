@@ -9,6 +9,21 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'ลบไฟล์แนบแล้ว';
+
+  @override
+  String get viewAttachment => 'ดูไฟล์แนบ';
+
+  @override
+  String get addAttachment => 'เพิ่มไฟล์แนบ';
+
+  @override
+  String get attachmentReady => 'ไฟล์แนบพร้อมแล้ว';
+
+  @override
+  String get attachmentTooLarge => 'สูงสุด 2 MB';
+
+  @override
   String get search => 'ค้นหา';
 
   @override

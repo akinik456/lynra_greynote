@@ -9,6 +9,21 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Вложение удалено';
+
+  @override
+  String get viewAttachment => 'Просмотреть вложение';
+
+  @override
+  String get addAttachment => 'Добавить вложение';
+
+  @override
+  String get attachmentReady => 'Вложение готово';
+
+  @override
+  String get attachmentTooLarge => 'Максимум 2 МБ';
+
+  @override
   String get search => 'Поиск';
 
   @override

@@ -9,6 +9,21 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get attachmentRemoved => '添付ファイルが削除されました';
+
+  @override
+  String get viewAttachment => '添付ファイルを表示';
+
+  @override
+  String get addAttachment => '添付ファイルを追加';
+
+  @override
+  String get attachmentReady => '添付ファイルの準備完了';
+
+  @override
+  String get attachmentTooLarge => '最大2MB';
+
+  @override
   String get search => '検索';
 
   @override

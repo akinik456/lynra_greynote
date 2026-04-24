@@ -461,7 +461,9 @@ Align(
 
   if (!service.isValidAttachmentSize(fileBytes.length)) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Max 2MB allowed")),
+      SnackBar(
+  content: Text(AppLocalizations.of(context)!.attachmentTooLarge),
+),
     );
     return;
   }
@@ -479,11 +481,13 @@ Align(
 });
 
 ScaffoldMessenger.of(context).showSnackBar(
-  const SnackBar(content: Text("Attachment ready")),
+  SnackBar(
+  content: Text(AppLocalizations.of(context)!.attachmentReady),
+),
 );
 },
       icon: const Icon(Icons.attach_file),
-      label: const Text("Add Attachment"),
+      label: Text(AppLocalizations.of(context)!.addAttachment),
       style: OutlinedButton.styleFrom(
         side: BorderSide(color: Colors.white),
         foregroundColor: _primary,

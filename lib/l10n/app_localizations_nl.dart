@@ -9,6 +9,21 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Bijlage verwijderd';
+
+  @override
+  String get viewAttachment => 'Bijlage bekijken';
+
+  @override
+  String get addAttachment => 'Bijlage toevoegen';
+
+  @override
+  String get attachmentReady => 'Bijlage klaar';
+
+  @override
+  String get attachmentTooLarge => 'Maximaal 2 MB';
+
+  @override
   String get search => 'Zoeken';
 
   @override

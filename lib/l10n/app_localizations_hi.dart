@@ -9,6 +9,21 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'संलग्नक हटाया गया';
+
+  @override
+  String get viewAttachment => 'संलग्नक देखें';
+
+  @override
+  String get addAttachment => 'संलग्नक जोड़ें';
+
+  @override
+  String get attachmentReady => 'संलग्नक तैयार है';
+
+  @override
+  String get attachmentTooLarge => 'अधिकतम 2 MB';
+
+  @override
   String get search => 'खोजें';
 
   @override

@@ -9,6 +9,21 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Pièce jointe supprimée';
+
+  @override
+  String get viewAttachment => 'Voir la pièce jointe';
+
+  @override
+  String get addAttachment => 'Ajouter une pièce jointe';
+
+  @override
+  String get attachmentReady => 'Pièce jointe prête';
+
+  @override
+  String get attachmentTooLarge => 'Maximum 2 Mo';
+
+  @override
   String get search => 'Rechercher';
 
   @override

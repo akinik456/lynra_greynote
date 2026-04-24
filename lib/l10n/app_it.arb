@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"Allegato rimosso",
+"viewAttachment": 							"Visualizza allegato",
+"addAttachment": 								"Aggiungi allegato",
+"attachmentReady": 							"Allegato pronto",
+"attachmentTooLarge": 					"Massimo 2 M",
 
 "search": 					"Cerca",
 "unlockToSearch": 			"Sblocca per cercare",

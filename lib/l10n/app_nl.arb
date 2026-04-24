@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"Bijlage verwijderd",
+"viewAttachment": 							"Bijlage bekijken",
+"addAttachment": 								"Bijlage toevoegen",
+"attachmentReady": 							"Bijlage klaar",
+"attachmentTooLarge": 					"Maximaal 2 MB",
 
 "search": 					"Zoeken",
 "unlockToSearch": 			"Ontgrendel om te zoeken",

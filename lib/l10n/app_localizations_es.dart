@@ -9,6 +9,21 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Adjunto eliminado';
+
+  @override
+  String get viewAttachment => 'Ver adjunto';
+
+  @override
+  String get addAttachment => 'Agregar adjunto';
+
+  @override
+  String get attachmentReady => 'Adjunto listo';
+
+  @override
+  String get attachmentTooLarge => 'Máximo 2 MB';
+
+  @override
   String get search => 'Buscar';
 
   @override

@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"Pièce jointe supprimée",
+"viewAttachment": 							"Voir la pièce jointe",
+"addAttachment": 								"Ajouter une pièce jointe",
+"attachmentReady": 							"Pièce jointe prête",
+"attachmentTooLarge": 					"Maximum 2 Mo",
 
 "search": 					"Rechercher",
 "unlockToSearch": 			"Déverrouillez pour rechercher",

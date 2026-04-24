@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"添付ファイルが削除されました",
+"viewAttachment": 							"添付ファイルを表示",
+"addAttachment": 								"添付ファイルを追加",
+"attachmentReady": 							"添付ファイルの準備完了",
+"attachmentTooLarge": 					"最大2MB",
 
 "search": 					"検索",
 "unlockToSearch": 			"検索するにはロック解除",

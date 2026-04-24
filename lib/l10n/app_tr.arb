@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"Ek kaldırıldı",
+"viewAttachment": 							"Eki görüntüle",
+"addAttachment": 								"Dosya ekle",
+"attachmentReady": 							"Ek hazır",
+"attachmentTooLarge": 					"Maksimum 2 MB",
 
 "search": 					"Ara",
 "unlockToSearch": 			"Unlock to search",

@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"ลบไฟล์แนบแล้ว",
+"viewAttachment": 							"ดูไฟล์แนบ",
+"addAttachment": 								"เพิ่มไฟล์แนบ",
+"attachmentReady": 							"ไฟล์แนบพร้อมแล้ว",
+"attachmentTooLarge": 					"สูงสุด 2 MB",
 
 "search": 					"ค้นหา",
 "unlockToSearch": 			"ปลดล็อกเพื่อค้นหา",

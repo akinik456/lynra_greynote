@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"附件已删除",
+"viewAttachment": 							"查看附件",
+"addAttachment": 								"添加附件",
+"attachmentReady": 							"添付ファイルの準備完了",
+"attachmentTooLarge": 					"最大2MB",
 
 "search": 					"搜索",
 "unlockToSearch": 			"解锁后搜索",

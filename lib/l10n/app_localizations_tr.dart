@@ -9,6 +9,21 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Ek kaldırıldı';
+
+  @override
+  String get viewAttachment => 'Eki görüntüle';
+
+  @override
+  String get addAttachment => 'Dosya ekle';
+
+  @override
+  String get attachmentReady => 'Ek hazır';
+
+  @override
+  String get attachmentTooLarge => 'Maksimum 2 MB';
+
+  @override
   String get search => 'Ara';
 
   @override

@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"Attachment removed",
+"viewAttachment": 							"Visa bilaga",
+"addAttachment": 								"Lägg till bilaga",
+"attachmentReady": 							"Bilaga klar",
+"attachmentTooLarge": 					"Bilaga borttagen",
 
 "search": 					"Sök",
 "unlockToSearch": 			"Lås upp för att söka",

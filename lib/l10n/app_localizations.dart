@@ -130,6 +130,36 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @attachmentRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment removed'**
+  String get attachmentRemoved;
+
+  /// No description provided for @viewAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'View Attachment'**
+  String get viewAttachment;
+
+  /// No description provided for @addAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Attachment'**
+  String get addAttachment;
+
+  /// No description provided for @attachmentReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment ready'**
+  String get attachmentReady;
+
+  /// No description provided for @attachmentTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Max 2MB allowed'**
+  String get attachmentTooLarge;
+
   /// No description provided for @search.
   ///
   /// In en, this message translates to:

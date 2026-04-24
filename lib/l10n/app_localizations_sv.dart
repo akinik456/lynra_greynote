@@ -9,6 +9,21 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Attachment removed';
+
+  @override
+  String get viewAttachment => 'Visa bilaga';
+
+  @override
+  String get addAttachment => 'Lägg till bilaga';
+
+  @override
+  String get attachmentReady => 'Bilaga klar';
+
+  @override
+  String get attachmentTooLarge => 'Bilaga borttagen';
+
+  @override
   String get search => 'Sök';
 
   @override

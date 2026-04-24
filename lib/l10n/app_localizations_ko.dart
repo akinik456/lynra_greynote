@@ -9,6 +9,21 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
+  String get attachmentRemoved => '첨부 파일이 삭제되었습니다';
+
+  @override
+  String get viewAttachment => '첨부 파일 보기';
+
+  @override
+  String get addAttachment => '첨부 파일 추가';
+
+  @override
+  String get attachmentReady => '첨부 파일 준비됨';
+
+  @override
+  String get attachmentTooLarge => '최대 2MB';
+
+  @override
   String get search => '검색';
 
   @override

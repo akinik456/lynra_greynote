@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"Attachment removed",
+"viewAttachment": 							"View Attachment",
+"addAttachment": 								"Add Attachment",
+"attachmentReady": 							"Attachment ready",
+"attachmentTooLarge": 					"Max 2MB allowed",
 
 "search": 											"Search",
 "unlockToSearch": 							"Unlock to search",

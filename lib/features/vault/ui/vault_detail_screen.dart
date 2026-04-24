@@ -150,21 +150,18 @@ class VaultDetailScreen extends StatelessWidget {
                   ),
                 );
                 return;
-              }
-
+              }              
               if (type == 'pdf') {
-                if (type == 'pdf') {
-  final dir = await getTemporaryDirectory();
-  final file = File('${dir.path}/${item.id}.pdf');
+								final dir = await getTemporaryDirectory();
+								final file = File('${dir.path}/${item.id}.pdf');
 
-  await file.writeAsBytes(bytes, flush: true);
+								await file.writeAsBytes(bytes, flush: true);
 
-  await OpenFilex.open(file.path);
-}
-              }
+								await OpenFilex.open(file.path);
+							}
             },
             icon: const Icon(Icons.attach_file, size: 18),
-            label: const Text("View Attachment"),
+            label: Text(AppLocalizations.of(context)!.viewAttachment),
             style: OutlinedButton.styleFrom(
               side: BorderSide(color: Colors.white.withOpacity(0.6)),
               foregroundColor: const Color(0xFF22D3EE),
@@ -191,7 +188,9 @@ class VaultDetailScreen extends StatelessWidget {
           );
 
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text("Attachment removed")),
+            SnackBar(
+							content: Text(AppLocalizations.of(context)!.attachmentRemoved),
+						),
           );
 
           Navigator.pop(context, true);

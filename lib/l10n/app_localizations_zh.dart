@@ -9,6 +9,21 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get attachmentRemoved => '附件已删除';
+
+  @override
+  String get viewAttachment => '查看附件';
+
+  @override
+  String get addAttachment => '添加附件';
+
+  @override
+  String get attachmentReady => '添付ファイルの準備完了';
+
+  @override
+  String get attachmentTooLarge => '最大2MB';
+
+  @override
   String get search => '搜索';
 
   @override

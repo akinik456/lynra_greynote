@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"Вложение удалено",
+"viewAttachment": 							"Просмотреть вложение",
+"addAttachment": 								"Добавить вложение",
+"attachmentReady": 							"Вложение готово",
+"attachmentTooLarge": 					"Максимум 2 МБ",
 
 "search": 					"Поиск",
 "unlockToSearch": 			"Разблокируйте для поиска",

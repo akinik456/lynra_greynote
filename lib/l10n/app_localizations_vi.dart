@@ -9,6 +9,21 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Tệp đính kèm đã bị xóa';
+
+  @override
+  String get viewAttachment => 'Xem tệp đính kèm';
+
+  @override
+  String get addAttachment => 'Thêm tệp đính kèm';
+
+  @override
+  String get attachmentReady => 'Tệp đính kèm đã sẵn sàng';
+
+  @override
+  String get attachmentTooLarge => 'Tối đa 2 MB';
+
+  @override
   String get search => 'Tìm kiếm';
 
   @override

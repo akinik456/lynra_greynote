@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"संलग्नक हटाया गया",
+"viewAttachment": 							"संलग्नक देखें",
+"addAttachment": 								"संलग्नक जोड़ें",
+"attachmentReady": 							"संलग्नक तैयार है",
+"attachmentTooLarge": 					"अधिकतम 2 MB",
 
 "search": 					"खोजें",
 "unlockToSearch": 			"खोजने के लिए अनलॉक करें",

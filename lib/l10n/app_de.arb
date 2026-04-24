@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"Anhang entfernt",
+"viewAttachment": 							"Anhang anzeigen",
+"addAttachment": 								"Anhang hinzufügen",
+"attachmentReady": 							"Anhang bereit",
+"attachmentTooLarge": 					"Maximal 2 MB",
 
 "search": 					"Suchen",
 "unlockToSearch": 			"Zum Suchen entsperren",

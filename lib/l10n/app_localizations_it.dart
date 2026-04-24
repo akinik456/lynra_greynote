@@ -9,6 +9,21 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Allegato rimosso';
+
+  @override
+  String get viewAttachment => 'Visualizza allegato';
+
+  @override
+  String get addAttachment => 'Aggiungi allegato';
+
+  @override
+  String get attachmentReady => 'Allegato pronto';
+
+  @override
+  String get attachmentTooLarge => 'Massimo 2 M';
+
+  @override
   String get search => 'Cerca';
 
   @override

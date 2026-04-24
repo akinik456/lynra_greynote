@@ -9,6 +9,21 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'تمت إزالة المرفق';
+
+  @override
+  String get viewAttachment => 'عرض المرفق';
+
+  @override
+  String get addAttachment => 'إضافة مرفق';
+
+  @override
+  String get attachmentReady => 'المرفق جاهز';
+
+  @override
+  String get attachmentTooLarge => 'الحد الأقصى 2 ميجابايت';
+
+  @override
   String get search => 'بحث';
 
   @override

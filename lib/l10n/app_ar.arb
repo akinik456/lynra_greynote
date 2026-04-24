@@ -1,4 +1,9 @@
 {
+"attachmentRemoved": 						"تمت إزالة المرفق",
+"viewAttachment": 							"عرض المرفق",
+"addAttachment": 								"إضافة مرفق",
+"attachmentReady": 							"المرفق جاهز",
+"attachmentTooLarge": 					"الحد الأقصى 2 ميجابايت",
 
 "search": 					"بحث",
 "unlockToSearch": 			"افتح القفل للبحث",

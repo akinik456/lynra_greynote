@@ -9,6 +9,21 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get attachmentRemoved => 'Lampiran dihapus';
+
+  @override
+  String get viewAttachment => 'Lihat lampiran';
+
+  @override
+  String get addAttachment => 'Tambah lampiran';
+
+  @override
+  String get attachmentReady => 'Lampiran siap';
+
+  @override
+  String get attachmentTooLarge => 'Maksimal 2 MB';
+
+  @override
   String get search => 'Cari';
 
   @override
