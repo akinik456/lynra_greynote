@@ -491,7 +491,8 @@ Widget build(BuildContext context) {
         height: 48,
         child: OutlinedButton.icon(
           onPressed: () async {
-			LynraApp.of(context).setSuspendAutoLock(true);//?*?
+					LynraApp.of(context).setSuspendAutoLock(true);//?*?
+										try {
 										final result = await FilePicker.pickFiles(
 											type: FileType.custom,
 											allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
@@ -524,7 +525,11 @@ Widget build(BuildContext context) {
 										content: Text(AppLocalizations.of(context)!.attachmentReady),
 									),
 									);
+									} finally {
+    LynraApp.of(context).setSuspendAutoLock(false);
+  }
 									},
+									
           icon: const Icon(Icons.attach_file),
           label: Text(AppLocalizations.of(context)!.addAttachment),
           style: OutlinedButton.styleFrom(
