@@ -9,13 +9,16 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
+  String get removeAttachment => 'Datei entfernen';
+
+  @override
   String get attachmentRemoved => 'Anhang entfernt';
 
   @override
   String get viewAttachment => 'Anhang anzeigen';
 
   @override
-  String get addAttachment => 'Anhang hinzufügen';
+  String get addAttachment => 'Datei hinzufügen';
 
   @override
   String get attachmentReady => 'Anhang bereit';

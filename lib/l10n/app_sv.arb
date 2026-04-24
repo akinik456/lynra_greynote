@@ -1,9 +1,10 @@
 {
-"attachmentRemoved": 						"Attachment removed",
+"attachmentRemoved": 						"Ta bort fil",
 "viewAttachment": 							"Visa bilaga",
 "addAttachment": 								"Lägg till bilaga",
 "attachmentReady": 							"Bilaga klar",
 "attachmentTooLarge": 					"Bilaga borttagen",
+"attachmentTooLarge": 					"Max 2 MB",
 
 "search": 					"Sök",
 "unlockToSearch": 			"Lås upp för att söka",

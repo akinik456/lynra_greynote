@@ -1,7 +1,8 @@
 {
+"removeAttachment": 						"Datei entfernen",
 "attachmentRemoved": 						"Anhang entfernt",
 "viewAttachment": 							"Anhang anzeigen",
-"addAttachment": 								"Anhang hinzufügen",
+"addAttachment": 								"Datei hinzufügen",
 "attachmentReady": 							"Anhang bereit",
 "attachmentTooLarge": 					"Maximal 2 MB",
 

@@ -9,6 +9,9 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get removeAttachment => '移除文件';
+
+  @override
   String get attachmentRemoved => '附件已删除';
 
   @override

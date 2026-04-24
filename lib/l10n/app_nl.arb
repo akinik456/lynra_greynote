@@ -1,7 +1,8 @@
 {
+"removeAttachment": 						"Bestand verwijderen",
 "attachmentRemoved": 						"Bijlage verwijderd",
 "viewAttachment": 							"Bijlage bekijken",
-"addAttachment": 								"Bijlage toevoegen",
+"addAttachment": 								"Bestand toevoegen",
 "attachmentReady": 							"Bijlage klaar",
 "attachmentTooLarge": 					"Maximaal 2 MB",
 

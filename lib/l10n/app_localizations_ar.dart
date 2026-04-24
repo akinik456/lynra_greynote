@@ -9,6 +9,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get removeAttachment => 'إزالة الملف';
+
+  @override
   String get attachmentRemoved => 'تمت إزالة المرفق';
 
   @override

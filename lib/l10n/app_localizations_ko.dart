@@ -9,6 +9,9 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
+  String get removeAttachment => '파일 제거';
+
+  @override
   String get attachmentRemoved => '첨부 파일이 삭제되었습니다';
 
   @override

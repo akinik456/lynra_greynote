@@ -9,6 +9,9 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get removeAttachment => 'Hapus file';
+
+  @override
   String get attachmentRemoved => 'Lampiran dihapus';
 
   @override

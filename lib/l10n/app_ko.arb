@@ -1,4 +1,5 @@
 {
+"removeAttachment": 						"파일 제거",
 "attachmentRemoved": 						"첨부 파일이 삭제되었습니다",
 "viewAttachment": 							"첨부 파일 보기",
 "addAttachment": 								"첨부 파일 추가",

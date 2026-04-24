@@ -9,13 +9,16 @@ class AppLocalizationsPl extends AppLocalizations {
   AppLocalizationsPl([String locale = 'pl']) : super(locale);
 
   @override
+  String get removeAttachment => 'Usuń plik';
+
+  @override
   String get attachmentRemoved => 'Załącznik usunięty';
 
   @override
   String get viewAttachment => 'Wyświetl załącznik';
 
   @override
-  String get addAttachment => 'Dodaj załącznik';
+  String get addAttachment => 'Dodaj plik';
 
   @override
   String get attachmentReady => 'Załącznik gotowy';

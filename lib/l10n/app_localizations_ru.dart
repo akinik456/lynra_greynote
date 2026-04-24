@@ -9,6 +9,9 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get removeAttachment => 'Удалить файл';
+
+  @override
   String get attachmentRemoved => 'Вложение удалено';
 
   @override

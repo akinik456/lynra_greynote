@@ -196,10 +196,10 @@ class VaultDetailScreen extends StatelessWidget {
           Navigator.pop(context, true);
         },
         icon: const Icon(Icons.delete, color: Colors.red, size: 18),
-        label: const Text(
-          "Remove",
-          style: TextStyle(color: Colors.red),
-        ),
+        label: Text(
+  AppLocalizations.of(context)!.removeAttachment,
+  style: const TextStyle(color: Colors.red),
+),
       ),
     ],
   ),

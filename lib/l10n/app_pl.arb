@@ -1,7 +1,8 @@
 {
+"removeAttachment": 						"Usuń plik",
 "attachmentRemoved": 						"Załącznik usunięty",
 "viewAttachment": 							"Wyświetl załącznik",
-"addAttachment": 								"Dodaj załącznik",
+"addAttachment": 								"Dodaj plik",
 "attachmentReady": 							"Załącznik gotowy",
 "attachmentTooLarge": 					"Maksymalnie 2 MB",
 

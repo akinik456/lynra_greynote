@@ -9,6 +9,9 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
+  String get removeAttachment => 'Xóa tệp';
+
+  @override
   String get attachmentRemoved => 'Tệp đính kèm đã bị xóa';
 
   @override

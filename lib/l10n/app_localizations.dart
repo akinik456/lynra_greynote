@@ -130,6 +130,12 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @removeAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get removeAttachment;
+
   /// No description provided for @attachmentRemoved.
   ///
   /// In en, this message translates to:

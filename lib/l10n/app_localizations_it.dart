@@ -9,6 +9,9 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get removeAttachment => 'Rimuovi file';
+
+  @override
   String get attachmentRemoved => 'Allegato rimosso';
 
   @override

@@ -9,6 +9,9 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get removeAttachment => 'Dosyayı kaldır';
+
+  @override
   String get attachmentRemoved => 'Ek kaldırıldı';
 
   @override
