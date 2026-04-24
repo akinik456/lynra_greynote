@@ -70,48 +70,72 @@ class _LynraAppState extends State<LynraApp> {
 	}
 
 		@override
-		Widget build(BuildContext context) {
-    return MaterialApp(
-	  locale: _locale,
-      debugShowCheckedModeBanner: false,
-	  localizationsDelegates: const [
-		AppLocalizations.delegate,
-		GlobalMaterialLocalizations.delegate,
-		GlobalWidgetsLocalizations.delegate,
-		GlobalCupertinoLocalizations.delegate,
-	  ],
-	  supportedLocales: const [
-		Locale('en'),
-		Locale('tr'),
-		Locale('es'),
-		Locale('de'),
-		Locale('fr'),
-		Locale('it'),		
-		Locale('hi'),
-		Locale('ko'),
-		Locale('ja'),		
-		Locale('zh'),
-		Locale('ar'),
-		Locale('ru'),
-		Locale('id'),
-		Locale('vi'),
-		Locale('th'),
-		Locale('nl'),
-		Locale('pl'),
-		Locale('sv'),
-		Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
-	  ],
+Widget build(BuildContext context) {
+  return MaterialApp(
+    locale: _locale,
+    debugShowCheckedModeBanner: false,
 
-		theme: ThemeData.dark().copyWith(
-			scaffoldBackgroundColor: const Color(0xFF0F172A),
-			cardColor: const Color(0xFF1E293B),
-			colorScheme: const ColorScheme.dark(
-				primary: Color(0xFF22D3EE),
-			),
-		),
-		home: const AppGate(),
-    );
-  }
+    builder: (context, child) {
+      final lang = Localizations.localeOf(context).languageCode;
+
+      double textScale = 1.0;
+
+      if (lang == 'hi') {
+				textScale = 1.16;
+			} else if (lang == 'ar') {
+				textScale = 1.12;
+			} else if (lang == 'ja' || lang == 'ko' || lang == 'zh') {
+				textScale = 1.10;
+			}
+
+      return MediaQuery(
+        data: MediaQuery.of(context).copyWith(
+          textScaler: TextScaler.linear(textScale),
+        ),
+        child: child!,
+      );
+    },
+
+    localizationsDelegates: const [
+      AppLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate,
+    ],
+
+    supportedLocales: const [
+      Locale('en'),
+      Locale('tr'),
+      Locale('es'),
+      Locale('de'),
+      Locale('fr'),
+      Locale('it'),
+      Locale('hi'),
+      Locale('ko'),
+      Locale('ja'),
+      Locale('zh'),
+      Locale('ar'),
+      Locale('ru'),
+      Locale('id'),
+      Locale('vi'),
+      Locale('th'),
+      Locale('nl'),
+      Locale('pl'),
+      Locale('sv'),
+      Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
+    ],
+
+    theme: ThemeData.dark().copyWith(
+      scaffoldBackgroundColor: const Color(0xFF0F172A),
+      cardColor: const Color(0xFF1E293B),
+      colorScheme: const ColorScheme.dark(
+        primary: Color(0xFF22D3EE),
+      ),
+    ),
+
+    home: const AppGate(),
+  );
+}
 }
 
 class AppGate extends StatefulWidget {

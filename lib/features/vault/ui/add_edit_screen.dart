@@ -144,7 +144,7 @@ Widget build(BuildContext context) {
         _FieldCard(
           label: AppLocalizations.of(context)!.title,
           child: SizedBox(
-            height: 14,
+            height: 18,
             child: TextField(
               controller: titleCtrl,
               maxLines: 1,
@@ -167,7 +167,7 @@ Widget build(BuildContext context) {
           _FieldCard(
             label: AppLocalizations.of(context)!.username,
             child: SizedBox(
-              height: 14,
+              height: 18,
               child: TextField(
                 controller: usernameCtrl,
                 maxLines: 1,
@@ -319,20 +319,22 @@ Widget build(BuildContext context) {
 ),
 
           _FieldCard(
-            label: AppLocalizations.of(context)!.generatePassword,
-            child: Column(
+            label:"",
+						child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: [                
                 Text(
-                  AppLocalizations.of(context)!.generatePasswordDescription,
-                  style: TextStyle(
-                    color: _textSecondary,
-                    fontSize: 13,
-                    height: 1.4,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Row(
+        AppLocalizations.of(context)!.generatePasswordDescription,
+        style: TextStyle(
+          color: _textSecondary,
+          fontSize: 13,
+          height: 1.4,
+        ),
+      ),
+
+      const SizedBox(height: 8),
+								
+								Row(
                   children: [
                     OutlinedButton.icon(
                       onPressed: () {
@@ -418,6 +420,8 @@ Widget build(BuildContext context) {
       label: Text(AppLocalizations.of(context)!.save),
       icon: const Icon(Icons.check),
     ),
+		
+		
   );
 }
 String _strengthText(BuildContext context) {

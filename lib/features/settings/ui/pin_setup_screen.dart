@@ -180,8 +180,14 @@ class _FieldCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+		final hasLabel = label.trim().isNotEmpty;
     return Container(
-      padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
+      padding: EdgeInsets.fromLTRB(
+  16,
+  hasLabel ? 14 : 14, // 👈 label yoksa üst boşluğu küçült
+  12,
+  14,
+),
       decoration: BoxDecoration(
         color: const Color(0xFF0F172A),
         borderRadius: BorderRadius.circular(18),
@@ -190,20 +196,22 @@ class _FieldCard extends StatelessWidget {
         ),
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.white.withOpacity(0.6),
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: 6),
-          child,
-        ],
-      ),
+				crossAxisAlignment: CrossAxisAlignment.start,
+				children: [
+					if (label.isNotEmpty) ...[
+						Text(
+							label,
+							style: TextStyle(
+								color: Colors.white.withOpacity(0.6), // ✅ eski hal
+								fontSize: 12,
+								fontWeight: FontWeight.w600,          // ✅ eski hal
+							),
+						),
+						const SizedBox(height: 6),
+					],
+					child,
+				],
+			),
     );
   }
 }

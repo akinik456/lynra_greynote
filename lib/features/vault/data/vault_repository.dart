@@ -1,17 +1,14 @@
 import 'package:uuid/uuid.dart';
+import 'package:cryptography/cryptography.dart';
+
 import '../../../core/db/database_helper.dart';
 import '../../../core/security/crypto_helper.dart';
 import '../models/vault_item.dart';
-import '../../../core/db/database_helper.dart';
-import '../../auth/data/auth_storage.dart';
-import 'package:crypto/crypto.dart';
-import 'package:cryptography/cryptography.dart';
 
 class VaultRepository {
   final _dbHelper = DatabaseHelper.instance;
   final _uuid = const Uuid();
 
-  // 1. INSERT: vaultKey -> masterKey
   Future<void> insertItem({
     required SecretKey payloadKey,
     required String title,
@@ -22,7 +19,7 @@ class VaultRepository {
     required String collectionId,
     required String type,
   }) async {
-    final db =  _dbHelper.getDb();
+    final db = _dbHelper.getDb();
     final now = DateTime.now().millisecondsSinceEpoch;
 
     final item = VaultItem(
@@ -38,10 +35,11 @@ class VaultRepository {
       lastChangedAt: now,
       isFavorite: false,
       type: type,
+      hasAttachment: false,
     );
-	//final payloadKey = await CryptoHelper.deriveKey(masterKey);
+
     final encryptedPayload =
-    await CryptoHelper.encryptWithKey(item.toEncodedJson(), payloadKey);
+        await CryptoHelper.encryptWithKey(item.toEncodedJson(), payloadKey);
 
     await db.insert('vault', {
       'id': item.id,
@@ -50,35 +48,46 @@ class VaultRepository {
       'updatedAt': now,
       'isFavorite': 0,
       'collectionId': collectionId.isEmpty ? 'default' : collectionId,
+      'hasAttachment': 0,
     });
   }
 
-  // 2. GET: vaultKey -> masterKey
   Future<List<VaultItem>> getItems({
-  required SecretKey payloadKey,
-  required String collectionId,
-}) async {
-  final db = _dbHelper.getDb();
-  final rows = await db.query(
-    'vault',
-    where: 'collectionId = ?',
-    whereArgs: [collectionId],
-    orderBy: 'updatedAt DESC',
-  );
-  final items = <VaultItem>[];
-  for (final row in rows) {
-    try {
-      final encryptedPayload = row['payload'] as String;
-      final decrypted =
-          await CryptoHelper.decryptWithKey(encryptedPayload, payloadKey);
-      items.add(VaultItem.fromEncodedJson(decrypted));
-    } catch (e) {
-    }
-  }
-  return items;
-}
+    required SecretKey payloadKey,
+    required String collectionId,
+  }) async {
+    final db = _dbHelper.getDb();
 
-  // 3. UPDATE: vaultKey -> masterKey
+    final rows = await db.query(
+      'vault',
+      where: 'collectionId = ?',
+      whereArgs: [collectionId],
+      orderBy: 'updatedAt DESC',
+    );
+
+    final items = <VaultItem>[];
+
+    for (final row in rows) {
+      try {
+        final encryptedPayload = row['payload'] as String;
+        final decrypted =
+            await CryptoHelper.decryptWithKey(encryptedPayload, payloadKey);
+
+        final item = VaultItem.fromEncodedJson(decrypted);
+
+        items.add(
+          item.copyWith(
+            hasAttachment: (row['hasAttachment'] ?? 0) == 1,
+          ),
+        );
+      } catch (e) {
+        // corrupted / wrong key / legacy payload skip
+      }
+    }
+
+    return items;
+  }
+
   Future<void> updateItem({
     required SecretKey payloadKey,
     required VaultItem oldItem,
@@ -89,7 +98,7 @@ class VaultRepository {
     required String iban,
     required String type,
   }) async {
-    final db =  _dbHelper.getDb();
+    final db = _dbHelper.getDb();
     final now = DateTime.now().millisecondsSinceEpoch;
 
     final passwordChanged = oldItem.password != password;
@@ -107,10 +116,11 @@ class VaultRepository {
       lastChangedAt: passwordChanged ? now : oldItem.lastChangedAt,
       isFavorite: oldItem.isFavorite,
       type: type,
+      hasAttachment: oldItem.hasAttachment,
     );
-	//final payloadKey = await CryptoHelper.deriveKey(masterKey);
+
     final encryptedPayload =
-    await CryptoHelper.encryptWithKey(updatedItem.toEncodedJson(), payloadKey);
+        await CryptoHelper.encryptWithKey(updatedItem.toEncodedJson(), payloadKey);
 
     await db.update(
       'vault',
@@ -119,17 +129,20 @@ class VaultRepository {
         'updatedAt': now,
         'isFavorite': updatedItem.isFavorite ? 1 : 0,
         'collectionId': oldItem.collectionId,
+        'hasAttachment': updatedItem.hasAttachment ? 1 : 0,
       },
       where: 'id = ?',
       whereArgs: [oldItem.id],
     );
   }
 
-Future<void> deleteItem(String id) async {
-    final db =  _dbHelper.getDb();
+  Future<void> deleteItem(String id) async {
+    final db = _dbHelper.getDb();
+
     await db.delete(
       'vault',
       where: 'id = ?',
       whereArgs: [id],
     );
-  }}
+  }
+}

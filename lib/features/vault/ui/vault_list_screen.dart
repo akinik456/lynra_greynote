@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
+import 'dart:typed_data';
+import 'dart:io';
 import 'package:crypto/crypto.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:file_picker/file_picker.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../core/db/database_helper.dart';
@@ -16,6 +19,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../core/security/crypto_helper.dart';
 import '../../../core/security/inactivity_lock_wrapper.dart';
+import '../../../core/attachments/attachment_service.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../main.dart';
 
@@ -384,15 +388,106 @@ List<VaultItem> get filteredItems {
       floatingActionButton: FloatingActionButton(
         backgroundColor: _primary,
         foregroundColor: Colors.black,
-        onPressed: () {
-		  if (itemCount >= 2) {
-			showUpgradeDialog();
-			return;
-		  }
-		  openAdd();
-		},
+        /*onPressed: () {
+					if (itemCount >= 2) {
+					showUpgradeDialog();
+					return;
+					}
+					openAdd();
+				},*/
+				
+				onPressed: () async {
+				LynraApp.of(context).setSuspendAutoLock(true);
+				final result = await FilePicker.pickFiles(
+					type: FileType.custom,
+					allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
+				);
+				if (result == null) return;
+				final pickedFile  = result.files.first;
+				Uint8List? fileBytes = pickedFile.bytes;
+				if (fileBytes == null && pickedFile.path != null) {
+					fileBytes = await File(pickedFile.path!).readAsBytes();
+				}
+				if (fileBytes == null) return;
+				
+				final service = AttachmentService();
+				
+				final attachmentType =
+						service.detectAttachmentType(pickedFile.extension);
+
+				if (attachmentType == null) return;
+				
+				if (!service.isValidAttachmentSize(fileBytes.length)) {
+				print("ATTACHMENT TOO LARGE: ${fileBytes.length}");
+				return;
+				}
+				final algorithm = AesGcm.with256bits();
+				final payloadKey = await algorithm.newSecretKey();
+				await service.saveEncryptedAttachment(
+					itemId: 'test123',
+					type: attachmentType,
+					bytes: fileBytes,
+					key: payloadKey,
+				);
+
+				print("ENCRYPTED FILE WRITTEN");
+				
+				final readBytes = await service.readRawAttachment('test123');
+
+				if (readBytes != null) {
+					print("READ OK: ${readBytes.length}");
+				} else {
+					print("READ FAILED");
+				}
+				
+				final existsBefore = await service.attachmentExists('test123');
+				print("EXISTS BEFORE: $existsBefore");
+
+				/*await service.deleteAttachment('test123');
+
+				final existsAfter = await service.attachmentExists('test123');
+				print("EXISTS AFTER: $existsAfter");*/
+				
+				final payload = service.buildAttachmentPayload(
+					type: 'attachmentType',
+					bytes: fileBytes,
+				);
+
+				print("PAYLOAD LENGTH: ${payload.length}");
+				
+				
+				
+				final encrypted = await service.encryptAttachmentPayload(
+					payload: payload,
+					key: payloadKey,
+				);
+
+				print("ENCRYPTED LENGTH: ${encrypted.length}");
+				
+			
+			final data = await service.readEncryptedAttachment(
+  itemId: 'test123',
+  key: payloadKey,
+);
+
+if (data != null) {
+  final type = data['type'];
+  final base64Data = data['data'];
+
+  final bytes = base64Decode(base64Data);
+
+  print("DECRYPT OK: $type / ${bytes.length}");
+} else {
+  print("READ FAILED");
+}
+			},
+				
         child: const Icon(Icons.add),
       ),
+			
+			
+			
+			
     ),
 	);	
   }

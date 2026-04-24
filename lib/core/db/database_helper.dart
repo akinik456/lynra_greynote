@@ -6,7 +6,7 @@ class DatabaseHelper {
   static Database? _database;
 
   static const _dbName = 'lynra.db';
-  static const _dbVersion = 2;
+  static const _dbVersion = 3;
 
   DatabaseHelper._init();
 
@@ -16,31 +16,34 @@ class DatabaseHelper {
 
     return await openDatabase(
       path,
-	  password: password,
+      password: password,
       version: _dbVersion,
       onCreate: _onCreate,
       onUpgrade: _onUpgrade,
       onOpen: _onOpen,
     );
   }
-  
-Future<Database> openWithKey(String password) async {
-  if (_database != null) return _database!;
-  _database = await _initDB(_dbName, password);
-  return _database!;
-}  
-Future<void> close() async {
-  if (_database != null) {
-    await _database!.close();
-    _database = null;
+
+  Future<Database> openWithKey(String password) async {
+    if (_database != null) return _database!;
+    _database = await _initDB(_dbName, password);
+    return _database!;
   }
-}
-Database getDb() {
-  if (_database == null) {
-    throw Exception('DB not opened yet!');
+
+  Future<void> close() async {
+    if (_database != null) {
+      await _database!.close();
+      _database = null;
+    }
   }
-  return _database!;
-}
+
+  Database getDb() {
+    if (_database == null) {
+      throw Exception('DB not opened yet!');
+    }
+    return _database!;
+  }
+
   Future<void> _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE vault (
@@ -49,7 +52,8 @@ Database getDb() {
         createdAt INTEGER NOT NULL,
         updatedAt INTEGER NOT NULL,
         isFavorite INTEGER NOT NULL,
-        collectionId TEXT NOT NULL
+        collectionId TEXT NOT NULL,
+        hasAttachment INTEGER NOT NULL DEFAULT 0
       )
     ''');
 
@@ -91,6 +95,18 @@ Database getDb() {
       }
 
       await _ensureDefaultCollection(db);
+    }
+
+    if (oldVersion < 3) {
+      final tableInfo = await db.rawQuery("PRAGMA table_info(vault)");
+      final hasAttachment =
+          tableInfo.any((row) => row['name'] == 'hasAttachment');
+
+      if (!hasAttachment) {
+        await db.execute(
+          'ALTER TABLE vault ADD COLUMN hasAttachment INTEGER NOT NULL DEFAULT 0',
+        );
+      }
     }
   }
 

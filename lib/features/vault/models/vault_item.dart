@@ -13,20 +13,22 @@ class VaultItem {
   final int lastChangedAt;
   final bool isFavorite;
   final String type;
-  
+  final bool hasAttachment; // ✅ eklendi (AMA JSON’a dahil değil)
+
   VaultItem({
     required this.id,
     required this.title,
     required this.username,
     required this.password,
     required this.note,
- 	required this.iban,
+    required this.iban,
     required this.createdAt,
     required this.updatedAt,
     required this.lastChangedAt,
     required this.isFavorite,
-	required this.collectionId,
-	required this.type,
+    required this.collectionId,
+    required this.type,
+    this.hasAttachment = false,
   });
 
   Map<String, dynamic> toJson() => {
@@ -35,13 +37,14 @@ class VaultItem {
         "username": username,
         "password": password,
         "note": note,
-		"iban": iban,
+        "iban": iban,
         "createdAt": createdAt,
         "updatedAt": updatedAt,
         "lastChangedAt": lastChangedAt,
         "isFavorite": isFavorite,
-		"collectionId": collectionId,
-		"type": type,
+        "collectionId": collectionId,
+        "type": type,
+        // ❌ hasAttachment YOK (bilerek)
       };
 
   factory VaultItem.fromJson(Map<String, dynamic> json) {
@@ -51,13 +54,14 @@ class VaultItem {
       username: json["username"] ?? "",
       password: json["password"] ?? "",
       note: json["note"] ?? "",
-	  iban: json["iban"] ?? "",
+      iban: json["iban"] ?? "",
       createdAt: json["createdAt"],
       updatedAt: json["updatedAt"],
       lastChangedAt: json["lastChangedAt"],
       isFavorite: json["isFavorite"] ?? false,
-	  collectionId: json["collectionId"] ?? "default",
-	  type: json["type"] ?? "standard",
+      collectionId: json["collectionId"] ?? "default",
+      type: json["type"] ?? "standard",
+      // hasAttachment DB’den set edilecek
     );
   }
 
@@ -66,5 +70,38 @@ class VaultItem {
   static VaultItem fromEncodedJson(String encoded) {
     final Map<String, dynamic> map = jsonDecode(encoded);
     return VaultItem.fromJson(map);
+  }
+
+  // 🔥 önemli (repository kullanıyor)
+  VaultItem copyWith({
+    String? id,
+    String? title,
+    String? username,
+    String? password,
+    String? note,
+    String? iban,
+    int? createdAt,
+    int? updatedAt,
+    int? lastChangedAt,
+    bool? isFavorite,
+    String? collectionId,
+    String? type,
+    bool? hasAttachment,
+  }) {
+    return VaultItem(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      username: username ?? this.username,
+      password: password ?? this.password,
+      note: note ?? this.note,
+      iban: iban ?? this.iban,
+      createdAt: createdAt ?? this.createdAt,
+      updatedAt: updatedAt ?? this.updatedAt,
+      lastChangedAt: lastChangedAt ?? this.lastChangedAt,
+      isFavorite: isFavorite ?? this.isFavorite,
+      collectionId: collectionId ?? this.collectionId,
+      type: type ?? this.type,
+      hasAttachment: hasAttachment ?? this.hasAttachment,
+    );
   }
 }

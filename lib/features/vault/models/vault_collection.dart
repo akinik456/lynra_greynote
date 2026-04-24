@@ -3,7 +3,7 @@ class VaultCollection {
   final String name;
   final int createdAt;
   final int updatedAt;
-
+	
   VaultCollection({
     required this.id,
     required this.name,
