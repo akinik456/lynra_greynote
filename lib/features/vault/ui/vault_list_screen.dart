@@ -257,32 +257,100 @@ final itemId = Uuid().v4();
     await load();
 }
 
-  Future<void> delete(VaultItem item) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.deleteEntry),
-          content: Text(AppLocalizations.of(context)!.deleteEntryConfirm(item.title)),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: Text(AppLocalizations.of(context)!.cancel),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, true),
-              child: Text(AppLocalizations.of(context)!.delete),
-            ),
-          ],
-        );
-      },
-    );
+Future<void> delete(VaultItem item) async {
+  final confirmed = await showDialog<bool>(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        backgroundColor: const Color(0xFF0F172A),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // TITLE
+              Text(
+                AppLocalizations.of(context)!.deleteEntry,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Color(0xFFE2E8F0),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                ),
+              ),
 
-    if (confirmed == true) {
-      await repo.deleteItem(item.id);
-      await load();
-    }
+              const SizedBox(height: 12),
+
+              // CONTENT
+              Text(
+                AppLocalizations.of(context)!
+                    .deleteEntryConfirm(item.title),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Color(0xFF94A3B8),
+                  fontSize: 14,
+                ),
+              ),
+
+              const SizedBox(height: 24),
+
+              // BUTTONS
+              Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () =>
+                          Navigator.pop(context, false),
+                      child: Text(
+                        AppLocalizations.of(context)!.cancel,
+                        style: const TextStyle(
+                          color: Color(0xFF94A3B8),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: SizedBox(
+                      height: 48,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+													backgroundColor: const Color(0xFF22D3EE), // cyan
+													foregroundColor: Colors.black,
+													shape: RoundedRectangleBorder(
+														borderRadius: BorderRadius.circular(14),
+													),
+													elevation: 0,
+												),
+                        onPressed: () =>
+                            Navigator.pop(context, true),
+                        child: Text(
+                          AppLocalizations.of(context)!.delete,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+
+  if (confirmed == true) {
+    await repo.deleteItem(item.id);
+    await load();
   }
+}
 
   String formatDate(int ts) {
     final dt = DateTime.fromMillisecondsSinceEpoch(ts);
@@ -930,40 +998,105 @@ void showUpgradeDialog() {
   }
 
   Future<void> openDeleteCollection(VaultCollection collection) async {
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text(AppLocalizations.of(context)!.deleteCollection),
-		content: Text(
-            AppLocalizations.of(context)!.deleteCollectionConfirm(collection.name),
-			),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context, false),
-              child: Text(AppLocalizations.of(context)!.cancel),
-            ),
-            TextButton(
-              onPressed: () => Navigator.pop(context, true),
-              child: Text(AppLocalizations.of(context)!.delete),
-            ),
-          ],
-        );
-      },
-    );
+  final confirmed = await showDialog<bool>(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        backgroundColor: const Color(0xFF0F172A),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // TITLE
+              Text(
+                AppLocalizations.of(context)!.deleteCollection,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Color(0xFFE2E8F0),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                ),
+              ),
 
-    if (confirmed != true) return;
+              const SizedBox(height: 12),
 
-    await collectionRepo.deleteCollection(collection.id);
+              // CONTENT
+              Text(
+                AppLocalizations.of(context)!
+                    .deleteCollectionConfirm(collection.name),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: Color(0xFF94A3B8),
+                  fontSize: 14,
+                ),
+              ),
 
-    await loadCollections();
+              const SizedBox(height: 24),
 
-    setState(() {
-      selectedCollectionId = 'default';
-    });
+              // BUTTONS
+              Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: Text(
+                        AppLocalizations.of(context)!.cancel,
+                        style: const TextStyle(
+                          color: Color(0xFF94A3B8),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: SizedBox(
+                      height: 48,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF22D3EE),
+                          foregroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14),
+                          ),
+                          elevation: 0,
+                        ),
+                        onPressed: () => Navigator.pop(context, true),
+                        child: Text(
+                          AppLocalizations.of(context)!.delete,
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
 
-    await load();
-  }
+  if (confirmed != true) return;
+
+  await collectionRepo.deleteCollection(collection.id);
+
+  await loadCollections();
+
+  setState(() {
+    selectedCollectionId = 'default';
+  });
+
+  await load();
+}
+	
 }
 
 class _VaultHeaderCard extends StatelessWidget {
