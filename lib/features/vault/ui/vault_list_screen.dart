@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:typed_data';
 import 'dart:io';
+import 'dart:async';
 import 'package:uuid/uuid.dart';
 import 'package:crypto/crypto.dart';
 import 'package:cryptography/cryptography.dart';
@@ -45,7 +46,9 @@ class _VaultListScreenState extends State<VaultListScreen> {
   bool isVaultUnlocked = false;
   bool isVaultWordEnabled = false;
   final storage = const FlutterSecureStorage();
-
+	StreamSubscription<List<PurchaseDetails>>? _purchaseSub;
+	bool _isPremium = false;
+	
   List<VaultCollection> collections = [];
   List<VaultItem> items = [];
 
@@ -63,13 +66,42 @@ class _VaultListScreenState extends State<VaultListScreen> {
   String searchQuery = "";
   
   @override
-  void initState() {
-    super.initState();
-    loadVaultWordSettings();
-	_initFlow();
-    //loadCollections();
-    //load();
-  }
+void initState() {
+  super.initState();
+  loadVaultWordSettings();
+  _initFlow();
+
+  _purchaseSub = InAppPurchase.instance.purchaseStream.listen((purchases) async {
+    for (final purchase in purchases) {
+      debugPrint('IAP status: ${purchase.status}');
+      debugPrint('IAP productID: ${purchase.productID}');
+
+      if (purchase.status == PurchaseStatus.purchased ||
+					purchase.status == PurchaseStatus.restored) {
+				debugPrint('IAP PREMIUM UNLOCKED');
+
+				setState(() {
+					_isPremium = true;
+				});
+
+				if (purchase.pendingCompletePurchase) {
+					await InAppPurchase.instance.completePurchase(purchase);
+				}
+			}
+
+      if (purchase.status == PurchaseStatus.error) {
+        debugPrint('IAP error: ${purchase.error}');
+      }
+    }
+  });
+	InAppPurchase.instance.restorePurchases();
+}
+	
+	@override
+void dispose() {
+  _purchaseSub?.cancel();
+  super.dispose();
+}
   
 Future<void> _initFlow() async {
 //print(DateTime.now());
@@ -328,7 +360,7 @@ final itemId = Uuid().v4();
               await load();
             },
             onAdd: () {
-			  if (collectionCount >= 2) {
+			  if (!_isPremium && collections.length >= 2) {
 				showUpgradeDialog();
 				return;
 			  }
@@ -438,7 +470,7 @@ final itemId = Uuid().v4();
         backgroundColor: _primary,
         foregroundColor: Colors.black,
         onPressed: () {
-					if (itemCount >= 2) {
+					if (!_isPremium && collections.length >= 2) {
 					showUpgradeDialog();
 					return;
 					}
