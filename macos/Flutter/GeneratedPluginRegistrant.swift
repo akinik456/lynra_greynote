@@ -10,6 +10,7 @@ import file_saver
 import flutter_secure_storage_macos
 import in_app_purchase_storekit
 import local_auth_darwin
+import shared_preferences_foundation
 import sqflite_sqlcipher
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
@@ -18,5 +19,6 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FlutterSecureStoragePlugin.register(with: registry.registrar(forPlugin: "FlutterSecureStoragePlugin"))
   InAppPurchasePlugin.register(with: registry.registrar(forPlugin: "InAppPurchasePlugin"))
   LocalAuthPlugin.register(with: registry.registrar(forPlugin: "LocalAuthPlugin"))
+  SharedPreferencesPlugin.register(with: registry.registrar(forPlugin: "SharedPreferencesPlugin"))
   SqfliteSqlCipherPlugin.register(with: registry.registrar(forPlugin: "SqfliteSqlCipherPlugin"))
 }

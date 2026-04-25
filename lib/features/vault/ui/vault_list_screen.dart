@@ -9,6 +9,7 @@ import 'package:cryptography/cryptography.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../core/db/database_helper.dart';
@@ -68,39 +69,55 @@ class _VaultListScreenState extends State<VaultListScreen> {
   @override
 void initState() {
   super.initState();
+
+  _loadPremium();
   loadVaultWordSettings();
   _initFlow();
 
   _purchaseSub = InAppPurchase.instance.purchaseStream.listen((purchases) async {
+    final prefs = await SharedPreferences.getInstance();
+
     for (final purchase in purchases) {
-      debugPrint('IAP status: ${purchase.status}');
-      debugPrint('IAP productID: ${purchase.productID}');
+      if ((purchase.status == PurchaseStatus.purchased ||
+              purchase.status == PurchaseStatus.restored) &&
+          purchase.productID == 'lynragreynote') {
+        debugPrint('IAP PREMIUM UNLOCKED');
 
-      if (purchase.status == PurchaseStatus.purchased ||
-					purchase.status == PurchaseStatus.restored) {
-				debugPrint('IAP PREMIUM UNLOCKED');
+        setState(() {
+          _isPremium = true;
+        });
 
-				setState(() {
-					_isPremium = true;
-				});
+        await prefs.setBool('isPremium', true);
 
-				if (purchase.pendingCompletePurchase) {
-					await InAppPurchase.instance.completePurchase(purchase);
-				}
-			}
+        if (purchase.pendingCompletePurchase) {
+          await InAppPurchase.instance.completePurchase(purchase);
+        }
+      }
 
       if (purchase.status == PurchaseStatus.error) {
         debugPrint('IAP error: ${purchase.error}');
       }
     }
   });
-	InAppPurchase.instance.restorePurchases();
+
+  InAppPurchase.instance.restorePurchases();
 }
 	
 	@override
 void dispose() {
   _purchaseSub?.cancel();
   super.dispose();
+}
+
+Future<void> _loadPremium() async {
+  final prefs = await SharedPreferences.getInstance();
+  final saved = prefs.getBool('isPremium') ?? false;
+
+  if (saved) {
+    setState(() {
+      _isPremium = true;
+    });
+  }
 }
   
 Future<void> _initFlow() async {
@@ -294,14 +311,29 @@ final itemId = Uuid().v4();
         surfaceTintColor: _bgColor,
         centerTitle: true,
         elevation: 0,
-        title: const Text(
-          'Lynra GreyNote',
-          style: TextStyle(
-            color: _textPrimary,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 0.2,
-          ),
-        ),
+        title: RichText(
+					text: TextSpan(
+						children: [
+							const TextSpan(
+								text: 'LynraGreyNote',
+								style: TextStyle(
+									color: Color(0xFF22D3EE), // cyan_textPrimary,
+									fontWeight: FontWeight.w700,
+									letterSpacing: 0.2,
+									fontSize: 18,
+								),
+							),
+							if (_isPremium)
+								const TextSpan(
+									text: ' ✦',
+									style: TextStyle(
+										color: Color(0xFF22D3EE), // cyan
+										fontWeight: FontWeight.w700,
+									),
+								),
+						],
+					),
+				),
         actions: [
           IconButton(
 			  icon: const Icon(Icons.settings_outlined, color: _textPrimary),
