@@ -1,11 +1,2 @@
-Ben 15 gün full free sonra one time purchase 15 gün sonunda sadece 2-3 kayıt fazlası varsa da gider düşünmüştüm kod tarafında en kolay en güvenilir nasıl yapılır para ödeyen adama Bi daha kısıtlama getirirsek yanarız
-RC ye ne dersin
-Trial lokal de kontrol edince sil yeniden kur
-Son söylediğin mantıklı olabilir sonra dönecez bu konuya.free  App in tüm özelliklerini görmeli ama ihtiyacını da tam karşılayamamalı
-
-Primary: #14B8A6
-Background: #020617
-Card: #1E293B
-Border: #334155
-Text Primary: #E2E8F0
-Text Secondary: #64748B
+flutter build appbundle --release
+flutter run --release

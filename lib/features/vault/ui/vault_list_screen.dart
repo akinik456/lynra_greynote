@@ -7,6 +7,7 @@ import 'package:crypto/crypto.dart';
 import 'package:cryptography/cryptography.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../core/db/database_helper.dart';
@@ -714,10 +715,28 @@ void showUpgradeDialog() {
                         ),
                         elevation: 0,
                       ),
-                      onPressed: () {
-                        Navigator.pop(context);
-                        // TODO
-                      },
+                      onPressed: () async {
+  Navigator.pop(context);
+
+  const productId = 'lynragreynote';
+
+  final response = await InAppPurchase.instance.queryProductDetails({
+    productId,
+  });
+
+  if (response.productDetails.isEmpty) {
+    debugPrint('Product not found');
+    return;
+  }
+
+  final product = response.productDetails.first;
+
+  final purchaseParam = PurchaseParam(productDetails: product);
+
+  InAppPurchase.instance.buyNonConsumable(
+    purchaseParam: purchaseParam,
+  );
+},
                       child: Text(
                         AppLocalizations.of(context)!.upgrade,
                         style: const TextStyle(

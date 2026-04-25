@@ -1,4 +1,4 @@
-package com.example.lynra_greynote
+package com.lynra.greynote
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 
