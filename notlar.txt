@@ -1,7 +1,3 @@
 flutter build appbundle --release
 flutter run --release
 
-premium flag local storage (hızlı açılış için)
-loading state (restore sırasında flicker önleme)
-UI polish (premium badge vs)
-final publish

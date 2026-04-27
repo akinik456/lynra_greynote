@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'dart:io';
 import 'dart:typed_data';
 import 'dart:convert';
+import 'dart:math';
 import 'package:path_provider/path_provider.dart';
 
 import '../models/vault_item.dart';
@@ -212,6 +213,10 @@ class VaultDetailScreen extends StatelessWidget {
                 ? randomFakeText()
                 : (item.note.isEmpty ? AppLocalizations.of(context)!.noNoteAdded : item.note),
           ),
+					if (item.type == "pattern" && item.pattern.isNotEmpty) ...[
+						const SizedBox(height: 12),
+						_PatternViewCard(pattern: shouldHide ? "" : item.pattern),
+					],					
           const SizedBox(height: 12),
           _MetaCard(item: item),
         ],
@@ -491,4 +496,150 @@ String randomFakeText() {
   ];
   fake.shuffle();
   return fake.first;
+}
+
+class _PatternViewCard extends StatelessWidget {
+  final String pattern;
+
+  const _PatternViewCard({
+    required this.pattern,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return _CardWrapper(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Pattern",
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w600,
+              color: Colors.white.withOpacity(0.6),
+            ),
+          ),
+          const SizedBox(height: 12),
+          _PatternViewer(pattern: pattern),
+        ],
+      ),
+    );
+  }
+}
+
+class _PatternViewer extends StatelessWidget {
+  final String pattern;
+
+  const _PatternViewer({
+    required this.pattern,
+  });
+
+  List<int> _parsePattern() {
+    return pattern
+        .split('-')
+        .map((e) => int.tryParse(e.trim()))
+        .whereType<int>()
+        .where((e) => e >= 1 && e <= 9)
+        .toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final selected = _parsePattern();
+
+    return SizedBox(
+      height: 260,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final size = Size(constraints.maxWidth, constraints.maxHeight);
+          final gridSize = min(size.width, size.height) * 0.76;
+          final left = (size.width - gridSize) / 2;
+          final top = (size.height - gridSize) / 2;
+
+          final centers = List.generate(9, (index) {
+            final row = index ~/ 3;
+            final col = index % 3;
+
+            return Offset(
+              left + (gridSize / 2) * col,
+              top + (gridSize / 2) * row,
+            );
+          });
+
+          return CustomPaint(
+            painter: _PatternViewPainter(
+              selected: selected,
+              centers: centers,
+            ),
+            child: Stack(
+              children: List.generate(9, (index) {
+                final number = index + 1;
+                final center = centers[index];
+                final isSelected = selected.contains(number);
+
+                return Positioned(
+                  left: center.dx - 22,
+                  top: center.dy - 22,
+                  width: 44,
+                  height: 44,
+                  child: Center(
+                    child: Container(
+                      width: isSelected ? 20 : 14,
+                      height: isSelected ? 20 : 14,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: isSelected
+                            ? const Color(0xFF22D3EE)
+                            : const Color(0xFF94A3B8).withOpacity(0.45),
+                        boxShadow: isSelected
+                            ? [
+                                BoxShadow(
+                                  color: const Color(0xFF22D3EE).withOpacity(0.35),
+                                  blurRadius: 14,
+                                  spreadRadius: 2,
+                                ),
+                              ]
+                            : null,
+                      ),
+                    ),
+                  ),
+                );
+              }),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class _PatternViewPainter extends CustomPainter {
+  final List<int> selected;
+  final List<Offset> centers;
+
+  const _PatternViewPainter({
+    required this.selected,
+    required this.centers,
+  });
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (selected.isEmpty || centers.length != 9) return;
+
+    final paint = Paint()
+      ..color = const Color(0xFF22D3EE).withOpacity(0.75)
+      ..strokeWidth = 4
+      ..strokeCap = StrokeCap.round;
+
+    for (int i = 0; i < selected.length - 1; i++) {
+      final from = centers[selected[i] - 1];
+      final to = centers[selected[i + 1] - 1];
+      canvas.drawLine(from, to, paint);
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant _PatternViewPainter oldDelegate) {
+    return oldDelegate.selected != selected || oldDelegate.centers != centers;
+  }
 }

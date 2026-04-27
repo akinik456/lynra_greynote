@@ -8,13 +8,14 @@ class VaultItem {
   final String password;
   final String note;
   final String iban;
+  final String pattern;
   final int createdAt;
   final int updatedAt;
   final int lastChangedAt;
   final bool isFavorite;
   final String type;
-  final bool hasAttachment; // ✅ eklendi (AMA JSON’a dahil değil)
-
+  final bool hasAttachment; //  eklendi (AMA JSON’a dahil değil)
+	
   VaultItem({
     required this.id,
     required this.title,
@@ -22,6 +23,7 @@ class VaultItem {
     required this.password,
     required this.note,
     required this.iban,
+ 		required this.pattern,
     required this.createdAt,
     required this.updatedAt,
     required this.lastChangedAt,
@@ -44,7 +46,8 @@ class VaultItem {
         "isFavorite": isFavorite,
         "collectionId": collectionId,
         "type": type,
-        // ❌ hasAttachment YOK (bilerek)
+				"pattern": pattern,
+        //  hasAttachment YOK (bilerek)
       };
 
   factory VaultItem.fromJson(Map<String, dynamic> json) {
@@ -55,6 +58,7 @@ class VaultItem {
       password: json["password"] ?? "",
       note: json["note"] ?? "",
       iban: json["iban"] ?? "",
+			pattern: json["pattern"] ?? "",
       createdAt: json["createdAt"],
       updatedAt: json["updatedAt"],
       lastChangedAt: json["lastChangedAt"],
@@ -72,7 +76,7 @@ class VaultItem {
     return VaultItem.fromJson(map);
   }
 
-  // 🔥 önemli (repository kullanıyor)
+  //  önemli (repository kullanıyor)
   VaultItem copyWith({
     String? id,
     String? title,
@@ -80,6 +84,7 @@ class VaultItem {
     String? password,
     String? note,
     String? iban,
+		String? pattern,
     int? createdAt,
     int? updatedAt,
     int? lastChangedAt,
@@ -95,6 +100,7 @@ class VaultItem {
       password: password ?? this.password,
       note: note ?? this.note,
       iban: iban ?? this.iban,
+			pattern: pattern ?? this.pattern,
       createdAt: createdAt ?? this.createdAt,
       updatedAt: updatedAt ?? this.updatedAt,
       lastChangedAt: lastChangedAt ?? this.lastChangedAt,

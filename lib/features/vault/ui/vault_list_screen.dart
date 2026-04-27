@@ -233,6 +233,7 @@ final itemId = Uuid().v4();
       password: result["password"] ?? "",
       note: result["note"] ?? "",
       iban: result["iban"] ?? "",
+			pattern: result["pattern"] ?? "",
       collectionId: selectedCollectionId,
       type: result["type"] ?? "standard",
     );
@@ -576,109 +577,6 @@ Future<void> delete(VaultItem item) async {
 					}
 					openAdd();
 				},
-				
-				/*onPressed: () async {
-				LynraApp.of(context).setSuspendAutoLock(true);
-				final result = await FilePicker.pickFiles(
-					type: FileType.custom,
-					allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
-				);
-				if (result == null) return;
-				final pickedFile  = result.files.first;
-				Uint8List? fileBytes = pickedFile.bytes;
-				if (fileBytes == null && pickedFile.path != null) {
-					fileBytes = await File(pickedFile.path!).readAsBytes();
-				}
-				if (fileBytes == null) return;
-				
-				final service = AttachmentService();
-				final repository = VaultRepository();
-				final attachmentType =
-						service.detectAttachmentType(pickedFile.extension);
-
-				if (attachmentType == null) return;
-				
-				if (!service.isValidAttachmentSize(fileBytes.length)) {
-				print("ATTACHMENT TOO LARGE: ${fileBytes.length}");
-				return;
-				}
-				final algorithm = AesGcm.with256bits();
-				final payloadKey = await algorithm.newSecretKey();
-				await service.saveEncryptedAttachment(
-					itemId: 'test123',
-					type: attachmentType,
-					bytes: fileBytes,
-					key: payloadKey,
-				);
-
-				print("ENCRYPTED FILE WRITTEN");
-				
-				await repository.setHasAttachment(
-					itemId: 'test123',
-					hasAttachment: true,
-				);
-
-				print("DB FLAG SET");
-				
-				final readBytes = await service.readRawAttachment('test123');
-
-				if (readBytes != null) {
-					print("READ OK: ${readBytes.length}");
-				} else {
-					print("READ FAILED");
-				}
-				
-				final existsBefore = await service.attachmentExists('test123');
-				print("EXISTS BEFORE: $existsBefore");
-
-				/*await service.deleteAttachment('test123');
-
-				final existsAfter = await service.attachmentExists('test123');
-				print("EXISTS AFTER: $existsAfter");*/
-				
-				final payload = service.buildAttachmentPayload(
-					type: 'attachmentType',
-					bytes: fileBytes,
-				);
-
-				print("PAYLOAD LENGTH: ${payload.length}");
-				
-				
-				
-				final encrypted = await service.encryptAttachmentPayload(
-					payload: payload,
-					key: payloadKey,
-				);
-
-				print("ENCRYPTED LENGTH: ${encrypted.length}");
-				
-			
-			final data = await service.readEncryptedAttachment(
-  itemId: 'test123',
-  key: payloadKey,
-);
-
-if (data != null) {
-  final type = data['type'];
-  final base64Data = data['data'];
-
-  final bytes = base64Decode(base64Data);
-
-  print("DECRYPT OK: $type / ${bytes.length}");
-} else {
-  print("READ FAILED");
-}
-
-await service.deleteAttachment('test123');
-
-await repository.setHasAttachment(
-  itemId: 'test123',
-  hasAttachment: false,
-);
-
-print("ATTACHMENT DELETED + FLAG RESET");
-			},*/
-				
         child: const Icon(Icons.add),
       ),
 			
