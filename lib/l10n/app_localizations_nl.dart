@@ -9,6 +9,9 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get pattern => 'Patroon';
+
+  @override
   String get removeAttachment => 'Bestand verwijderen';
 
   @override

@@ -167,7 +167,7 @@ Widget build(BuildContext context) {
 						const SizedBox(width: 8),
 						Expanded(
 							child: _TypeButton(
-								label: "Pattern",
+								label: AppLocalizations.of(context)!.pattern,
 								selected: entryType == "pattern",
 								onTap: () {
 									setState(() => entryType = "pattern");

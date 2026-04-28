@@ -1177,50 +1177,50 @@ class _VaultCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
-  children: [
-    Expanded(
-      child: Text(
-        shouldHide
-            ? randomFakeText()
-            : (item.title.isEmpty
-                ? AppLocalizations.of(context)!.untitled
-                : item.title),
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: const TextStyle(
-          color: Color(0xFFE2E8F0),
-          fontSize: 16,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-    ),
-    if (item.hasAttachment)
-      const Padding(
-        padding: EdgeInsets.only(left: 6),
-        child: Icon(
-          Icons.attach_file,
-          size: 16,
-          color: Colors.white70,
-        ),
-      ),
-  ],
-),
+												children: [
+													Expanded(
+														child: Text(
+															shouldHide
+																	? randomFakeText()
+																	: (item.title.isEmpty
+																			? AppLocalizations.of(context)!.untitled
+																			: item.title),
+															maxLines: 1,
+															overflow: TextOverflow.ellipsis,
+															style: const TextStyle(
+																color: Color(0xFFE2E8F0),
+																fontSize: 16,
+																fontWeight: FontWeight.w700,
+															),
+														),
+													),
+													if (item.hasAttachment)
+														const Padding(
+															padding: EdgeInsets.only(left: 6),
+															child: Icon(
+																Icons.attach_file,
+																size: 16,
+																color: Colors.white70,
+															),
+														),
+												],
+											),
                       if (item.type == "standard") ...[
-  const SizedBox(height: 4),
-  Text(
-    shouldHide
-        ? randomFakeText()
-        : (item.username.isEmpty
-            ? AppLocalizations.of(context)!.noUsername
-            : item.username),
-    maxLines: 1,
-    overflow: TextOverflow.ellipsis,
-    style: TextStyle(
-      fontSize: 13,
-      color: Colors.white.withOpacity(0.68),
-    ),
-  ),
-],
+												const SizedBox(height: 4),
+												Text(
+													shouldHide
+															? randomFakeText()
+															: (item.username.isEmpty
+																	? AppLocalizations.of(context)!.noUsername
+																	: item.username),
+													maxLines: 1,
+													overflow: TextOverflow.ellipsis,
+													style: TextStyle(
+														fontSize: 13,
+														color: Colors.white.withOpacity(0.68),
+													),
+												),
+											],
                       SizedBox(height: 8),
                       Text(
                         AppLocalizations.of(context)!.updatedDate(formattedDate),
@@ -1232,6 +1232,7 @@ class _VaultCard extends StatelessWidget {
                     ],
                   ),
                 ),
+								_TypeIcon(type: item.type),
                 const SizedBox(width: 8),
                 Icon(
                   Icons.chevron_right_rounded,
@@ -1239,13 +1240,45 @@ class _VaultCard extends StatelessWidget {
                 ),
               ],
             ),
+						
+						
           ),
         ),
       ),
     );
   }
 }
+class _TypeIcon extends StatelessWidget {
+  final String type;
 
+  const _TypeIcon({required this.type});
+
+  @override
+  Widget build(BuildContext context) {
+    IconData icon;
+    Color color;
+
+    switch (type) {
+      case "note":
+        icon = Icons.note_alt_outlined;
+        color = Colors.orangeAccent;
+        break;
+      case "pattern":
+        icon = Icons.grid_3x3;
+        color = const Color(0xFF22D3EE);
+        break;
+      default:
+        icon = Icons.badge_outlined;
+        color = Colors.greenAccent;
+    }
+
+    return Icon(
+      icon,
+      size: 18,
+      color: color.withOpacity(0.85),
+    );
+  }
+}
 class _EmptyState extends StatelessWidget {
   const _EmptyState();
 

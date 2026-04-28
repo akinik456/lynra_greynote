@@ -9,6 +9,9 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
+  String get pattern => 'Mönster';
+
+  @override
   String get removeAttachment => 'Remove';
 
   @override

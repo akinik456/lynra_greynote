@@ -9,6 +9,9 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get pattern => 'パターン';
+
+  @override
   String get removeAttachment => 'ファイルを削除';
 
   @override

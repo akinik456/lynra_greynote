@@ -1,4 +1,5 @@
 {
+"pattern": 											"パターン",
 "removeAttachment": 						"ファイルを削除",
 "attachmentRemoved": 						"添付ファイルが削除されました",
 "viewAttachment": 							"添付ファイルを表示",

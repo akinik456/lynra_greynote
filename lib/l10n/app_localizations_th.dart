@@ -9,6 +9,9 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
+  String get pattern => 'รูปแบบ';
+
+  @override
   String get removeAttachment => 'ลบไฟล์';
 
   @override

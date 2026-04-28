@@ -130,6 +130,12 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @pattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern'**
+  String get pattern;
+
   /// No description provided for @removeAttachment.
   ///
   /// In en, this message translates to:

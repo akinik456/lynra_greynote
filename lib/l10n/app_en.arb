@@ -1,4 +1,6 @@
 {
+"pattern": 											"Pattern",
+
 "removeAttachment": 						"Remove",
 "attachmentRemoved": 						"Attachment removed",
 "viewAttachment": 							"View Attachment",

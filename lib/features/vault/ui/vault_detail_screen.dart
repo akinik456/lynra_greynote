@@ -48,8 +48,8 @@ class VaultDetailScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          if (!shouldHide)
-            IconButton(
+          if (!shouldHide && item.type != "pattern")
+            IconButton(						
               icon: const Icon(Icons.edit_outlined),
               onPressed: () async {
                 final result = await Navigator.push(

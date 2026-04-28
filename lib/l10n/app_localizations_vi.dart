@@ -9,6 +9,9 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
+  String get pattern => 'Mẫu';
+
+  @override
   String get removeAttachment => 'Xóa tệp';
 
   @override

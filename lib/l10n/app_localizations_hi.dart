@@ -9,6 +9,9 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get pattern => 'पैटर्न';
+
+  @override
   String get removeAttachment => 'फ़ाइल हटाएं';
 
   @override

@@ -9,6 +9,9 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get pattern => 'Pattern';
+
+  @override
   String get removeAttachment => 'Remove';
 
   @override
@@ -353,6 +356,9 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get pattern => 'Padrão';
 
   @override
   String get removeAttachment => 'Remover arquivo';
