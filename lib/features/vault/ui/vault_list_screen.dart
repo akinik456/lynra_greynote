@@ -166,12 +166,24 @@ Future<String?> _getUnwrappedMasterKey() async {
   }
 }
 
-  Future<void> load() async {
+ Future<void> load() async {
   if (_payloadKey == null) return;
+
   final result = await repo.getItems(
     payloadKey: _payloadKey!,
     collectionId: selectedCollectionId,
   );
+
+  result.sort((a, b) {
+    final at = a.title.trim().toLowerCase();
+    final bt = b.title.trim().toLowerCase();
+
+    if (at.isEmpty) return 1;
+    if (bt.isEmpty) return -1;
+
+    return at.compareTo(bt);
+  });
+
   setState(() => items = result);
   itemCount = result.length;
 }
@@ -1193,20 +1205,22 @@ class _VaultCard extends StatelessWidget {
       ),
   ],
 ),
-                      const SizedBox(height: 4),
-                      Text(
-                        shouldHide
-                            ? randomFakeText()
-                            : (item.username.isEmpty
-							? AppLocalizations.of(context)!.noUsername
-							: item.username),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 13,
-                          color: Colors.white.withOpacity(0.68),
-                        ),
-                      ),
+                      if (item.type == "standard") ...[
+  const SizedBox(height: 4),
+  Text(
+    shouldHide
+        ? randomFakeText()
+        : (item.username.isEmpty
+            ? AppLocalizations.of(context)!.noUsername
+            : item.username),
+    maxLines: 1,
+    overflow: TextOverflow.ellipsis,
+    style: TextStyle(
+      fontSize: 13,
+      color: Colors.white.withOpacity(0.68),
+    ),
+  ),
+],
                       SizedBox(height: 8),
                       Text(
                         AppLocalizations.of(context)!.updatedDate(formattedDate),
@@ -1261,7 +1275,7 @@ class _EmptyState extends StatelessWidget {
             ),
             const SizedBox(height: 18),
             Text(
-			AppLocalizations.of(context)!.noEntriesYet,
+						AppLocalizations.of(context)!.noEntriesYet,
               style: TextStyle(
                 color: Color(0xFFE2E8F0),
                 fontSize: 20,
@@ -1270,7 +1284,7 @@ class _EmptyState extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-			AppLocalizations.of(context)!.addFirstSecureEntry,
+							AppLocalizations.of(context)!.addFirstSecureEntry,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
