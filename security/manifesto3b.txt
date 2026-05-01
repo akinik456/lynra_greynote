@@ -1,0 +1,31 @@
+Gelişmiş Güvenlik
+
+Lynra GreyNote, modern kriptografi prensiplerine uygun olarak tasarlanmıştır.
+
+Veri Koruma:
+Kayıt içerikleri AES-256-GCM algoritması ile şifrelenir.
+Veritabanı SQLCipher kullanılarak tamamen şifreli şekilde saklanır.
+
+Anahtar Yönetimi:
+Ana anahtar (Master Key), kullanıcı sırrından PBKDF2-HMAC-SHA256 algoritması ile türetilir.
+Bu anahtar hiçbir zaman açık şekilde saklanmaz ve yalnızca aktif oturum sırasında kullanılır.
+
+Anahtar Ayrımı (Key Separation):
+Veritabanı erişimi ve veri şifreleme işlemleri farklı anahtarlarla gerçekleştirilir.
+
+Ek Güvenlik Katmanı:
+Kasa Anahtarı (Vault Word) etkinleştirildiğinde, veriler ikinci bir katmanla korunur.
+Bu anahtar cihazda saklanmaz ve yalnızca kullanıcı tarafından bilinir.
+
+Oturum Güvenliği:
+Uygulama arka plana alındığında erişim otomatik olarak kilitlenir.
+Şifreleme anahtarları bellekte yalnızca işlem süresi boyunca tutulur.
+
+Ekran Güvenliği:
+Ekran görüntüsü ve ekran kaydı sistem seviyesinde engellenir.
+
+Yedekleme:
+Veriler dışa aktarılırken şifreli bir veri bloğu (encrypted blob) olarak oluşturulur ve yalnızca doğru bilgilerle geri yüklenebilir.
+
+Lynra, kullanıcı verilerine erişemez, okuyamaz veya kurtaramaz.
+Tüm güvenlik modeli, verilerin yalnızca kullanıcı tarafından kontrol edilmesi üzerine kuruludur.

@@ -345,4 +345,19 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Kullanıcı Adı / E-posta';
+
+  @override
+  String get securityManifesto => 'Güvenlik Manifestosu';
+
+  @override
+  String get securitySummaryTitle => 'Güvenlik Özeti';
+
+  @override
+  String get advancedSecurityTitle => 'Gelişmiş Güvenlik';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote, verilerinizi yalnızca cihazınızda saklayan çevrimdışı bir güvenli kasadır.\nUygulama sunucu kullanmaz, sizi takip etmez ve hiçbir veri toplamaz.\nTüm kayıtlarınız güçlü şifreleme ile korunur ve yalnızca siz erişebilirsiniz.\nUygulama arka plana alındığında otomatik olarak kilitlenir ve ekran görüntüsü alınması engellenir.\nKilit açma bilgileri unutulursa veriler geri getirilemez.\nDetaylı teknik bilgi için aşağıdaki Gelişmiş Güvenlik bölümünü inceleyebilirsiniz.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote, modern kriptografi prensiplerine uygun olarak tasarlanmıştır.\n\nVeri Koruma:\nKayıt içerikleri AES-256-GCM algoritması ile şifrelenir.\nVeritabanı SQLCipher kullanılarak tamamen şifreli şekilde saklanır.\n\nAnahtar Yönetimi:\nAna anahtar (Master Key), kullanıcı anahtarlarından PBKDF2-HMAC-SHA256 algoritması ile türetilir.\nBu anahtar hiçbir zaman açık şekilde saklanmaz ve yalnızca aktif oturum sırasında kullanılır.\n\nAnahtar Ayrımı (Key Separation):\nVeritabanı erişimi ve veri şifreleme işlemleri farklı anahtarlarla gerçekleştirilir.\n\nEk Güvenlik Katmanı:\nKasa Anahtarı (Vault Word) etkinleştirildiğinde, veriler ikinci bir katmanla korunur.\nBu anahtar cihazda saklanmaz ve yalnızca kullanıcı tarafından bilinir.\n\nOturum Güvenliği:\nUygulama arka plana alındığında erişim otomatik olarak kilitlenir.\nŞifreleme anahtarları bellekte yalnızca işlem süresi boyunca tutulur.\n\nEkran Güvenliği:\nEkran görüntüsü ve ekran kaydı sistem seviyesinde engellenir.\n\nYedekleme:\nVeriler dışa aktarılırken şifreli bir veri bloğu (encrypted blob) olarak oluşturulur ve yalnızca doğru bilgilerle geri yüklenebilir.\n\nLynra, kullanıcı verilerine erişemez, okuyamaz veya kurtaramaz.\n\nTüm güvenlik modeli, verilerin yalnızca kullanıcı tarafından kontrol edilmesi üzerine kuruludur.';
 }

@@ -351,4 +351,19 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Nom d’utilisateur / Email';
+
+  @override
+  String get securityManifesto => 'Manifeste de sécurité';
+
+  @override
+  String get securitySummaryTitle => 'Résumé de sécurité';
+
+  @override
+  String get advancedSecurityTitle => 'Sécurité avancée';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote est un coffre sécurisé hors ligne qui stocke vos données uniquement sur votre appareil.\nL\'application n\'utilise aucun serveur, ne vous suit pas et ne collecte aucune donnée.\nToutes vos entrées sont protégées par un chiffrement fort et ne sont accessibles que par vous.\nLorsque l\'application passe en arrière-plan, elle se verrouille automatiquement et les captures d\'écran sont bloquées.\nSi les informations de déverrouillage sont oubliées, les données ne peuvent pas être récupérées.\nPour des informations techniques détaillées, veuillez consulter la section Sécurité avancée ci-dessous.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote est conçu selon des principes cryptographiques modernes.\n\nProtection des données:\nLe contenu des entrées est chiffré avec l\'algorithme AES-256-GCM.\nLa base de données est entièrement stockée sous forme chiffrée avec SQLCipher.\n\nGestion des clés:\nLa clé principale (Master Key) est dérivée des clés utilisateur à l\'aide de l\'algorithme PBKDF2-HMAC-SHA256.\nCette clé n\'est jamais stockée en clair et n\'est utilisée que pendant la session active.\n\nSéparation des clés (Key Separation):\nL\'accès à la base de données et le chiffrement des données utilisent des clés différentes.\n\nCouche de sécurité supplémentaire:\nLorsque le Vault Word est activé, les données sont protégées par une deuxième couche.\nCette clé n\'est pas stockée sur l\'appareil et est connue uniquement de l\'utilisateur.\n\nSécurité de session:\nLorsque l\'application passe en arrière-plan, l\'accès est automatiquement verrouillé.\nLes clés de chiffrement ne sont conservées en mémoire que pendant le traitement.\n\nSécurité de l\'écran:\nLes captures d\'écran et les enregistrements d\'écran sont bloqués au niveau système.\n\nSauvegarde:\nLors de l\'exportation, les données sont créées sous forme de bloc chiffré (encrypted blob) et ne peuvent être restaurées qu\'avec les informations correctes.\n\nLynra ne peut pas accéder aux données des utilisateurs, ni les lire ou les récupérer.\n\nTout le modèle de sécurité est basé sur le fait que les données sont entièrement contrôlées par l\'utilisateur.';
 }

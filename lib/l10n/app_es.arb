@@ -136,5 +136,11 @@
 },
 "username": 				"Nombre de usuario",
 "usernameCopied": 			"Nombre de usuario copiado",
-"usernameEmail": 			"Nombre de usuario / Correo electrónico"
+"usernameEmail": 			"Nombre de usuario / Correo electrónico",
+
+  "securityManifesto": "Manifiesto de Seguridad",
+  "securitySummaryTitle": "Resumen de Seguridad",
+  "advancedSecurityTitle": "Seguridad Avanzada",
+  "securitySummaryBody": "Lynra GreyNote es una bóveda segura sin conexión que almacena sus datos únicamente en su dispositivo.\nLa aplicación no utiliza servidores, no le rastrea y no recopila ningún dato.\nTodos sus registros están protegidos con un cifrado fuerte y solo usted puede acceder a ellos.\nCuando la aplicación pasa a segundo plano, se bloquea automáticamente y evita capturas de pantalla.\nSi se olvidan las credenciales de desbloqueo, los datos no pueden recuperarse.\nPara obtener información técnica detallada, consulte la sección de Seguridad Avanzada a continuación.",
+  "advancedSecurityBody": "Lynra GreyNote está diseñado de acuerdo con los principios modernos de criptografía.\n\nProtección de Datos:\nEl contenido de los registros se cifra utilizando el algoritmo AES-256-GCM.\nLa base de datos se almacena completamente cifrada utilizando SQLCipher.\n\nGestión de Claves:\nLa clave maestra se deriva de los secretos del usuario utilizando el algoritmo PBKDF2-HMAC-SHA256.\nEsta clave nunca se almacena en texto plano y solo se utiliza durante una sesión activa.\n\nSeparación de Claves:\nEl acceso a la base de datos y las operaciones de cifrado de datos se realizan con claves separadas.\n\nCapa de Seguridad Adicional:\nCuando la función Vault Word está activada, sus datos se protegen con una segunda capa.\nEsta clave no se almacena en el dispositivo y solo la conoce el usuario.\n\nSeguridad de Sesión:\nCuando la aplicación pasa a segundo plano, el acceso se bloquea automáticamente.\nLas claves de cifrado permanecen en memoria solo durante la operación.\n\nSeguridad de Pantalla:\nLas capturas de pantalla y grabaciones se bloquean a nivel del sistema.\n\nCopia de Seguridad:\nLos datos se exportan como un blob cifrado y solo pueden restaurarse con las credenciales correctas.\n\nLynra no puede acceder, leer ni recuperar sus datos.\n\nTodo el modelo de seguridad está basado en el control del usuario."
 }

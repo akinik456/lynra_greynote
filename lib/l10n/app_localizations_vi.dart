@@ -351,4 +351,19 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Tên người dùng / Email';
+
+  @override
+  String get securityManifesto => 'Tuyên ngôn Bảo mật';
+
+  @override
+  String get securitySummaryTitle => 'Tóm tắt Bảo mật';
+
+  @override
+  String get advancedSecurityTitle => 'Bảo mật Nâng cao';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote là một két bảo mật ngoại tuyến lưu trữ dữ liệu của bạn chỉ trên thiết bị của bạn.\nỨng dụng không sử dụng máy chủ, không theo dõi bạn và không thu thập bất kỳ dữ liệu nào.\nTất cả các mục của bạn được bảo vệ bằng mã hóa mạnh và chỉ bạn mới có thể truy cập.\nKhi ứng dụng chuyển sang nền, nó sẽ tự động khóa và chặn chụp màn hình.\nNếu thông tin mở khóa bị quên, dữ liệu không thể khôi phục.\nĐể biết thêm thông tin kỹ thuật, vui lòng xem phần Bảo mật Nâng cao bên dưới.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote được thiết kế theo các nguyên tắc mật mã hiện đại.\n\nBảo vệ Dữ liệu:\nNội dung các mục được mã hóa bằng thuật toán AES-256-GCM.\nCơ sở dữ liệu được lưu trữ hoàn toàn dưới dạng mã hóa bằng SQLCipher.\n\nQuản lý Khóa:\nKhóa chính (Master Key) được dẫn xuất từ khóa người dùng bằng thuật toán PBKDF2-HMAC-SHA256.\nKhóa này không bao giờ được lưu ở dạng văn bản thuần và chỉ được sử dụng trong phiên hoạt động.\n\nTách Khóa (Key Separation):\nTruy cập cơ sở dữ liệu và mã hóa dữ liệu sử dụng các khóa khác nhau.\n\nLớp Bảo mật Bổ sung:\nKhi Vault Word được bật, dữ liệu được bảo vệ bằng lớp thứ hai.\nKhóa này không được lưu trên thiết bị và chỉ người dùng biết.\n\nBảo mật Phiên:\nKhi ứng dụng chuyển sang nền, quyền truy cập sẽ tự động bị khóa.\nKhóa mã hóa chỉ được giữ trong bộ nhớ trong quá trình xử lý.\n\nBảo mật Màn hình:\nChặn chụp màn hình và ghi màn hình ở cấp hệ thống.\n\nSao lưu:\nKhi xuất, dữ liệu được tạo thành một khối mã hóa (encrypted blob) và chỉ có thể khôi phục bằng thông tin chính xác.\n\nLynra không thể truy cập, đọc hoặc khôi phục dữ liệu người dùng.\n\nToàn bộ mô hình bảo mật dựa trên việc người dùng kiểm soát hoàn toàn dữ liệu.';
 }

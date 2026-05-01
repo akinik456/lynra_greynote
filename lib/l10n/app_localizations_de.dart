@@ -351,4 +351,19 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Benutzername / E-Mail';
+
+  @override
+  String get securityManifesto => 'Sicherheitsmanifest';
+
+  @override
+  String get securitySummaryTitle => 'Sicherheitsübersicht';
+
+  @override
+  String get advancedSecurityTitle => 'Erweiterte Sicherheit';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote ist ein Offline-Sicherheitstresor, der Ihre Daten ausschließlich auf Ihrem Gerät speichert.\nDie Anwendung verwendet keinen Server, verfolgt Sie nicht und sammelt keine Daten.\nAlle Ihre Einträge sind mit starker Verschlüsselung geschützt und nur für Sie zugänglich.\nWenn die Anwendung in den Hintergrund wechselt, wird sie automatisch gesperrt und Bildschirmaufnahmen werden verhindert.\nWenn die Entsperrinformationen vergessen werden, können die Daten nicht wiederhergestellt werden.\nFür detaillierte technische Informationen lesen Sie bitte den Abschnitt Erweiterte Sicherheit unten.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote wurde gemäß modernen kryptografischen Prinzipien entwickelt.\n\nDatenschutz:\nDie Inhalte der Einträge werden mit dem AES-256-GCM-Algorithmus verschlüsselt.\nDie Datenbank wird vollständig verschlüsselt mit SQLCipher gespeichert.\n\nSchlüsselverwaltung:\nDer Hauptschlüssel (Master Key) wird aus Benutzerschlüsseln mit dem PBKDF2-HMAC-SHA256-Algorithmus abgeleitet.\nDieser Schlüssel wird niemals im Klartext gespeichert und nur während der aktiven Sitzung verwendet.\n\nSchlüsseltrennung (Key Separation):\nDatenbankzugriff und Datenverschlüsselung erfolgen mit unterschiedlichen Schlüsseln.\n\nZusätzliche Sicherheitsebene:\nWenn das Vault Word aktiviert ist, werden die Daten durch eine zweite Ebene geschützt.\nDieser Schlüssel wird nicht auf dem Gerät gespeichert und ist nur dem Benutzer bekannt.\n\nSitzungssicherheit:\nWenn die Anwendung in den Hintergrund wechselt, wird der Zugriff automatisch gesperrt.\nVerschlüsselungsschlüssel werden nur während der Verarbeitung im Speicher gehalten.\n\nBildschirmsicherheit:\nScreenshots und Bildschirmaufnahmen werden auf Systemebene verhindert.\n\nBackup:\nBeim Export werden die Daten als verschlüsselter Datenblock (encrypted blob) erstellt und können nur mit den richtigen Informationen wiederhergestellt werden.\n\nLynra kann nicht auf Benutzerdaten zugreifen, sie lesen oder wiederherstellen.\n\nDas gesamte Sicherheitsmodell basiert darauf, dass die Daten ausschließlich vom Benutzer kontrolliert werden.';
 }

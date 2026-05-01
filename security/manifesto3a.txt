@@ -1,0 +1,13 @@
+Güvenlik Özeti
+
+Lynra GreyNote, verilerinizi yalnızca cihazınızda saklayan çevrimdışı bir güvenli kasadır.
+
+Uygulama sunucu kullanmaz, sizi takip etmez ve hiçbir veri toplamaz.
+
+Tüm kayıtlarınız güçlü şifreleme ile korunur ve yalnızca siz erişebilirsiniz.
+
+Uygulama arka plana alındığında otomatik olarak kilitlenir ve ekran görüntüsü alınması engellenir.
+
+Kilit açma bilgileri unutulursa veriler geri getirilemez.
+
+Detaylı teknik bilgi için aşağıdaki Gelişmiş Güvenlik bölümünü inceleyebilirsiniz.

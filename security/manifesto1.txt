@@ -1,0 +1,23 @@
+Güvenlik Manifestosu
+
+Lynra GreyNote, çevrimdışı ve gizlilik odaklı bir güvenli kasa olarak tasarlanmıştır.
+
+Verileriniz yalnızca cihazınızda saklanır. 
+Herhangi bir sunucu, bulut senkronizasyonu, analiz veya takip mekanizması kullanılmaz.
+
+Tüm veriler güçlü şifreleme algoritmaları ile korunur.
+Kayıt içerikleri, doğrulamalı şifreleme (AES-GCM) ile şifrelenir ve veritabanı SQLCipher ile tamamen korunur.
+
+Ana anahtar (Master Key) hiçbir zaman açık şekilde saklanmaz.
+Sadece kilit açma sırasında, kullanıcı sırrı ile türetilir ve oturum süresince kullanılır.
+
+Kasa Anahtarı (Vault Word) özelliği etkinleştirildiğinde, verileriniz ikinci bir katmanla korunur.
+Bu anahtar yalnızca sizin tarafınızdan bilinir ve cihazda saklanmaz.
+
+Uygulama arka plana alındığında veya belirli bir süre işlem yapılmadığında erişim otomatik olarak kilitlenir.
+Ekran görüntüsü ve ekran kaydı, sistem seviyesinde engellenir.
+
+Lynra, verilerinizi okuyamaz, sıfırlayamaz veya kurtaramaz.
+Kilit açma bilgileri unutulursa veriler geri getirilemez.
+
+Gizlilik bir özellik değil, Lynra GreyNote’un temelidir.

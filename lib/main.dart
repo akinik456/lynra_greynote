@@ -157,7 +157,7 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
 		void initState() {
 		super.initState();
 		WidgetsBinding.instance.addObserver(this);
-	//??_secureScreen();
+	_secureScreen();
 			WidgetsBinding.instance.addPostFrameCallback((_) {
 				_start();
 			});	

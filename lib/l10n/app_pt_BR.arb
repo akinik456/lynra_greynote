@@ -136,5 +136,10 @@
 },
 "username": 				"Nome de usuário",
 "usernameCopied": 			"Nome de usuário copiado",
-"usernameEmail": 			"Nome de usuário / E-mail"
+"usernameEmail": 			"Nome de usuário / E-mail",
+"securityManifesto": "Manifesto de Segurança",
+"securitySummaryTitle": "Resumo de Segurança",
+"advancedSecurityTitle": "Segurança Avançada",
+"securitySummaryBody": "Lynra GreyNote é um cofre seguro offline que armazena seus dados apenas no seu dispositivo.\nO aplicativo não utiliza servidores, não rastreia você e não coleta nenhum dado.\nTodos os seus registros são protegidos com criptografia forte e acessíveis apenas por você.\nQuando o aplicativo vai para o segundo plano, ele é bloqueado automaticamente e capturas de tela são impedidas.\nSe as informações de desbloqueio forem esquecidas, os dados não poderão ser recuperados.\nPara informações técnicas detalhadas, consulte a seção Segurança Avançada abaixo.",
+"advancedSecurityBody": "Lynra GreyNote foi projetado de acordo com princípios modernos de criptografia.\n\nProteção de Dados:\nO conteúdo dos registros é criptografado com o algoritmo AES-256-GCM.\nO banco de dados é armazenado totalmente criptografado usando SQLCipher.\n\nGerenciamento de Chaves:\nA chave principal (Master Key) é derivada das chaves do usuário usando o algoritmo PBKDF2-HMAC-SHA256.\nEssa chave nunca é armazenada em texto simples e é utilizada apenas durante a sessão ativa.\n\nSeparação de Chaves (Key Separation):\nO acesso ao banco de dados e a criptografia dos dados utilizam chaves diferentes.\n\nCamada Extra de Segurança:\nQuando o Vault Word é ativado, os dados são protegidos por uma segunda camada.\nEssa chave não é armazenada no dispositivo e é conhecida apenas pelo usuário.\n\nSegurança de Sessão:\nQuando o aplicativo vai para o segundo plano, o acesso é automaticamente bloqueado.\nAs chaves de criptografia são mantidas na memória apenas durante o processamento.\n\nSegurança de Tela:\nCapturas de tela e gravações de tela são bloqueadas em nível de sistema.\n\nBackup:\nAo exportar, os dados são criados como um bloco criptografado (encrypted blob) e só podem ser restaurados com as informações corretas.\n\nA Lynra não pode acessar, ler ou recuperar os dados do usuário.\n\nTodo o modelo de segurança é baseado no controle total dos dados pelo usuário."
 }

@@ -136,5 +136,10 @@
 },
 "username": 				"Username",
 "usernameCopied": 			"Username disalin",
-"usernameEmail": 			"Username / Email"
+"usernameEmail": 			"Username / Email",
+"securityManifesto": "Manifesto Keamanan",
+"securitySummaryTitle": "Ringkasan Keamanan",
+"advancedSecurityTitle": "Keamanan Lanjutan",
+"securitySummaryBody": "Lynra GreyNote adalah brankas aman offline yang menyimpan data Anda hanya di perangkat Anda.\nAplikasi ini tidak menggunakan server, tidak melacak Anda, dan tidak mengumpulkan data apa pun.\nSemua catatan Anda dilindungi dengan enkripsi kuat dan hanya dapat diakses oleh Anda.\nSaat aplikasi masuk ke latar belakang, aplikasi akan terkunci secara otomatis dan tangkapan layar dicegah.\nJika informasi pembukaan kunci dilupakan, data tidak dapat dipulihkan.\nUntuk informasi teknis lebih lanjut, silakan lihat bagian Keamanan Lanjutan di bawah ini.",
+"advancedSecurityBody": "Lynra GreyNote dirancang sesuai dengan prinsip kriptografi modern.\n\nPerlindungan Data:\nIsi catatan dienkripsi menggunakan algoritma AES-256-GCM.\nDatabase disimpan sepenuhnya terenkripsi menggunakan SQLCipher.\n\nManajemen Kunci:\nKunci utama (Master Key) diturunkan dari kunci pengguna menggunakan algoritma PBKDF2-HMAC-SHA256.\nKunci ini tidak pernah disimpan dalam bentuk teks biasa dan hanya digunakan selama sesi aktif.\n\nPemisahan Kunci (Key Separation):\nAkses database dan enkripsi data menggunakan kunci yang berbeda.\n\nLapisan Keamanan Tambahan:\nSaat Vault Word diaktifkan, data dilindungi oleh lapisan kedua.\nKunci ini tidak disimpan di perangkat dan hanya diketahui oleh pengguna.\n\nKeamanan Sesi:\nSaat aplikasi masuk ke latar belakang, akses akan terkunci secara otomatis.\nKunci enkripsi hanya disimpan di memori selama pemrosesan.\n\nKeamanan Layar:\nTangkapan layar dan perekaman layar diblokir pada tingkat sistem.\n\nCadangan:\nSaat diekspor, data dibuat sebagai blok terenkripsi (encrypted blob) dan hanya dapat dipulihkan dengan informasi yang benar.\n\nLynra tidak dapat mengakses, membaca, atau memulihkan data pengguna.\n\nSeluruh model keamanan didasarkan pada kontrol penuh pengguna atas data."
 }

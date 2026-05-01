@@ -7,10 +7,9 @@ import '../../features/auth/data/auth_storage.dart';
 class CryptoHelper {
   static final _algorithm = AesGcm.with256bits();
 
-/// Master Key'i (MK) başka bir anahtar ile paketler (şifreler).
+  /// Master Key'i (MK) başka bir anahtar ile paketler (şifreler).
   /// [keyToWrap]: Cihazdaki ham Master Key
-  /// [password]: Kullanıcının Pattern/PIN stringi
-  /// [vaultWord]: Varsa Vault Word, yoksa ""
+  /// [password]:  Kullanıcının Pattern
   static Future<String> wrapMasterKey({
     required String mkBase64,
     required String password,

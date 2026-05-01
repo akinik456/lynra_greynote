@@ -1,0 +1,15 @@
+wrapMasterKey
+unwrapMasterKey 
+deriveKey(String password) async  
+deriveDbKey(String masterKey) async 
+encrypt(String plainText, String password) async 
+decrypt(String encrypted, String password) async 
+deriveBackupKey
+encryptBackupBlob
+decryptBackupBlob
+encryptWithKey
+decryptWithKey
+derivePayloadKey(String masterKey) async 
+	
+	
+ 

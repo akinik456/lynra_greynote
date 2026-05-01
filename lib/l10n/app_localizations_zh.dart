@@ -351,4 +351,19 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get usernameEmail => '用户名 / 邮箱';
+
+  @override
+  String get securityManifesto => '安全宣言';
+
+  @override
+  String get securitySummaryTitle => '安全摘要';
+
+  @override
+  String get advancedSecurityTitle => '高级安全';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote 是一个离线安全保险库，仅在您的设备上存储您的数据。\n该应用不使用服务器，不会跟踪您，也不会收集任何数据。\n您的所有记录都通过强加密保护，且仅您可以访问。\n当应用进入后台时，会自动锁定并阻止截图。\n如果忘记解锁信息，数据将无法恢复。\n有关详细技术信息，请参阅下面的高级安全部分。';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote 根据现代密码学原则设计。\n\n数据保护:\n记录内容使用 AES-256-GCM 算法加密。\n数据库使用 SQLCipher 完全加密存储。\n\n密钥管理:\n主密钥（Master Key）通过 PBKDF2-HMAC-SHA256 算法从用户密钥派生。\n该密钥不会以明文形式存储，仅在活动会话期间使用。\n\n密钥分离 (Key Separation):\n数据库访问和数据加密使用不同的密钥。\n\n额外安全层:\n当启用 Vault Word 时，数据将受到第二层保护。\n该密钥不会存储在设备上，仅由用户知晓。\n\n会话安全:\n当应用进入后台时，访问会自动锁定。\n加密密钥仅在处理期间保存在内存中。\n\n屏幕安全:\n系统级别阻止截图和屏幕录制。\n\n备份:\n导出时，数据会生成加密数据块（encrypted blob），仅能通过正确信息恢复。\n\nLynra 无法访问、读取或恢复用户数据。\n\n整个安全模型基于用户对数据的完全控制。';
 }

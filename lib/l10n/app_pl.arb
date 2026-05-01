@@ -136,5 +136,10 @@
 },
 "username": 				"Nazwa użytkownika",
 "usernameCopied": 			"Nazwa użytkownika skopiowana",
-"usernameEmail": 			"Nazwa użytkownika / Email"
+"usernameEmail": 			"Nazwa użytkownika / Email",
+"securityManifesto": "Manifest bezpieczeństwa",
+"securitySummaryTitle": "Podsumowanie bezpieczeństwa",
+"advancedSecurityTitle": "Zaawansowane bezpieczeństwo",
+"securitySummaryBody": "Lynra GreyNote to offline bezpieczny sejf, który przechowuje Twoje dane wyłącznie na Twoim urządzeniu.\nAplikacja nie korzysta z serwerów, nie śledzi Cię i nie zbiera żadnych danych.\nWszystkie Twoje wpisy są chronione silnym szyfrowaniem i dostępne tylko dla Ciebie.\nGdy aplikacja przechodzi do tła, jest automatycznie blokowana i zapobiega wykonywaniu zrzutów ekranu.\nJeśli informacje odblokowujące zostaną zapomniane, dane nie mogą zostać odzyskane.\nAby uzyskać szczegółowe informacje techniczne, zapoznaj się z sekcją Zaawansowane bezpieczeństwo poniżej.",
+"advancedSecurityBody": "Lynra GreyNote został zaprojektowany zgodnie z nowoczesnymi zasadami kryptografii.\n\nOchrona danych:\nZawartość wpisów jest szyfrowana algorytmem AES-256-GCM.\nBaza danych jest w całości przechowywana w postaci zaszyfrowanej przy użyciu SQLCipher.\n\nZarządzanie kluczami:\nKlucz główny (Master Key) jest wyprowadzany z kluczy użytkownika przy użyciu algorytmu PBKDF2-HMAC-SHA256.\nKlucz ten nigdy nie jest przechowywany w postaci jawnej i jest używany tylko podczas aktywnej sesji.\n\nSeparacja kluczy (Key Separation):\nDostęp do bazy danych i szyfrowanie danych używają różnych kluczy.\n\nDodatkowa warstwa bezpieczeństwa:\nPo włączeniu Vault Word dane są chronione dodatkową warstwą.\nKlucz ten nie jest przechowywany na urządzeniu i jest znany tylko użytkownikowi.\n\nBezpieczeństwo sesji:\nGdy aplikacja przechodzi do tła, dostęp jest automatycznie blokowany.\nKlucze szyfrowania są przechowywane w pamięci tylko podczas przetwarzania.\n\nBezpieczeństwo ekranu:\nZrzuty ekranu i nagrywanie ekranu są blokowane na poziomie systemu.\n\nKopia zapasowa:\nPodczas eksportu dane są tworzone jako zaszyfrowany blok (encrypted blob) i mogą być odzyskane tylko przy użyciu poprawnych informacji.\n\nLynra nie może uzyskać dostępu do danych użytkownika, odczytać ich ani odzyskać.\n\nCały model bezpieczeństwa opiera się na pełnej kontroli użytkownika nad danymi."
 }

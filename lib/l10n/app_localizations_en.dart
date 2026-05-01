@@ -351,4 +351,19 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Username / Email';
+
+  @override
+  String get securityManifesto => 'Security Manifesto';
+
+  @override
+  String get securitySummaryTitle => 'Security Summary';
+
+  @override
+  String get advancedSecurityTitle => 'Advanced Security';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote is an offline secure vault that stores your data only on your device.\nThe app does not use servers, does not track you, and does not collect any data.\nAll your records are protected with strong encryption and can only be accessed by you.\nWhen the app goes to the background, it automatically locks and prevents screenshots.\nIf unlock credentials are forgotten, data cannot be recovered.\nFor detailed technical information, please refer to the Advanced Security section below.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote is designed in accordance with modern cryptography principles.\n\nData Protection:\nRecord contents are encrypted using the AES-256-GCM algorithm.\nThe database is stored fully encrypted using SQLCipher.\n\nKey Management:\nThe master key is derived from user secrets using the PBKDF2-HMAC-SHA256 algorithm.\nThis key is never stored in plain form and is only used during an active session.\n\nKey Separation:\nDatabase access and data encryption operations are performed using separate keys.\n\nAdditional Security Layer:\nWhen the Vault Word feature is enabled, your data is protected with a second layer.\nThis key is not stored on the device and is known only by the user.\n\nSession Security:\nWhen the app goes to the background, access is automatically locked.\nEncryption keys exist in memory only for the duration of operations.\n\nScreen Security:\nScreenshots and screen recordings are blocked at the system level.\n\nBackup:\nData is exported as an encrypted blob and can only be restored with the correct credentials.\n\nLynra cannot access, read, or recover your data.\n\nThe entire security model is built on user-controlled data.';
 }

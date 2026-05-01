@@ -351,4 +351,19 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get usernameEmail => 'ユーザー名 / メール';
+
+  @override
+  String get securityManifesto => 'セキュリティマニフェスト';
+
+  @override
+  String get securitySummaryTitle => 'セキュリティ概要';
+
+  @override
+  String get advancedSecurityTitle => '高度なセキュリティ';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNoteは、データをデバイス内のみに保存するオフラインのセキュアボルトです。\nこのアプリはサーバーを使用せず、ユーザーを追跡せず、データを収集しません。\nすべての記録は強力な暗号化で保護され、ユーザーのみがアクセスできます。\nアプリがバックグラウンドに移行すると自動的にロックされ、スクリーンショットが防止されます。\nロック解除情報を忘れた場合、データは復元できません。\n詳細な技術情報については、以下の高度なセキュリティセクションをご覧ください。';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNoteは最新の暗号化原則に基づいて設計されています。\n\nデータ保護:\n記録の内容はAES-256-GCMアルゴリズムで暗号化されます。\nデータベースはSQLCipherを使用して完全に暗号化された状態で保存されます。\n\nキー管理:\nマスターキーはPBKDF2-HMAC-SHA256アルゴリズムを使用してユーザーキーから導出されます。\nこのキーは平文で保存されることはなく、アクティブセッション中のみ使用されます。\n\nキー分離 (Key Separation):\nデータベースアクセスとデータ暗号化は異なるキーを使用します。\n\n追加のセキュリティ層:\nVault Wordが有効になると、データは第2層で保護されます。\nこのキーはデバイスに保存されず、ユーザーのみが知っています。\n\nセッションセキュリティ:\nアプリがバックグラウンドに移行するとアクセスは自動的にロックされます。\n暗号化キーは処理中のみメモリに保持されます。\n\n画面セキュリティ:\nスクリーンショットおよび画面録画はシステムレベルでブロックされます。\n\nバックアップ:\nエクスポート時、データは暗号化ブロック(encrypted blob)として作成され、正しい情報でのみ復元できます。\n\nLynraはユーザーデータにアクセス、読み取り、または復元することはできません。\n\nすべてのセキュリティモデルはデータがユーザーによって完全に制御されることに基づいています。';
 }

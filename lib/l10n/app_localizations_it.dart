@@ -351,4 +351,19 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Nome utente / Email';
+
+  @override
+  String get securityManifesto => 'Manifesto di sicurezza';
+
+  @override
+  String get securitySummaryTitle => 'Riepilogo della sicurezza';
+
+  @override
+  String get advancedSecurityTitle => 'Sicurezza avanzata';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote è una cassaforte sicura offline che memorizza i tuoi dati esclusivamente sul tuo dispositivo.\nL\'applicazione non utilizza server, non ti traccia e non raccoglie alcun dato.\nTutte le tue voci sono protette da una forte crittografia e sono accessibili solo da te.\nQuando l\'app viene messa in background, si blocca automaticamente e gli screenshot vengono impediti.\nSe le informazioni di sblocco vengono dimenticate, i dati non possono essere recuperati.\nPer informazioni tecniche dettagliate, consulta la sezione Sicurezza avanzata qui sotto.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote è progettato secondo moderni principi crittografici.\n\nProtezione dei dati:\nI contenuti delle voci sono crittografati con l\'algoritmo AES-256-GCM.\nIl database è completamente archiviato in forma crittografata utilizzando SQLCipher.\n\nGestione delle chiavi:\nLa chiave principale (Master Key) viene derivata dalle chiavi utente utilizzando l\'algoritmo PBKDF2-HMAC-SHA256.\nQuesta chiave non viene mai memorizzata in chiaro ed è utilizzata solo durante la sessione attiva.\n\nSeparazione delle chiavi (Key Separation):\nL\'accesso al database e la crittografia dei dati utilizzano chiavi diverse.\n\nLivello di sicurezza aggiuntivo:\nQuando il Vault Word è attivo, i dati sono protetti da un secondo livello.\nQuesta chiave non è memorizzata sul dispositivo ed è conosciuta solo dall\'utente.\n\nSicurezza della sessione:\nQuando l\'app viene messa in background, l\'accesso viene automaticamente bloccato.\nLe chiavi di crittografia vengono mantenute in memoria solo durante l\'elaborazione.\n\nSicurezza dello schermo:\nScreenshot e registrazioni dello schermo sono bloccati a livello di sistema.\n\nBackup:\nDurante l\'esportazione, i dati vengono creati come blocco crittografato (encrypted blob) e possono essere ripristinati solo con le informazioni corrette.\n\nLynra non può accedere ai dati degli utenti, leggerli o recuperarli.\n\nL\'intero modello di sicurezza si basa sul fatto che i dati sono completamente controllati dall\'utente.';
 }

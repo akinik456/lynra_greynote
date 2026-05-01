@@ -351,6 +351,21 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Username / Email';
+
+  @override
+  String get securityManifesto => 'Security Manifesto';
+
+  @override
+  String get securitySummaryTitle => 'Security Summary';
+
+  @override
+  String get advancedSecurityTitle => 'Advanced Security';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote is an offline secure vault that stores your data only on your device.\nThe app does not use servers, does not track you, and does not collect any data.\nAll your records are protected with strong encryption and can only be accessed by you.\nWhen the app goes to the background, it automatically locks and prevents screenshots.\nIf unlock credentials are forgotten, data cannot be recovered.\nFor detailed technical information, please refer to the Advanced Security section below.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote is designed in accordance with modern cryptography principles.\n\nData Protection:\nRecord contents are encrypted using the AES-256-GCM algorithm.\nThe database is stored fully encrypted using SQLCipher.\n\nKey Management:\nThe master key is derived from user secrets using the PBKDF2-HMAC-SHA256 algorithm.\nThis key is never stored in plain form and is only used during an active session.\n\nKey Separation:\nDatabase access and data encryption operations are performed using separate keys.\n\nAdditional Security Layer:\nWhen the Vault Word feature is enabled, your data is protected with a second layer.\nThis key is not stored on the device and is known only by the user.\n\nSession Security:\nWhen the app goes to the background, access is automatically locked.\nEncryption keys exist in memory only for the duration of operations.\n\nScreen Security:\nScreenshots and screen recordings are blocked at the system level.\n\nBackup:\nData is exported as an encrypted blob and can only be restored with the correct credentials.\n\nLynra cannot access, read, or recover your data.\n\nThe entire security model is built on user-controlled data.';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
@@ -700,4 +715,19 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get usernameEmail => 'Nome de usuário / E-mail';
+
+  @override
+  String get securityManifesto => 'Manifesto de Segurança';
+
+  @override
+  String get securitySummaryTitle => 'Resumo de Segurança';
+
+  @override
+  String get advancedSecurityTitle => 'Segurança Avançada';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote é um cofre seguro offline que armazena seus dados apenas no seu dispositivo.\nO aplicativo não utiliza servidores, não rastreia você e não coleta nenhum dado.\nTodos os seus registros são protegidos com criptografia forte e acessíveis apenas por você.\nQuando o aplicativo vai para o segundo plano, ele é bloqueado automaticamente e capturas de tela são impedidas.\nSe as informações de desbloqueio forem esquecidas, os dados não poderão ser recuperados.\nPara informações técnicas detalhadas, consulte a seção Segurança Avançada abaixo.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote foi projetado de acordo com princípios modernos de criptografia.\n\nProteção de Dados:\nO conteúdo dos registros é criptografado com o algoritmo AES-256-GCM.\nO banco de dados é armazenado totalmente criptografado usando SQLCipher.\n\nGerenciamento de Chaves:\nA chave principal (Master Key) é derivada das chaves do usuário usando o algoritmo PBKDF2-HMAC-SHA256.\nEssa chave nunca é armazenada em texto simples e é utilizada apenas durante a sessão ativa.\n\nSeparação de Chaves (Key Separation):\nO acesso ao banco de dados e a criptografia dos dados utilizam chaves diferentes.\n\nCamada Extra de Segurança:\nQuando o Vault Word é ativado, os dados são protegidos por uma segunda camada.\nEssa chave não é armazenada no dispositivo e é conhecida apenas pelo usuário.\n\nSegurança de Sessão:\nQuando o aplicativo vai para o segundo plano, o acesso é automaticamente bloqueado.\nAs chaves de criptografia são mantidas na memória apenas durante o processamento.\n\nSegurança de Tela:\nCapturas de tela e gravações de tela são bloqueadas em nível de sistema.\n\nBackup:\nAo exportar, os dados são criados como um bloco criptografado (encrypted blob) e só podem ser restaurados com as informações corretas.\n\nA Lynra não pode acessar, ler ou recuperar os dados do usuário.\n\nTodo o modelo de segurança é baseado no controle total dos dados pelo usuário.';
 }

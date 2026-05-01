@@ -1,0 +1,44 @@
+***************
+crypto_helper
+****
+wrapMasterKey
+unwrapMasterKey 
+deriveKey(String password) async  
+deriveDbKey(String masterKey) async 
+encrypt(String plainText, String password) async 
+decrypt(String encrypted, String password) async 
+deriveBackupKey
+encryptBackupBlob
+decryptBackupBlob
+encryptWithKey
+decryptWithKey
+derivePayloadKey(String masterKey) async 
+***************
+auth_storage
+****	
+savePattern	
+getPattern
+clearPattern
+initializeSecurity - salt,dbSalt,mk yoksa üret,kaydet
+getSecureSalt
+getRawMasterKey
+getDbSalt
+saveWrappedMasterKey
+getWrappedMasterKey
+deleteRawMasterKey
+***************
+
+-Açılışta OnboardingScreen Seen False ise göster. OBS de continue butonu ile 
+ initializeSecurity çağır.initializeSecurity de salt,DBsalt ve mk(masterKey) üret.
+-Pattern check. null ise patternsetup çağır.Pattern oluşturulunca sırasıyla getRawMasterKey,
+wrapMasterKey,saveWrappedMasterKey,deleteRawMasterKey çağır.
+-Pattern var ise _unlockExistingPattern ve _checkSecondaryLock çağır.
+
+****************
+backupSalt,mk,dbSalt,salt = base64Encode(List<int>.generate(32, (i) => Random.secure().nextInt(256)));
+
+
+****************
+base64Encode
+base64Decode
+Pbkdf2

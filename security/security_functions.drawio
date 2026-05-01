@@ -1,0 +1,69 @@
+<mxfile host="Electron">
+  <diagram name="Sayfa-1" id="2eLJCvKOzC7iHEX0Rzz-">
+    <mxGraphModel dx="1106" dy="863" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IwGwtlpAPhJHxusxFEui-6" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="IwGwtlpAPhJHxusxFEui-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-13" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="IwGwtlpAPhJHxusxFEui-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-4" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="if (existingSalt == null)" vertex="1">
+          <mxGeometry height="110" width="140" x="70" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-19" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="IwGwtlpAPhJHxusxFEui-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;final salt = base64Encode(List&amp;lt;int&amp;gt;.generate(32, (i) =&amp;gt; Random.secure().nextInt(256)));&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; await _storage.write(key: _saltKey, value: salt);&lt;/div&gt;" vertex="1">
+          <mxGeometry height="95" width="320" x="240" y="87.5" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-11" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="IwGwtlpAPhJHxusxFEui-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-14" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="IwGwtlpAPhJHxusxFEui-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-7" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="if (existingDbSalt == null)" vertex="1">
+          <mxGeometry height="110" width="160" x="60" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-20" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="IwGwtlpAPhJHxusxFEui-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;final dbSalt = base64Encode(List&amp;lt;int&amp;gt;.generate(32, (i) =&amp;gt; Random.secure().nextInt(256)));&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; await _storage.write(key: _dbSaltKey, value: dbSalt);&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="320" x="240" y="245" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-12" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="IwGwtlpAPhJHxusxFEui-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-18" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="IwGwtlpAPhJHxusxFEui-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-9" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="if (existingMK == null)" vertex="1">
+          <mxGeometry height="90" width="140" x="70" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-21" edge="1" parent="1" source="IwGwtlpAPhJHxusxFEui-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="140" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;final mk = base64Encode(List&amp;lt;int&amp;gt;.generate(32, (i) =&amp;gt; Random.secure().nextInt(256)));&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; await _storage.write(key: _masterKey, value: mk);&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="320" x="240" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;initializeSecurity&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="20" width="100" x="90" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="return" vertex="1">
+          <mxGeometry height="30" width="80" x="100" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-24" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;onPatternComplete&lt;/font&gt;&lt;/b&gt;" vertex="1">
+          <mxGeometry height="40" width="150" x="610" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IwGwtlpAPhJHxusxFEui-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;getRawMasterKey();&lt;/div&gt;wrapMasterKey&lt;div&gt;saveWrappedMasterKey&lt;/div&gt;&lt;div&gt;deleteRawMasterKey&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="200" x="600" y="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

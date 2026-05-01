@@ -136,5 +136,10 @@
 },
 "username": 				"Gebruikersnaam",
 "usernameCopied": 			"Gebruikersnaam gekopieerd",
-"usernameEmail": 			"Gebruikersnaam / E-mail"
+"usernameEmail": 			"Gebruikersnaam / E-mail",
+"securityManifesto": "Beveiligingsmanifest",
+"securitySummaryTitle": "Beveiligingsoverzicht",
+"advancedSecurityTitle": "Geavanceerde beveiliging",
+"securitySummaryBody": "Lynra GreyNote is een offline veilige kluis die uw gegevens uitsluitend op uw apparaat opslaat.\nDe applicatie gebruikt geen servers, volgt u niet en verzamelt geen gegevens.\nAl uw items worden beschermd met sterke encryptie en zijn alleen voor u toegankelijk.\nWanneer de app naar de achtergrond gaat, wordt deze automatisch vergrendeld en worden screenshots geblokkeerd.\nAls de ontgrendelingsgegevens worden vergeten, kunnen de gegevens niet worden hersteld.\nVoor gedetailleerde technische informatie raadpleegt u de sectie Geavanceerde beveiliging hieronder.",
+"advancedSecurityBody": "Lynra GreyNote is ontworpen volgens moderne cryptografische principes.\n\nGegevensbescherming:\nDe inhoud van items wordt versleuteld met het AES-256-GCM-algoritme.\nDe database wordt volledig versleuteld opgeslagen met SQLCipher.\n\nSleutelbeheer:\nDe hoofdsleutel (Master Key) wordt afgeleid van gebruikerssleutels met het PBKDF2-HMAC-SHA256-algoritme.\nDeze sleutel wordt nooit in platte tekst opgeslagen en alleen gebruikt tijdens de actieve sessie.\n\nSleutelscheiding (Key Separation):\nDatabase-toegang en gegevensversleuteling gebruiken verschillende sleutels.\n\nExtra beveiligingslaag:\nWanneer Vault Word is ingeschakeld, worden de gegevens beschermd door een tweede laag.\nDeze sleutel wordt niet op het apparaat opgeslagen en is alleen bekend bij de gebruiker.\n\nSessiebeveiliging:\nWanneer de app naar de achtergrond gaat, wordt de toegang automatisch vergrendeld.\nEncryptiesleutels worden alleen tijdens verwerking in het geheugen gehouden.\n\nSchermbeveiliging:\nScreenshots en schermopnames worden op systeemniveau geblokkeerd.\n\nBack-up:\nBij export worden gegevens aangemaakt als een versleuteld blok (encrypted blob) en kunnen alleen met de juiste informatie worden hersteld.\n\nLynra heeft geen toegang tot gebruikersgegevens en kan deze niet lezen of herstellen.\n\nHet volledige beveiligingsmodel is gebaseerd op volledige controle van de gebruiker over de gegevens."
 }

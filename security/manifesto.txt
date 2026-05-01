@@ -1,0 +1,31 @@
+  Lynra Güvenlik Manifestosu: "Tam Gizlilik, Sıfır Taviz"
+Bu uygulama, verilerinizin mutlak gizliliğini sağlamak amacıyla "Zero-Knowledge" (Sıfır Bilgi) mimarisiyle ve endüstriyel standartlarda 
+güvenlik protokolleriyle inşa edilmiştir. Güvenliğimiz vaatlere değil, aşağıdaki teknik ispatlara dayanmaktadır:
+
+1. Donanım Destekli Anahtar İzolasyonu
+Şifreleme anahtarlarınız asla yazılımsal bir dosyada veya erişilebilir bir bellek alanında saklanmaz. 
+Android KeyStore sistemi kullanılarak, anahtarlarınız cihazınızın içindeki özel güvenlik yongalarında 
+(TEE/Donanımsal Güvenlik Modülü) izole edilir. Cihazınız rootlu olsa bile anahtarların dışarı sızması donanımsal olarak engellenmiştir.
+
+2. Katmanlı Kriptografi (Double Encryption)
+Verileriniz, askeri düzeyde AES-256-GCM algoritması ile korunur.
+Birinci Katman: Cihaza özel üretilen Master Key ile tüm veritabanı zırhlanır.
+İkinci Katman (Vault Word): En hassas notlarınız, sadece sizin zihninizde olan ve hiçbir yerde kaydedilmeyen "Vault Word" ile ikinci kez şifrelenir. 
+Bu, cihazınızın tüm güvenliği ihlal edilse dahi verilerinizin okunmasını imkansız kılan son savunma hattıdır.
+
+3. Bağımsız Analiz ve Ağ Güvenliği
+Uygulamamızın üretim sürümü (Release), VirusTotal ve Zenbox gibi bağımsız otoriteler tarafından denetlenmiştir.
+
+İnternet Erişimi Yoktur: Uygulamamızda android.permission.INTERNET izni teknik olarak kaldırılmıştır. Verilerinizin cihaz dışına çıkabileceği bir iletişim 
+kanalı fiziksel olarak mevcut değildir.
+Şeffaf İzinler: Sadece Google Play ödeme sistemleri ve biyometrik kilit için gerekli olan minimum izinler kullanılır.
+
+4. Dinamik Bellek Temizliği ve Ekran Zırhı
+İz Bırakmayan RAM: Şifreleme anahtarları bellekte sadece saniyelerle ifade edilen işlem sürelerinde tutulur ve işi bittiği anda kriptografik olarak imha edilir.
+Casus Yazılım Koruması: FLAG_SECURE teknolojisi ile ekran görüntüsü alınması ve ekran kaydı yapılması engellenmiştir; böylece truva atı veya casus yazılımların 
+verilerinizi dikizlemesi imkansızdır.
+
+Otomatik Kilit: Uygulama arka plana atıldığı veya belirli bir süre işlem yapılmadığı anda veritabanı bağlantısı kesilir ve erişim derhal kilitlenir.
+
+"Lynra, sadece sizin bildiğiniz sırlar için tasarlanmış bir dijital kasadır."
+

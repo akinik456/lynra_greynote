@@ -351,4 +351,19 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Användarnamn / E-post';
+
+  @override
+  String get securityManifesto => 'Säkerhetsmanifest';
+
+  @override
+  String get securitySummaryTitle => 'Säkerhetsöversikt';
+
+  @override
+  String get advancedSecurityTitle => 'Avancerad säkerhet';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote är ett offline säkert valv som lagrar dina data endast på din enhet.\nApplikationen använder inga servrar, spårar dig inte och samlar inte in några data.\nAlla dina poster skyddas med stark kryptering och kan endast nås av dig.\nNär appen går till bakgrunden låses den automatiskt och skärmdumpar förhindras.\nOm upplåsningsinformationen glöms bort kan data inte återställas.\nFör detaljerad teknisk information, se avsnittet Avancerad säkerhet nedan.';
+
+  @override
+  String get advancedSecurityBody => 'Lynra GreyNote är utformad enligt moderna kryptografiska principer.\n\nDataskydd:\nInnehållet i poster krypteras med AES-256-GCM-algoritmen.\nDatabasen lagras helt krypterad med SQLCipher.\n\nNyckelhantering:\nHuvudnyckeln (Master Key) härleds från användarnycklar med PBKDF2-HMAC-SHA256-algoritmen.\nDenna nyckel lagras aldrig i klartext och används endast under den aktiva sessionen.\n\nNyckelseparation (Key Separation):\nDatabasåtkomst och datakryptering använder olika nycklar.\n\nExtra säkerhetslager:\nNär Vault Word aktiveras skyddas data med ett andra lager.\nDenna nyckel lagras inte på enheten och är endast känd av användaren.\n\nSessionssäkerhet:\nNär appen går till bakgrunden låses åtkomsten automatiskt.\nKrypteringsnycklar lagras endast i minnet under bearbetning.\n\nSkärmsäkerhet:\nSkärmdumpar och skärminspelning blockeras på systemnivå.\n\nSäkerhetskopiering:\nVid export skapas data som ett krypterat block (encrypted blob) och kan endast återställas med korrekt information.\n\nLynra kan inte komma åt, läsa eller återställa användardata.\n\nHela säkerhetsmodellen bygger på att användaren har full kontroll över sina data.';
 }

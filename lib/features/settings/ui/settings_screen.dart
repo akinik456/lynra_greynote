@@ -294,6 +294,18 @@ _Item(
     );
   },
 ),
+_Item(
+  title: AppLocalizations.of(context)!.securityManifesto,
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const SecurityManifestoScreen(),
+      ),
+    );
+  },
+),
+
         ],
       ),
     );
@@ -695,6 +707,57 @@ class _Item extends StatelessWidget {
           color: _primary,
         ),
         onTap: onTap,
+      ),
+    );
+  }
+}
+class SecurityManifestoScreen extends StatelessWidget {
+  const SecurityManifestoScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(l10n.securityManifesto),
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 🔹 LITE
+            Text(
+              l10n.securitySummaryTitle,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              l10n.securitySummaryBody,
+              style: const TextStyle(height: 1.5),
+            ),
+
+            const SizedBox(height: 24),
+
+            // 🔹 ADVANCED
+            Text(
+              l10n.advancedSecurityTitle,
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Text(
+              l10n.advancedSecurityBody,
+              style: const TextStyle(height: 1.5),
+            ),
+          ],
+        ),
       ),
     );
   }
