@@ -84,11 +84,11 @@ class _LynraAppState extends State<LynraApp> {
 
         double textScale = 1.0;
 
-        if (lang == 'hi') {
+        if (lang == 'hi'|| lang == 'th') {
           textScale = 1.16;
         } else if (lang == 'ar') {
-          textScale = 1.12;
-        } else if (lang == 'ja' || lang == 'ko' || lang == 'zh') {
+          textScale = 1.14;
+        } else if (lang == 'ja' || lang == 'ko' || lang == 'zh' ) {
           textScale = 1.10;
         }
 
@@ -248,8 +248,14 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
       }
 
       await AuthStorage.savePattern(createdPattern);
-      _savedPattern = createdPattern;
-      await _unlockExistingPattern();
+
+setState(() {
+  _savedPattern = createdPattern;
+  vaultKey = createdPattern;
+  _unlocked = true;
+  _loading = false;
+});
+return;
       if (!mounted) return;
       setState(() {
         _loading = false;

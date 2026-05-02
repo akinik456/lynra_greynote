@@ -271,13 +271,35 @@ class _SimplePatternLockState extends State<SimplePatternLock> {
   int? getHitIndex(Offset point, Size size) {
     for (int i = 0; i < 9; i++) {
       final pos = getPosition(i, size);
-      if ((point - pos).distance < 30) {
+      if ((point - pos).distance < 40) {
         return i;
       }
     }
     return null;
   }
+int? getIntermediate(int a, int b) {
+  final rowA = a ~/ 3;
+  final colA = a % 3;
+  final rowB = b ~/ 3;
+  final colB = b % 3;
 
+  final rowDiff = rowB - rowA;
+  final colDiff = colB - colA;
+
+  if (rowDiff.abs() == 2 && colDiff.abs() == 2) {
+    return 4; // çapraz orta
+  }
+
+  if (rowA == rowB && colDiff.abs() == 2) {
+    return rowA * 3 + 1; // yatay orta
+  }
+
+  if (colA == colB && rowDiff.abs() == 2) {
+    return 1 * 3 + colA; // dikey orta
+  }
+
+  return null;
+}
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -297,10 +319,19 @@ class _SimplePatternLockState extends State<SimplePatternLock> {
           onPanUpdate: (details) {
             final index = getHitIndex(details.localPosition, size);
             if (index != null && !selected.contains(index)) {
-              setState(() {
-                selected.add(index);
-              });
-            }
+  if (selected.isNotEmpty) {
+    final last = selected.last;
+    final mid = getIntermediate(last, index);
+
+    if (mid != null && !selected.contains(mid)) {
+      selected.add(mid);
+    }
+  }
+
+  setState(() {
+    selected.add(index);
+  });
+}
           },
           onPanEnd: (_) {
             widget.onComplete(List<int>.from(selected));

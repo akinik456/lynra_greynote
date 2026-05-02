@@ -204,7 +204,7 @@ Widget build(BuildContext context) {
           _FieldCard(
             label: AppLocalizations.of(context)!.username,
             child: SizedBox(
-              height: 18,
+              height: 22,
               child: TextField(
                 controller: usernameCtrl,
                 maxLines: 1,
@@ -354,83 +354,103 @@ Widget build(BuildContext context) {
 							],
 						),
 					),
-          _FieldCard(
-            label:"",
-						child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [                
-                Text(
+         _FieldCard(
+  label: "",
+  child: Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
         AppLocalizations.of(context)!.generatePasswordDescription,
         style: TextStyle(
           color: _textSecondary,
           fontSize: 13,
-          height: 1.4,
+          height: 1.3, // 🔥 1.4 → 1.3
         ),
       ),
 
-      const SizedBox(height: 8),
-								
-								Row(
-                  children: [
-                    OutlinedButton.icon(
-                      onPressed: () {
-                        final generated = generatePassword();
-                        setState(() {
-                          generatedPassword = generated;
-                        });
-                      },
-                      icon: const Icon(Icons.auto_awesome, color: _primary),
-                      label: Text(AppLocalizations.of(context)!.generate),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        generatedPassword.isEmpty
-                            ? AppLocalizations.of(context)!
-                                .noPasswordGenerated
-                            : generatedPassword,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          color: generatedPassword.isEmpty
-                              ? _textSecondary
-                              : _textPrimary,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.copy, color: _primary),
-                      onPressed: generatedPassword.isEmpty
-                          ? null
-                          : () async {
-                              await Clipboard.setData(
-                                ClipboardData(text: generatedPassword),
-                              );
+      const SizedBox(height: 6), // 🔥 8 → 6
 
-                              setState(() {
-                                passwordCtrl.text = generatedPassword;
-                                passwordStrengthKey = "strong";
-                              });
-                            },
-                    ),
-                  ],
-                ),
-                if (generatedPassword.isNotEmpty)
-                  Padding(
-                    padding: const EdgeInsets.only(top: 6),
-                    child: Text(
-                      AppLocalizations.of(context)!.strong,
-                      style: const TextStyle(
-                        color: Colors.greenAccent,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-              ],
+      Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          OutlinedButton.icon(
+            onPressed: () {
+              final generated = generatePassword();
+              setState(() {
+                generatedPassword = generated;
+              });
+            },
+            style: OutlinedButton.styleFrom(
+              minimumSize: const Size(0, 32),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              visualDensity: VisualDensity.compact,
+            ),
+            icon: const Icon(Icons.auto_awesome, color: _primary, size: 17),
+            label: Text(
+              AppLocalizations.of(context)!.generate,
+              style: const TextStyle(fontSize: 13, height: 1.0),
             ),
           ),
+
+          const SizedBox(width: 8),
+
+          Expanded(
+            child: Text(
+              generatedPassword.isEmpty
+                  ? AppLocalizations.of(context)!.noPasswordGenerated
+                  : generatedPassword,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: generatedPassword.isEmpty
+                    ? _textSecondary
+                    : _textPrimary,
+                fontSize: 13,
+                height: 1.0,
+              ),
+            ),
+          ),
+
+          IconButton(
+            icon: const Icon(Icons.copy, color: _primary, size: 20),
+            visualDensity: VisualDensity.compact,
+            padding: EdgeInsets.zero,
+            constraints: const BoxConstraints(
+              minWidth: 32,
+              minHeight: 32,
+            ),
+            onPressed: generatedPassword.isEmpty
+                ? null
+                : () async {
+                    await Clipboard.setData(
+                      ClipboardData(text: generatedPassword),
+                    );
+
+                    setState(() {
+                      passwordCtrl.text = generatedPassword;
+                      passwordStrengthKey = "strong";
+                    });
+                  },
+          ),
+        ],
+      ),
+
+      if (generatedPassword.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.only(top: 4), // 🔥 6 → 4
+          child: Text(
+            AppLocalizations.of(context)!.strong,
+            style: const TextStyle(
+              color: Colors.greenAccent,
+              fontSize: 11,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+    ],
+  ),
+),
         ],
 				
         _FieldCard(
