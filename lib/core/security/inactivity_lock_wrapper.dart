@@ -6,12 +6,14 @@ class InactivityLockWrapper extends StatefulWidget {
   final Widget child;
   final Duration timeout;
   final VoidCallback onTimeout;
+  final bool enabled;
 
   const InactivityLockWrapper({
     super.key,
     required this.child,
     required this.onTimeout,
-    this.timeout = const Duration(minutes: 1),//??
+    required this.enabled,
+    this.timeout = const Duration(minutes: 1),
   });
 
   @override
@@ -25,7 +27,24 @@ class _InactivityLockWrapperState extends State<InactivityLockWrapper> {
   @override
   void initState() {
     super.initState();
-    _startTimer();
+    if (widget.enabled) {
+      _startTimer();
+    }
+  }
+
+  @override
+  void didUpdateWidget(covariant InactivityLockWrapper oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (!oldWidget.enabled && widget.enabled) {
+      _timedOut = false;
+      _startTimer();
+    }
+
+    if (oldWidget.enabled && !widget.enabled) {
+      _timer?.cancel();
+      _timedOut = false;
+    }
   }
 
   void _startTimer() {
@@ -34,12 +53,13 @@ class _InactivityLockWrapperState extends State<InactivityLockWrapper> {
   }
 
   void _resetTimer() {
+    if (!widget.enabled) return;
     if (_timedOut) return;
     _startTimer();
   }
 
   void _handleTimeout() {
-    if (!mounted || _timedOut) return;
+    if (!mounted || _timedOut || !widget.enabled) return;
     _timedOut = true;
     widget.onTimeout();
   }

@@ -437,15 +437,7 @@ Future<void> delete(VaultItem item) async {
   Widget build(BuildContext context) {
     final shouldHide = isVaultWordEnabled && !isVaultUnlocked;
 
-    return InactivityLockWrapper(
-  onTimeout: () {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(builder: (_) =>  AppGate()),
-      (route) => false,
-    );
-  },
-  child:  Scaffold(
+    return Scaffold(
       backgroundColor: _bgColor,
       appBar: AppBar(
         backgroundColor: _bgColor,
@@ -672,7 +664,7 @@ Future<void> delete(VaultItem item) async {
 			
 			
 			
-    ),
+    
 	);	
   }
   Future<void> showVaultUnlockDialog() async {
