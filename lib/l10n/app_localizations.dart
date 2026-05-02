@@ -793,7 +793,7 @@ abstract class AppLocalizations {
   /// No description provided for @securityManifesto.
   ///
   /// In en, this message translates to:
-  /// **'Security Manifesto'**
+  /// **'Security Model'**
   String get securityManifesto;
 
   /// No description provided for @securitySummaryTitle.

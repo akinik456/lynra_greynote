@@ -353,7 +353,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get usernameEmail => 'اسم المستخدم / البريد الإلكتروني';
 
   @override
-  String get securityManifesto => 'بيان الأمان';
+  String get securityManifesto => 'نموذج الأمان';
 
   @override
   String get securitySummaryTitle => 'ملخص الأمان';

@@ -137,7 +137,7 @@
 "username": 				"Nome utente",
 "usernameCopied": 			"Nome utente copiato",
 "usernameEmail": 			"Nome utente / Email",
-  "securityManifesto": "Manifesto di sicurezza",
+  "securityManifesto": "Modello di sicurezza",
 "securitySummaryTitle": "Riepilogo della sicurezza",
 "advancedSecurityTitle": "Sicurezza avanzata",
 "securitySummaryBody": "Lynra GreyNote è una cassaforte sicura offline che memorizza i tuoi dati esclusivamente sul tuo dispositivo.\nL'applicazione non utilizza server, non ti traccia e non raccoglie alcun dato.\nTutte le tue voci sono protette da una forte crittografia e sono accessibili solo da te.\nQuando l'app viene messa in background, si blocca automaticamente e gli screenshot vengono impediti.\nSe le informazioni di sblocco vengono dimenticate, i dati non possono essere recuperati.\nPer informazioni tecniche dettagliate, consulta la sezione Sicurezza avanzata qui sotto.",

@@ -140,7 +140,7 @@
 "usernameEmail": 								"Username / Email",
 
 
-  "securityManifesto": "Security Manifesto",
+  "securityManifesto": "Security Model",
   "securitySummaryTitle": "Security Summary",
   "advancedSecurityTitle": "Advanced Security",
   "securitySummaryBody": "Lynra GreyNote is an offline secure vault that stores your data only on your device.\nThe app does not use servers, does not track you, and does not collect any data.\nAll your records are protected with strong encryption and can only be accessed by you.\nWhen the app goes to the background, it automatically locks and prevents screenshots.\nIf unlock credentials are forgotten, data cannot be recovered.\nFor detailed technical information, please refer to the Advanced Security section below.",

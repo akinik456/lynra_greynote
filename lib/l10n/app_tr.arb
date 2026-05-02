@@ -139,7 +139,7 @@
 "username": 				"Kullanıcı Adı",
 "usernameCopied": 			"Kullanıcı adı kopyalandı",
 "usernameEmail": 			"Kullanıcı Adı / E-posta",
-  "securityManifesto": "Güvenlik Manifestosu",
+  "securityManifesto": "Güvenlik Modeli",
   "securitySummaryTitle": "Güvenlik Özeti",
   "advancedSecurityTitle": "Gelişmiş Güvenlik",
   "securitySummaryBody": "Lynra GreyNote, verilerinizi yalnızca cihazınızda saklayan çevrimdışı bir güvenli kasadır.\nUygulama sunucu kullanmaz, sizi takip etmez ve hiçbir veri toplamaz.\nTüm kayıtlarınız güçlü şifreleme ile korunur ve yalnızca siz erişebilirsiniz.\nUygulama arka plana alındığında otomatik olarak kilitlenir ve ekran görüntüsü alınması engellenir.\nKilit açma bilgileri unutulursa veriler geri getirilemez.\nDetaylı teknik bilgi için aşağıdaki Gelişmiş Güvenlik bölümünü inceleyebilirsiniz.",

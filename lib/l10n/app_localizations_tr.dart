@@ -347,7 +347,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get usernameEmail => 'Kullanıcı Adı / E-posta';
 
   @override
-  String get securityManifesto => 'Güvenlik Manifestosu';
+  String get securityManifesto => 'Güvenlik Modeli';
 
   @override
   String get securitySummaryTitle => 'Güvenlik Özeti';

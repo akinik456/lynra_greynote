@@ -353,7 +353,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get usernameEmail => 'Tên người dùng / Email';
 
   @override
-  String get securityManifesto => 'Tuyên ngôn Bảo mật';
+  String get securityManifesto => 'Mô hình bảo mật';
 
   @override
   String get securitySummaryTitle => 'Tóm tắt Bảo mật';

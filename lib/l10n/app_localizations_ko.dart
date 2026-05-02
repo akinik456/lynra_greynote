@@ -353,7 +353,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get usernameEmail => '사용자 이름 / 이메일';
 
   @override
-  String get securityManifesto => '보안 선언문';
+  String get securityManifesto => '보안 모델';
 
   @override
   String get securitySummaryTitle => '보안 요약';

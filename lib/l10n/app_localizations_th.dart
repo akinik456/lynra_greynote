@@ -353,7 +353,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get usernameEmail => 'ชื่อผู้ใช้ / อีเมล';
 
   @override
-  String get securityManifesto => 'แถลงการณ์ความปลอดภัย';
+  String get securityManifesto => 'โมเดลความปลอดภัย';
 
   @override
   String get securitySummaryTitle => 'สรุปความปลอดภัย';

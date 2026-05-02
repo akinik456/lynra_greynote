@@ -353,7 +353,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get usernameEmail => 'Username / Email';
 
   @override
-  String get securityManifesto => 'Security Manifesto';
+  String get securityManifesto => 'Security Model';
 
   @override
   String get securitySummaryTitle => 'Security Summary';
@@ -717,7 +717,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get usernameEmail => 'Nome de usuário / E-mail';
 
   @override
-  String get securityManifesto => 'Manifesto de Segurança';
+  String get securityManifesto => 'Modelo de Segurança';
 
   @override
   String get securitySummaryTitle => 'Resumo de Segurança';

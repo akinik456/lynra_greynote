@@ -137,7 +137,7 @@
 "username": 				"Nazwa użytkownika",
 "usernameCopied": 			"Nazwa użytkownika skopiowana",
 "usernameEmail": 			"Nazwa użytkownika / Email",
-"securityManifesto": "Manifest bezpieczeństwa",
+"securityManifesto": "Model bezpieczeństwa",
 "securitySummaryTitle": "Podsumowanie bezpieczeństwa",
 "advancedSecurityTitle": "Zaawansowane bezpieczeństwo",
 "securitySummaryBody": "Lynra GreyNote to offline bezpieczny sejf, który przechowuje Twoje dane wyłącznie na Twoim urządzeniu.\nAplikacja nie korzysta z serwerów, nie śledzi Cię i nie zbiera żadnych danych.\nWszystkie Twoje wpisy są chronione silnym szyfrowaniem i dostępne tylko dla Ciebie.\nGdy aplikacja przechodzi do tła, jest automatycznie blokowana i zapobiega wykonywaniu zrzutów ekranu.\nJeśli informacje odblokowujące zostaną zapomniane, dane nie mogą zostać odzyskane.\nAby uzyskać szczegółowe informacje techniczne, zapoznaj się z sekcją Zaawansowane bezpieczeństwo poniżej.",

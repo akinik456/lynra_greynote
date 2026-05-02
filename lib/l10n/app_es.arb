@@ -138,7 +138,7 @@
 "usernameCopied": 			"Nombre de usuario copiado",
 "usernameEmail": 			"Nombre de usuario / Correo electrónico",
 
-  "securityManifesto": "Manifiesto de Seguridad",
+  "securityManifesto": "Modelo de Seguridad",
   "securitySummaryTitle": "Resumen de Seguridad",
   "advancedSecurityTitle": "Seguridad Avanzada",
   "securitySummaryBody": "Lynra GreyNote es una bóveda segura sin conexión que almacena sus datos únicamente en su dispositivo.\nLa aplicación no utiliza servidores, no le rastrea y no recopila ningún dato.\nTodos sus registros están protegidos con un cifrado fuerte y solo usted puede acceder a ellos.\nCuando la aplicación pasa a segundo plano, se bloquea automáticamente y evita capturas de pantalla.\nSi se olvidan las credenciales de desbloqueo, los datos no pueden recuperarse.\nPara obtener información técnica detallada, consulte la sección de Seguridad Avanzada a continuación.",

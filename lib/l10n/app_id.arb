@@ -137,7 +137,7 @@
 "username": 				"Username",
 "usernameCopied": 			"Username disalin",
 "usernameEmail": 			"Username / Email",
-"securityManifesto": "Manifesto Keamanan",
+"securityManifesto": "Model Keamanan",
 "securitySummaryTitle": "Ringkasan Keamanan",
 "advancedSecurityTitle": "Keamanan Lanjutan",
 "securitySummaryBody": "Lynra GreyNote adalah brankas aman offline yang menyimpan data Anda hanya di perangkat Anda.\nAplikasi ini tidak menggunakan server, tidak melacak Anda, dan tidak mengumpulkan data apa pun.\nSemua catatan Anda dilindungi dengan enkripsi kuat dan hanya dapat diakses oleh Anda.\nSaat aplikasi masuk ke latar belakang, aplikasi akan terkunci secara otomatis dan tangkapan layar dicegah.\nJika informasi pembukaan kunci dilupakan, data tidak dapat dipulihkan.\nUntuk informasi teknis lebih lanjut, silakan lihat bagian Keamanan Lanjutan di bawah ini.",

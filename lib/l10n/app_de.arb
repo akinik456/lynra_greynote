@@ -135,7 +135,7 @@
 "username": 				"Benutzername",
 "usernameCopied": 			"Benutzername kopiert",
 "usernameEmail": 			"Benutzername / E-Mail",
-"securityManifesto": "Sicherheitsmanifest",
+"securityManifesto": "Sicherheitsmodell",
 "securitySummaryTitle": "Sicherheitsübersicht",
 "advancedSecurityTitle": "Erweiterte Sicherheit",
 "securitySummaryBody": "Lynra GreyNote ist ein Offline-Sicherheitstresor, der Ihre Daten ausschließlich auf Ihrem Gerät speichert.\nDie Anwendung verwendet keinen Server, verfolgt Sie nicht und sammelt keine Daten.\nAlle Ihre Einträge sind mit starker Verschlüsselung geschützt und nur für Sie zugänglich.\nWenn die Anwendung in den Hintergrund wechselt, wird sie automatisch gesperrt und Bildschirmaufnahmen werden verhindert.\nWenn die Entsperrinformationen vergessen werden, können die Daten nicht wiederhergestellt werden.\nFür detaillierte technische Informationen lesen Sie bitte den Abschnitt Erweiterte Sicherheit unten.",

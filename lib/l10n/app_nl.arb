@@ -137,7 +137,7 @@
 "username": 				"Gebruikersnaam",
 "usernameCopied": 			"Gebruikersnaam gekopieerd",
 "usernameEmail": 			"Gebruikersnaam / E-mail",
-"securityManifesto": "Beveiligingsmanifest",
+"securityManifesto": "Beveiligingsmodel",
 "securitySummaryTitle": "Beveiligingsoverzicht",
 "advancedSecurityTitle": "Geavanceerde beveiliging",
 "securitySummaryBody": "Lynra GreyNote is een offline veilige kluis die uw gegevens uitsluitend op uw apparaat opslaat.\nDe applicatie gebruikt geen servers, volgt u niet en verzamelt geen gegevens.\nAl uw items worden beschermd met sterke encryptie en zijn alleen voor u toegankelijk.\nWanneer de app naar de achtergrond gaat, wordt deze automatisch vergrendeld en worden screenshots geblokkeerd.\nAls de ontgrendelingsgegevens worden vergeten, kunnen de gegevens niet worden hersteld.\nVoor gedetailleerde technische informatie raadpleegt u de sectie Geavanceerde beveiliging hieronder.",

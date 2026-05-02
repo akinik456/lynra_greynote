@@ -353,7 +353,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get usernameEmail => 'Nazwa użytkownika / Email';
 
   @override
-  String get securityManifesto => 'Manifest bezpieczeństwa';
+  String get securityManifesto => 'Model bezpieczeństwa';
 
   @override
   String get securitySummaryTitle => 'Podsumowanie bezpieczeństwa';

@@ -353,7 +353,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get usernameEmail => 'Username / Email';
 
   @override
-  String get securityManifesto => 'Manifesto Keamanan';
+  String get securityManifesto => 'Model Keamanan';
 
   @override
   String get securitySummaryTitle => 'Ringkasan Keamanan';

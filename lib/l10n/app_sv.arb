@@ -137,7 +137,7 @@
 "username": 				"Användarnamn",
 "usernameCopied": 			"Användarnamn kopierat",
 "usernameEmail": 			"Användarnamn / E-post",
-"securityManifesto": "Säkerhetsmanifest",
+"securityManifesto": "Säkerhetsmodell",
 "securitySummaryTitle": "Säkerhetsöversikt",
 "advancedSecurityTitle": "Avancerad säkerhet",
 "securitySummaryBody": "Lynra GreyNote är ett offline säkert valv som lagrar dina data endast på din enhet.\nApplikationen använder inga servrar, spårar dig inte och samlar inte in några data.\nAlla dina poster skyddas med stark kryptering och kan endast nås av dig.\nNär appen går till bakgrunden låses den automatiskt och skärmdumpar förhindras.\nOm upplåsningsinformationen glöms bort kan data inte återställas.\nFör detaljerad teknisk information, se avsnittet Avancerad säkerhet nedan.",

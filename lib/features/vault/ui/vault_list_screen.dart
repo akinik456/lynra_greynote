@@ -10,6 +10,9 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:in_app_update/in_app_update.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../core/db/database_helper.dart';
@@ -65,7 +68,9 @@ class _VaultListScreenState extends State<VaultListScreen> {
   int itemCount = 0;
   int collectionCount = 0;
   String searchQuery = "";
-  
+  String _appVersion = '';
+	
+	
   @override
 void initState() {
   super.initState();
@@ -101,6 +106,7 @@ void initState() {
   });
 
   InAppPurchase.instance.restorePurchases();
+	unawaited(_loadVersion());
 }
 	
 	@override
@@ -144,6 +150,15 @@ Future<void> _initFlow() async {
 //print(DateTime.now());
 //print("Time_Check10");
 }
+
+Future<void> _loadVersion() async {
+  final info = await PackageInfo.fromPlatform();
+
+  if (!mounted) return;
+  setState(() {
+    _appVersion = "${info.version}+${info.buildNumber}";
+  });
+}	
 
 Future<String?> _getUnwrappedMasterKey() async {
   // 1. Paketli anahtarı oku
@@ -392,29 +407,44 @@ Future<void> delete(VaultItem item) async {
         surfaceTintColor: _bgColor,
         centerTitle: true,
         elevation: 0,
-        title: RichText(
-					text: TextSpan(
-						children: [
-							const TextSpan(
-								text: 'LynraGreyNote',
-								style: TextStyle(
-									color: Color(0xFF22D3EE), // cyan_textPrimary,
-									fontWeight: FontWeight.w700,
-									letterSpacing: 0.2,
-									fontSize: 18,
-								),
-							),
-							if (_isPremium)
-								const TextSpan(
-									text: ' ✦',
-									style: TextStyle(
-										color: Color(0xFF22D3EE), // cyan
-										fontWeight: FontWeight.w700,
-									),
-								),
-						],
-					),
-				),
+        title: Column(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+    RichText(
+      text: TextSpan(
+        children: [
+          const TextSpan(
+            text: 'LynraGreyNote',
+            style: TextStyle(
+              color: Color(0xFF22D3EE),
+              fontWeight: FontWeight.w700,
+              letterSpacing: 0.2,
+              fontSize: 18,
+            ),
+          ),
+          if (_isPremium)
+            const TextSpan(
+              text: ' ✦',
+              style: TextStyle(
+                color: Color(0xFF22D3EE),
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+        ],
+      ),
+    ),
+
+    if (_appVersion.isNotEmpty)
+      Text(
+        "Version $_appVersion",
+        style: TextStyle(
+          color: Colors.white.withOpacity(0.4),
+          fontSize: 11,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+  ],
+),
         actions: [
           IconButton(
 			  icon: const Icon(Icons.settings_outlined, color: _textPrimary),
@@ -443,6 +473,8 @@ Future<void> delete(VaultItem item) async {
           ),
         ],
       ),
+			
+			
       body: Column(
         children: [
           const SizedBox(height: 4),

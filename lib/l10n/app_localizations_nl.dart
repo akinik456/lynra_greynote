@@ -353,7 +353,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get usernameEmail => 'Gebruikersnaam / E-mail';
 
   @override
-  String get securityManifesto => 'Beveiligingsmanifest';
+  String get securityManifesto => 'Beveiligingsmodel';
 
   @override
   String get securitySummaryTitle => 'Beveiligingsoverzicht';

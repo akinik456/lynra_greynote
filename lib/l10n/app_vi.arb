@@ -136,7 +136,7 @@
 "username": 				"Tên người dùng",
 "usernameCopied": 			"Đã sao chép tên người dùng",
 "usernameEmail": 			"Tên người dùng / Email",
-"securityManifesto": "Tuyên ngôn Bảo mật",
+"securityManifesto": "Mô hình bảo mật",
 "securitySummaryTitle": "Tóm tắt Bảo mật",
 "advancedSecurityTitle": "Bảo mật Nâng cao",
 "securitySummaryBody": "Lynra GreyNote là một két bảo mật ngoại tuyến lưu trữ dữ liệu của bạn chỉ trên thiết bị của bạn.\nỨng dụng không sử dụng máy chủ, không theo dõi bạn và không thu thập bất kỳ dữ liệu nào.\nTất cả các mục của bạn được bảo vệ bằng mã hóa mạnh và chỉ bạn mới có thể truy cập.\nKhi ứng dụng chuyển sang nền, nó sẽ tự động khóa và chặn chụp màn hình.\nNếu thông tin mở khóa bị quên, dữ liệu không thể khôi phục.\nĐể biết thêm thông tin kỹ thuật, vui lòng xem phần Bảo mật Nâng cao bên dưới.",

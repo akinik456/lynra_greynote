@@ -353,7 +353,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get usernameEmail => 'ユーザー名 / メール';
 
   @override
-  String get securityManifesto => 'セキュリティマニフェスト';
+  String get securityManifesto => 'セキュリティモデル';
 
   @override
   String get securitySummaryTitle => 'セキュリティ概要';

@@ -353,7 +353,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get usernameEmail => 'Username / Email';
 
   @override
-  String get securityManifesto => 'Security Manifesto';
+  String get securityManifesto => 'Security Model';
 
   @override
   String get securitySummaryTitle => 'Security Summary';

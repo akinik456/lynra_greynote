@@ -137,7 +137,7 @@
 "username": 				"사용자 이름",
 "usernameCopied": 			"사용자 이름 복사됨",
 "usernameEmail": 			"사용자 이름 / 이메일",
-"securityManifesto": "보안 선언문",
+"securityManifesto": "보안 모델",
 "securitySummaryTitle": "보안 요약",
 "advancedSecurityTitle": "고급 보안",
 "securitySummaryBody": "Lynra GreyNote는 데이터를 오직 기기 내에만 저장하는 오프라인 보안 금고입니다.\n이 애플리케이션은 서버를 사용하지 않으며, 사용자를 추적하거나 데이터를 수집하지 않습니다.\n모든 항목은 강력한 암호화로 보호되며 오직 사용자만 접근할 수 있습니다.\n앱이 백그라운드로 전환되면 자동으로 잠기며 화면 캡처가 차단됩니다.\n잠금 해제 정보를 잊어버리면 데이터를 복구할 수 없습니다.\n자세한 기술 정보는 아래 고급 보안 섹션을 확인하십시오.",

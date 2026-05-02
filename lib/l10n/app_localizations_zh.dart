@@ -353,7 +353,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get usernameEmail => '用户名 / 邮箱';
 
   @override
-  String get securityManifesto => '安全宣言';
+  String get securityManifesto => '安全模型';
 
   @override
   String get securitySummaryTitle => '安全摘要';

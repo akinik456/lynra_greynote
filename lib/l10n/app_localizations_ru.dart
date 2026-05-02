@@ -353,7 +353,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get usernameEmail => 'Имя пользователя / Email';
 
   @override
-  String get securityManifesto => 'Манифест безопасности';
+  String get securityManifesto => 'Модель безопасности';
 
   @override
   String get securitySummaryTitle => 'Сводка безопасности';

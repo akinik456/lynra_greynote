@@ -137,7 +137,7 @@
 "username": 				"Nom d’utilisateur",
 "usernameCopied": 			"Nom d’utilisateur copié",
 "usernameEmail": 			"Nom d’utilisateur / Email",
-  "securityManifesto": "Manifeste de sécurité",
+  "securityManifesto": "Modèle de sécurité",
 "securitySummaryTitle": "Résumé de sécurité",
 "advancedSecurityTitle": "Sécurité avancée",
 "securitySummaryBody": "Lynra GreyNote est un coffre sécurisé hors ligne qui stocke vos données uniquement sur votre appareil.\nL'application n'utilise aucun serveur, ne vous suit pas et ne collecte aucune donnée.\nToutes vos entrées sont protégées par un chiffrement fort et ne sont accessibles que par vous.\nLorsque l'application passe en arrière-plan, elle se verrouille automatiquement et les captures d'écran sont bloquées.\nSi les informations de déverrouillage sont oubliées, les données ne peuvent pas être récupérées.\nPour des informations techniques détaillées, veuillez consulter la section Sécurité avancée ci-dessous.",

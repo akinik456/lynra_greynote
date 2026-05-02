@@ -136,7 +136,7 @@
 "username": 				"用户名",
 "usernameCopied": 			"用户名已复制",
 "usernameEmail": 			"用户名 / 邮箱",
-"securityManifesto": "安全宣言",
+"securityManifesto": "安全模型",
 "securitySummaryTitle": "安全摘要",
 "advancedSecurityTitle": "高级安全",
 "securitySummaryBody": "Lynra GreyNote 是一个离线安全保险库，仅在您的设备上存储您的数据。\n该应用不使用服务器，不会跟踪您，也不会收集任何数据。\n您的所有记录都通过强加密保护，且仅您可以访问。\n当应用进入后台时，会自动锁定并阻止截图。\n如果忘记解锁信息，数据将无法恢复。\n有关详细技术信息，请参阅下面的高级安全部分。",
