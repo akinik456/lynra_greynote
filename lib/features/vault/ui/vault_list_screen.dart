@@ -107,6 +107,7 @@ void initState() {
 
   InAppPurchase.instance.restorePurchases();
 	unawaited(_loadVersion());
+	unawaited(_checkForUpdate());
 }
 	
 	@override
@@ -159,7 +160,51 @@ Future<void> _loadVersion() async {
     _appVersion = "${info.version}+${info.buildNumber}";
   });
 }	
+Future<void> _checkForUpdate() async {
+  try {
+    final info = await InAppUpdate.checkForUpdate();
 
+    if (!mounted) return;
+
+    if (info.updateAvailability == UpdateAvailability.updateAvailable &&
+        info.flexibleUpdateAllowed) {
+      _showUpdateDialog();
+    }
+  } catch (_) {
+    // Debug APK, sideload veya Play Store dışı kurulumda hata verebilir.
+    // Sessiz geçiyoruz.
+  }
+}
+void _showUpdateDialog() {
+  showDialog(
+    context: context,
+    barrierDismissible: true,
+    builder: (context) {
+      return AlertDialog(
+        title: const Text("Update Available"),
+        content: const Text(
+          "A new version is available. Update now for the best experience.",
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: const Text("LATER"),
+          ),
+          TextButton(
+            onPressed: () async {
+              Navigator.pop(context);
+              try {
+                await InAppUpdate.startFlexibleUpdate();
+                await InAppUpdate.completeFlexibleUpdate();
+              } catch (_) {}
+            },
+            child: const Text("UPDATE"),
+          ),
+        ],
+      );
+    },
+  );
+}
 Future<String?> _getUnwrappedMasterKey() async {
   // 1. Paketli anahtarı oku
   final wrappedMK = await AuthStorage.getWrappedMasterKey();
