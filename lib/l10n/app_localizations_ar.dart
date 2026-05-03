@@ -9,6 +9,15 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get sortFavorites => 'المفضلة';
+
+  @override
+  String get sortUpdated => 'آخر تحديث';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => 'نمط';
 
   @override

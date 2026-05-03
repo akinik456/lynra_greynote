@@ -1,4 +1,8 @@
 {
+"sortFavorites": 								"Favorites",
+"sortUpdated": 									"Last updated",
+"sortAZ": 											"A–Z",
+
 "pattern": 											"Pattern",
 
 "removeAttachment": 						"Remove",

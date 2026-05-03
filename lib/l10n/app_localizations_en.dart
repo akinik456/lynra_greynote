@@ -9,6 +9,15 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get sortFavorites => 'Favorites';
+
+  @override
+  String get sortUpdated => 'Last updated';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => 'Pattern';
 
   @override

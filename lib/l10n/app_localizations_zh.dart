@@ -9,6 +9,15 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get sortFavorites => '收藏';
+
+  @override
+  String get sortUpdated => '最近更新';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => '图案';
 
   @override

@@ -1,4 +1,8 @@
 {
+"sortFavorites": "Ulubione",
+"sortUpdated": "Ostatnio zaktualizowane",
+"sortAZ": "A–Z",
+
 "pattern": 											"Wzór",
 "removeAttachment": 						"Usuń plik",
 "attachmentRemoved": 						"Załącznik usunięty",

@@ -1,4 +1,8 @@
 {
+"sortFavorites": "Favorieten",
+"sortUpdated": "Laatst bijgewerkt",
+"sortAZ": "A–Z",
+
 "pattern": 											"Patroon",
 "removeAttachment": 						"Bestand verwijderen",
 "attachmentRemoved": 						"Bijlage verwijderd",

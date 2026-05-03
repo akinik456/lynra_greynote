@@ -1,4 +1,8 @@
 {
+"sortFavorites": "收藏",
+"sortUpdated": "最近更新",
+"sortAZ": "A–Z",
+
 "pattern": 											"图案",
 "removeAttachment": 						"移除文件",
 "attachmentRemoved": 						"附件已删除",

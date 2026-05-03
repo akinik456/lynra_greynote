@@ -9,6 +9,15 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get sortFavorites => 'お気に入り';
+
+  @override
+  String get sortUpdated => '最終更新';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => 'パターン';
 
   @override

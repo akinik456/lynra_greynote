@@ -9,6 +9,15 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get sortFavorites => 'Favorit';
+
+  @override
+  String get sortUpdated => 'Terakhir diperbarui';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => 'Pola';
 
   @override

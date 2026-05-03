@@ -9,6 +9,15 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get sortFavorites => 'Favoriler';
+
+  @override
+  String get sortUpdated => 'Son güncellenen';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => 'Desen';
 
   @override

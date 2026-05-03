@@ -72,6 +72,8 @@ class _VaultListScreenState extends State<VaultListScreen> {
   String searchQuery = "";
   String _appVersion = '';
 	bool shouldHide=false;
+	String sortType = 'updated';
+	
 	
   @override
 void initState() {
@@ -79,6 +81,7 @@ void initState() {
 
   _verifyPremium();
   loadVaultWordSettings();
+	loadSortType();
   _initFlow();
 
   _purchaseSub = InAppPurchase.instance.purchaseStream.listen((purchases) async {
@@ -219,6 +222,14 @@ void _showUpdateDialog() {
     },
   );
 }
+Future<void> loadSortType() async {
+  final saved = await AuthStorage.safeRead("vault_sort_type");
+
+  setState(() {
+    sortType = saved ?? 'updated';
+  });
+}
+
 Future<void> loadVaultWordState() async {
   final enabledValue = await AuthStorage.safeRead("vault_word_enabled");
 
@@ -255,28 +266,40 @@ Future<String?> _getUnwrappedMasterKey() async {
   }
 }
 
- Future<void> load() async {
+Future<void> load() async {
   if (_payloadKey == null) return;
 
   final result = await repo.getItems(
     payloadKey: _payloadKey!,
     collectionId: selectedCollectionId,
   );
+  if (sortType == 'favorites') {
+    result.sort((a, b) {
+      if (a.isFavorite == b.isFavorite) {
+        return b.updatedAt.compareTo(a.updatedAt); // aynıysa güncel öne
+      }
+      return a.isFavorite ? -1 : 1;
+    });
+  } else if (sortType == 'az') {
+    result.sort((a, b) {
+      final at = a.title.trim().toLowerCase();
+      final bt = b.title.trim().toLowerCase();
 
-  result.sort((a, b) {
-    final at = a.title.trim().toLowerCase();
-    final bt = b.title.trim().toLowerCase();
+      if (at.isEmpty) return 1;
+      if (bt.isEmpty) return -1;
 
-    if (at.isEmpty) return 1;
-    if (bt.isEmpty) return -1;
+      return at.compareTo(bt);
+    });
+  } else {
+    // updated (default)
+    result.sort((a, b) => b.updatedAt.compareTo(a.updatedAt));
+  }
 
-    return at.compareTo(bt);
+  setState(() {
+    items = result;
+    itemCount = result.length;
   });
-
-  setState(() => items = result);
-  itemCount = result.length;
 }
-
   Future<void> loadCollections() async {
     final result = await collectionRepo.getCollections();
 	collectionCount = result.length;
@@ -627,6 +650,46 @@ Future<void> delete(VaultItem item) async {
 					? AppLocalizations.of(context)!.unlockToSearch
 					: AppLocalizations.of(context)!.search,
 				  prefixIcon: const Icon(Icons.search),
+					suffixIcon: IconButton(
+  icon: const Icon(
+    Icons.swap_vert_rounded, // ↑↓ hissi en yakın
+    color: Color(0xFF22D3EE),
+    size: 30,
+  ),
+    onPressed: () async {
+  final result = await showMenu<String>(
+    context: context,
+    position: const RelativeRect.fromLTRB(1000, 80, 16, 0),
+    items: [
+      PopupMenuItem(
+        value: 'favorites',
+        child: Text(AppLocalizations.of(context)!.sortFavorites),
+      ),
+      PopupMenuItem(
+        value: 'updated',
+        child: Text(AppLocalizations.of(context)!.sortUpdated),
+      ),
+      PopupMenuItem(
+        value: 'az',
+        child: Text(AppLocalizations.of(context)!.sortAZ),
+      ),
+    ],
+  );
+
+  // şimdilik sadece test
+  if (result != null) {
+  setState(() {
+    sortType = result;
+  });
+	await AuthStorage.safeWrite(
+    key: "vault_sort_type",
+    value: result,
+  );
+	await load();
+}
+},
+  ),
+					
 				  filled: true,
 				  fillColor: const Color(0xFF1E293B),
 				  border: OutlineInputBorder(

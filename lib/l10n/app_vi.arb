@@ -1,4 +1,7 @@
 {
+"sortFavorites": "Yêu thích",
+"sortUpdated": "Cập nhật gần đây",
+"sortAZ": "A–Z",
 "pattern": 											"Mẫu",
 "removeAttachment": 						"Xóa tệp",
 "attachmentRemoved": 						"Tệp đính kèm đã bị xóa",

@@ -1,4 +1,9 @@
 {
+"sortFavorites": "Favoritos",
+"sortUpdated": "Última actualización",
+"sortAZ": "A–Z",
+
+
 "pattern": 											"Patrón",
 "removeAttachment": 						"Eliminar archivo",
 "attachmentRemoved": 						"Adjunto eliminado",

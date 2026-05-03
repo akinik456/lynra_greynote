@@ -9,6 +9,15 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get sortFavorites => 'Favorieten';
+
+  @override
+  String get sortUpdated => 'Laatst bijgewerkt';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => 'Patroon';
 
   @override

@@ -130,6 +130,24 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @sortFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get sortFavorites;
+
+  /// No description provided for @sortUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated'**
+  String get sortUpdated;
+
+  /// No description provided for @sortAZ.
+  ///
+  /// In en, this message translates to:
+  /// **'A–Z'**
+  String get sortAZ;
+
   /// No description provided for @pattern.
   ///
   /// In en, this message translates to:

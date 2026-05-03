@@ -1,4 +1,7 @@
 {
+"sortFavorites": "Favoriter",
+"sortUpdated": "Senast uppdaterad",
+"sortAZ": "A–Z",
 "pattern": 											"Mönster",
 "attachmentRemoved": 						"Ta bort fil",
 "viewAttachment": 							"Visa bilaga",

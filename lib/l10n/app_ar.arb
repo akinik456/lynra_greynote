@@ -1,4 +1,8 @@
 {
+"sortFavorites": "المفضلة",
+"sortUpdated": "آخر تحديث",
+"sortAZ": "A–Z",
+
 "pattern": 											"نمط",
 "removeAttachment": 						"إزالة الملف",
 "attachmentRemoved": 						"تمت إزالة المرفق",

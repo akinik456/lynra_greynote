@@ -1,4 +1,8 @@
 {
+"sortFavorites": "Favoriler",
+"sortUpdated": "Son güncellenen",
+"sortAZ": "A–Z",
+
 "pattern": 											"Desen",
 "removeAttachment": 						"Dosyayı kaldır",
 "attachmentRemoved": 						"Ek kaldırıldı",

@@ -1,4 +1,8 @@
 {
+"sortFavorites": "お気に入り",
+"sortUpdated": "最終更新",
+"sortAZ": "A–Z",
+
 "pattern": 											"パターン",
 "removeAttachment": 						"ファイルを削除",
 "attachmentRemoved": 						"添付ファイルが削除されました",

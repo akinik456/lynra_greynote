@@ -9,6 +9,15 @@ class AppLocalizationsPl extends AppLocalizations {
   AppLocalizationsPl([String locale = 'pl']) : super(locale);
 
   @override
+  String get sortFavorites => 'Ulubione';
+
+  @override
+  String get sortUpdated => 'Ostatnio zaktualizowane';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => 'Wzór';
 
   @override

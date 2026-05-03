@@ -9,6 +9,15 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
+  String get sortFavorites => 'Yêu thích';
+
+  @override
+  String get sortUpdated => 'Cập nhật gần đây';
+
+  @override
+  String get sortAZ => 'A–Z';
+
+  @override
   String get pattern => 'Mẫu';
 
   @override

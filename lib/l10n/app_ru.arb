@@ -1,4 +1,8 @@
 {
+"sortFavorites": "Избранное",
+"sortUpdated": "Последнее обновление",
+"sortAZ": "A–Z",
+
 "pattern": 											"Шаблон",
 "removeAttachment": 						"Удалить файл",
 "attachmentRemoved": 						"Вложение удалено",

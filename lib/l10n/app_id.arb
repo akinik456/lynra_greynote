@@ -1,4 +1,7 @@
 {
+"sortFavorites": "Favorit",
+"sortUpdated": "Terakhir diperbarui",
+"sortAZ": "A–Z",
 "pattern": 											"Pola",
 "removeAttachment": 						"Hapus file",
 "attachmentRemoved": 						"Lampiran dihapus",

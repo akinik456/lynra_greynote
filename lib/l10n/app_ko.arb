@@ -1,4 +1,7 @@
 {
+"sortFavorites": "즐겨찾기",
+"sortUpdated": "최근 업데이트",
+"sortAZ": "A–Z",
 "pattern": 											"패턴",
 "removeAttachment": 						"파일 제거",
 "attachmentRemoved": 						"첨부 파일이 삭제되었습니다",

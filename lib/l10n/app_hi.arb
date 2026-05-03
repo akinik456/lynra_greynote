@@ -1,4 +1,7 @@
 {
+"sortFavorites": "पसंदीदा",
+"sortUpdated": "अंतिम अपडेट",
+"sortAZ": "A–Z",
 "pattern": 											"पैटर्न",
 "removeAttachment": 						"फ़ाइल हटाएं",
 "attachmentRemoved": 						"संलग्नक हटाया गया",
