@@ -1,0 +1,161 @@
+
+Auto-lock süresi
+Backup almadın uyarısı
+Clipboard auto clear
+Duplicate detection
+Fake mode / decoy
+Favori kayıtlar
+Global search
+Peek / Hold to Reveal
+Quick lock
+Sort options
+
+*******************
+
+
+Clipboard auto clear
+Auto-lock süresi
+Quick lock
+
+Global search
+sorting
+	👉 A-Z
+	👉 last updated
+	👉 favorites first
+duplicate detection
+
+
+Ben olsam EKLEYECEĞİM 3 ŞEY
+1🔐 “Quick Lock” (tek dokunuşla kilitle)
+
+App bar’a küçük bir lock ikonu:
+
+👉 kullanıcı istediği an vault’u kilitler
+👉 özellikle kalabalık ortamda çok kullanılır
+
+Efor: düşük
+Değer: yüksek
+
+2 👀 “Peek / Hold to Reveal”
+
+Şifre üstüne basılı tutunca:
+
+👉 1–2 saniye plaintext göster
+👉 bırakınca tekrar gizle
+
+Şu an:
+
+ya hep gizli
+ya hep açık
+
+Bu arası eksik.
+
+Efor: düşük
+Değer: çok yüksek (daily use)
+
+3 ⭐ Favori kayıtlar
+
+Üstte küçük bir section:
+
+👉 en çok kullanılanlar
+👉 hızlı erişim
+
+Sen zaten isFavorite tutuyorsun.
+
+Efor: çok düşük
+Değer: çok yüksek
+
+🔥 BONUS (V1.1 seviyesi)
+📤 Export hatırlatma
+
+User’a arada:
+
+👉 “Backup almadın” uyarısı
+
+Ama agresif değil.
+
+4🔎 “Global Search (anında)”
+
+Şu an büyük ihtimal sadece listede bakılıyor.
+
+Ben olsam:
+
+👉 üstte global search
+👉 title + username + note içinde arar
+👉 instant sonuç
+
+Ama önemli:
+
+decrypt edip arama ❌
+metadata ile arama ✅
+
+Değer: çok yüksek
+(10+ kayıt olunca olmazsa olmaz)
+
+5🧠 “Auto-lock timer ayarı”
+
+Şu an sabit (1 dk vs.)
+
+👉 user seçsin:
+
+30 sn
+1 dk
+5 dk
+instantly
+
+Değer:
+
+güven hissi artar
+power user mutlu olur
+6🧾 “Copy without leaving trace”
+
+Kopyalayınca:
+
+👉 10–15 sn sonra clipboard temizlenir
+
+Future.delayed(..., () {
+  Clipboard.setData(const ClipboardData(text: ""));
+});
+
+💥 bu çok premium bir detaydır
+bankalar yapar
+
+7🕶️ “Fake mode / decoy”
+
+Baya seviye atlatır:
+
+👉 yanlış PIN girince:
+
+fake vault açılır
+içinde sahte kayıtlar
+
+Bu = advanced privacy
+
+Ama:
+👉 V1 değil
+👉 V1.2+
+
+8📎 Attachment preview polish
+
+Zaten ekledin.
+
+Ama:
+
+👉 listede küçük “📎” ikon
+👉 user hemen anlar
+
+9🧹 “Duplicate detection”
+
+User aynı şeyi 2 kere ekliyorsa:
+
+👉 “benzer kayıt var” uyar
+
+çok subtle olmalı.
+
+10 🧭 “Sort options”
+
+👉 A-Z
+👉 last updated
+👉 favorites first
+
+çok küçük ama etkili

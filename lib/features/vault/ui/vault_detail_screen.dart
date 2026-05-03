@@ -15,6 +15,7 @@ import 'package:open_filex/open_filex.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../core/attachments/attachment_service.dart';
 import '../data/vault_repository.dart';
+import '../../../core/utils/clipboard_helper.dart';
 
 class VaultDetailScreen extends StatelessWidget {
   final VaultItem item;
@@ -36,8 +37,8 @@ class VaultDetailScreen extends StatelessWidget {
     return Scaffold(
 	backgroundColor: const Color(0xFF020617),
       appBar: AppBar(
-	    backgroundColor: const Color(0xFF020617), // 👈 EKLE
-  surfaceTintColor: const Color(0xFF020617), // 👈 EKLE (çok önemli)
+	    backgroundColor: const Color(0xFF020617), 
+  surfaceTintColor: const Color(0xFF020617), 
   elevation: 0,
         title: Text(
           pageTitle,
@@ -267,10 +268,11 @@ class _CopyTile extends StatelessWidget {
                 onPressed: value.isEmpty
                     ? null
                     : () {
-                        Clipboard.setData(ClipboardData(text: value));
+                        /*Clipboard.setData(ClipboardData(text: value));
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(snackText)),
-                        );
+                        );*/
+											copyWithAutoClear(context, value, snackText);	
                       },
               ),
             ],
@@ -324,7 +326,7 @@ class _PasswordTileState extends State<_PasswordTile> {
                 onPressed: widget.password.isEmpty
                     ? null
                     : () {
-                        Clipboard.setData(
+                        /*Clipboard.setData(
                           ClipboardData(text: widget.password),
                         );
                         setState(() {
@@ -332,7 +334,16 @@ class _PasswordTileState extends State<_PasswordTile> {
                         });
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(AppLocalizations.of(context)!.passwordCopied)),
-                        );
+                        );*/
+												copyWithAutoClear(
+													context,
+													widget.password,
+													AppLocalizations.of(context)!.passwordCopied,
+												);
+
+												setState(() {
+													hidden = true;
+												});
                       },
               ),
               IconButton(

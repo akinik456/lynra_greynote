@@ -153,6 +153,9 @@ class _LynraAppState extends State<LynraApp> {
 
 class AppGate extends StatefulWidget {
   const AppGate({super.key});
+	static _AppGateState of(BuildContext context) {
+  return context.findAncestorStateOfType<_AppGateState>()!;
+}	
 
   @override
   State<AppGate> createState() => _AppGateState();
@@ -187,6 +190,8 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
+	
+
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
@@ -194,7 +199,7 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
 
     if (state == AppLifecycleState.paused || state == AppLifecycleState.hidden) {
       if (LynraApp.of(context).suspendAutoLock) return;
-      _lockApp(openUnlock: false);
+      lockApp(openUnlock: false);
       return;
     }
 
@@ -272,10 +277,10 @@ return;
   }
 
   Future<void> _lockFromInactivity() async {
-    await _lockApp(openUnlock: true);
+    await lockApp(openUnlock: true);
   }
 
-  Future<void> _lockApp({required bool openUnlock}) async {
+  Future<void> lockApp({required bool openUnlock}) async {
     if (!mounted) return;
     if (!_unlocked) return;
 

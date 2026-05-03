@@ -53,6 +53,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
 	StreamSubscription<List<PurchaseDetails>>? _purchaseSub;
 	bool _isPremium = false;
 	bool _premiumFoundInStore = false;
+	bool _vaultWordEnabled = false;
 	
   List<VaultCollection> collections = [];
   List<VaultItem> items = [];
@@ -110,6 +111,7 @@ void initState() {
   InAppPurchase.instance.restorePurchases();
 	unawaited(_loadVersion());
 	unawaited(_checkForUpdate());
+	loadVaultWordState();
 }
 	
 	@override
@@ -216,6 +218,13 @@ void _showUpdateDialog() {
       );
     },
   );
+}
+Future<void> loadVaultWordState() async {
+  final enabledValue = await AuthStorage.safeRead("vault_word_enabled");
+
+  setState(() {
+    _vaultWordEnabled = enabledValue == "true";
+  });
 }
 Future<String?> _getUnwrappedMasterKey() async {
   // 1. Paketli anahtarı oku
@@ -492,9 +501,17 @@ Future<void> delete(VaultItem item) async {
           fontWeight: FontWeight.w500,
         ),
       ),
+			
+
   ],
 ),
         actions: [
+			IconButton(
+  icon: const Icon(Icons.lock_outline),
+  onPressed: () {
+    AppGate.of(context).lockApp(openUnlock: true);
+  },
+),				
           IconButton(
 			  icon: const Icon(Icons.settings_outlined, color: _textPrimary),
 			  onPressed: () async {
@@ -513,13 +530,34 @@ Future<void> delete(VaultItem item) async {
 				}
 			  },
 			),
-          IconButton(
-            icon: Icon(
-              shouldHide ? Icons.lock_outline : Icons.lock_open_rounded,
-              color: _textPrimary,
-            ),
-            onPressed: showVaultUnlockDialog,
-          ),
+          if (_vaultWordEnabled)
+					Stack(
+  children: [
+    IconButton(
+      icon: Icon(
+        shouldHide ? Icons.visibility_off : Icons.visibility,
+        color: _textPrimary,
+      ),
+      onPressed: showVaultUnlockDialog,
+    ),
+
+    // 🔥 BADGE
+    Positioned(
+      right: 8,
+      top: 8,
+      child: Container(
+        width: 8,
+        height: 8,
+        decoration: BoxDecoration(
+          color: Colors.greenAccent,
+          shape: BoxShape.circle,
+        ),
+      ),
+    ),
+  ],
+)
+					
+					
         ],
       ),
 			
@@ -664,12 +702,17 @@ Future<void> delete(VaultItem item) async {
         backgroundColor: _primary,
         foregroundColor: Colors.black,
         onPressed: () {
-					if (!_isPremium && collections.length >= 2) {
-					showUpgradeDialog();
-					return;
-					}
-					openAdd();
-				},
+  final itemCount = items
+      .where((item) => item.collectionId == selectedCollectionId)
+      .length;
+
+  if (!_isPremium && itemCount >= 2) {
+    showUpgradeDialog();
+    return;
+  }
+
+  openAdd();
+},
         child: const Icon(Icons.add),
       ),
 			
@@ -878,14 +921,6 @@ void showUpgradeDialog() {
   );
 }
   Future<void> openAddCollection() async {
-    if (collections.length >= 50) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(AppLocalizations.of(context)!.max5Collections),
-        ),
-      );
-      return;
-    }
 
     final controller = TextEditingController();
     final result = await showDialog<String>(

@@ -12,7 +12,7 @@ import '../../../core/attachments/attachment_service.dart';
 import '../data/vault_repository.dart';
 import '../../../core/security/crypto_helper.dart';
 import '../../../main.dart';
-
+import '../../../core/utils/clipboard_helper.dart';
 
 class AddEditScreen extends StatefulWidget {
   final Map<String, dynamic>? initialData;
@@ -423,10 +423,14 @@ Widget build(BuildContext context) {
             onPressed: generatedPassword.isEmpty
                 ? null
                 : () async {
-                    await Clipboard.setData(
+                    /*await Clipboard.setData(
                       ClipboardData(text: generatedPassword),
-                    );
-
+                    );*/
+										await copyWithAutoClear(
+											context,
+											generatedPassword,
+											AppLocalizations.of(context)!.passwordCopied,
+										);
                     setState(() {
                       passwordCtrl.text = generatedPassword;
                       passwordStrengthKey = "strong";
