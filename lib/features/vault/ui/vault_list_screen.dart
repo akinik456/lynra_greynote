@@ -71,7 +71,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
   int collectionCount = 0;
   String searchQuery = "";
   String _appVersion = '';
-	
+	bool shouldHide=false;
 	
   @override
 void initState() {
@@ -223,8 +223,16 @@ Future<void> loadVaultWordState() async {
   final enabledValue = await AuthStorage.safeRead("vault_word_enabled");
 
   setState(() {
-    _vaultWordEnabled = enabledValue == "true";
-  });
+  _vaultWordEnabled = enabledValue == "true";
+
+  if (_vaultWordEnabled) {
+    shouldHide = true;   // 🔒 otomatik gizle
+		isVaultUnlocked = false;
+  } else {
+    shouldHide = false;  // 👁️ otomatik göster
+		isVaultUnlocked = true;
+  }
+});
 }
 Future<String?> _getUnwrappedMasterKey() async {
   // 1. Paketli anahtarı oku
@@ -456,7 +464,7 @@ Future<void> delete(VaultItem item) async {
 
   @override
   Widget build(BuildContext context) {
-    final shouldHide = isVaultWordEnabled && !isVaultUnlocked;
+    shouldHide = isVaultWordEnabled && !isVaultUnlocked;
 
     return Scaffold(
       backgroundColor: _bgColor,
@@ -524,10 +532,12 @@ Future<void> delete(VaultItem item) async {
 					),
 				  ),
 				);
-				if (result == true) {
+				await loadVaultWordState();
+				print("return from settings shouldHide:$shouldHide , _vaultWordEnabled:$_vaultWordEnabled ");
+				//if (result == true) {
 				  await loadCollections();
 				  await load();
-				}
+				//}
 			  },
 			),
           if (_vaultWordEnabled)
