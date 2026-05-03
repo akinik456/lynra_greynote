@@ -4,6 +4,7 @@ import 'package:local_auth/local_auth.dart';
 import 'pin_setup_screen.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../core/security/biometric_helper.dart';
+import '../../auth/data/auth_storage.dart';
 
 class SecurityScreen extends StatefulWidget {
   
@@ -36,7 +37,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
     await storage.write(key: "secondary_lock", value: value);
   }
   Future<void> loadSecondaryLock() async {
-    final value = await storage.read(key: "secondary_lock");
+    final value = await AuthStorage.safeRead( "secondary_lock");
     if (value != null) {
       setState(() {
         secondaryLock = value;

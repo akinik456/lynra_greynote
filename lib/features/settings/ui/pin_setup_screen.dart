@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../auth/data/auth_storage.dart';
+
 
 class PinSetupScreen extends StatefulWidget {
   final String mode;
@@ -25,7 +27,7 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
   static const Color _textSecondary = Color(0xFF94A3B8);
 
   Future<bool> hasPin() async {
-    final value = await storage.read(key: "user_pin");
+    final value = await AuthStorage.safeRead("user_pin");
     return value != null;
   }
 

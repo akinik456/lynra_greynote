@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../auth/data/auth_storage.dart';
 
 class PinUnlockScreen extends StatefulWidget {
   const PinUnlockScreen({super.key});
@@ -22,7 +23,7 @@ class _PinUnlockScreenState extends State<PinUnlockScreen> {
   static const Color _textSecondary = Color(0xFF94A3B8);
 
   Future<void> checkPin() async {
-    final savedPin = await storage.read(key: "user_pin");
+    final savedPin = await AuthStorage.safeRead("user_pin");
     final enteredPin = pinCtrl.text.trim();
 
     if (savedPin != null && enteredPin == savedPin) {

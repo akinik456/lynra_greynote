@@ -52,6 +52,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
   final storage = const FlutterSecureStorage();
 	StreamSubscription<List<PurchaseDetails>>? _purchaseSub;
 	bool _isPremium = false;
+	bool _premiumFoundInStore = false;
 	
   List<VaultCollection> collections = [];
   List<VaultItem> items = [];
@@ -75,7 +76,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
 void initState() {
   super.initState();
 
-  _loadPremium();
+  _verifyPremium();
   loadVaultWordSettings();
   _initFlow();
 
@@ -86,6 +87,7 @@ void initState() {
       if ((purchase.status == PurchaseStatus.purchased ||
               purchase.status == PurchaseStatus.restored) &&
           purchase.productID == 'lynragreynote') {
+					_premiumFoundInStore = true;
         debugPrint('IAP PREMIUM UNLOCKED');
 
         setState(() {
@@ -116,14 +118,24 @@ void dispose() {
   super.dispose();
 }
 
-Future<void> _loadPremium() async {
+Future<void> _verifyPremium() async {
   final prefs = await SharedPreferences.getInstance();
-  final saved = prefs.getBool('isPremium') ?? false;
 
-  if (saved) {
+  _premiumFoundInStore = false;
+
+  await InAppPurchase.instance.restorePurchases();
+
+  await Future.delayed(const Duration(seconds: 3));
+
+  if (!mounted) return;
+
+  if (!_premiumFoundInStore) {
     setState(() {
-      _isPremium = true;
+      _isPremium = false;
     });
+
+    await prefs.setBool('isPremium', false);
+    debugPrint('IAP PREMIUM REMOVED / NOT FOUND');
   }
 }
   
@@ -274,7 +286,7 @@ List<VaultItem> get filteredItems {
 }  
 
   Future<void> loadVaultWordSettings() async {
-    final enabled = await storage.read(key: "vault_word_enabled");
+    final enabled = await AuthStorage.safeRead("vault_word_enabled");
     setState(() {
       isVaultWordEnabled = enabled == "true";
       isVaultUnlocked = false;
@@ -733,7 +745,7 @@ Future<void> delete(VaultItem item) async {
                       ),
                     ),
                     onPressed: () async {
-                      final saved = await storage.read(key: "vault_word");
+                      final saved = await AuthStorage.safeRead("vault_word");
 
                       final ok = saved != null &&
                           saved.toLowerCase() ==

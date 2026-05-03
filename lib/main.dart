@@ -59,7 +59,7 @@ class _LynraAppState extends State<LynraApp> {
   }
 
   Future<void> loadLocale() async {
-    final code = await storage.read(key: "app_locale");
+    final code = await AuthStorage.safeRead("app_locale");
     if (code != null) {
       setState(() {
         _locale = Locale(code);
@@ -215,7 +215,7 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
 
   Future<void> _start() async {
     final storage = const FlutterSecureStorage();
-    final seen = await storage.read(key: "onboarding_seen");
+    final seen = await AuthStorage.safeRead("onboarding_seen");
 
     if (seen != "true") {
       await Navigator.push(
@@ -298,7 +298,7 @@ return;
   Future<bool> _checkSecondaryLock() async {
     _isAuthenticating = true;
     try {
-      final secondaryLock = await storage.read(key: "secondary_lock");
+      final secondaryLock = await AuthStorage.safeRead("secondary_lock");
 
       if (secondaryLock == "pin") {
         final result = await Navigator.push<bool>(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../auth/data/auth_storage.dart';
 
 class VaultWordScreen extends StatefulWidget {
   const VaultWordScreen({super.key});
@@ -27,8 +28,8 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
   }
 
   Future<void> loadVaultWord() async {
-    final enabledValue = await storage.read(key: "vault_word_enabled");
-    final savedWord = await storage.read(key: "vault_word");
+    final enabledValue = await AuthStorage.safeRead("vault_word_enabled");
+    final savedWord = await AuthStorage.safeRead("vault_word");
 
     setState(() {
       enabled = enabledValue == "true";

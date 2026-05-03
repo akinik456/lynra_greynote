@@ -1,79 +1,123 @@
 import 'dart:convert';
 import 'dart:math';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class AuthStorage {
   static const _storage = FlutterSecureStorage();
+
   static const _patternKey = 'app_pattern';
-  static const _saltKey = 'secure_salt'; // Yeni anahtarımız
-  static const _dbSaltKey = "db_salt";
-  static const _masterKey = 'master_key'; // Yeni: Veri şifreleme anahtarımız
-  static const _wrappedMasterKey = 'wrapped_master_key'; // Şifrelenmiş paket
+  static const _saltKey = 'secure_salt';
+  static const _dbSaltKey = 'db_salt';
+  static const _masterKey = 'master_key';
+  static const _wrappedMasterKey = 'wrapped_master_key';
+
+  static Future<String?> safeRead(String key) async {
+    try {
+      return await _storage.read(key: key);
+    } catch (e) {
+      debugPrint('SECURE STORAGE READ FAILED: $key -> $e');
+      await _storage.deleteAll();
+      return null;
+    }
+  }
+
+  static Future<void> safeWrite({
+    required String key,
+    required String value,
+  }) async {
+    try {
+      await _storage.write(key: key, value: value);
+    } catch (e) {
+      debugPrint('SECURE STORAGE WRITE FAILED: $key -> $e');
+      await _storage.deleteAll();
+      rethrow;
+    }
+  }
+
+  static Future<void> safeDelete(String key) async {
+    try {
+      await _storage.delete(key: key);
+    } catch (e) {
+      debugPrint('SECURE STORAGE DELETE FAILED: $key -> $e');
+      await _storage.deleteAll();
+    }
+  }
+
+  static String _randomBase64(int length) {
+    return base64Encode(
+      List<int>.generate(
+        length,
+        (_) => Random.secure().nextInt(256),
+      ),
+    );
+  }
 
   static Future<void> savePattern(String pattern) async {
-    await _storage.write(key: _patternKey, value: pattern);
+    await safeWrite(key: _patternKey, value: pattern);
   }
 
   static Future<String?> getPattern() async {
-    return await _storage.read(key: _patternKey);
+    return safeRead(_patternKey);
   }
 
   static Future<void> clearPattern() async {
-    await _storage.delete(key: _patternKey);
+    await safeDelete(_patternKey);
   }
-  
-/// Hem Salt hem de Master Key'i Onboarding sırasında bir kez üretir.
+
   static Future<void> initializeSecurity() async {
-    final existingSalt = await _storage.read(key: _saltKey);
-    final existingDbSalt = await _storage.read(key: _dbSaltKey);
-	final existingMK = await _storage.read(key: _masterKey);
-    
-    // Eğer üretilmemişlerse üret
+    final existingSalt = await safeRead(_saltKey);
+    final existingDbSalt = await safeRead(_dbSaltKey);
+    final existingMK = await safeRead(_masterKey);
+
     if (existingSalt == null) {
-      final salt = base64Encode(List<int>.generate(32, (i) => Random.secure().nextInt(256)));
-      await _storage.write(key: _saltKey, value: salt);
+      await safeWrite(
+        key: _saltKey,
+        value: _randomBase64(32),
+      );
     }
-	
-	// 2. DB Salt: Master Key'den SQLCipher şifresi türetmek için
+
     if (existingDbSalt == null) {
-      final dbSalt = base64Encode(List<int>.generate(32, (i) => Random.secure().nextInt(256)));
-      await _storage.write(key: _dbSaltKey, value: dbSalt);
+      await safeWrite(
+        key: _dbSaltKey,
+        value: _randomBase64(32),
+      );
     }
 
     if (existingMK == null) {
-      // Her cihaza özel 256-bit rastgele Master Key
-      final mk = base64Encode(List<int>.generate(32, (i) => Random.secure().nextInt(256)));
-      await _storage.write(key: _masterKey, value: mk);
+      await safeWrite(
+        key: _masterKey,
+        value: _randomBase64(32),
+      );
     }
   }
 
-/// Saklanan salt değerini (cihaz parmak izini) geri okur.
   static Future<String?> getSecureSalt() async {
-    return await _storage.read(key: _saltKey);
-  }
-  
-  
-/// Ham Master Key'i okur (Sadece paketleme işlemi için kullanılır)
-  static Future<String?> getRawMasterKey() async {
-    return await _storage.read(key: _masterKey);
-  }
-static Future<String?> getDbSalt() async {
-  return await _storage.read(key: _dbSaltKey);
-}
-  /// Paketlenmiş (Şifrelenmiş) Master Key'i saklar
-  static Future<void> saveWrappedMasterKey(String wrappedMK) async {
-    await _storage.write(key: _wrappedMasterKey, value: wrappedMK);
+    return safeRead(_saltKey);
   }
 
-  /// Paketlenmiş Master Key'i okur (Uygulama içinde asıl kullanılacak olan budur)
+  static Future<String?> getRawMasterKey() async {
+    return safeRead(_masterKey);
+  }
+
+  static Future<String?> getDbSalt() async {
+    return safeRead(_dbSaltKey);
+  }
+
+  static Future<void> saveWrappedMasterKey(String wrappedMK) async {
+    await safeWrite(key: _wrappedMasterKey, value: wrappedMK);
+  }
+
   static Future<String?> getWrappedMasterKey() async {
-    return await _storage.read(key: _wrappedMasterKey);
-  }  
-  
-/// Ham Master Key'i diskten tamamen siler.
-  /// Bu işlem, MK başarıyla paketlendikten (Wrap) sonra güvenlik için zorunludur.
+    return safeRead(_wrappedMasterKey);
+  }
+
   static Future<void> deleteRawMasterKey() async {
-    await _storage.delete(key: _masterKey);
-  }  
-  
+    await safeDelete(_masterKey);
+  }
+
+  static Future<void> resetSecureStorage() async {
+    await _storage.deleteAll();
+  }
 }
