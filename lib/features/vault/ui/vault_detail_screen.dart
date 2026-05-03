@@ -13,6 +13,8 @@ import '../../../core/security/crypto_helper.dart';
 import 'package:open_filex/open_filex.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../../core/db/database_helper.dart';
+
 import '../../../core/attachments/attachment_service.dart';
 import '../data/vault_repository.dart';
 import '../../../core/utils/clipboard_helper.dart';
@@ -35,11 +37,11 @@ class VaultDetailScreen extends StatelessWidget {
         shouldHide ? randomFakeText() : (item.title.isEmpty ? AppLocalizations.of(context)!.entryDetails : item.title);
 
     return Scaffold(
-	backgroundColor: const Color(0xFF020617),
+			backgroundColor: const Color(0xFF020617),
       appBar: AppBar(
 	    backgroundColor: const Color(0xFF020617), 
-  surfaceTintColor: const Color(0xFF020617), 
-  elevation: 0,
+			surfaceTintColor: const Color(0xFF020617), 
+			elevation: 0,
         title: Text(
           pageTitle,
           style: const TextStyle(
@@ -49,6 +51,17 @@ class VaultDetailScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
+				IconButton(
+  icon: Icon(
+    item.isFavorite
+        ? Icons.star_rounded
+        : Icons.star_border_rounded,
+    color: item.isFavorite
+        ? Colors.amber
+        : Colors.white.withOpacity(0.55),
+  ),
+  onPressed: null
+),
           if (!shouldHide && item.type != "pattern")
             IconButton(						
               icon: const Icon(Icons.edit_outlined),

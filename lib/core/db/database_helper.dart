@@ -108,6 +108,7 @@ class DatabaseHelper {
         );
       }
     }
+		
   }
 
   Future<void> _onOpen(Database db) async {
@@ -132,4 +133,15 @@ class DatabaseHelper {
       conflictAlgorithm: ConflictAlgorithm.ignore,
     );
   }
+Future<void> updateFavorite(String id, bool isFavorite) async {
+  final db = getDb();
+
+  await db.update(
+    'vault',
+    {'isFavorite': isFavorite ? 1 : 0},
+    where: 'id = ?',
+    whereArgs: [id],
+		
+  );
+}	
 }

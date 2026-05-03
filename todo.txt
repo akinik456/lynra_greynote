@@ -3,14 +3,15 @@ Auto-lock süresi
 Backup almadın uyarısı
 Duplicate detection
 Fake mode / decoy
-Favori kayıtlar
-Global search
+
 Sort options
 plaintext export/import
 
 Quick lock +
 Peek / Hold to Reveal +
 Clipboard auto clear +
+Global search +
+Favori kayıtlar+
 
 *******************
 

@@ -80,6 +80,7 @@ class VaultRepository {
 
         items.add(
           item.copyWith(
+						isFavorite: (row['isFavorite'] ?? 0) == 1,
             hasAttachment: (row['hasAttachment'] ?? 0) == 1,
           ),
         );

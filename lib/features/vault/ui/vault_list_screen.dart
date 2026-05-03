@@ -652,6 +652,9 @@ Future<void> delete(VaultItem item) async {
 
                         return _VaultCard(
                           item: item,
+													onFavoriteChanged: () async {
+														await load();
+													},
                           shouldHide: shouldHide,
                           formattedDate: formatDate(item.updatedAt),
                           onTap: () async {
@@ -1233,9 +1236,11 @@ class _VaultCard extends StatelessWidget {
   final VoidCallback onTap;
   final VoidCallback onLongPress;
   final bool shouldHide;
-
+	final Future<void> Function() onFavoriteChanged;
+	
   const _VaultCard({
     required this.item,
+		required this.onFavoriteChanged,
     required this.formattedDate,
     required this.onTap,
     required this.onLongPress,
@@ -1362,7 +1367,35 @@ class _VaultCard extends StatelessWidget {
                   ),
                 ),
 								_TypeIcon(type: item.type),
-                const SizedBox(width: 8),
+								IconButton(
+  padding: EdgeInsets.zero,
+  constraints: const BoxConstraints(
+    minWidth: 32,
+    minHeight: 32,
+  ),
+  icon: Icon(
+    item.isFavorite
+        ? Icons.star_rounded
+        : Icons.star_border_rounded,
+    size: 20,
+    color: item.isFavorite
+        ? Colors.amber
+        : Colors.white.withOpacity(0.4),
+  ),
+  onPressed: () async {
+  final newValue = !item.isFavorite;
+
+  await DatabaseHelper.instance.updateFavorite(
+    item.id,
+    newValue,
+  );
+
+  await onFavoriteChanged();
+},
+),
+								
+								
+                //const SizedBox(width: 8),
                 Icon(
                   Icons.chevron_right_rounded,
                   color: Colors.white.withOpacity(0.45),
