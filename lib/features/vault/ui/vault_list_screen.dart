@@ -290,17 +290,20 @@ Future<String?> _getUnwrappedMasterKey() async {
   }
   
 List<VaultItem> get filteredItems {
-  if (searchQuery.trim().isEmpty) return items;
+  final q = searchQuery.trim().toLowerCase();
 
-  final q = searchQuery.toLowerCase();
+  if (q.isEmpty) return items;
 
   return items.where((item) {
-    return item.title.toLowerCase().contains(q) ||
-        item.username.toLowerCase().contains(q) ||
-        item.note.toLowerCase().contains(q);
+    final title = (item.title ?? '').toLowerCase();
+    final username = (item.username ?? '').toLowerCase();
+    final note = (item.note ?? '').toLowerCase();
+
+    return title.contains(q) ||
+        username.contains(q) ||
+        note.contains(q);
   }).toList();
-  
-}  
+}
 
   Future<void> loadVaultWordSettings() async {
     final enabled = await AuthStorage.safeRead("vault_word_enabled");
