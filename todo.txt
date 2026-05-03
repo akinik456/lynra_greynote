@@ -1,13 +1,13 @@
 
 Auto-lock süresi
 Backup almadın uyarısı
-Clipboard auto clear
+Clipboard auto clear +
 Duplicate detection
 Fake mode / decoy
 Favori kayıtlar
 Global search
-Peek / Hold to Reveal
-Quick lock
+Peek / Hold to Reveal +
+Quick lock +
 Sort options
 
 *******************

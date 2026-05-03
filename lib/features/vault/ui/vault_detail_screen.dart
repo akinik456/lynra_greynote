@@ -302,7 +302,7 @@ class _PasswordTileState extends State<_PasswordTile> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'Password',
+            AppLocalizations.of(context)!.password,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -313,11 +313,26 @@ class _PasswordTileState extends State<_PasswordTile> {
           Row(
             children: [
               Expanded(
-                child: Text(
-                  hidden ? '••••••••' : widget.password,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                child: GestureDetector(
+                  onLongPressStart: (_) {
+                    HapticFeedback.lightImpact();
+                    setState(() {
+                      hidden = false;
+                    });
+                  },
+                  onLongPressEnd: (_) {
+                    setState(() {
+                      hidden = true;
+                    });
+                  },
+                  child: Text(
+                    hidden ? '••••••••' : widget.password,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
@@ -325,30 +340,23 @@ class _PasswordTileState extends State<_PasswordTile> {
                 icon: const Icon(Icons.copy_rounded),
                 onPressed: widget.password.isEmpty
                     ? null
-                    : () {
-                        /*Clipboard.setData(
-                          ClipboardData(text: widget.password),
+                    : () async {
+                        await copyWithAutoClear(
+                          context,
+                          widget.password,
+                          AppLocalizations.of(context)!.passwordCopied,
                         );
+
                         setState(() {
                           hidden = true;
                         });
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(AppLocalizations.of(context)!.passwordCopied)),
-                        );*/
-												copyWithAutoClear(
-													context,
-													widget.password,
-													AppLocalizations.of(context)!.passwordCopied,
-												);
-
-												setState(() {
-													hidden = true;
-												});
                       },
               ),
               IconButton(
                 icon: Icon(
-                  hidden ? Icons.visibility_rounded : Icons.visibility_off_rounded,
+                  hidden
+                      ? Icons.visibility_rounded
+                      : Icons.visibility_off_rounded,
                 ),
                 onPressed: () {
                   setState(() {
@@ -363,7 +371,6 @@ class _PasswordTileState extends State<_PasswordTile> {
     );
   }
 }
-
 class _InfoCard extends StatelessWidget {
   final String label;
   final String value;
