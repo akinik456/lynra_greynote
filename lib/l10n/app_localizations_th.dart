@@ -9,6 +9,9 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
+  String get sort => 'จัดเรียง';
+
+  @override
   String get sortFavorites => 'รายการโปรด';
 
   @override

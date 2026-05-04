@@ -657,36 +657,90 @@ Future<void> delete(VaultItem item) async {
     size: 30,
   ),
     onPressed: () async {
-  final result = await showMenu<String>(
+  final result = await showDialog<String>(
     context: context,
-    position: const RelativeRect.fromLTRB(1000, 80, 16, 0),
-    items: [
-      PopupMenuItem(
-        value: 'favorites',
-        child: Text(AppLocalizations.of(context)!.sortFavorites),
-      ),
-      PopupMenuItem(
-        value: 'updated',
-        child: Text(AppLocalizations.of(context)!.sortUpdated),
-      ),
-      PopupMenuItem(
-        value: 'az',
-        child: Text(AppLocalizations.of(context)!.sortAZ),
-      ),
-    ],
+    builder: (_) {
+      Widget option(String value, String label) {
+        final selected = sortType == value;
+
+        return InkWell(
+          borderRadius: BorderRadius.circular(18),
+          onTap: () => Navigator.pop(context, value),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
+            decoration: BoxDecoration(
+              color: selected
+                  ? const Color(0xFF123247)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(18),
+            ),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    label,
+                    style: const TextStyle(
+                      color: Color(0xFFE2E8F0),
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+                if (selected)
+                  const Icon(
+                    Icons.check_rounded,
+                    color: Color(0xFF22D3EE),
+                    size: 30,
+                  ),
+              ],
+            ),
+          ),
+        );
+      }
+
+      return Dialog(
+        backgroundColor: const Color(0xFF0F172A),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(28),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(22, 22, 22, 18),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.sort,
+                style: const TextStyle(
+                  color: Color(0xFFE2E8F0),
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+              const SizedBox(height: 22),
+              option('favorites', AppLocalizations.of(context)!.sortFavorites),
+              const SizedBox(height: 8),
+              option('updated', AppLocalizations.of(context)!.sortUpdated),
+              const SizedBox(height: 8),
+              option('az', AppLocalizations.of(context)!.sortAZ),
+            ],
+          ),
+        ),
+      );
+    },
   );
 
-  // şimdilik sadece test
   if (result != null) {
-  setState(() {
-    sortType = result;
-  });
-	await AuthStorage.safeWrite(
-    key: "vault_sort_type",
-    value: result,
-  );
-	await load();
-}
+    setState(() {
+      sortType = result;
+    });
+
+    await AuthStorage.safeWrite(
+      key: "vault_sort_type",
+      value: result,
+    );
+
+    await load();
+  }
 },
   ),
 					

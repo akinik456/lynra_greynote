@@ -9,6 +9,9 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get sort => 'Sort';
+
+  @override
   String get sortFavorites => 'Favorites';
 
   @override
@@ -380,6 +383,9 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get sort => 'Ordenar';
 
   @override
   String get sortFavorites => 'Favoritos';

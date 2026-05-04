@@ -9,6 +9,9 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get sort => 'Сортировка';
+
+  @override
   String get sortFavorites => 'Избранное';
 
   @override

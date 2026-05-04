@@ -9,6 +9,9 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
+  String get sort => 'Sortieren';
+
+  @override
   String get sortFavorites => 'Favoriten';
 
   @override

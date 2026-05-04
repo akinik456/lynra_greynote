@@ -9,6 +9,9 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
+  String get sort => '정렬';
+
+  @override
   String get sortFavorites => '즐겨찾기';
 
   @override

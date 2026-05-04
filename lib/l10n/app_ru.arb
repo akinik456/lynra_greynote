@@ -1,8 +1,8 @@
 {
+"sort": 												"Сортировка",
 "sortFavorites": "Избранное",
 "sortUpdated": "Последнее обновление",
 "sortAZ": "A–Z",
-
 "pattern": 											"Шаблон",
 "removeAttachment": 						"Удалить файл",
 "attachmentRemoved": 						"Вложение удалено",
@@ -10,11 +10,8 @@
 "addAttachment": 								"Добавить вложение",
 "attachmentReady": 							"Вложение готово",
 "attachmentTooLarge": 					"Максимум 2 МБ",
-
 "search": 					"Поиск",
 "unlockToSearch": 			"Разблокируйте для поиска",
-
-
 "limitReached": 			"Лимит достигнут",
 "freeLimitEntries": 		"В бесплатной версии можно добавить до 2 записей.",
 "upgrade": 					"Обновить",

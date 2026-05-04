@@ -9,6 +9,9 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
+  String get sort => 'Sortera';
+
+  @override
   String get sortFavorites => 'Favoriter';
 
   @override

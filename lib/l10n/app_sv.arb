@@ -1,4 +1,5 @@
 {
+"sort": 												"Sortera",
 "sortFavorites": "Favoriter",
 "sortUpdated": "Senast uppdaterad",
 "sortAZ": "A–Z",
@@ -9,11 +10,8 @@
 "attachmentReady": 							"Bilaga klar",
 "attachmentTooLarge": 					"Bilaga borttagen",
 "attachmentTooLarge": 					"Max 2 MB",
-
 "search": 					"Sök",
 "unlockToSearch": 			"Lås upp för att söka",
-
-
 "limitReached": 			"Gräns nådd",
 "freeLimitEntries": 		"Du kan lägga till upp till 2 poster i gratisversionen.",
 "upgrade": 					"Uppgradera",

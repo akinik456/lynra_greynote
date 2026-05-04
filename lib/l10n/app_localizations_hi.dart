@@ -9,6 +9,9 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get sort => 'क्रमबद्ध करें';
+
+  @override
   String get sortFavorites => 'पसंदीदा';
 
   @override

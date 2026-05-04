@@ -9,6 +9,9 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get sort => '並び替え';
+
+  @override
   String get sortFavorites => 'お気に入り';
 
   @override
