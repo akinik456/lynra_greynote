@@ -1,4 +1,11 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "Экспорт зашифрованной резервной копии",
+"exportText": "Экспорт в текстовый файл",
+"importBackup": "Импорт зашифрованной резервной копии",
+"importText": "Импорт из текстового файла",
+"downloadTemplate": "Скачать шаблон",
+
 "alreadyExists": "Этот элемент уже существует",
 "backupReminder": "Рекомендуется создать резервную копию для защиты ваших данных",
 "sort": 												"Сортировка",

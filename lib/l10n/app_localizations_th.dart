@@ -9,6 +9,24 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'ส่งออกข้อมูลสำรองที่เข้ารหัส';
+
+  @override
+  String get exportText => 'ส่งออกเป็นไฟล์ข้อความ';
+
+  @override
+  String get importBackup => 'นำเข้าข้อมูลสำรองที่เข้ารหัส';
+
+  @override
+  String get importText => 'นำเข้าจากไฟล์ข้อความ';
+
+  @override
+  String get downloadTemplate => 'ดาวน์โหลดเทมเพลต';
+
+  @override
   String get alreadyExists => 'รายการนี้มีอยู่แล้ว';
 
   @override

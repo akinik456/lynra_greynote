@@ -9,6 +9,24 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'Xuất bản sao lưu được mã hóa';
+
+  @override
+  String get exportText => 'Xuất dưới dạng tệp văn bản';
+
+  @override
+  String get importBackup => 'Nhập bản sao lưu được mã hóa';
+
+  @override
+  String get importText => 'Nhập từ tệp văn bản';
+
+  @override
+  String get downloadTemplate => 'Tải mẫu';
+
+  @override
   String get alreadyExists => 'Mục này đã tồn tại';
 
   @override

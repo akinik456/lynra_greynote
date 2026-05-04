@@ -1,4 +1,10 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "Versleutelde back-up exporteren",
+"exportText": "Exporteren als tekstbestand",
+"importBackup": "Versleutelde back-up importeren",
+"importText": "Importeren vanuit tekstbestand",
+"downloadTemplate": "Sjabloon downloaden",
 "alreadyExists": "Dit item bestaat al",
 "backupReminder": "Overweeg een back-up te maken om je gegevens te beschermen",
 "sort": 												"Sorteren",

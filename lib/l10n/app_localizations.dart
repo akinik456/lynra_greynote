@@ -130,6 +130,42 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @textImportCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Import completed. Your TXT file is not encrypted, remember to delete it.'**
+  String get textImportCompleted;
+
+  /// No description provided for @exportBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Encrypted Backup'**
+  String get exportBackup;
+
+  /// No description provided for @exportText.
+  ///
+  /// In en, this message translates to:
+  /// **'Export as Text File'**
+  String get exportText;
+
+  /// No description provided for @importBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Encrypted Backup'**
+  String get importBackup;
+
+  /// No description provided for @importText.
+  ///
+  /// In en, this message translates to:
+  /// **'Import from Text File'**
+  String get importText;
+
+  /// No description provided for @downloadTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Download Template'**
+  String get downloadTemplate;
+
   /// No description provided for @alreadyExists.
   ///
   /// In en, this message translates to:

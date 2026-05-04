@@ -1,4 +1,10 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "Exporter une sauvegarde chiffrée",
+"exportText": "Exporter en fichier texte",
+"importBackup": "Importer une sauvegarde chiffrée",
+"importText": "Importer depuis un fichier texte",
+"downloadTemplate": "Télécharger le modèle",
 "alreadyExists": "Cet élément existe déjà",
 "backupReminder": "Pensez à créer une sauvegarde pour protéger vos données",
 

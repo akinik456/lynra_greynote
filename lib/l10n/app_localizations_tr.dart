@@ -9,6 +9,24 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get textImportCompleted => 'İçe aktarma tamamlandı. TXT dosyanız şifreli değil, silmeyi unutmayın.';
+
+  @override
+  String get exportBackup => 'Şifreli Yedek Olarak Dışa Aktar';
+
+  @override
+  String get exportText => 'Metin Dosyası Olarak Dışa Aktar';
+
+  @override
+  String get importBackup => 'Şifreli Yedeği İçe Aktar';
+
+  @override
+  String get importText => 'Metin Dosyasından İçe Aktar';
+
+  @override
+  String get downloadTemplate => 'Şablonu İndir';
+
+  @override
   String get alreadyExists => 'Bu kayıt zaten mevcut';
 
   @override

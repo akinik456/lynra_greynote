@@ -1,4 +1,11 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "Eksportuj zaszyfrowaną kopię zapasową",
+"exportText": "Eksportuj jako plik tekstowy",
+"importBackup": "Importuj zaszyfrowaną kopię zapasową",
+"importText": "Importuj z pliku tekstowego",
+"downloadTemplate": "Pobierz szablon",
+
 "alreadyExists": "Ten element już istnieje",
 "backupReminder": "Rozważ utworzenie kopii zapasowej, aby chronić swoje dane",
 "sort": 												"Sortuj",

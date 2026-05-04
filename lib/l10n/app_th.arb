@@ -1,4 +1,10 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "ส่งออกข้อมูลสำรองที่เข้ารหัส",
+"exportText": "ส่งออกเป็นไฟล์ข้อความ",
+"importBackup": "นำเข้าข้อมูลสำรองที่เข้ารหัส",
+"importText": "นำเข้าจากไฟล์ข้อความ",
+"downloadTemplate": "ดาวน์โหลดเทมเพลต",
 "alreadyExists": "รายการนี้มีอยู่แล้ว",
 "backupReminder": "พิจารณาสร้างข้อมูลสำรองเพื่อปกป้องข้อมูลของคุณ",
 "sort": 												"จัดเรียง",

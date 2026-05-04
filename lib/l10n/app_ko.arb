@@ -1,4 +1,11 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "암호화된 백업 내보내기",
+"exportText": "텍스트 파일로 내보내기",
+"importBackup": "암호화된 백업 가져오기",
+"importText": "텍스트 파일에서 가져오기",
+"downloadTemplate": "템플릿 다운로드",
+
 "alreadyExists": "이 항목은 이미 존재합니다",
 "backupReminder": "데이터를 안전하게 보호하려면 백업을 고려하세요",
 "sort": 												"정렬",

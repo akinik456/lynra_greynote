@@ -1,6 +1,5 @@
 
 Auto-lock süresi
-Duplicate detection
 Fake mode / decoy
 plaintext export/import
 
@@ -11,6 +10,7 @@ Global search +
 Favori kayıtlar+
 Sort options+
 Backup al uyarısı+
+Duplicate detection+
 
 *******************
 

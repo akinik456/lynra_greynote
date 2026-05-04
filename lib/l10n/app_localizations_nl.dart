@@ -9,6 +9,24 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'Versleutelde back-up exporteren';
+
+  @override
+  String get exportText => 'Exporteren als tekstbestand';
+
+  @override
+  String get importBackup => 'Versleutelde back-up importeren';
+
+  @override
+  String get importText => 'Importeren vanuit tekstbestand';
+
+  @override
+  String get downloadTemplate => 'Sjabloon downloaden';
+
+  @override
   String get alreadyExists => 'Dit item bestaat al';
 
   @override

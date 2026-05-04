@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:file_picker/file_picker.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../core/db/database_helper.dart';
@@ -245,6 +246,7 @@ Future<void> loadVaultWordState() async {
   }
 });
 }
+
 Future<String?> _getUnwrappedMasterKey() async {
   // 1. Paketli anahtarı oku
   final wrappedMK = await AuthStorage.getWrappedMasterKey();
@@ -581,6 +583,7 @@ Future<void> delete(VaultItem item) async {
 					builder: (_) => SettingsScreen(
 						vaultKey: widget.vaultKey,
 						payloadKey: _payloadKey!,
+						collectionId: selectedCollectionId,
 					),
 				  ),
 				);
@@ -592,7 +595,7 @@ Future<void> delete(VaultItem item) async {
 				//}
 			  },
 			),
-          if (_vaultWordEnabled)
+if (_vaultWordEnabled)
 					Stack(
   children: [
     IconButton(
@@ -602,6 +605,7 @@ Future<void> delete(VaultItem item) async {
       ),
       onPressed: showVaultUnlockDialog,
     ),
+
 
     // 🔥 BADGE
     Positioned(
@@ -621,6 +625,7 @@ Future<void> delete(VaultItem item) async {
 					
 					
         ],
+				
       ),
 			
 			

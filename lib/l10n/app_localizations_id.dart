@@ -9,6 +9,24 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'Ekspor cadangan terenkripsi';
+
+  @override
+  String get exportText => 'Ekspor sebagai file teks';
+
+  @override
+  String get importBackup => 'Impor cadangan terenkripsi';
+
+  @override
+  String get importText => 'Impor dari file teks';
+
+  @override
+  String get downloadTemplate => 'Unduh template';
+
+  @override
   String get alreadyExists => 'Item ini sudah ada';
 
   @override

@@ -9,6 +9,24 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'Export Encrypted Backup';
+
+  @override
+  String get exportText => 'Export as Text File';
+
+  @override
+  String get importBackup => 'Import Encrypted Backup';
+
+  @override
+  String get importText => 'Import from Text File';
+
+  @override
+  String get downloadTemplate => 'Download Template';
+
+  @override
   String get alreadyExists => 'This item already exists';
 
   @override

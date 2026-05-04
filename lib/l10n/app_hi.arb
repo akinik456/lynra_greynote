@@ -1,4 +1,10 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "एन्क्रिप्टेड बैकअप निर्यात करें",
+"exportText": "टेक्स्ट फ़ाइल के रूप में निर्यात करें",
+"importBackup": "एन्क्रिप्टेड बैकअप आयात करें",
+"importText": "टेक्स्ट फ़ाइल से आयात करें",
+"downloadTemplate": "टेम्पलेट डाउनलोड करें",
 "alreadyExists": "यह आइटम पहले से मौजूद है",
 "backupReminder": "अपने डेटा को सुरक्षित रखने के लिए बैकअप बनाने पर विचार करें",
 

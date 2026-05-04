@@ -9,6 +9,24 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'Экспорт зашифрованной резервной копии';
+
+  @override
+  String get exportText => 'Экспорт в текстовый файл';
+
+  @override
+  String get importBackup => 'Импорт зашифрованной резервной копии';
+
+  @override
+  String get importText => 'Импорт из текстового файла';
+
+  @override
+  String get downloadTemplate => 'Скачать шаблон';
+
+  @override
   String get alreadyExists => 'Этот элемент уже существует';
 
   @override

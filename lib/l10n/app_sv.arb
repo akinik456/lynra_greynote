@@ -1,4 +1,10 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "Exportera krypterad säkerhetskopia",
+"exportText": "Exportera som textfil",
+"importBackup": "Importera krypterad säkerhetskopia",
+"importText": "Importera från textfil",
+"downloadTemplate": "Ladda ner mall",
 "alreadyExists": "Detta objekt finns redan",
 "backupReminder": "Överväg att skapa en säkerhetskopia för att skydda dina data",
 "sort": 												"Sortera",

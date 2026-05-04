@@ -9,6 +9,24 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'Export Encrypted Backup';
+
+  @override
+  String get exportText => 'Export as Text File';
+
+  @override
+  String get importBackup => 'Import Encrypted Backup';
+
+  @override
+  String get importText => 'Import from Text File';
+
+  @override
+  String get downloadTemplate => 'Download Template';
+
+  @override
   String get alreadyExists => 'This item already exists';
 
   @override
@@ -389,6 +407,24 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'Exportar backup criptografado';
+
+  @override
+  String get exportText => 'Exportar como arquivo de texto';
+
+  @override
+  String get importBackup => 'Importar backup criptografado';
+
+  @override
+  String get importText => 'Importar de arquivo de texto';
+
+  @override
+  String get downloadTemplate => 'Baixar modelo';
 
   @override
   String get alreadyExists => 'Este item já existe';

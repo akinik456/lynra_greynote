@@ -1,4 +1,11 @@
 {
+"textImportCompleted": "İçe aktarma tamamlandı. TXT dosyanız şifreli değil, silmeyi unutmayın.",
+"exportBackup": 		"Şifreli Yedek Olarak Dışa Aktar",
+"exportText": 			"Metin Dosyası Olarak Dışa Aktar",
+"importBackup": 		"Şifreli Yedeği İçe Aktar",
+"importText": 			"Metin Dosyasından İçe Aktar",
+"downloadTemplate": "Şablonu İndir",
+
 "alreadyExists": "Bu kayıt zaten mevcut",
 "backupReminder": "Verilerinizi güvende tutmak için yedek almayı unutmayın",
 "sort": 												"Sırala",

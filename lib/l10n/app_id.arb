@@ -1,4 +1,10 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "Ekspor cadangan terenkripsi",
+"exportText": "Ekspor sebagai file teks",
+"importBackup": "Impor cadangan terenkripsi",
+"importText": "Impor dari file teks",
+"downloadTemplate": "Unduh template",
 "alreadyExists": "Item ini sudah ada",
 "backupReminder": "Pertimbangkan untuk membuat cadangan agar data Anda tetap aman",
 "sort": 												"Urutkan",

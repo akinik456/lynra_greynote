@@ -21,10 +21,13 @@ import '../../../core/attachments/attachment_service.dart';
 class SettingsScreen extends StatefulWidget {
   final String vaultKey;
 	final SecretKey payloadKey;
+	final String collectionId;
+	
   const SettingsScreen({
     super.key,
     required this.vaultKey,
 		required this.payloadKey,
+		required this.collectionId,
   });
 
   @override
@@ -39,7 +42,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   static const Color _primary = Color(0xFF22D3EE);
   static const Color _textPrimary = Color(0xFFE2E8F0);
   static const Color _textSecondary = Color(0xFF94A3B8);
-
+	
 Future<String?> _getUnwrappedMasterKey() async {
   final wrappedMK = await AuthStorage.getWrappedMasterKey();
 
@@ -94,29 +97,157 @@ Future<String?> _getUnwrappedMasterKey() async {
                   builder: (_) => const VaultWordScreen(),
                 ),
               );
-
               if (result == true) {
                 setState(() {});
               }
             },
           ),  
           _Item(
-            title: AppLocalizations.of(context)!.exportData,
-            onTap: () async {
-  await exportBackupBlob();
-},
+  title: AppLocalizations.of(context)!.exportData,
+  onTap: () async {
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF0F172A),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (_) {
+        Widget option({
+          required String label,
+          required VoidCallback onTap,
+        }) {
+          return InkWell(
+            borderRadius: BorderRadius.circular(18),
+            onTap: onTap,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+              decoration: BoxDecoration(
+                color: const Color(0xFF123247),
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Text(
+                label,
+                style: const TextStyle(
+                  color: Color(0xFFE2E8F0),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          );
+        }
+
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                option(
+                  label: AppLocalizations.of(context)!.exportBackup,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    await exportBackupBlob();
+                  },
+                ),
+                const SizedBox(height: 10),
+                option(
+                  label: AppLocalizations.of(context)!.exportText,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    // TODO: export txt
+                  },
+                ),
+              ],
+            ),
           ),
-          _Item(
+        );
+      },
+    );
+  },
+),
+
+_Item(
   title: AppLocalizations.of(context)!.importData,
   onTap: () async {
-    await importBackupBlob();
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF0F172A),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (_) {
+        Widget option({
+          required String label,
+          required VoidCallback onTap,
+        }) {
+          return InkWell(
+            borderRadius: BorderRadius.circular(18),
+            onTap: onTap,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+              decoration: BoxDecoration(
+                color: const Color(0xFF123247),
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Text(
+                label,
+                style: const TextStyle(
+                  color: Color(0xFFE2E8F0),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          );
+        }
+
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                option(
+                  label: AppLocalizations.of(context)!.importBackup,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    await importBackupBlob();
+                  },
+                ),
+                const SizedBox(height: 10),
+                option(
+                  label: AppLocalizations.of(context)!.importText,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    await importTxt(
+											payloadKey: widget.payloadKey,
+											collectionId: widget.collectionId,
+										);
+                  },
+                ),
+                const SizedBox(height: 10),
+                option(
+                  label: AppLocalizations.of(context)!.downloadTemplate,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    await downloadTemplate();
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   },
 ),
 _Item(
   title: AppLocalizations.of(context)!.language,
   onTap: () {
     final currentLocale = Localizations.localeOf(context);
-
     final languages = <Map<String, dynamic>>[
       {"label": "English - English", "search": "English", "locale": const Locale('en')},
       {"label": "Türkçe - Turkish", "search": "Turkish Türkçe", "locale": const Locale('tr')},
@@ -294,23 +425,61 @@ _Item(
     );
   },
 ),
-_Item(
-  title: AppLocalizations.of(context)!.securityManifesto,
-  onTap: () {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (_) => const SecurityManifestoScreen(),
-      ),
-    );
-  },
-),
-
+					_Item(
+						title: AppLocalizations.of(context)!.securityManifesto,
+						onTap: () {
+							Navigator.push(
+								context,
+								MaterialPageRoute(
+									builder: (_) => const SecurityManifestoScreen(),
+								),
+							);
+						},
+					),
         ],
       ),
     );
   }
-  
+Future<void> downloadTemplate() async {
+  const content = '''
+# LynraGreyNote Import Template
+# Fill the fields below and import this file into the app.
+# Do not remove the separators (---)
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
+
+---
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
+
+---
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
+''';
+
+LynraApp.of(context).setSuspendAutoLock(true);
+  final fileName = "lynra_template.txt";
+
+ await FileSaver.instance.saveAs(
+  name: "LynraGreyNote_template",
+  bytes: Uint8List.fromList(utf8.encode(content)),
+  ext: "txt",
+  mimeType: MimeType.text,
+);
+LynraApp.of(context).setSuspendAutoLock(false);
+}  
 Future<void> exportBackupBlob() async {
   LynraApp.of(context).setSuspendAutoLock(true);
 
@@ -647,17 +816,14 @@ print("IMPORT ATTACHMENT START: ${attachmentContent.substring(0, 20)}");
     }
 
     if (!mounted) return;
-
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(AppLocalizations.of(context)!.importCompleted),
       ),
     );
-
     Navigator.pop(context, true);
   } catch (e) {
     if (!mounted) return;
-
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(AppLocalizations.of(context)!.importFailed),
@@ -666,6 +832,111 @@ print("IMPORT ATTACHMENT START: ${attachmentContent.substring(0, 20)}");
   } finally {
     LynraApp.of(context).setSuspendAutoLock(false);
   }
+}
+Future<void> importTxt({
+  required SecretKey payloadKey,
+  required String collectionId,
+}) async {
+LynraApp.of(context).setSuspendAutoLock(true);
+try {
+  final result = await FilePicker.pickFiles(
+  type: FileType.custom,
+  allowedExtensions: ['txt'],
+);
+  if (result == null) return;
+  final file = result.files.single;
+  String content;
+if (file.bytes != null) {
+  content = String.fromCharCodes(file.bytes!);
+} else {
+  content = await File(file.path!).readAsString();
+}
+if (widget.payloadKey == null) return;
+final mk = await _getUnwrappedMasterKey();
+if (mk == null) return;
+final existingItems = await repo.getItems(
+  payloadKey: widget.payloadKey,
+  collectionId: widget.collectionId,
+);
+final existingTitles = existingItems
+    .map((e) => e.title.trim().toLowerCase())
+    .toSet();		
+final blocks = content
+    .split('---')
+    .map((e) => e.trim())
+    .where((e) => e.isNotEmpty)
+    .toList();		
+for (final block in blocks) {
+  final lines = block.split('\n');
+  String title = '';
+  String username = '';
+  String password = '';
+  String note = '';
+  String iban = '';
+  for (final line in lines) {
+    final l = line.trim();
+    if (l.toLowerCase().startsWith('title:')) {
+      title = l.substring(6).trim();
+    } else if (l.toLowerCase().startsWith('username:')) {
+      username = l.substring(9).trim();
+    } else if (l.toLowerCase().startsWith('password:')) {
+      password = l.substring(9).trim();
+    } else if (l.toLowerCase().startsWith('note:')) {
+      note = l.substring(5).trim();
+    } else if (l.toLowerCase().startsWith('iban:')) {
+      iban = l.substring(5).trim();
+    }
+  }
+	if (title.isEmpty) {
+		print("SKIPPED: empty title");
+		continue;
+	}
+	final t = title.trim().toLowerCase();
+	if (existingTitles.contains(t)) {
+		print("SKIPPED: duplicate $title");
+		continue;
+	}
+await repo.insertItem(
+  payloadKey: widget.payloadKey,
+  title: title,
+  username: username,
+  password: password,
+  note: note,
+  iban: iban,
+  pattern: "",
+  collectionId: widget.collectionId,
+  type: "standard",
+  id: const Uuid().v4(),
+);	
+	existingTitles.add(t);
+  print("PARSED:");
+  print("title: $title");
+  print("username: $username");
+  print("password: $password");
+  print("note: $note");
+  print("iban: $iban");
+}			
+} 
+
+finally {
+      LynraApp.of(context).setSuspendAutoLock(false);
+  }
+	
+	if (!mounted) return;
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text(
+    AppLocalizations.of(context)!.textImportCompleted,
+    style: const TextStyle(
+      color: Colors.red, // 👈 burayı değiştir
+      fontWeight: FontWeight.w500,
+    ),
+  ),
+    duration: const Duration(seconds: 6),
+  ),
+);
+
+Navigator.pop(context, true);
 }
 }
 

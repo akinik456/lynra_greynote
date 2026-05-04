@@ -9,6 +9,24 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => '导出加密备份';
+
+  @override
+  String get exportText => '导出为文本文件';
+
+  @override
+  String get importBackup => '导入加密备份';
+
+  @override
+  String get importText => '从文本文件导入';
+
+  @override
+  String get downloadTemplate => '下载模板';
+
+  @override
   String get alreadyExists => '该项目已存在';
 
   @override

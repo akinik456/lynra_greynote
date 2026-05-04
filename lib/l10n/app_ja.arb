@@ -1,4 +1,11 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "暗号化されたバックアップをエクスポート",
+"exportText": "テキストファイルとしてエクスポート",
+"importBackup": "暗号化されたバックアップをインポート",
+"importText": "テキストファイルからインポート",
+"downloadTemplate": "テンプレートをダウンロード",
+
 "alreadyExists": "この項目はすでに存在します",
 "backupReminder": "データを保護するためにバックアップの作成を検討してください",
 "sort": 												"並び替え",

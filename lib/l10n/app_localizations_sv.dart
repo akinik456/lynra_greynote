@@ -9,6 +9,24 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'Exportera krypterad säkerhetskopia';
+
+  @override
+  String get exportText => 'Exportera som textfil';
+
+  @override
+  String get importBackup => 'Importera krypterad säkerhetskopia';
+
+  @override
+  String get importText => 'Importera från textfil';
+
+  @override
+  String get downloadTemplate => 'Ladda ner mall';
+
+  @override
   String get alreadyExists => 'Detta objekt finns redan';
 
   @override

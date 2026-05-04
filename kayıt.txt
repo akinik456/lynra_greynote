@@ -1,0 +1,29 @@
+Title: Kayıt1
+Username: Abdullah
+Password: 1234567
+IBAN: 45678
+Note: Not yok
+
+---
+
+Title: 
+Username: Dilek
+Password: 234567
+IBAN: 6789
+Note: Not var
+
+---
+
+Title: Kayıt2
+Username: Dilek
+Password: 234567
+IBAN: 6789
+Note: Not var
+
+---
+
+Title: Kayıt3
+Username: Didem
+Password: 345678
+IBAN: 56789
+Note: Not

@@ -1,4 +1,10 @@
 {
+"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"exportBackup": "导出加密备份",
+"exportText": "导出为文本文件",
+"importBackup": "导入加密备份",
+"importText": "从文本文件导入",
+"downloadTemplate": "下载模板",
 "alreadyExists": "该项目已存在",
 "backupReminder": "建议创建备份以保护您的数据",
 "sort": 												"排序",

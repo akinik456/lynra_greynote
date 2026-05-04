@@ -9,6 +9,24 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+
+  @override
+  String get exportBackup => 'تصدير نسخة احتياطية مشفرة';
+
+  @override
+  String get exportText => 'تصدير كملف نصي';
+
+  @override
+  String get importBackup => 'استيراد نسخة احتياطية مشفرة';
+
+  @override
+  String get importText => 'استيراد من ملف نصي';
+
+  @override
+  String get downloadTemplate => 'تنزيل القالب';
+
+  @override
   String get alreadyExists => 'هذا العنصر موجود بالفعل';
 
   @override
