@@ -156,7 +156,7 @@ Future<String?> _getUnwrappedMasterKey() async {
                   label: AppLocalizations.of(context)!.exportText,
                   onTap: () async {
                     Navigator.pop(context);
-                    // TODO: export txt
+                    exportTxt();
                   },
                 ),
               ],
@@ -440,46 +440,7 @@ _Item(
       ),
     );
   }
-Future<void> downloadTemplate() async {
-  const content = '''
-# LynraGreyNote Import Template
-# Fill the fields below and import this file into the app.
-# Do not remove the separators (---)
 
-Title:
-Username:
-Password:
-IBAN:
-Note:
-
----
-
-Title:
-Username:
-Password:
-IBAN:
-Note:
-
----
-
-Title:
-Username:
-Password:
-IBAN:
-Note:
-''';
-
-LynraApp.of(context).setSuspendAutoLock(true);
-  final fileName = "lynra_template.txt";
-
- await FileSaver.instance.saveAs(
-  name: "LynraGreyNote_template",
-  bytes: Uint8List.fromList(utf8.encode(content)),
-  ext: "txt",
-  mimeType: MimeType.text,
-);
-LynraApp.of(context).setSuspendAutoLock(false);
-}  
 Future<void> exportBackupBlob() async {
   LynraApp.of(context).setSuspendAutoLock(true);
 
@@ -833,6 +794,51 @@ print("IMPORT ATTACHMENT START: ${attachmentContent.substring(0, 20)}");
     LynraApp.of(context).setSuspendAutoLock(false);
   }
 }
+Future<void> exportTxt() async {
+	LynraApp.of(context).setSuspendAutoLock(true);
+  final items = await repo.getItems(
+    payloadKey: widget.payloadKey,
+    collectionId: widget.collectionId,
+  );
+
+  final buffer = StringBuffer();
+
+  for (final item in items) {
+    buffer.writeln('Title: ${item.title}');
+    buffer.writeln('Username: ${item.username}');
+    buffer.writeln('Password: ${item.password}');
+    buffer.writeln('IBAN: ${item.iban}');
+    buffer.writeln('Note: ${item.note}');
+    buffer.writeln('');
+    buffer.writeln('---');
+    buffer.writeln('');
+  }
+
+  await FileSaver.instance.saveAs(
+    name: 'lynra_export',
+    bytes: Uint8List.fromList(utf8.encode(buffer.toString())),
+    ext: 'txt',
+    mimeType: MimeType.text,
+  );
+      LynraApp.of(context).setSuspendAutoLock(false);
+	
+	if (!mounted) return;
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text(
+    AppLocalizations.of(context)!.textImportCompleted,
+    style: const TextStyle(
+      color: Colors.red, // 👈 burayı değiştir
+      fontWeight: FontWeight.w500,
+    ),
+  ),
+    duration: const Duration(seconds: 6),
+  ),
+);
+
+Navigator.pop(context, true);
+}
+
 Future<void> importTxt({
   required SecretKey payloadKey,
   required String collectionId,
@@ -938,6 +944,46 @@ ScaffoldMessenger.of(context).showSnackBar(
 
 Navigator.pop(context, true);
 }
+Future<void> downloadTemplate() async {
+  const content = '''
+# LynraGreyNote Import Template
+# Fill the fields below and import this file into the app.
+# Do not remove the separators (---)
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
+
+---
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
+
+---
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
+''';
+
+LynraApp.of(context).setSuspendAutoLock(true);
+  final fileName = "lynra_template.txt";
+
+ await FileSaver.instance.saveAs(
+  name: "LynraGreyNote_template",
+  bytes: Uint8List.fromList(utf8.encode(content)),
+  ext: "txt",
+  mimeType: MimeType.text,
+);
+LynraApp.of(context).setSuspendAutoLock(false);
+}  
 }
 
 class _Item extends StatelessWidget {
