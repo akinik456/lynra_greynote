@@ -10,7 +10,7 @@ Clipboard auto clear +
 Global search +
 Favori kayıtlar+
 Sort options+
-Backup almadın uyarısı+
+Backup al uyarısı+
 
 *******************
 

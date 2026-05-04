@@ -9,6 +9,9 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get alreadyExists => 'Item ini sudah ada';
+
+  @override
   String get backupReminder => 'Pertimbangkan untuk membuat cadangan agar data Anda tetap aman';
 
   @override

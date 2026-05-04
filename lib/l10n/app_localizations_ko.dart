@@ -9,6 +9,9 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
+  String get alreadyExists => '이 항목은 이미 존재합니다';
+
+  @override
   String get backupReminder => '데이터를 안전하게 보호하려면 백업을 고려하세요';
 
   @override

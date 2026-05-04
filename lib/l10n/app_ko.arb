@@ -1,4 +1,5 @@
 {
+"alreadyExists": "이 항목은 이미 존재합니다",
 "backupReminder": "데이터를 안전하게 보호하려면 백업을 고려하세요",
 "sort": 												"정렬",
 "sortFavorites": "즐겨찾기",

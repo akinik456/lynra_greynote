@@ -130,6 +130,12 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @alreadyExists.
+  ///
+  /// In en, this message translates to:
+  /// **'This item already exists'**
+  String get alreadyExists;
+
   /// No description provided for @backupReminder.
   ///
   /// In en, this message translates to:

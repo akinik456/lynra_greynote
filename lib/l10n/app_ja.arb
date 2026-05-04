@@ -1,4 +1,5 @@
 {
+"alreadyExists": "この項目はすでに存在します",
 "backupReminder": "データを保護するためにバックアップの作成を検討してください",
 "sort": 												"並び替え",
 "sortFavorites": "お気に入り",

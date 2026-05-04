@@ -9,6 +9,9 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get alreadyExists => 'Dit item bestaat al';
+
+  @override
   String get backupReminder => 'Overweeg een back-up te maken om je gegevens te beschermen';
 
   @override

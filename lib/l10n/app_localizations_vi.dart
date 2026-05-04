@@ -9,6 +9,9 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
+  String get alreadyExists => 'Mục này đã tồn tại';
+
+  @override
   String get backupReminder => 'Hãy cân nhắc tạo bản sao lưu để bảo vệ dữ liệu của bạn';
 
   @override

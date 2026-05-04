@@ -9,6 +9,9 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get alreadyExists => 'Этот элемент уже существует';
+
+  @override
   String get backupReminder => 'Рекомендуется создать резервную копию для защиты ваших данных';
 
   @override

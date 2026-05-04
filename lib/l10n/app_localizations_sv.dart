@@ -9,6 +9,9 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
+  String get alreadyExists => 'Detta objekt finns redan';
+
+  @override
   String get backupReminder => 'Överväg att skapa en säkerhetskopia för att skydda dina data';
 
   @override

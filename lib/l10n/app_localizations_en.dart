@@ -9,6 +9,9 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get alreadyExists => 'This item already exists';
+
+  @override
   String get backupReminder => 'Consider creating a backup to keep your data safe';
 
   @override

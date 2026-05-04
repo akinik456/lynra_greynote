@@ -9,6 +9,9 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
+  String get alreadyExists => 'Cet élément existe déjà';
+
+  @override
   String get backupReminder => 'Pensez à créer une sauvegarde pour protéger vos données';
 
   @override

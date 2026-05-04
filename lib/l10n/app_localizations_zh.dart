@@ -9,6 +9,9 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get alreadyExists => '该项目已存在';
+
+  @override
   String get backupReminder => '建议创建备份以保护您的数据';
 
   @override

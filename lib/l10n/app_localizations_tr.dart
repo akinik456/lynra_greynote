@@ -9,6 +9,9 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get alreadyExists => 'Bu kayıt zaten mevcut';
+
+  @override
   String get backupReminder => 'Verilerinizi güvende tutmak için yedek almayı unutmayın';
 
   @override

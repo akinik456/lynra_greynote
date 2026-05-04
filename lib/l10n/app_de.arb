@@ -1,4 +1,5 @@
 {
+"alreadyExists": "Dieser Eintrag existiert bereits",
 "backupReminder": "Erwägen Sie, ein Backup zu erstellen, um Ihre Daten zu schützen",
 
 "sort": 												"Sortieren",

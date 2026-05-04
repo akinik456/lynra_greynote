@@ -341,27 +341,34 @@ List<VaultItem> get filteredItems {
     context,
     MaterialPageRoute(builder: (_) => const AddEditScreen()),
   );
-
   if (result == null) return;
 	
-	ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(
-        AppLocalizations.of(context)!.backupReminder,
-      ),
-      duration: const Duration(seconds: 2), // kısa
-      behavior: SnackBarBehavior.floating,  // şık durur
-    ),
-  );
+	
 
   final attachmentBytes = result['attachmentBytes'] as Uint8List?;
   final attachmentType = result['attachmentType'] as String?;
-
   print("ATTACHMENT: $attachmentType / ${attachmentBytes?.length}");
-
     final mk = await _getUnwrappedMasterKey();
     if (mk == null) return;
-final itemId = Uuid().v4();
+		final itemId = Uuid().v4();
+		
+		final items = await repo.getItems(
+  payloadKey: _payloadKey!,
+  collectionId: selectedCollectionId,
+);
+
+final exists = items.any(
+  (e) => e.title.trim().toLowerCase() ==
+         result['title'].toString().trim().toLowerCase(),
+);
+if (exists) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(AppLocalizations.of(context)!.alreadyExists),
+    ),
+  );
+  return;
+}
     await repo.insertItem(
 		id: itemId,
       payloadKey: _payloadKey!,
@@ -392,7 +399,16 @@ final itemId = Uuid().v4();
 
   print("ATTACH FLAG TRUE SET FOR: $itemId");
 }
-    await load();
+	ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        AppLocalizations.of(context)!.backupReminder,
+      ),
+      duration: const Duration(seconds: 2), 
+     // behavior: SnackBarBehavior.floating,  
+    ),
+  );  
+  await load();
 }
 
 Future<void> delete(VaultItem item) async {

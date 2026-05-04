@@ -1,4 +1,5 @@
 {
+"alreadyExists": "Este item já existe",
 "backupReminder": "Considere criar um backup para manter seus dados seguros",
 "sort": 												"Ordenar",
 "sortFavorites": "Favoritos",

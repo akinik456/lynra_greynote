@@ -9,6 +9,9 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get alreadyExists => 'यह आइटम पहले से मौजूद है';
+
+  @override
   String get backupReminder => 'अपने डेटा को सुरक्षित रखने के लिए बैकअप बनाने पर विचार करें';
 
   @override
