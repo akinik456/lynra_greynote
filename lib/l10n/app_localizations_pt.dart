@@ -9,6 +9,9 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get backupReminder => 'Consider creating a backup to keep your data safe';
+
+  @override
   String get sort => 'Sort';
 
   @override
@@ -383,6 +386,9 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get backupReminder => 'Considere criar um backup para manter seus dados seguros';
 
   @override
   String get sort => 'Ordenar';

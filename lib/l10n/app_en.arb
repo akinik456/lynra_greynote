@@ -1,4 +1,6 @@
 {
+"backupReminder":								"Consider creating a backup to keep your data safe",
+
 "sort": 												"Sort",
 "sortFavorites": 								"Favorites",
 "sortUpdated": 									"Last updated",

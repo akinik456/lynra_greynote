@@ -9,6 +9,9 @@ class AppLocalizationsPl extends AppLocalizations {
   AppLocalizationsPl([String locale = 'pl']) : super(locale);
 
   @override
+  String get backupReminder => 'Rozważ utworzenie kopii zapasowej, aby chronić swoje dane';
+
+  @override
   String get sort => 'Sortuj';
 
   @override

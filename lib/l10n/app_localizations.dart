@@ -130,6 +130,12 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @backupReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Consider creating a backup to keep your data safe'**
+  String get backupReminder;
+
   /// No description provided for @sort.
   ///
   /// In en, this message translates to:

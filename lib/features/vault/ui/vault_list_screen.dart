@@ -343,6 +343,16 @@ List<VaultItem> get filteredItems {
   );
 
   if (result == null) return;
+	
+	ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        AppLocalizations.of(context)!.backupReminder,
+      ),
+      duration: const Duration(seconds: 2), // kısa
+      behavior: SnackBarBehavior.floating,  // şık durur
+    ),
+  );
 
   final attachmentBytes = result['attachmentBytes'] as Uint8List?;
   final attachmentType = result['attachmentType'] as String?;
@@ -704,7 +714,7 @@ Future<void> delete(VaultItem item) async {
           borderRadius: BorderRadius.circular(28),
         ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(22, 22, 22, 18),
+          padding: const EdgeInsets.fromLTRB(18, 14, 18, 14),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -712,15 +722,15 @@ Future<void> delete(VaultItem item) async {
                 AppLocalizations.of(context)!.sort,
                 style: const TextStyle(
                   color: Color(0xFFE2E8F0),
-                  fontSize: 24,
+                  fontSize: 18,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              const SizedBox(height: 22),
+              const SizedBox(height: 4),
               option('favorites', AppLocalizations.of(context)!.sortFavorites),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               option('updated', AppLocalizations.of(context)!.sortUpdated),
-              const SizedBox(height: 8),
+              const SizedBox(height: 4),
               option('az', AppLocalizations.of(context)!.sortAZ),
             ],
           ),

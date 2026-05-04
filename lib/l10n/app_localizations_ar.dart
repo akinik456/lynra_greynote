@@ -9,6 +9,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get backupReminder => 'فكر في إنشاء نسخة احتياطية للحفاظ على أمان بياناتك';
+
+  @override
   String get sort => 'ترتيب';
 
   @override

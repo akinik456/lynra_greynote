@@ -9,6 +9,9 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
+  String get backupReminder => 'พิจารณาสร้างข้อมูลสำรองเพื่อปกป้องข้อมูลของคุณ';
+
+  @override
   String get sort => 'จัดเรียง';
 
   @override

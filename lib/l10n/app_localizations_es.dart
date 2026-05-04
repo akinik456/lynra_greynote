@@ -9,6 +9,9 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
+  String get backupReminder => 'Considera crear una copia de seguridad para mantener tus datos seguros';
+
+  @override
   String get sort => 'Ordenar';
 
   @override
