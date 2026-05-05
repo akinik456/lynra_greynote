@@ -1,4 +1,8 @@
 {
+"exportCSV": "Exporter en fichier CSV",
+"csvTemplate":									"Modèle CSV",
+"textTemplate":									"Modèle de texte",
+
 "txtExportCompleted": "Exportation terminée. Ce fichier n’est pas chiffré.",
 "exportBackup": "Exporter une sauvegarde chiffrée",
 "exportText": "Exporter en fichier texte",

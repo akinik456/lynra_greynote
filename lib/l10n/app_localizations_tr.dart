@@ -9,6 +9,15 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get exportCSV => 'CSV dosyası olarak dışa aktar';
+
+  @override
+  String get csvTemplate => 'CSV Şablonu';
+
+  @override
+  String get textTemplate => 'Metin Şablonu';
+
+  @override
   String get txtExportCompleted => 'Dışa aktarma tamamlandı. Bu dosya şifreli değildir.';
 
   @override

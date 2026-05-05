@@ -9,6 +9,15 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get exportCSV => '导出为 CSV 文件';
+
+  @override
+  String get csvTemplate => 'CSV 模板';
+
+  @override
+  String get textTemplate => '文本模板';
+
+  @override
   String get txtExportCompleted => '导出完成。此文件未加密。';
 
   @override

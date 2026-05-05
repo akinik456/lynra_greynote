@@ -9,6 +9,15 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get exportCSV => 'Экспортировать как файл CSV';
+
+  @override
+  String get csvTemplate => 'Шаблон CSV';
+
+  @override
+  String get textTemplate => 'Текстовый шаблон';
+
+  @override
   String get txtExportCompleted => 'Экспорт завершён. Этот файл не зашифрован.';
 
   @override

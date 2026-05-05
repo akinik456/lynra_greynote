@@ -1,4 +1,8 @@
 {
+"exportCSV": "Exportar como archivo CSV",
+"csvTemplate":									"Plantilla CSV",
+"textTemplate":									"Plantilla de texto",
+
 "txtExportCompleted": "Exportación completada. Este archivo no está cifrado.",
 "exportBackup": "Exportar copia de seguridad cifrada",
 "exportText": "Exportar como archivo de texto",

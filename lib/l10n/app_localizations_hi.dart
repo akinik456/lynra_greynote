@@ -9,6 +9,15 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get exportCSV => 'CSV फ़ाइल के रूप में निर्यात करें';
+
+  @override
+  String get csvTemplate => 'CSV टेम्पलेट';
+
+  @override
+  String get textTemplate => 'टेक्स्ट टेम्पलेट';
+
+  @override
   String get txtExportCompleted => 'निर्यात पूरा हुआ। यह फ़ाइल एन्क्रिप्टेड नहीं है।';
 
   @override

@@ -9,6 +9,15 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
+  String get exportCSV => 'Exporter en fichier CSV';
+
+  @override
+  String get csvTemplate => 'Modèle CSV';
+
+  @override
+  String get textTemplate => 'Modèle de texte';
+
+  @override
   String get txtExportCompleted => 'Exportation terminée. Ce fichier n’est pas chiffré.';
 
   @override

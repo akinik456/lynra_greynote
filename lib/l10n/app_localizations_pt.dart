@@ -9,6 +9,15 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get exportCSV => 'Export as csv File';
+
+  @override
+  String get csvTemplate => 'csv Template';
+
+  @override
+  String get textTemplate => 'text Template';
+
+  @override
   String get txtExportCompleted => 'Export completed. This file is not encrypted.';
 
   @override
@@ -407,6 +416,15 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get exportCSV => 'Exportar como arquivo CSV';
+
+  @override
+  String get csvTemplate => 'csv Template';
+
+  @override
+  String get textTemplate => 'text Template';
 
   @override
   String get txtExportCompleted => 'Exportação concluída. Este arquivo não é criptografado.';

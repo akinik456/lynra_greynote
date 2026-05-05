@@ -1,4 +1,8 @@
 {
+"exportCSV": "Ekspor sebagai file CSV",
+"csvTemplate":									"Template CSV",
+"textTemplate":									"Template Teks",
+
 "txtExportCompleted": "Ekspor selesai. File ini tidak terenkripsi.",
 "exportBackup": "Ekspor cadangan terenkripsi",
 "exportText": "Ekspor sebagai file teks",

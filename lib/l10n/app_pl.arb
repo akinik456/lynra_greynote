@@ -1,4 +1,8 @@
 {
+"exportCSV": "Eksportuj jako plik CSV",
+"csvTemplate":									"Szablon CSV",
+"textTemplate":									"Szablon tekstowy",
+
 "txtExportCompleted": "Eksport zakończony. Ten plik nie jest zaszyfrowany.",
 "exportBackup": "Eksportuj zaszyfrowaną kopię zapasową",
 "exportText": "Eksportuj jako plik tekstowy",

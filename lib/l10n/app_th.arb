@@ -1,4 +1,8 @@
 {
+"exportCSV": "ส่งออกเป็นไฟล์ CSV",
+"csvTemplate":									"เทมเพลต CSV",
+"textTemplate":									"เทมเพลตข้อความ",
+
 "txtExportCompleted": "ส่งออกเสร็จสิ้น ไฟล์นี้ไม่ได้เข้ารหัส",
 "exportBackup": "ส่งออกข้อมูลสำรองที่เข้ารหัส",
 "exportText": "ส่งออกเป็นไฟล์ข้อความ",

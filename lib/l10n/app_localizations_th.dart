@@ -9,6 +9,15 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
+  String get exportCSV => 'ส่งออกเป็นไฟล์ CSV';
+
+  @override
+  String get csvTemplate => 'เทมเพลต CSV';
+
+  @override
+  String get textTemplate => 'เทมเพลตข้อความ';
+
+  @override
   String get txtExportCompleted => 'ส่งออกเสร็จสิ้น ไฟล์นี้ไม่ได้เข้ารหัส';
 
   @override

@@ -1,4 +1,8 @@
 {
+"exportCSV": "导出为 CSV 文件",
+"csvTemplate":									"CSV 模板",
+"textTemplate":									"文本模板",
+
 "txtExportCompleted": "导出完成。此文件未加密。",
 "exportBackup": "导出加密备份",
 "exportText": "导出为文本文件",

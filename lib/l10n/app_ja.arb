@@ -1,4 +1,8 @@
 {
+"exportCSV": "CSVファイルとしてエクスポート",
+"csvTemplate":									"CSVテンプレート",
+"textTemplate":									"テキストテンプレート",
+
 "txtExportCompleted": "エクスポートが完了しました。このファイルは暗号化されていません。",
 "exportBackup": "暗号化されたバックアップをエクスポート",
 "exportText": "テキストファイルとしてエクスポート",

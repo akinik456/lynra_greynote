@@ -9,6 +9,15 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
+  String get exportCSV => 'Als CSV-Datei exportieren';
+
+  @override
+  String get csvTemplate => 'CSV-Vorlage';
+
+  @override
+  String get textTemplate => 'Textvorlage';
+
+  @override
   String get txtExportCompleted => 'Export abgeschlossen. Diese Datei ist nicht verschlüsselt.';
 
   @override

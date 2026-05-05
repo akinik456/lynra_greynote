@@ -1,4 +1,8 @@
 {
+"exportCSV": "Exportera som CSV-fil",
+"csvTemplate":									"CSV-mall",
+"textTemplate":									"Textmall",
+
 "txtExportCompleted": "Export klar. Den här filen är inte krypterad.",
 "exportBackup": "Exportera krypterad säkerhetskopia",
 "exportText": "Exportera som textfil",

@@ -130,6 +130,24 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @exportCSV.
+  ///
+  /// In en, this message translates to:
+  /// **'Export as csv File'**
+  String get exportCSV;
+
+  /// No description provided for @csvTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'csv Template'**
+  String get csvTemplate;
+
+  /// No description provided for @textTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'text Template'**
+  String get textTemplate;
+
   /// No description provided for @txtExportCompleted.
   ///
   /// In en, this message translates to:

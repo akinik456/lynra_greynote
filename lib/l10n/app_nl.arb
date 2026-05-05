@@ -1,4 +1,8 @@
 {
+"exportCSV": "Exporteren als CSV-bestand",
+"csvTemplate":									"CSV-sjabloon",
+"textTemplate":									"Tekstsjabloon",
+
 "txtExportCompleted": "Export voltooid. Dit bestand is niet versleuteld.",
 "exportBackup": "Versleutelde back-up exporteren",
 "exportText": "Exporteren als tekstbestand",

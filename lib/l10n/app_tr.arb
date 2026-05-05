@@ -1,4 +1,8 @@
 {
+"exportCSV": "CSV dosyası olarak dışa aktar",
+"csvTemplate":									"CSV Şablonu",
+"textTemplate":									"Metin Şablonu",
+
 "txtExportCompleted": "Dışa aktarma tamamlandı. Bu dosya şifreli değildir.",
 "exportBackup": 		"Şifreli Yedek Olarak Dışa Aktar",
 "exportText": 			"Metin Dosyası Olarak Dışa Aktar",

@@ -9,6 +9,15 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
+  String get exportCSV => 'Exportera som CSV-fil';
+
+  @override
+  String get csvTemplate => 'CSV-mall';
+
+  @override
+  String get textTemplate => 'Textmall';
+
+  @override
   String get txtExportCompleted => 'Export klar. Den här filen är inte krypterad.';
 
   @override

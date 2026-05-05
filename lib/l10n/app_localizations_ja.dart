@@ -9,6 +9,15 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get exportCSV => 'CSVファイルとしてエクスポート';
+
+  @override
+  String get csvTemplate => 'CSVテンプレート';
+
+  @override
+  String get textTemplate => 'テキストテンプレート';
+
+  @override
   String get txtExportCompleted => 'エクスポートが完了しました。このファイルは暗号化されていません。';
 
   @override

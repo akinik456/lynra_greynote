@@ -1,4 +1,8 @@
 {
+"exportCSV": "Xuất dưới dạng tệp CSV",
+"csvTemplate":									"Mẫu CSV",
+"textTemplate":									"Mẫu văn bản",
+
 "txtExportCompleted": "Xuất hoàn tất. Tệp này không được mã hóa.",
 "exportBackup": "Xuất bản sao lưu được mã hóa",
 "exportText": "Xuất dưới dạng tệp văn bản",

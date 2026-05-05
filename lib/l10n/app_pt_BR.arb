@@ -1,4 +1,8 @@
 {
+"exportCSV": "Exportar como arquivo CSV",
+"csvTemplate":									"csv Template",
+"textTemplate":									"text Template",
+
 "txtExportCompleted": "Exportação concluída. Este arquivo não é criptografado.",
 "exportBackup": "Exportar backup criptografado",
 "exportText": "Exportar como arquivo de texto",

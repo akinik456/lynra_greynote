@@ -9,6 +9,15 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get exportCSV => 'Ekspor sebagai file CSV';
+
+  @override
+  String get csvTemplate => 'Template CSV';
+
+  @override
+  String get textTemplate => 'Template Teks';
+
+  @override
   String get txtExportCompleted => 'Ekspor selesai. File ini tidak terenkripsi.';
 
   @override

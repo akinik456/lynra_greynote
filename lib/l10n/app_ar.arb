@@ -1,4 +1,8 @@
 {
+"exportCSV": "تصدير كملف CSV",
+"csvTemplate":									"قالب CSV",
+"textTemplate":									"قالب نصي",
+
 "txtExportCompleted": "اكتملت عملية التصدير. هذا الملف غير مشفر",
 "exportBackup": "تصدير نسخة احتياطية مشفرة",
 "exportText": "تصدير كملف نصي",

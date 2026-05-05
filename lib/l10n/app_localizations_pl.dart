@@ -9,6 +9,15 @@ class AppLocalizationsPl extends AppLocalizations {
   AppLocalizationsPl([String locale = 'pl']) : super(locale);
 
   @override
+  String get exportCSV => 'Eksportuj jako plik CSV';
+
+  @override
+  String get csvTemplate => 'Szablon CSV';
+
+  @override
+  String get textTemplate => 'Szablon tekstowy';
+
+  @override
   String get txtExportCompleted => 'Eksport zakończony. Ten plik nie jest zaszyfrowany.';
 
   @override

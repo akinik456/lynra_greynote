@@ -159,6 +159,14 @@ Future<String?> _getUnwrappedMasterKey() async {
                     exportTxt();
                   },
                 ),
+								const SizedBox(height: 10),
+                option(
+                  label: AppLocalizations.of(context)!.exportCSV,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    exportCSV();
+                  },
+                ),
               ],
             ),
           ),
@@ -230,12 +238,72 @@ _Item(
                 ),
                 const SizedBox(height: 10),
                 option(
-                  label: AppLocalizations.of(context)!.downloadTemplate,
+  label: AppLocalizations.of(context)!.downloadTemplate,
+  onTap: () async {
+    Navigator.pop(context);
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: const Color(0xFF0F172A),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      ),
+      builder: (_) {
+        Widget option2({
+          required String label,
+          required VoidCallback onTap,
+        }) {
+          return InkWell(
+            borderRadius: BorderRadius.circular(18),
+            onTap: onTap,
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+              decoration: BoxDecoration(
+                color: const Color(0xFF123247),
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Text(
+                label,
+                style: const TextStyle(
+                  color: Color(0xFFE2E8F0),
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          );
+        }
+
+        return SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                option2(
+                  label: AppLocalizations.of(context)!.textTemplate,
                   onTap: () async {
                     Navigator.pop(context);
-                    await downloadTemplate();
+                    await downloadTxtTemplate();
                   },
                 ),
+                const SizedBox(height: 10),
+                option2(
+                  label: AppLocalizations.of(context)!.csvTemplate,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    await downloadCsvTemplate();
+                  },
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  },
+),
               ],
             ),
           ),
@@ -838,7 +906,52 @@ ScaffoldMessenger.of(context).showSnackBar(
 
 Navigator.pop(context, true);
 }
+Future<void> exportCSV() async {
+	LynraApp.of(context).setSuspendAutoLock(true);
+	
+final items = await repo.getItems(
+    payloadKey: widget.payloadKey,
+    collectionId: widget.collectionId,
+  );
 
+  String safe(String v) => '"${v.replaceAll('"', '""')}"';
+
+  final buffer = StringBuffer();
+
+  // header
+  buffer.writeln('Title,Username,Password,IBAN,Note');
+
+  for (final item in items) {
+    buffer.writeln(
+      '${safe(item.title)},${safe(item.username)},${safe(item.password)},${safe(item.iban)},${safe(item.note)}',
+    );
+  }
+
+  await FileSaver.instance.saveAs(
+    name: 'lynra_export',
+    bytes: Uint8List.fromList(utf8.encode(buffer.toString())),
+    ext: 'csv',
+    mimeType: MimeType.csv,
+  );	
+LynraApp.of(context).setSuspendAutoLock(false);
+	
+	if (!mounted) return;
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text(
+    AppLocalizations.of(context)!.txtExportCompleted,
+    style: const TextStyle(
+      color: Colors.red, // 👈 burayı değiştir
+      fontWeight: FontWeight.w500,
+    ),
+  ),
+    duration: const Duration(seconds: 6),
+  ),
+);
+
+Navigator.pop(context, true);
+}	
+	
 Future<void> importTxt({
   required SecretKey payloadKey,
   required String collectionId,
@@ -945,10 +1058,10 @@ ScaffoldMessenger.of(context).showSnackBar(
 
 Navigator.pop(context, true);
 }
-Future<void> downloadTemplate() async {
+Future<void> downloadTxtTemplate() async {
   const content = '''
 #
-# Lynra Import Template
+# LynraGreyNote txt Template
 # Offline. Private. Yours.
 #
 # Fill the fields below and import this file into the app.
@@ -979,16 +1092,42 @@ Note:
 ''';
 
 LynraApp.of(context).setSuspendAutoLock(true);
-  final fileName = "lynra_template.txt";
 
  await FileSaver.instance.saveAs(
-  name: "LynraGreyNote_template",
+  name: "LynraGreyNote_txt_template",
   bytes: Uint8List.fromList(utf8.encode(content)),
   ext: "txt",
   mimeType: MimeType.text,
 );
 LynraApp.of(context).setSuspendAutoLock(false);
-}  
+}
+
+Future<void> downloadCsvTemplate() async {
+  const content = '''
+#
+# LynraGreyNote CSV Template
+# Offline. Private. Yours.
+#
+# Open this file in Excel or Google Sheets
+# Do not change the header row
+#
+
+Title,Username,Password,IBAN,Note
+Gmail,user@gmail.com,myPassword123,,Personal mail account
+Netflix,user@gmail.com,netflixPass,,
+''';
+
+LynraApp.of(context).setSuspendAutoLock(true);
+
+ await FileSaver.instance.saveAs(
+  name: "LynraGreyNote_csv_template",
+  bytes: Uint8List.fromList(utf8.encode(content)),
+  ext: "csv",
+  mimeType: MimeType.csv,
+);
+LynraApp.of(context).setSuspendAutoLock(false);
+}
+  
 }
 
 class _Item extends StatelessWidget {

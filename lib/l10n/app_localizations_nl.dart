@@ -9,6 +9,15 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get exportCSV => 'Exporteren als CSV-bestand';
+
+  @override
+  String get csvTemplate => 'CSV-sjabloon';
+
+  @override
+  String get textTemplate => 'Tekstsjabloon';
+
+  @override
   String get txtExportCompleted => 'Export voltooid. Dit bestand is niet versleuteld.';
 
   @override

@@ -9,6 +9,15 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get exportCSV => 'Esporta come file CSV';
+
+  @override
+  String get csvTemplate => 'Modello CSV';
+
+  @override
+  String get textTemplate => 'Modello di testo';
+
+  @override
   String get txtExportCompleted => 'Esportazione completata. Questo file non è crittografato.';
 
   @override
