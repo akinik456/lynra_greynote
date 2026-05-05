@@ -52,16 +52,16 @@ class VaultDetailScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
 				IconButton(
-  icon: Icon(
-    item.isFavorite
-        ? Icons.star_rounded
-        : Icons.star_border_rounded,
-    color: item.isFavorite
-        ? Colors.amber
-        : Colors.white.withOpacity(0.55),
-  ),
-  onPressed: null
-),
+						icon: Icon(
+							item.isFavorite
+									? Icons.star_rounded
+									: Icons.star_border_rounded,
+							color: item.isFavorite
+									? Colors.amber
+									: Colors.white.withOpacity(0.55),
+						),
+						onPressed: null
+					),
           if (!shouldHide && item.type != "pattern")
             IconButton(						
               icon: const Icon(Icons.edit_outlined),
@@ -131,95 +131,82 @@ class VaultDetailScreen extends StatelessWidget {
             ],
           ],
 					if (item.hasAttachment) ...[
-  Row(
-    children: [
-      Expanded(
-        child: SizedBox(
-          height: 36,
-          child: OutlinedButton.icon(
-            onPressed: () async {
-              final service = AttachmentService();
-
-              final data = await service.readEncryptedAttachment(
-                itemId: item.id,
-                key: payloadKey,
-              );
-
-              if (data == null) return;
-
-              final type = data['type'];
-              final base64Data = data['data'];
-              final bytes = base64Decode(base64Data);
-
-              if (type == 'image') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => Scaffold(
-                      backgroundColor: Colors.black,
-                      appBar: AppBar(backgroundColor: Colors.black),
-                      body: Center(
-                        child: Image.memory(bytes),
-                      ),
-                    ),
-                  ),
-                );
-                return;
-              }              
-              if (type == 'pdf') {
-								final dir = await getTemporaryDirectory();
-								final file = File('${dir.path}/${item.id}.pdf');
-
-								await file.writeAsBytes(bytes, flush: true);
-
-								await OpenFilex.open(file.path);
-							}
-            },
-            icon: const Icon(Icons.attach_file, size: 18),
-            label: Text(AppLocalizations.of(context)!.viewAttachment),
-            style: OutlinedButton.styleFrom(
-              side: BorderSide(color: Colors.white.withOpacity(0.6)),
-              foregroundColor: const Color(0xFF22D3EE),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(16),
-              ),
-            ),
-          ),
-        ),
-      ),
-
-      const SizedBox(width: 12),
-
-      TextButton.icon(
-        onPressed: () async {
-          final service = AttachmentService();
-          final repo = VaultRepository();
-
-          await service.deleteAttachment(item.id);
-
-          await repo.setHasAttachment(
-            itemId: item.id,
-            hasAttachment: false,
-          );
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-							content: Text(AppLocalizations.of(context)!.attachmentRemoved),
+						Row(
+							children: [
+								Expanded(
+									child: SizedBox(
+										height: 36,
+										child: OutlinedButton.icon(
+											onPressed: () async {
+												final service = AttachmentService();
+												final data = await service.readEncryptedAttachment(
+													itemId: item.id,
+													key: payloadKey,
+												);
+												if (data == null) return;
+												final type = data['type'];
+												final base64Data = data['data'];
+												final bytes = base64Decode(base64Data);
+												if (type == 'image') {
+													Navigator.push(
+														context,
+														MaterialPageRoute(
+															builder: (_) => Scaffold(
+																backgroundColor: Colors.black,
+																appBar: AppBar(backgroundColor: Colors.black),
+																body: Center(
+																	child: Image.memory(bytes),
+																),
+															),
+														),
+													);
+													return;
+												}              
+												if (type == 'pdf') {
+													final dir = await getTemporaryDirectory();
+													final file = File('${dir.path}/${item.id}.pdf');
+													await file.writeAsBytes(bytes, flush: true);
+													await OpenFilex.open(file.path);
+												}
+											},
+											icon: const Icon(Icons.attach_file, size: 18),
+											label: Text(AppLocalizations.of(context)!.viewAttachment),
+											style: OutlinedButton.styleFrom(
+												side: BorderSide(color: Colors.white.withOpacity(0.6)),
+												foregroundColor: const Color(0xFF22D3EE),
+												shape: RoundedRectangleBorder(
+													borderRadius: BorderRadius.circular(16),
+												),
+											),
+										),
+									),
+								),
+								const SizedBox(width: 12),
+								TextButton.icon(
+									onPressed: () async {
+										final service = AttachmentService();
+										final repo = VaultRepository();
+										await service.deleteAttachment(item.id);
+										await repo.setHasAttachment(
+											itemId: item.id,
+											hasAttachment: false,
+										);
+										ScaffoldMessenger.of(context).showSnackBar(
+											SnackBar(
+												content: Text(AppLocalizations.of(context)!.attachmentRemoved),
+											),
+										);
+									Navigator.pop(context, true);
+									},
+									icon: const Icon(Icons.delete, color: Colors.red, size: 18),
+									label: Text(
+										AppLocalizations.of(context)!.removeAttachment,
+										style: const TextStyle(color: Colors.red),
+									),
+								),
+							],
 						),
-          );
-
-          Navigator.pop(context, true);
-        },
-        icon: const Icon(Icons.delete, color: Colors.red, size: 18),
-        label: Text(
-  AppLocalizations.of(context)!.removeAttachment,
-  style: const TextStyle(color: Colors.red),
-),
-      ),
-    ],
-  ),
-],
-					
+					],					
 					const SizedBox(height: 12),
           _InfoCard(
             label: AppLocalizations.of(context)!.note,
@@ -298,16 +285,13 @@ class _CopyTile extends StatelessWidget {
 
 class _PasswordTile extends StatefulWidget {
   final String password;
-
   const _PasswordTile({required this.password});
-
   @override
   State<_PasswordTile> createState() => _PasswordTileState();
 }
 
 class _PasswordTileState extends State<_PasswordTile> {
   bool hidden = true;
-
   @override
   Widget build(BuildContext context) {
     return _CardWrapper(
@@ -359,7 +343,6 @@ class _PasswordTileState extends State<_PasswordTile> {
                           widget.password,
                           AppLocalizations.of(context)!.passwordCopied,
                         );
-
                         setState(() {
                           hidden = true;
                         });
@@ -368,8 +351,8 @@ class _PasswordTileState extends State<_PasswordTile> {
               IconButton(
                 icon: Icon(
                   hidden
-                      ? Icons.visibility_rounded
-                      : Icons.visibility_off_rounded,
+										? Icons.visibility_rounded
+										: Icons.visibility_off_rounded,
                 ),
                 onPressed: () {
                   setState(() {

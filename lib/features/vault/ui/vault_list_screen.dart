@@ -269,10 +269,11 @@ Future<String?> _getUnwrappedMasterKey() async {
 }
 
 Future<void> load() async {
-  if (_payloadKey == null) return;
+  final key = _payloadKey;
+if (key == null) return;
 
   final result = await repo.getItems(
-    payloadKey: _payloadKey!,
+    payloadKey: key,
     collectionId: selectedCollectionId,
   );
   if (sortType == 'favorites') {
@@ -353,9 +354,10 @@ List<VaultItem> get filteredItems {
     final mk = await _getUnwrappedMasterKey();
     if (mk == null) return;
 		final itemId = Uuid().v4();
-		
+		final key = _payloadKey;
+		if (key == null) return;
 		final items = await repo.getItems(
-  payloadKey: _payloadKey!,
+  payloadKey: key,
   collectionId: selectedCollectionId,
 );
 
@@ -373,7 +375,7 @@ if (exists) {
 }
     await repo.insertItem(
 		id: itemId,
-      payloadKey: _payloadKey!,
+      payloadKey: key,
       title: result["title"] ?? "",
       username: result["username"] ?? "",
       password: result["password"] ?? "",
@@ -391,7 +393,7 @@ if (exists) {
     itemId: itemId,
     type: attachmentType,
     bytes: attachmentBytes,
-    key: _payloadKey!,
+    key: key,
   );
 
   await repo.setHasAttachment(
@@ -577,12 +579,14 @@ Future<void> delete(VaultItem item) async {
           IconButton(
 			  icon: const Icon(Icons.settings_outlined, color: _textPrimary),
 			  onPressed: () async {
+				final key = _payloadKey;
+				if (key == null) return;
 				final result = await Navigator.push(
 				  context,
 				  MaterialPageRoute(
 					builder: (_) => SettingsScreen(
 						vaultKey: widget.vaultKey,
-						payloadKey: _payloadKey!,
+						payloadKey: key,
 						collectionId: selectedCollectionId,
 					),
 				  ),
@@ -806,13 +810,15 @@ if (_vaultWordEnabled)
                           shouldHide: shouldHide,
                           formattedDate: formatDate(item.updatedAt),
                           onTap: () async {
+													final key = _payloadKey;
+													if (key == null) return;
                             final result = await Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (_) => VaultDetailScreen(
                                   item: item,
                                   shouldHide: shouldHide,
-																	payloadKey: _payloadKey!,
+																	payloadKey: key,
                                 ),
                               ),
                             );
@@ -827,7 +833,7 @@ if (_vaultWordEnabled)
 															final attachmentType = result["attachmentType"] as String?;
 
 															await repo.updateItem(
-															payloadKey: _payloadKey!,
+															payloadKey: key,
 															oldItem: item,
 															title: result["title"] ?? "",
 															username: result["username"] ?? "",
@@ -843,7 +849,7 @@ if (_vaultWordEnabled)
 																	itemId: item.id,
 																	type: attachmentType,
 																	bytes: attachmentBytes,
-																	key: _payloadKey!,
+																	key: key,
 																);
 
 																await repo.setHasAttachment(
