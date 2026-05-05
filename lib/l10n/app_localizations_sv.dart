@@ -9,7 +9,7 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
-  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+  String get txtExportCompleted => 'Export klar. Den här filen är inte krypterad.';
 
   @override
   String get exportBackup => 'Exportera krypterad säkerhetskopia';

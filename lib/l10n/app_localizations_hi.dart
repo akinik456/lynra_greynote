@@ -9,7 +9,7 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
-  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+  String get txtExportCompleted => 'निर्यात पूरा हुआ। यह फ़ाइल एन्क्रिप्टेड नहीं है।';
 
   @override
   String get exportBackup => 'एन्क्रिप्टेड बैकअप निर्यात करें';

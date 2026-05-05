@@ -9,7 +9,7 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+  String get txtExportCompleted => 'Exportation terminée. Ce fichier n’est pas chiffré.';
 
   @override
   String get exportBackup => 'Exporter une sauvegarde chiffrée';

@@ -9,7 +9,7 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get textImportCompleted => 'İçe aktarma tamamlandı. TXT dosyanız şifreli değil, silmeyi unutmayın.';
+  String get txtExportCompleted => 'Dışa aktarma tamamlandı. Bu dosya şifreli değildir.';
 
   @override
   String get exportBackup => 'Şifreli Yedek Olarak Dışa Aktar';

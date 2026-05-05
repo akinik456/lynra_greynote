@@ -1,5 +1,5 @@
 {
-"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"txtExportCompleted": "내보내기가 완료되었습니다. 이 파일은 암호화되어 있지 않습니다.",
 "exportBackup": "암호화된 백업 내보내기",
 "exportText": "텍스트 파일로 내보내기",
 "importBackup": "암호화된 백업 가져오기",

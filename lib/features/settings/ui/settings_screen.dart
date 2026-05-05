@@ -826,7 +826,7 @@ Future<void> exportTxt() async {
 ScaffoldMessenger.of(context).showSnackBar(
   SnackBar(
     content: Text(
-    AppLocalizations.of(context)!.textImportCompleted,
+    AppLocalizations.of(context)!.txtExportCompleted,
     style: const TextStyle(
       color: Colors.red, // 👈 burayı değiştir
       fontWeight: FontWeight.w500,
@@ -844,6 +844,11 @@ Future<void> importTxt({
   required String collectionId,
 }) async {
 LynraApp.of(context).setSuspendAutoLock(true);
+		int importedCount = 0;
+		int duplicateCount = 0;
+		int emptyTitleCount = 0;
+
+
 try {
   final result = await FilePicker.pickFiles(
   type: FileType.custom,
@@ -872,6 +877,8 @@ final blocks = content
     .map((e) => e.trim())
     .where((e) => e.isNotEmpty)
     .toList();		
+		
+
 for (final block in blocks) {
   final lines = block.split('\n');
   String title = '';
@@ -894,12 +901,12 @@ for (final block in blocks) {
     }
   }
 	if (title.isEmpty) {
-		print("SKIPPED: empty title");
+		emptyTitleCount++;
 		continue;
 	}
 	final t = title.trim().toLowerCase();
 	if (existingTitles.contains(t)) {
-		print("SKIPPED: duplicate $title");
+		duplicateCount++;
 		continue;
 	}
 await repo.insertItem(
@@ -915,15 +922,9 @@ await repo.insertItem(
   id: const Uuid().v4(),
 );	
 	existingTitles.add(t);
-  print("PARSED:");
-  print("title: $title");
-  print("username: $username");
-  print("password: $password");
-  print("note: $note");
-  print("iban: $iban");
+  importedCount++;
 }			
-} 
-
+}
 finally {
       LynraApp.of(context).setSuspendAutoLock(false);
   }
@@ -932,7 +933,7 @@ finally {
 ScaffoldMessenger.of(context).showSnackBar(
   SnackBar(
     content: Text(
-    AppLocalizations.of(context)!.textImportCompleted,
+      "Imported: $importedCount • Duplicate: $duplicateCount • Empty: $emptyTitleCount",
     style: const TextStyle(
       color: Colors.red, // 👈 burayı değiştir
       fontWeight: FontWeight.w500,
@@ -946,9 +947,13 @@ Navigator.pop(context, true);
 }
 Future<void> downloadTemplate() async {
   const content = '''
-# LynraGreyNote Import Template
+#
+# Lynra Import Template
+# Offline. Private. Yours.
+#
 # Fill the fields below and import this file into the app.
 # Do not remove the separators (---)
+#
 
 Title:
 Username:

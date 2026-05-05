@@ -9,7 +9,7 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+  String get txtExportCompleted => 'Xuất hoàn tất. Tệp này không được mã hóa.';
 
   @override
   String get exportBackup => 'Xuất bản sao lưu được mã hóa';

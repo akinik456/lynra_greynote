@@ -1,5 +1,5 @@
 {
-"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"txtExportCompleted": "Eksport zakończony. Ten plik nie jest zaszyfrowany.",
 "exportBackup": "Eksportuj zaszyfrowaną kopię zapasową",
 "exportText": "Eksportuj jako plik tekstowy",
 "importBackup": "Importuj zaszyfrowaną kopię zapasową",

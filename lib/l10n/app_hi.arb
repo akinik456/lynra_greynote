@@ -1,5 +1,5 @@
 {
-"textImportCompleted": 					"Import completed. Your TXT file is not encrypted, remember to delete it.",
+"txtExportCompleted": "निर्यात पूरा हुआ। यह फ़ाइल एन्क्रिप्टेड नहीं है।",
 "exportBackup": "एन्क्रिप्टेड बैकअप निर्यात करें",
 "exportText": "टेक्स्ट फ़ाइल के रूप में निर्यात करें",
 "importBackup": "एन्क्रिप्टेड बैकअप आयात करें",

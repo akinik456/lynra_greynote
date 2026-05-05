@@ -9,7 +9,7 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
-  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+  String get txtExportCompleted => '내보내기가 완료되었습니다. 이 파일은 암호화되어 있지 않습니다.';
 
   @override
   String get exportBackup => '암호화된 백업 내보내기';

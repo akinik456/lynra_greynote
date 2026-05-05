@@ -130,11 +130,11 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
-  /// No description provided for @textImportCompleted.
+  /// No description provided for @txtExportCompleted.
   ///
   /// In en, this message translates to:
-  /// **'Import completed. Your TXT file is not encrypted, remember to delete it.'**
-  String get textImportCompleted;
+  /// **'Export completed. This file is not encrypted.'**
+  String get txtExportCompleted;
 
   /// No description provided for @exportBackup.
   ///

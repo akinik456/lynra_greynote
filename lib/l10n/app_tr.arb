@@ -1,5 +1,5 @@
 {
-"textImportCompleted": "İçe aktarma tamamlandı. TXT dosyanız şifreli değil, silmeyi unutmayın.",
+"txtExportCompleted": "Dışa aktarma tamamlandı. Bu dosya şifreli değildir.",
 "exportBackup": 		"Şifreli Yedek Olarak Dışa Aktar",
 "exportText": 			"Metin Dosyası Olarak Dışa Aktar",
 "importBackup": 		"Şifreli Yedeği İçe Aktar",

@@ -9,7 +9,7 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get textImportCompleted => 'Import completed. Your TXT file is not encrypted, remember to delete it.';
+  String get txtExportCompleted => 'Экспорт завершён. Этот файл не зашифрован.';
 
   @override
   String get exportBackup => 'Экспорт зашифрованной резервной копии';
