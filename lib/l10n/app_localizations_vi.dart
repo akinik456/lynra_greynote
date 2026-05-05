@@ -9,6 +9,9 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
+  String get importCSV => 'Nhập từ tệp CSV';
+
+  @override
   String get exportCSV => 'Xuất dưới dạng tệp CSV';
 
   @override

@@ -9,6 +9,9 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get importCSV => 'Import from CSV File';
+
+  @override
   String get exportCSV => 'Export as csv File';
 
   @override
@@ -416,6 +419,9 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get importCSV => 'Importar de arquivo CSV';
 
   @override
   String get exportCSV => 'Exportar como arquivo CSV';

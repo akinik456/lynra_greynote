@@ -9,6 +9,9 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
+  String get importCSV => 'CSV 파일에서 가져오기';
+
+  @override
   String get exportCSV => 'CSV 파일로 내보내기';
 
   @override

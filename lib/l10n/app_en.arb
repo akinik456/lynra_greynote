@@ -1,4 +1,6 @@
 {
+"importCSV": 										"Import from CSV File",
+
 "exportCSV": 										"Export as csv File",
 
 "csvTemplate":									"csv Template",

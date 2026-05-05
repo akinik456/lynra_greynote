@@ -9,6 +9,9 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get importCSV => '从CSV文件导入';
+
+  @override
   String get exportCSV => '导出为 CSV 文件';
 
   @override

@@ -1,4 +1,5 @@
 {
+"importCSV": "CSV फ़ाइल से आयात करें",
 "exportCSV": "CSV फ़ाइल के रूप में निर्यात करें",
 "csvTemplate":									"CSV टेम्पलेट",
 "textTemplate":									"टेक्स्ट टेम्पलेट",

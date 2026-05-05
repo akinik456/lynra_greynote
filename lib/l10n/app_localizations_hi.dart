@@ -9,6 +9,9 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get importCSV => 'CSV फ़ाइल से आयात करें';
+
+  @override
   String get exportCSV => 'CSV फ़ाइल के रूप में निर्यात करें';
 
   @override

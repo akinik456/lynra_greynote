@@ -1,4 +1,5 @@
 {
+"importCSV": "CSVファイルからインポート",
 "exportCSV": "CSVファイルとしてエクスポート",
 "csvTemplate":									"CSVテンプレート",
 "textTemplate":									"テキストテンプレート",

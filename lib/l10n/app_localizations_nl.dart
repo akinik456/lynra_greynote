@@ -9,6 +9,9 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get importCSV => 'Importeren vanuit CSV-bestand';
+
+  @override
   String get exportCSV => 'Exporteren als CSV-bestand';
 
   @override

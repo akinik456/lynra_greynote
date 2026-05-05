@@ -1,4 +1,5 @@
 {
+"importCSV": "Aus CSV-Datei importieren",
 "exportCSV": "Als CSV-Datei exportieren",
 "csvTemplate":									"CSV-Vorlage",
 "textTemplate":									"Textvorlage",

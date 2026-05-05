@@ -1,4 +1,5 @@
 {
+"importCSV": "Importeren vanuit CSV-bestand",
 "exportCSV": "Exporteren als CSV-bestand",
 "csvTemplate":									"CSV-sjabloon",
 "textTemplate":									"Tekstsjabloon",

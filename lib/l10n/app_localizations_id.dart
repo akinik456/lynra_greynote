@@ -9,6 +9,9 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get importCSV => 'Impor dari file CSV';
+
+  @override
   String get exportCSV => 'Ekspor sebagai file CSV';
 
   @override

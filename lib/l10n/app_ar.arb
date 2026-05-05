@@ -1,4 +1,5 @@
 {
+"importCSV": "استيراد من ملف CSV",
 "exportCSV": "تصدير كملف CSV",
 "csvTemplate":									"قالب CSV",
 "textTemplate":									"قالب نصي",

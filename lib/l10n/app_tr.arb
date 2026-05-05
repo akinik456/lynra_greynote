@@ -1,4 +1,5 @@
 {
+"importCSV": 										"CSV Dosyasından İçe Aktar",
 "exportCSV": "CSV dosyası olarak dışa aktar",
 "csvTemplate":									"CSV Şablonu",
 "textTemplate":									"Metin Şablonu",

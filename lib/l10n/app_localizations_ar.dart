@@ -9,6 +9,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get importCSV => 'استيراد من ملف CSV';
+
+  @override
   String get exportCSV => 'تصدير كملف CSV';
 
   @override

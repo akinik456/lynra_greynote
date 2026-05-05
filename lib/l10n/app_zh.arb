@@ -1,4 +1,5 @@
 {
+"importCSV": "从CSV文件导入",
 "exportCSV": "导出为 CSV 文件",
 "csvTemplate":									"CSV 模板",
 "textTemplate":									"文本模板",

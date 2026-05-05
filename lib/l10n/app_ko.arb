@@ -1,4 +1,5 @@
 {
+"importCSV": "CSV 파일에서 가져오기",
 "exportCSV": "CSV 파일로 내보내기",
 "csvTemplate":									"CSV 템플릿",
 "textTemplate":									"텍스트 템플릿",

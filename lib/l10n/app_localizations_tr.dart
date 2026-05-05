@@ -9,6 +9,9 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get importCSV => 'CSV Dosyasından İçe Aktar';
+
+  @override
   String get exportCSV => 'CSV dosyası olarak dışa aktar';
 
   @override

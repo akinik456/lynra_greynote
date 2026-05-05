@@ -9,6 +9,9 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get importCSV => 'Импорт из CSV-файла';
+
+  @override
   String get exportCSV => 'Экспортировать как файл CSV';
 
   @override

@@ -130,6 +130,12 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @importCSV.
+  ///
+  /// In en, this message translates to:
+  /// **'Import from CSV File'**
+  String get importCSV;
+
   /// No description provided for @exportCSV.
   ///
   /// In en, this message translates to:

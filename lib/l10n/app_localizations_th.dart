@@ -9,6 +9,9 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
+  String get importCSV => 'นำเข้าจากไฟล์ CSV';
+
+  @override
   String get exportCSV => 'ส่งออกเป็นไฟล์ CSV';
 
   @override

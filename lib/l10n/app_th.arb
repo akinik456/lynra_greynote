@@ -1,4 +1,5 @@
 {
+"importCSV": "นำเข้าจากไฟล์ CSV",
 "exportCSV": "ส่งออกเป็นไฟล์ CSV",
 "csvTemplate":									"เทมเพลต CSV",
 "textTemplate":									"เทมเพลตข้อความ",

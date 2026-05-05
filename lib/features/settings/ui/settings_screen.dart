@@ -236,6 +236,18 @@ _Item(
 										);
                   },
                 ),
+								const SizedBox(height: 10),
+                option(
+                  label: AppLocalizations.of(context)!.importCSV,
+                  onTap: () async {
+                    Navigator.pop(context);
+                    await importCsv(
+											payloadKey: widget.payloadKey,
+											collectionId: widget.collectionId,
+										);
+                  },
+                ),
+								
                 const SizedBox(height: 10),
                 option(
   label: AppLocalizations.of(context)!.downloadTemplate,
@@ -1058,6 +1070,156 @@ ScaffoldMessenger.of(context).showSnackBar(
 
 Navigator.pop(context, true);
 }
+Future<void> importCsv({
+  required SecretKey payloadKey,
+  required String collectionId,
+}) async {
+  LynraApp.of(context).setSuspendAutoLock(true);
+
+  try {
+    final result = await FilePicker.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: ['csv'],
+    );
+
+    if (result == null) return;
+
+    final file = result.files.single;
+
+    String content;
+
+    if (file.bytes != null) {
+      content = String.fromCharCodes(file.bytes!);
+    } else {
+      content = await File(file.path!).readAsString();
+    }
+
+    final lines = content
+        .split('\n')
+        .map((e) => e.trim())
+        .where((e) => e.isNotEmpty && !e.startsWith('#'))
+        .toList();
+
+    if (lines.isEmpty) return;
+
+    // header check
+    if (lines.first.toLowerCase() !=
+        'title,username,password,iban,note') {
+      throw Exception("Invalid CSV header");
+    }
+
+    final existingItems = await repo.getItems(
+      payloadKey: payloadKey,
+      collectionId: collectionId,
+    );
+
+    final existingTitles = existingItems
+        .map((e) => e.title.trim().toLowerCase())
+        .toSet();
+
+    int imported = 0;
+    int duplicate = 0;
+    int emptyTitle = 0;
+
+    // helper
+    List<String> parseCsvLine(String line) {
+      final result = <String>[];
+      final buffer = StringBuffer();
+      bool inQuotes = false;
+
+      for (int i = 0; i < line.length; i++) {
+        final char = line[i];
+
+        if (char == '"') {
+          if (inQuotes && i + 1 < line.length && line[i + 1] == '"') {
+            buffer.write('"');
+            i++;
+          } else {
+            inQuotes = !inQuotes;
+          }
+        } else if (char == ',' && !inQuotes) {
+          result.add(buffer.toString());
+          buffer.clear();
+        } else {
+          buffer.write(char);
+        }
+      }
+
+      result.add(buffer.toString());
+      return result;
+    }
+
+    // rows
+    for (int i = 1; i < lines.length; i++) {
+      final cols = parseCsvLine(lines[i]);
+
+      if (cols.length < 5) continue;
+
+      final title = cols[0].trim();
+      final username = cols[1].trim();
+      final password = cols[2].trim();
+      final iban = cols[3].trim();
+      final note = cols[4].trim();
+
+      if (title.isEmpty) {
+        emptyTitle++;
+        continue;
+      }
+
+      final t = title.toLowerCase();
+
+      if (existingTitles.contains(t)) {
+        duplicate++;
+        continue;
+      }
+
+      await repo.insertItem(
+        payloadKey: payloadKey,
+        title: title,
+        username: username,
+        password: password,
+        note: note,
+        iban: iban,
+        pattern: "",
+        collectionId: collectionId,
+        type: "standard",
+        id: const Uuid().v4(),
+      );
+
+      existingTitles.add(t);
+      imported++;
+    }
+
+    if (!mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          "Imported: $imported • Duplicate: $duplicate • Empty: $emptyTitle",
+        style: const TextStyle(
+						color: Colors.red, // 👈 burayı değiştir
+						fontWeight: FontWeight.w500,
+					),
+				),
+        duration: const Duration(seconds: 6),
+      ),
+    );
+
+    Navigator.pop(context, true);
+  } catch (e) {
+    if (!mounted) return;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("CSV import failed"),
+      ),
+    );
+  } finally {
+    LynraApp.of(context).setSuspendAutoLock(false);
+  }
+}
+
+
 Future<void> downloadTxtTemplate() async {
   const content = '''
 #

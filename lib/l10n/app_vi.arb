@@ -1,4 +1,5 @@
 {
+"importCSV": "Nhập từ tệp CSV",
 "exportCSV": "Xuất dưới dạng tệp CSV",
 "csvTemplate":									"Mẫu CSV",
 "textTemplate":									"Mẫu văn bản",

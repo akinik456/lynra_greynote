@@ -1,4 +1,5 @@
 {
+"importCSV": "Impor dari file CSV",
 "exportCSV": "Ekspor sebagai file CSV",
 "csvTemplate":									"Template CSV",
 "textTemplate":									"Template Teks",

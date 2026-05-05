@@ -9,6 +9,9 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
+  String get importCSV => 'Aus CSV-Datei importieren';
+
+  @override
   String get exportCSV => 'Als CSV-Datei exportieren';
 
   @override
