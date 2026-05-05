@@ -876,14 +876,18 @@ print("IMPORT ATTACHMENT START: ${attachmentContent.substring(0, 20)}");
 }
 Future<void> exportTxt() async {
 	LynraApp.of(context).setSuspendAutoLock(true);
+	int skippedPattern = 0;
+	try{
   final items = await repo.getItems(
     payloadKey: widget.payloadKey,
     collectionId: widget.collectionId,
   );
-
   final buffer = StringBuffer();
-
   for (final item in items) {
+	if (item.type == "pattern") {
+  skippedPattern++;
+  continue;
+}
     buffer.writeln('Title: ${item.title}');
     buffer.writeln('Username: ${item.username}');
     buffer.writeln('Password: ${item.password}');
@@ -893,75 +897,86 @@ Future<void> exportTxt() async {
     buffer.writeln('---');
     buffer.writeln('');
   }
-
-  await FileSaver.instance.saveAs(
+  final path = await FileSaver.instance.saveAs(
     name: 'lynra_export',
     bytes: Uint8List.fromList(utf8.encode(buffer.toString())),
     ext: 'txt',
     mimeType: MimeType.text,
   );
-      LynraApp.of(context).setSuspendAutoLock(false);
-	
+	if (path == null) return;
 	if (!mounted) return;
-ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(
-    content: Text(
-    AppLocalizations.of(context)!.txtExportCompleted,
-    style: const TextStyle(
-      color: Colors.red, // 👈 burayı değiştir
-      fontWeight: FontWeight.w500,
-    ),
-  ),
-    duration: const Duration(seconds: 6),
-  ),
-);
-
+	final msg = skippedPattern > 0
+  ? AppLocalizations.of(context)!
+      .txtExportCompletedWithSkip
+      .replaceFirst('%d', skippedPattern.toString())
+  : AppLocalizations.of(context)!.txtExportCompleted;
+	ScaffoldMessenger.of(context).showSnackBar(
+		SnackBar(
+			content: Text(
+				msg,
+				style: const TextStyle(
+					color: Colors.red,
+					fontWeight: FontWeight.w500,
+				),
+			),
+			duration: const Duration(seconds: 6),
+		),
+	);
 Navigator.pop(context, true);
+} finally {
+    LynraApp.of(context).setSuspendAutoLock(false);
+  }
 }
 Future<void> exportCSV() async {
-	LynraApp.of(context).setSuspendAutoLock(true);
-	
+LynraApp.of(context).setSuspendAutoLock(true);	
+int skippedPattern = 0;
+try {
 final items = await repo.getItems(
     payloadKey: widget.payloadKey,
     collectionId: widget.collectionId,
   );
-
   String safe(String v) => '"${v.replaceAll('"', '""')}"';
-
   final buffer = StringBuffer();
-
   // header
   buffer.writeln('Title,Username,Password,IBAN,Note');
-
   for (final item in items) {
+		if (item.type == "pattern") {
+			skippedPattern++;
+			continue;
+		}
     buffer.writeln(
       '${safe(item.title)},${safe(item.username)},${safe(item.password)},${safe(item.iban)},${safe(item.note)}',
     );
   }
-
-  await FileSaver.instance.saveAs(
+  final path = await FileSaver.instance.saveAs(
     name: 'lynra_export',
     bytes: Uint8List.fromList(utf8.encode(buffer.toString())),
     ext: 'csv',
     mimeType: MimeType.csv,
   );	
-LynraApp.of(context).setSuspendAutoLock(false);
-	
+	if (path == null) return;
 	if (!mounted) return;
+	final msg = skippedPattern > 0
+  ? AppLocalizations.of(context)!
+      .txtExportCompletedWithSkip
+      .replaceFirst('%d', skippedPattern.toString())
+  : AppLocalizations.of(context)!.txtExportCompleted;
 ScaffoldMessenger.of(context).showSnackBar(
   SnackBar(
-    content: Text(
-    AppLocalizations.of(context)!.txtExportCompleted,
+  content: Text(
+    msg,
     style: const TextStyle(
-      color: Colors.red, // 👈 burayı değiştir
+      color: Colors.red,
       fontWeight: FontWeight.w500,
     ),
   ),
-    duration: const Duration(seconds: 6),
-  ),
+  duration: const Duration(seconds: 6),
+),
 );
-
 Navigator.pop(context, true);
+} finally {
+    LynraApp.of(context).setSuspendAutoLock(false);
+  }
 }	
 	
 Future<void> importTxt({

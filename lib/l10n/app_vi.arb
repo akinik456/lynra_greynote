@@ -1,4 +1,5 @@
 {
+"txtExportCompletedWithSkip":   "Export completed. This file is not encrypted. %d pattern entries were skipped.",
 "importCSV": "Nhập từ tệp CSV",
 "exportCSV": "Xuất dưới dạng tệp CSV",
 "csvTemplate":									"Mẫu CSV",

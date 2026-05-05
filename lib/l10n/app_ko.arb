@@ -1,4 +1,5 @@
 {
+"txtExportCompletedWithSkip":   "Export completed. This file is not encrypted. %d pattern entries were skipped.",
 "importCSV": "CSV 파일에서 가져오기",
 "exportCSV": "CSV 파일로 내보내기",
 "csvTemplate":									"CSV 템플릿",

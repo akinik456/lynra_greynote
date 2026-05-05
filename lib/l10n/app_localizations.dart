@@ -130,6 +130,12 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @txtExportCompletedWithSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Export completed. This file is not encrypted. %d pattern entries were skipped.'**
+  String get txtExportCompletedWithSkip;
+
   /// No description provided for @importCSV.
   ///
   /// In en, this message translates to:

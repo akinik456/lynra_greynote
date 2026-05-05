@@ -45,7 +45,55 @@ class VaultListScreen extends StatefulWidget {
 }
 class _VaultListScreenState extends State<VaultListScreen> {
   final repo = VaultRepository();
-  
+	String typeFilter = 'all'; // all, standard, note, pattern
+Widget _chip(String value, String label, IconData icon) {
+  final selected = typeFilter == value;
+
+  return GestureDetector(
+    onTap: () {
+      setState(() {
+        typeFilter = value;
+      });
+      load();
+    },
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      decoration: BoxDecoration(
+        color: selected
+            ? const Color(0xFF123247)
+            : Colors.transparent,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: selected
+              ? const Color(0xFF22D3EE)
+              : Colors.white24,
+        ),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon,
+            size: 15,
+            color: selected
+                ? const Color(0xFF22D3EE)
+                : Colors.white70,
+          ),
+          const SizedBox(width: 6),
+          Text(
+            label,
+            style: TextStyle(
+              color: selected
+                  ? const Color(0xFF22D3EE)
+                  : Colors.white70,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
   String selectedCollectionId = 'default';
   final collectionRepo = CollectionRepository();
   bool isVaultUnlocked = false;
@@ -74,7 +122,7 @@ class _VaultListScreenState extends State<VaultListScreen> {
   String _appVersion = '';
 	bool shouldHide=false;
 	String sortType = 'updated';
-	
+	bool showFavoritesOnly = false;
 	
   @override
 void initState() {
@@ -272,7 +320,7 @@ Future<void> load() async {
   final key = _payloadKey;
 if (key == null) return;
 
-  final result = await repo.getItems(
+  var result = await repo.getItems(
     payloadKey: key,
     collectionId: selectedCollectionId,
   );
@@ -297,7 +345,12 @@ if (key == null) return;
     // updated (default)
     result.sort((a, b) => b.updatedAt.compareTo(a.updatedAt));
   }
-
+	if (showFavoritesOnly) {
+  result = result.where((e) => e.isFavorite).toList();
+}
+if (typeFilter != 'all') {
+  result = result.where((e) => e.type == typeFilter).toList();
+}
   setState(() {
     items = result;
     itemCount = result.length;
@@ -672,122 +725,177 @@ if (_vaultWordEnabled)
             onDelete: openDeleteCollection,
           ),
 		  Padding(
-			  padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
-			  child: TextField(
-			  enabled: !shouldHide,
-				onChanged: (value) {
-				  setState(() {
-					searchQuery = value;
-				  });
-				},
-				decoration: InputDecoration(
-				  hintText: shouldHide
-					? AppLocalizations.of(context)!.unlockToSearch
-					: AppLocalizations.of(context)!.search,
-				  prefixIcon: const Icon(Icons.search),
-					suffixIcon: IconButton(
-  icon: const Icon(
-    Icons.swap_vert_rounded, // ↑↓ hissi en yakın
-    color: Color(0xFF22D3EE),
-    size: 30,
-  ),
-    onPressed: () async {
-  final result = await showDialog<String>(
-    context: context,
-    builder: (_) {
-      Widget option(String value, String label) {
-        final selected = sortType == value;
-
-        return InkWell(
-          borderRadius: BorderRadius.circular(18),
-          onTap: () => Navigator.pop(context, value),
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 18),
-            decoration: BoxDecoration(
-              color: selected
-                  ? const Color(0xFF123247)
-                  : Colors.transparent,
-              borderRadius: BorderRadius.circular(18),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    label,
-                    style: const TextStyle(
-                      color: Color(0xFFE2E8F0),
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-                if (selected)
-                  const Icon(
-                    Icons.check_rounded,
-                    color: Color(0xFF22D3EE),
-                    size: 30,
-                  ),
-              ],
-            ),
-          ),
-        );
-      }
-
-      return Dialog(
-        backgroundColor: const Color(0xFF0F172A),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(28),
-        ),
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(18, 14, 18, 14),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                AppLocalizations.of(context)!.sort,
-                style: const TextStyle(
-                  color: Color(0xFFE2E8F0),
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              const SizedBox(height: 4),
-              option('favorites', AppLocalizations.of(context)!.sortFavorites),
-              const SizedBox(height: 4),
-              option('updated', AppLocalizations.of(context)!.sortUpdated),
-              const SizedBox(height: 4),
-              option('az', AppLocalizations.of(context)!.sortAZ),
-            ],
-          ),
-        ),
-      );
+  padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+  child: TextField(
+    enabled: !shouldHide,
+    onChanged: (value) {
+      setState(() {
+        searchQuery = value;
+      });
     },
-  );
+    decoration: InputDecoration(
+      hintText: shouldHide
+          ? AppLocalizations.of(context)!.unlockToSearch
+          : AppLocalizations.of(context)!.search,
+      prefixIcon: const Icon(Icons.search),
 
-  if (result != null) {
-    setState(() {
-      sortType = result;
-    });
+      // 🔥 BURASI
+      suffixIcon: SizedBox(
+        width: 96,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            // ⭐ FAVORITES
+            IconButton(
+              icon: Icon(
+                showFavoritesOnly
+                    ? Icons.star_rounded
+                    : Icons.star_border_rounded,
+                color: showFavoritesOnly
+                    ? const Color(0xFF22D3EE)
+                    : Colors.white70,
+                size: 24,
+              ),
+              onPressed: () {
+                setState(() {
+                  showFavoritesOnly = !showFavoritesOnly;
+                });
+                load();
+              },
+            ),
 
-    await AuthStorage.safeWrite(
-      key: "vault_sort_type",
-      value: result,
-    );
+            // 🔽 SORT
+            IconButton(
+              icon: const Icon(
+                Icons.swap_vert_rounded,
+                color: Color(0xFF22D3EE),
+                size: 30,
+              ),
+              onPressed: () async {
+                final result = await showDialog<String>(
+                  context: context,
+                  builder: (_) {
+                    Widget option(String value, String label) {
+                      final selected = sortType == value;
 
-    await load();
-  }
-},
+                      return InkWell(
+                        borderRadius: BorderRadius.circular(18),
+                        onTap: () => Navigator.pop(context, value),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 22, vertical: 18),
+                          decoration: BoxDecoration(
+                            color: selected
+                                ? const Color(0xFF123247)
+                                : Colors.transparent,
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  label,
+                                  style: const TextStyle(
+                                    color: Color(0xFFE2E8F0),
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ),
+                              if (selected)
+                                const Icon(
+                                  Icons.check_rounded,
+                                  color: Color(0xFF22D3EE),
+                                  size: 30,
+                                ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }
+
+                    return Dialog(
+                      backgroundColor: const Color(0xFF0F172A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(28),
+                      ),
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(18, 14, 18, 14),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              AppLocalizations.of(context)!.sort,
+                              style: const TextStyle(
+                                color: Color(0xFFE2E8F0),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            option('favorites',
+                                AppLocalizations.of(context)!
+                                    .sortFavorites),
+                            const SizedBox(height: 4),
+                            option('updated',
+                                AppLocalizations.of(context)!
+                                    .sortUpdated),
+                            const SizedBox(height: 4),
+                            option('az',
+                                AppLocalizations.of(context)!
+                                    .sortAZ),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                );
+
+                if (result != null) {
+                  setState(() {
+                    sortType = result;
+                  });
+
+                  await AuthStorage.safeWrite(
+                    key: "vault_sort_type",
+                    value: result,
+                  );
+
+                  await load();
+                }
+              },
+            ),
+          ],
+        ),
+      ),
+
+      filled: true,
+      fillColor: const Color(0xFF1E293B),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide.none,
+      ),
+    ),
   ),
-					
-				  filled: true,
-				  fillColor: const Color(0xFF1E293B),
-				  border: OutlineInputBorder(
-					borderRadius: BorderRadius.circular(16),
-					borderSide: BorderSide.none,
-				  ),
-				),
-			  ),
-			),
+),
+Padding(
+  padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+  child: SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  child: Row(
+    children: [
+      _chip('all', 'All', Icons.apps_rounded),
+      const SizedBox(width: 6),
+      _chip('standard', 'Standard', Icons.badge_outlined),
+      const SizedBox(width: 6),
+      _chip('note', 'Note', Icons.note_alt_outlined),
+      const SizedBox(width: 6),
+      _chip('pattern', 'Pattern', Icons.grid_3x3),
+    ],
+  ),
+),
+),
           Expanded(
             child: filteredItems.isEmpty
                 ? const _EmptyState()

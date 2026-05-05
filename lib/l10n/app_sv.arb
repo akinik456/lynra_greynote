@@ -1,4 +1,5 @@
 {
+"txtExportCompletedWithSkip":   "Export completed. This file is not encrypted. %d pattern entries were skipped.",
 "importCSV": "Importera från CSV-fil",
 "exportCSV": "Exportera som CSV-fil",
 "csvTemplate":									"CSV-mall",
