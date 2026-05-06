@@ -9,7 +9,7 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get feedback => 'Feedback';
+  String get feedback => 'Retour';
 
   @override
   String get imported => 'Importé';

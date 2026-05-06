@@ -9,7 +9,7 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
-  String get feedback => 'Feedback';
+  String get feedback => '피드백';
 
   @override
   String get imported => '가져옴';

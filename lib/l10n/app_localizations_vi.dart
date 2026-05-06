@@ -9,7 +9,7 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get feedback => 'Feedback';
+  String get feedback => 'Phản hồi';
 
   @override
   String get imported => 'Đã nhập';

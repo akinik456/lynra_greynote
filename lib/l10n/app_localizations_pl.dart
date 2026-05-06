@@ -9,7 +9,7 @@ class AppLocalizationsPl extends AppLocalizations {
   AppLocalizationsPl([String locale = 'pl']) : super(locale);
 
   @override
-  String get feedback => 'Feedback';
+  String get feedback => 'Opinie';
 
   @override
   String get imported => 'Zaimportowano';
