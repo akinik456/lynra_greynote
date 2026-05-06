@@ -9,16 +9,40 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => '가져옴';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => '중복';
 
   @override
-  String get clear => 'Clear';
+  String get empty => '비어 있음';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => '패턴 건너뜀';
+
+  @override
+  String get clear => '지우기';
+
+  @override
+  String get clearMyVault => '내 Vault 지우기';
+
+  @override
+  String get clearMyVaultConfirm => '이 작업은 내 Vault의 모든 항목을 삭제합니다. 되돌릴 수 없습니다.';
+
+  @override
+  String get csvimportfailed => 'CSV 가져오기에 실패했습니다.';
+
+  @override
+  String get myVaultCleared => 'Vault가 비워졌습니다';
+
+  @override
+  String get txtImportCompleted => '가져오기가 완료되었습니다.';
+
+  @override
+  String get txtImportCompletedWithSkip => '가져오기가 완료되었습니다. %d개의 패턴 항목이 건너뛰어졌습니다.';
+
+  @override
+  String get txtExportCompletedWithSkip => '내보내기가 완료되었습니다. 이 파일은 암호화되지 않았습니다. %d개의 패턴 항목이 건너뛰어졌습니다.';
 
   @override
   String get importCSV => 'CSV 파일에서 가져오기';

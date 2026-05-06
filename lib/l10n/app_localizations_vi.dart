@@ -9,16 +9,40 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Đã nhập';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Trùng lặp';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Trống';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Đã bỏ qua pattern';
+
+  @override
+  String get clear => 'Xóa';
+
+  @override
+  String get clearMyVault => 'Xóa Kho Của Tôi';
+
+  @override
+  String get clearMyVaultConfirm => 'Thao tác này sẽ xóa tất cả mục trong Kho Của Tôi. Không thể hoàn tác.';
+
+  @override
+  String get csvimportfailed => 'Nhập CSV thất bại.';
+
+  @override
+  String get myVaultCleared => 'Kho đã được xóa';
+
+  @override
+  String get txtImportCompleted => 'Nhập hoàn tất.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Nhập hoàn tất. %d mục pattern đã bị bỏ qua.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Xuất hoàn tất. Tệp này không được mã hóa. %d mục pattern đã bị bỏ qua.';
 
   @override
   String get importCSV => 'Nhập từ tệp CSV';

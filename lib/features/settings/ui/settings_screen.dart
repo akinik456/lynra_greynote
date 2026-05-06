@@ -1070,15 +1070,21 @@ finally {
   }
 	
 	if (!mounted) return;
+
+final msg =
+    "${AppLocalizations.of(context)!.imported}: $importedCount"
+    " • ${AppLocalizations.of(context)!.duplicate}: $duplicateCount"
+    " • ${AppLocalizations.of(context)!.empty}: $emptyTitleCount";
+
 ScaffoldMessenger.of(context).showSnackBar(
   SnackBar(
     content: Text(
-      "Imported: $importedCount • Duplicate: $duplicateCount • Empty: $emptyTitleCount",
-    style: const TextStyle(
-      color: Colors.red, // 👈 burayı değiştir
-      fontWeight: FontWeight.w500,
+      msg,
+      style: const TextStyle(
+        color: Colors.red,
+        fontWeight: FontWeight.w500,
+      ),
     ),
-  ),
     duration: const Duration(seconds: 6),
   ),
 );
@@ -1132,9 +1138,9 @@ Future<void> importCsv({
         .map((e) => e.title.trim().toLowerCase())
         .toSet();
 
-    int imported = 0;
-    int duplicate = 0;
-    int emptyTitle = 0;
+    int importedCount = 0;
+    int duplicateCount = 0;
+    int emptyTitleCount = 0;
 
     // helper
     List<String> parseCsvLine(String line) {
@@ -1177,14 +1183,14 @@ Future<void> importCsv({
       final note = cols[4].trim();
 
       if (title.isEmpty) {
-        emptyTitle++;
+        emptyTitleCount++;
         continue;
       }
 
       final t = title.toLowerCase();
 
       if (existingTitles.contains(t)) {
-        duplicate++;
+        duplicateCount++;
         continue;
       }
 
@@ -1202,23 +1208,29 @@ Future<void> importCsv({
       );
 
       existingTitles.add(t);
-      imported++;
+      importedCount++;
     }
 
     if (!mounted) return;
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          "Imported: $imported • Duplicate: $duplicate • Empty: $emptyTitle",
-        style: const TextStyle(
-						color: Colors.red, // 👈 burayı değiştir
-						fontWeight: FontWeight.w500,
-					),
-				),
-        duration: const Duration(seconds: 6),
+final msg =
+    "${AppLocalizations.of(context)!.imported}: $importedCount"
+    " • ${AppLocalizations.of(context)!.duplicate}: $duplicateCount"
+    " • ${AppLocalizations.of(context)!.empty}: $emptyTitleCount";
+
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text(
+      msg,
+      style: const TextStyle(
+        color: Colors.red,
+        fontWeight: FontWeight.w500,
       ),
-    );
+    ),
+    duration: const Duration(seconds: 6),
+  ),
+);
+
 
     Navigator.pop(context, true);
   } catch (e) {
@@ -1226,7 +1238,7 @@ Future<void> importCsv({
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("CSV import failed"),
+				content: Text(AppLocalizations.of(context)!.csvimportfailed),
       ),
     );
   } finally {

@@ -9,13 +9,37 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get imported => 'Imported';
+
+  @override
+  String get duplicate => 'Duplicate';
+
+  @override
+  String get empty => 'Empty';
+
+  @override
+  String get patternSkipped => 'Pattern skipped';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
   String get clearMyVault => 'Clear My Vault';
 
   @override
   String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
 
   @override
-  String get clear => 'Clear';
+  String get csvimportfailed => 'CSV import failed';
+
+  @override
+  String get myVaultCleared => 'My Vault cleared';
+
+  @override
+  String get txtImportCompleted => 'Import completed.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Import completed. %d pattern entries were skipped.';
 
   @override
   String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';

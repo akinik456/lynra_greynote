@@ -9,16 +9,40 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Aktarıldı';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Kopya';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Boş';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Pattern atlandı';
+
+  @override
+  String get clear => 'Temizle';
+
+  @override
+  String get clearMyVault => 'Kasamı Temizle';
+
+  @override
+  String get clearMyVaultConfirm => 'Bu işlem Kasamdaki tüm kayıtları silecektir. Bu işlem geri alınamaz.';
+
+  @override
+  String get csvimportfailed => 'CSV içe aktarma başarısız oldu.';
+
+  @override
+  String get myVaultCleared => 'Kasa temizlendi';
+
+  @override
+  String get txtImportCompleted => 'İçe aktarma tamamlandı.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'İçe aktarma tamamlandı. %d pattern kaydı atlandı.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Dışa aktarma tamamlandı. Bu dosya şifrelenmemiştir. %d pattern kaydı atlandı.';
 
   @override
   String get importCSV => 'CSV Dosyasından İçe Aktar';

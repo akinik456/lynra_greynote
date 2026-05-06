@@ -9,13 +9,37 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get imported => 'Imported';
+
+  @override
+  String get duplicate => 'Duplicate';
+
+  @override
+  String get empty => 'Empty';
+
+  @override
+  String get patternSkipped => 'Pattern skipped';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
   String get clearMyVault => 'Clear My Vault';
 
   @override
   String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
 
   @override
-  String get clear => 'Clear';
+  String get csvimportfailed => 'CSV import failed';
+
+  @override
+  String get myVaultCleared => 'My Vault cleared';
+
+  @override
+  String get txtImportCompleted => 'Import completed.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Import completed. %d pattern entries were skipped.';
 
   @override
   String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
@@ -433,16 +457,40 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Importado';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Duplicado';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Vazio';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Padrão ignorado';
+
+  @override
+  String get clear => 'Limpar';
+
+  @override
+  String get clearMyVault => 'Limpar Meu Cofre';
+
+  @override
+  String get clearMyVaultConfirm => 'Isso excluirá todas as entradas do Meu Cofre. Esta ação não pode ser desfeita.';
+
+  @override
+  String get csvimportfailed => 'Falha na importação CSV.';
+
+  @override
+  String get myVaultCleared => 'Cofre limpo';
+
+  @override
+  String get txtImportCompleted => 'Importação concluída.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Importação concluída. %d entradas de padrão foram ignoradas.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Exportação concluída. Este arquivo não está criptografado. %d entradas de padrão foram ignoradas.';
 
   @override
   String get importCSV => 'Importar de arquivo CSV';

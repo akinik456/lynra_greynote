@@ -9,16 +9,40 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'تم الاستيراد';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'مكرر';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'فارغ';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'تم تخطي النمط';
+
+  @override
+  String get clear => 'مسح';
+
+  @override
+  String get clearMyVault => 'مسح الخزنة الخاصة بي';
+
+  @override
+  String get clearMyVaultConfirm => 'سيؤدي هذا إلى حذف جميع الإدخالات في خزنتي. لا يمكن التراجع عن هذا الإجراء.';
+
+  @override
+  String get csvimportfailed => 'فشل استيراد CSV.';
+
+  @override
+  String get myVaultCleared => 'تم مسح الخزنة';
+
+  @override
+  String get txtImportCompleted => 'اكتملت عملية الاستيراد';
+
+  @override
+  String get txtImportCompletedWithSkip => 'اكتمل الاستيراد. تم تخطي %d من إدخالات النمط.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'اكتمل التصدير. هذا الملف غير مشفر. تم تخطي %d من إدخالات النمط.';
 
   @override
   String get importCSV => 'استيراد من ملف CSV';

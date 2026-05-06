@@ -9,16 +9,40 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Geïmporteerd';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Duplicaat';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Leeg';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Patroon overgeslagen';
+
+  @override
+  String get clear => 'Wissen';
+
+  @override
+  String get clearMyVault => 'Mijn Vault Wissen';
+
+  @override
+  String get clearMyVaultConfirm => 'Hiermee worden alle items in Mijn Vault verwijderd. Dit kan niet ongedaan worden gemaakt.';
+
+  @override
+  String get csvimportfailed => 'CSV-import mislukt.';
+
+  @override
+  String get myVaultCleared => 'Vault gewist';
+
+  @override
+  String get txtImportCompleted => 'Importeren voltooid.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Importeren voltooid. %d patroon-items zijn overgeslagen.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Exporteren voltooid. Dit bestand is niet versleuteld. %d patroon-items zijn overgeslagen.';
 
   @override
   String get importCSV => 'Importeren vanuit CSV-bestand';

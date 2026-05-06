@@ -9,16 +9,40 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Importé';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Dupliqué';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Vide';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Motif ignoré';
+
+  @override
+  String get clear => 'Effacer';
+
+  @override
+  String get clearMyVault => 'Effacer Mon Coffre';
+
+  @override
+  String get clearMyVaultConfirm => 'Cela supprimera toutes les entrées de Mon Coffre. Cette action est irréversible.';
+
+  @override
+  String get csvimportfailed => 'Échec de l\'importation CSV.';
+
+  @override
+  String get myVaultCleared => 'Coffre effacé';
+
+  @override
+  String get txtImportCompleted => 'Importation terminée.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Importation terminée. %d entrées de motif ont été ignorées.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Exportation terminée. Ce fichier n\'est pas chiffré. %d entrées de motif ont été ignorées.';
 
   @override
   String get importCSV => 'Importer depuis un fichier CSV';

@@ -9,16 +9,40 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Diimpor';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Duplikat';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Kosong';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Pola dilewati';
+
+  @override
+  String get clear => 'Bersihkan';
+
+  @override
+  String get clearMyVault => 'Bersihkan Vault Saya';
+
+  @override
+  String get clearMyVaultConfirm => 'Ini akan menghapus semua entri di Vault Saya. Tindakan ini tidak dapat dibatalkan.';
+
+  @override
+  String get csvimportfailed => 'Impor CSV gagal.';
+
+  @override
+  String get myVaultCleared => 'Vault dibersihkan';
+
+  @override
+  String get txtImportCompleted => 'Impor selesai.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Impor selesai. %d entri pola dilewati.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Ekspor selesai. File ini tidak dienkripsi. %d entri pola dilewati.';
 
   @override
   String get importCSV => 'Impor dari file CSV';

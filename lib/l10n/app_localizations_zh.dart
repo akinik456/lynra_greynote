@@ -9,16 +9,40 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => '已导入';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => '重复';
 
   @override
-  String get clear => 'Clear';
+  String get empty => '空';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => '已跳过图案';
+
+  @override
+  String get clear => '清除';
+
+  @override
+  String get clearMyVault => '清空我的保险库';
+
+  @override
+  String get clearMyVaultConfirm => '这将删除我的保险库中的所有条目。此操作无法撤销。';
+
+  @override
+  String get csvimportfailed => 'CSV 导入失败。';
+
+  @override
+  String get myVaultCleared => '保险库已清空';
+
+  @override
+  String get txtImportCompleted => '导入完成。';
+
+  @override
+  String get txtImportCompletedWithSkip => '导入完成。已跳过 %d 个图案条目。';
+
+  @override
+  String get txtExportCompletedWithSkip => '导出完成。此文件未加密。已跳过 %d 个图案条目。';
 
   @override
   String get importCSV => '从CSV文件导入';

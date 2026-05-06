@@ -9,16 +9,40 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Importerad';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Duplicera';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Tom';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Mönster hoppades över';
+
+  @override
+  String get clear => 'Rensa';
+
+  @override
+  String get clearMyVault => 'Rensa Mitt Valv';
+
+  @override
+  String get clearMyVaultConfirm => 'Detta kommer att radera alla poster i Mitt Valv. Detta kan inte ångras.';
+
+  @override
+  String get csvimportfailed => 'CSV-import misslyckades.';
+
+  @override
+  String get myVaultCleared => 'Valvet rensat';
+
+  @override
+  String get txtImportCompleted => 'Import slutförd.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Import slutförd. %d mönsterposter hoppades över.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Export slutförd. Den här filen är inte krypterad. %d mönsterposter hoppades över.';
 
   @override
   String get importCSV => 'Importera från CSV-fil';

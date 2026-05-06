@@ -9,16 +9,40 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'นำเข้าแล้ว';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'ซ้ำ';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'ว่างเปล่า';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'ข้าม pattern';
+
+  @override
+  String get clear => 'ล้าง';
+
+  @override
+  String get clearMyVault => 'ล้าง Vault ของฉัน';
+
+  @override
+  String get clearMyVaultConfirm => 'การดำเนินการนี้จะลบข้อมูลทั้งหมดใน Vault ของฉัน และไม่สามารถย้อนกลับได้';
+
+  @override
+  String get csvimportfailed => 'การนำเข้า CSV ล้มเหลว';
+
+  @override
+  String get myVaultCleared => 'ล้าง Vault แล้ว';
+
+  @override
+  String get txtImportCompleted => 'นำเข้าเสร็จสมบูรณ์';
+
+  @override
+  String get txtImportCompletedWithSkip => 'นำเข้าเสร็จสมบูรณ์ ข้ามรายการ pattern จำนวน %d รายการ';
+
+  @override
+  String get txtExportCompletedWithSkip => 'ส่งออกเสร็จสมบูรณ์ ไฟล์นี้ไม่ได้เข้ารหัส ข้ามรายการ pattern จำนวน %d รายการ';
 
   @override
   String get importCSV => 'นำเข้าจากไฟล์ CSV';

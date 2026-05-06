@@ -9,16 +9,40 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Импортировано';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Дубликат';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Пусто';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Паттерн пропущен';
+
+  @override
+  String get clear => 'Очистить';
+
+  @override
+  String get clearMyVault => 'Очистить Моё Хранилище';
+
+  @override
+  String get clearMyVaultConfirm => 'Это удалит все записи в Моём Хранилище. Это действие нельзя отменить.';
+
+  @override
+  String get csvimportfailed => 'Ошибка импорта CSV.';
+
+  @override
+  String get myVaultCleared => 'Хранилище очищено';
+
+  @override
+  String get txtImportCompleted => 'Импорт завершён.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Импорт завершён. %d записей с паттернами были пропущены.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Экспорт завершён. Этот файл не зашифрован. %d записей с паттернами были пропущены.';
 
   @override
   String get importCSV => 'Импорт из CSV-файла';

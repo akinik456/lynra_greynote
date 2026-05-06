@@ -1,8 +1,18 @@
 {
-"clearMyVault": "Clear My Vault",
-"clearMyVaultConfirm": "This will delete all entries in My Vault. This cannot be undone.",
-"clear": "Clear",
-"txtExportCompletedWithSkip":   "Export completed. This file is not encrypted. %d pattern entries were skipped.",
+"imported": "Importiert",
+"duplicate": "Duplikat",
+"empty": "Leer",
+"patternSkipped": "Muster übersprungen",
+"clear": "Löschen",
+"clearMyVault": "Meinen Tresor leeren",
+"clearMyVaultConfirm": "Dadurch werden alle Einträge in meinem Tresor gelöscht. Dies kann nicht rückgängig gemacht werden.",
+"csvimportfailed": "CSV-Import fehlgeschlagen.",
+"myVaultCleared": "Tresor geleert",
+"txtImportCompleted": "Import abgeschlossen.",
+"txtImportCompletedWithSkip": "Import abgeschlossen. %d Muster-Einträge wurden übersprungen.",
+"txtExportCompletedWithSkip": "Export abgeschlossen. Diese Datei ist nicht verschlüsselt. %d Muster-Einträge wurden übersprungen.",
+
+
 "importCSV": "Aus CSV-Datei importieren",
 "exportCSV": "Als CSV-Datei exportieren",
 "csvTemplate":									"CSV-Vorlage",

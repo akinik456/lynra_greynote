@@ -9,16 +9,40 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'आयातित';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'डुप्लिकेट';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'खाली';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'पैटर्न छोड़ा गया';
+
+  @override
+  String get clear => 'साफ़ करें';
+
+  @override
+  String get clearMyVault => 'मेरा वॉल्ट साफ़ करें';
+
+  @override
+  String get clearMyVaultConfirm => 'यह मेरे वॉल्ट की सभी प्रविष्टियों को हटा देगा। इसे वापस नहीं किया जा सकता।';
+
+  @override
+  String get csvimportfailed => 'CSV आयात विफल हुआ।';
+
+  @override
+  String get myVaultCleared => 'वॉल्ट साफ़ किया गया';
+
+  @override
+  String get txtImportCompleted => 'आयात पूरा हुआ।';
+
+  @override
+  String get txtImportCompletedWithSkip => 'आयात पूरा हुआ। %d पैटर्न प्रविष्टियाँ छोड़ दी गईं।';
+
+  @override
+  String get txtExportCompletedWithSkip => 'निर्यात पूरा हुआ। यह फ़ाइल एन्क्रिप्टेड नहीं है। %d पैटर्न प्रविष्टियाँ छोड़ दी गईं।';
 
   @override
   String get importCSV => 'CSV फ़ाइल से आयात करें';

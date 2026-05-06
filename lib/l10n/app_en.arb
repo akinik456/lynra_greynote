@@ -1,10 +1,20 @@
 {
-"clearMyVault": "Clear My Vault",
-"clearMyVaultConfirm": "This will delete all entries in My Vault. This cannot be undone.",
-"clear": "Clear",
-"txtExportCompletedWithSkip":   "Export completed. This file is not encrypted. %d pattern entries were skipped.",
-"importCSV": 										"Import from CSV File",
+"imported": 										"Imported",
+"duplicate": 										"Duplicate",
+"empty": 												"Empty",
+"patternSkipped": 							"Pattern skipped",
 
+"clear": 												"Clear",
+"clearMyVault": 								"Clear My Vault",
+"clearMyVaultConfirm": 					"This will delete all entries in My Vault. This cannot be undone.",
+"csvimportfailed": 							"CSV import failed",
+"myVaultCleared":								"My Vault cleared",
+"txtImportCompleted": 					"Import completed.",
+"txtImportCompletedWithSkip":   "Import completed. %d pattern entries were skipped.",
+"txtExportCompletedWithSkip":   "Export completed. This file is not encrypted. %d pattern entries were skipped.",
+
+
+"importCSV": 										"Import from CSV File",
 "exportCSV": 										"Export as csv File",
 
 "csvTemplate":									"csv Template",

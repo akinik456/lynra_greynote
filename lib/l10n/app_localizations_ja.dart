@@ -9,16 +9,40 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'インポート済み';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => '重複';
 
   @override
-  String get clear => 'Clear';
+  String get empty => '空';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'パターンをスキップ';
+
+  @override
+  String get clear => 'クリア';
+
+  @override
+  String get clearMyVault => 'マイVaultをクリア';
+
+  @override
+  String get clearMyVaultConfirm => 'これによりマイVault内のすべての項目が削除されます。この操作は元に戻せません。';
+
+  @override
+  String get csvimportfailed => 'CSVインポートに失敗しました。';
+
+  @override
+  String get myVaultCleared => 'Vaultをクリアしました';
+
+  @override
+  String get txtImportCompleted => 'インポートが完了しました。';
+
+  @override
+  String get txtImportCompletedWithSkip => 'インポートが完了しました。%d 件のパターン項目がスキップされました。';
+
+  @override
+  String get txtExportCompletedWithSkip => 'エクスポートが完了しました。このファイルは暗号化されていません。%d 件のパターン項目がスキップされました。';
 
   @override
   String get importCSV => 'CSVファイルからインポート';

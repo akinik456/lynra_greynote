@@ -1,8 +1,18 @@
 {
-"clearMyVault": "Clear My Vault",
-"clearMyVaultConfirm": "This will delete all entries in My Vault. This cannot be undone.",
-"clear": "Clear",
-"txtExportCompletedWithSkip":   "Export completed. This file is not encrypted. %d pattern entries were skipped.",
+"imported": "Aktarıldı",
+"duplicate": "Kopya",
+"empty": "Boş",
+"patternSkipped": "Pattern atlandı",
+"clear": "Temizle",
+"clearMyVault": "Kasamı Temizle",
+"clearMyVaultConfirm": "Bu işlem Kasamdaki tüm kayıtları silecektir. Bu işlem geri alınamaz.",
+"csvimportfailed": "CSV içe aktarma başarısız oldu.",
+"myVaultCleared": "Kasa temizlendi",
+"txtImportCompleted": "İçe aktarma tamamlandı.",
+"txtImportCompletedWithSkip": "İçe aktarma tamamlandı. %d pattern kaydı atlandı.",
+"txtExportCompletedWithSkip": "Dışa aktarma tamamlandı. Bu dosya şifrelenmemiştir. %d pattern kaydı atlandı.",
+
+
 "importCSV": 										"CSV Dosyasından İçe Aktar",
 "exportCSV": "CSV dosyası olarak dışa aktar",
 "csvTemplate":									"CSV Şablonu",

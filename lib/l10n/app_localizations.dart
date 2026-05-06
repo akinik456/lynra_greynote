@@ -130,6 +130,36 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @imported.
+  ///
+  /// In en, this message translates to:
+  /// **'Imported'**
+  String get imported;
+
+  /// No description provided for @duplicate.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate'**
+  String get duplicate;
+
+  /// No description provided for @empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty'**
+  String get empty;
+
+  /// No description provided for @patternSkipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern skipped'**
+  String get patternSkipped;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
   /// No description provided for @clearMyVault.
   ///
   /// In en, this message translates to:
@@ -142,11 +172,29 @@ abstract class AppLocalizations {
   /// **'This will delete all entries in My Vault. This cannot be undone.'**
   String get clearMyVaultConfirm;
 
-  /// No description provided for @clear.
+  /// No description provided for @csvimportfailed.
   ///
   /// In en, this message translates to:
-  /// **'Clear'**
-  String get clear;
+  /// **'CSV import failed'**
+  String get csvimportfailed;
+
+  /// No description provided for @myVaultCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'My Vault cleared'**
+  String get myVaultCleared;
+
+  /// No description provided for @txtImportCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Import completed.'**
+  String get txtImportCompleted;
+
+  /// No description provided for @txtImportCompletedWithSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Import completed. %d pattern entries were skipped.'**
+  String get txtImportCompletedWithSkip;
 
   /// No description provided for @txtExportCompletedWithSkip.
   ///

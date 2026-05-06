@@ -9,16 +9,40 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
-  String get clearMyVault => 'Clear My Vault';
+  String get imported => 'Importato';
 
   @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+  String get duplicate => 'Duplicato';
 
   @override
-  String get clear => 'Clear';
+  String get empty => 'Vuoto';
 
   @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+  String get patternSkipped => 'Pattern saltato';
+
+  @override
+  String get clear => 'Cancella';
+
+  @override
+  String get clearMyVault => 'Cancella Il Mio Vault';
+
+  @override
+  String get clearMyVaultConfirm => 'Questa operazione eliminerà tutte le voci nel Mio Vault. L\'operazione non può essere annullata.';
+
+  @override
+  String get csvimportfailed => 'Importazione CSV non riuscita.';
+
+  @override
+  String get myVaultCleared => 'Vault cancellato';
+
+  @override
+  String get txtImportCompleted => 'Importazione completata.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Importazione completata. %d voci pattern sono state saltate.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Esportazione completata. Questo file non è criptato. %d voci pattern sono state saltate.';
 
   @override
   String get importCSV => 'Importa da file CSV';

@@ -1500,7 +1500,7 @@ Future<void> openClearDefaultCollection(VaultCollection collection) async {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(
-        AppLocalizations.of(context)!.txtExportCompleted,//?*?myVaultCleared,
+        AppLocalizations.of(context)!.myVaultCleared,
       ),
     ),
   );
