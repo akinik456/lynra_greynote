@@ -9,6 +9,9 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
+  String get feedback => 'Feedback';
+
+  @override
   String get imported => 'Importiert';
 
   @override

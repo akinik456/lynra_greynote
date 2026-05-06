@@ -9,6 +9,9 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get feedback => 'Feedback';
+
+  @override
   String get imported => 'Geïmporteerd';
 
   @override

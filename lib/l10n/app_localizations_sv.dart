@@ -9,6 +9,9 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
+  String get feedback => 'Feedback';
+
+  @override
   String get imported => 'Importerad';
 
   @override

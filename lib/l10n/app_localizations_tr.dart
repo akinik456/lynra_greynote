@@ -9,6 +9,9 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get feedback => 'Geri Bildirim';
+
+  @override
   String get imported => 'Aktarıldı';
 
   @override

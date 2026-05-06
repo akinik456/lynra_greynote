@@ -6,6 +6,9 @@ import 'package:file_saver/file_saver.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:uuid/uuid.dart';
 import 'package:cryptography/cryptography.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 import 'security_screen.dart';
 import '../../vault/data/vault_repository.dart';
@@ -42,6 +45,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   static const Color _primary = Color(0xFF22D3EE);
   static const Color _textPrimary = Color(0xFFE2E8F0);
   static const Color _textSecondary = Color(0xFF94A3B8);
+		
 	
 Future<String?> _getUnwrappedMasterKey() async {
   final wrappedMK = await AuthStorage.getWrappedMasterKey();
@@ -516,6 +520,13 @@ _Item(
 							);
 						},
 					),
+					_Item(
+  title: AppLocalizations.of(context)!.feedback,
+  onTap: () async {
+    await openFeedback();
+  },
+),
+					
         ],
       ),
     );
@@ -1336,6 +1347,35 @@ LynraApp.of(context).setSuspendAutoLock(true);
   mimeType: MimeType.csv,
 );
 LynraApp.of(context).setSuspendAutoLock(false);
+}
+Future<void> openFeedback() async {
+	String _appVersion = '';
+	final infoapp = await PackageInfo.fromPlatform();
+	_appVersion = "${infoapp.version}+${infoapp.buildNumber}";
+	
+  final info = await DeviceInfoPlugin().androidInfo;
+
+
+  final body = '''
+Message:
+
+---
+
+App version: $_appVersion
+Android: ${info.version.release}
+Device: ${info.manufacturer} ${info.model}
+''';
+
+  final uri = Uri(
+    scheme: 'mailto',
+    path: 'lynra.dev@gmail.com',
+    queryParameters: {
+      'subject': 'Lynra Feedback',
+      'body': body,
+    },
+  );
+
+  await launchUrl(uri);
 }
   
 }
