@@ -1,4 +1,7 @@
 {
+"clearMyVault": "Clear My Vault",
+"clearMyVaultConfirm": "This will delete all entries in My Vault. This cannot be undone.",
+"clear": "Clear",
 "txtExportCompletedWithSkip":   "Export completed. This file is not encrypted. %d pattern entries were skipped.",
 "importCSV": "Impor dari file CSV",
 "exportCSV": "Ekspor sebagai file CSV",

@@ -144,4 +144,14 @@ Future<void> updateFavorite(String id, bool isFavorite) async {
 		
   );
 }	
+Future<void> deleteItemsInCollection(String collectionId) async {
+  final db = getDb();
+
+  await db.delete(
+    'vault',
+    where: 'collectionId = ?',
+    whereArgs: [collectionId],
+  );
+}
+
 }

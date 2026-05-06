@@ -130,6 +130,24 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @clearMyVault.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear My Vault'**
+  String get clearMyVault;
+
+  /// No description provided for @clearMyVaultConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'This will delete all entries in My Vault. This cannot be undone.'**
+  String get clearMyVaultConfirm;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
   /// No description provided for @txtExportCompletedWithSkip.
   ///
   /// In en, this message translates to:

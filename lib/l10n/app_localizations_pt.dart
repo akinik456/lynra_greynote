@@ -9,6 +9,15 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get clearMyVault => 'Clear My Vault';
+
+  @override
+  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
   String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
 
   @override
@@ -422,6 +431,15 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get clearMyVault => 'Clear My Vault';
+
+  @override
+  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+
+  @override
+  String get clear => 'Clear';
 
   @override
   String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';

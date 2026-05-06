@@ -9,6 +9,15 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get clearMyVault => 'Clear My Vault';
+
+  @override
+  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
   String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
 
   @override
