@@ -987,8 +987,7 @@ LynraApp.of(context).setSuspendAutoLock(true);
 		int importedCount = 0;
 		int duplicateCount = 0;
 		int emptyTitleCount = 0;
-
-
+		bool readingNote = false;
 try {
   final result = await FilePicker.pickFiles(
   type: FileType.custom,
@@ -1028,18 +1027,40 @@ for (final block in blocks) {
   String iban = '';
   for (final line in lines) {
     final l = line.trim();
-    if (l.toLowerCase().startsWith('title:')) {
-      title = l.substring(6).trim();
-    } else if (l.toLowerCase().startsWith('username:')) {
-      username = l.substring(9).trim();
-    } else if (l.toLowerCase().startsWith('password:')) {
-      password = l.substring(9).trim();
-    } else if (l.toLowerCase().startsWith('note:')) {
-      note = l.substring(5).trim();
-    } else if (l.toLowerCase().startsWith('iban:')) {
-      iban = l.substring(5).trim();
+    if (readingNote &&
+      !l.toLowerCase().startsWith('title:') &&
+      !l.toLowerCase().startsWith('username:') &&
+      !l.toLowerCase().startsWith('password:') &&
+      !l.toLowerCase().startsWith('iban:') &&
+      !l.toLowerCase().startsWith('note:')) {
+
+    if (note.isNotEmpty) {
+      note += '\n';
     }
+
+    note += l;
+    continue;
   }
+
+  readingNote = false;
+
+  if (l.toLowerCase().startsWith('title:')) {
+    title = l.substring(6).trim();
+
+  } else if (l.toLowerCase().startsWith('username:')) {
+    username = l.substring(9).trim();
+
+  } else if (l.toLowerCase().startsWith('password:')) {
+    password = l.substring(9).trim();
+
+  } else if (l.toLowerCase().startsWith('note:')) {
+    note = l.substring(5).trim();
+    readingNote = true;
+
+  } else if (l.toLowerCase().startsWith('iban:')) {
+    iban = l.substring(5).trim();
+  }
+}
 	if (title.isEmpty) {
 		emptyTitleCount++;
 		continue;

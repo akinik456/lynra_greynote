@@ -323,14 +323,16 @@ class _PasswordTileState extends State<_PasswordTile> {
                     });
                   },
                   child: Text(
-                    hidden ? '••••••••' : widget.password,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+										widget.password.isEmpty
+												? ''
+												: (hidden ? '••••••••' : widget.password),
+										maxLines: 1,
+										overflow: TextOverflow.ellipsis,
+										style: const TextStyle(
+											fontSize: 16,
+											fontWeight: FontWeight.w500,
+										),
+									),
                 ),
               ),
               IconButton(
