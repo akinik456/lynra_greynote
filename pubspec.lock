@@ -194,7 +194,7 @@ packages:
     source: hosted
     version: "7.0.1"
   file_picker:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: file_picker
       sha256: f13a03000d942e476bc1ff0a736d2e9de711d2f89a95cd4c1d88f861c3348387
@@ -202,7 +202,7 @@ packages:
     source: hosted
     version: "11.0.2"
   file_saver:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: file_saver
       sha256: "017a127de686af2d2fbbd64afea97052d95f2a0f87d19d25b87e097407bf9c1e"

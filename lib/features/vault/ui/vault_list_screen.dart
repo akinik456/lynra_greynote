@@ -46,7 +46,7 @@ class VaultListScreen extends StatefulWidget {
 class _VaultListScreenState extends State<VaultListScreen> {
   final repo = VaultRepository();
 	String typeFilter = 'all'; // all, standard, note, pattern
-Widget _chip(String value, IconData icon) {
+Widget _chip(String value, IconData icon, {Color? color}) {
   final selected = typeFilter == value;
 
   return GestureDetector(
@@ -73,7 +73,7 @@ Widget _chip(String value, IconData icon) {
         icon,
         size: 18,
         color: selected
-            ? const Color(0xFF22D3EE)
+             ? (color ?? const Color(0xFF22D3EE))
             : Colors.white70,
       ),
     ),
@@ -885,19 +885,22 @@ Padding(
         ),
         const SizedBox(width: 6),
         _chip(
-          'standard',
-          Icons.badge_outlined,
-        ),
-        const SizedBox(width: 6),
-        _chip(
-          'note',
-          Icons.note_alt_outlined,
-        ),
-        const SizedBox(width: 6),
-        _chip(
-          'pattern',
-          Icons.grid_3x3,
-        ),
+					'standard',
+					Icons.badge_outlined,
+					color: Colors.greenAccent,
+				),
+
+				_chip(
+					'note',
+					Icons.note_alt_outlined,
+					color: Colors.orangeAccent,
+				),
+
+				_chip(
+					'pattern',
+					Icons.grid_3x3,
+					color: const Color(0xFF8B5CF6),
+				),
       ],
     ),
   ),
@@ -1797,7 +1800,7 @@ class _TypeIcon extends StatelessWidget {
         break;
       case "pattern":
         icon = Icons.grid_3x3;
-        color = const Color(0xFF22D3EE);
+        color = const Color(0xFF8B5CF6);
         break;
       default:
         icon = Icons.badge_outlined;
