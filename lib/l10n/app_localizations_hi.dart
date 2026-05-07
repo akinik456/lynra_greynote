@@ -9,133 +9,10 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
-  String get feedback => 'फ़ीडबैक';
-
-  @override
-  String get imported => 'आयातित';
-
-  @override
-  String get duplicate => 'डुप्लिकेट';
-
-  @override
-  String get empty => 'खाली';
-
-  @override
-  String get patternSkipped => 'पैटर्न छोड़ा गया';
-
-  @override
-  String get clear => 'साफ़ करें';
-
-  @override
-  String get clearMyVault => 'मेरा वॉल्ट साफ़ करें';
-
-  @override
-  String get clearMyVaultConfirm => 'यह मेरे वॉल्ट की सभी प्रविष्टियों को हटा देगा। इसे वापस नहीं किया जा सकता।';
-
-  @override
-  String get csvimportfailed => 'CSV आयात विफल हुआ।';
-
-  @override
-  String get myVaultCleared => 'वॉल्ट साफ़ किया गया';
-
-  @override
-  String get txtImportCompleted => 'आयात पूरा हुआ।';
-
-  @override
-  String get txtImportCompletedWithSkip => 'आयात पूरा हुआ। %d पैटर्न प्रविष्टियाँ छोड़ दी गईं।';
-
-  @override
-  String get txtExportCompletedWithSkip => 'निर्यात पूरा हुआ। यह फ़ाइल एन्क्रिप्टेड नहीं है। %d पैटर्न प्रविष्टियाँ छोड़ दी गईं।';
-
-  @override
-  String get importCSV => 'CSV फ़ाइल से आयात करें';
-
-  @override
-  String get exportCSV => 'CSV फ़ाइल के रूप में निर्यात करें';
-
-  @override
-  String get csvTemplate => 'CSV टेम्पलेट';
-
-  @override
-  String get textTemplate => 'टेक्स्ट टेम्पलेट';
-
-  @override
-  String get txtExportCompleted => 'निर्यात पूरा हुआ। यह फ़ाइल एन्क्रिप्टेड नहीं है।';
-
-  @override
-  String get exportBackup => 'एन्क्रिप्टेड बैकअप निर्यात करें';
-
-  @override
-  String get exportText => 'टेक्स्ट फ़ाइल के रूप में निर्यात करें';
-
-  @override
-  String get importBackup => 'एन्क्रिप्टेड बैकअप आयात करें';
-
-  @override
-  String get importText => 'टेक्स्ट फ़ाइल से आयात करें';
-
-  @override
-  String get downloadTemplate => 'टेम्पलेट डाउनलोड करें';
-
-  @override
-  String get alreadyExists => 'यह आइटम पहले से मौजूद है';
-
-  @override
-  String get backupReminder => 'अपने डेटा को सुरक्षित रखने के लिए बैकअप बनाने पर विचार करें';
-
-  @override
-  String get sort => 'क्रमबद्ध करें';
-
-  @override
-  String get sortFavorites => 'पसंदीदा';
-
-  @override
-  String get sortUpdated => 'अंतिम अपडेट';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'पैटर्न';
-
-  @override
-  String get removeAttachment => 'फ़ाइल हटाएं';
-
-  @override
-  String get attachmentRemoved => 'संलग्नक हटाया गया';
-
-  @override
-  String get viewAttachment => 'संलग्नक देखें';
+  String get add => 'जोड़ें';
 
   @override
   String get addAttachment => 'संलग्नक जोड़ें';
-
-  @override
-  String get attachmentReady => 'संलग्नक तैयार है';
-
-  @override
-  String get attachmentTooLarge => 'अधिकतम 2 MB';
-
-  @override
-  String get search => 'खोजें';
-
-  @override
-  String get unlockToSearch => 'खोजने के लिए अनलॉक करें';
-
-  @override
-  String get limitReached => 'सीमा पूरी हो गई';
-
-  @override
-  String get freeLimitEntries => 'आप मुफ्त संस्करण में अधिकतम 2 प्रविष्टियाँ जोड़ सकते हैं।';
-
-  @override
-  String get upgrade => 'अपग्रेड करें';
-
-  @override
-  String get cancel => 'रद्द करें';
-
-  @override
-  String get add => 'जोड़ें';
 
   @override
   String get addFirstSecureEntry => 'अपनी पहली सुरक्षित एंट्री जोड़ने के लिए + बटन दबाएँ।';
@@ -144,10 +21,31 @@ class AppLocalizationsHi extends AppLocalizations {
   String get addIban => 'IBAN जोड़ें';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote आधुनिक क्रिप्टोग्राफ़िक सिद्धांतों के अनुसार डिज़ाइन किया गया है।\n\nडेटा सुरक्षा:\nप्रविष्टियों की सामग्री AES-256-GCM एल्गोरिथ्म के साथ एन्क्रिप्ट की जाती है।\nडेटाबेस SQLCipher का उपयोग करके पूरी तरह एन्क्रिप्टेड रूप में संग्रहीत किया जाता है।\n\nकुंजी प्रबंधन:\nमुख्य कुंजी (Master Key) उपयोगकर्ता कुंजियों से PBKDF2-HMAC-SHA256 एल्गोरिथ्म द्वारा व्युत्पन्न की जाती है।\nयह कुंजी कभी भी साधारण रूप में संग्रहीत नहीं होती और केवल सक्रिय सत्र के दौरान उपयोग की जाती है।\n\nकुंजी पृथक्करण (Key Separation):\nडेटाबेस एक्सेस और डेटा एन्क्रिप्शन अलग-अलग कुंजियों का उपयोग करते हैं।\n\nअतिरिक्त सुरक्षा परत:\nजब Vault Word सक्रिय होता है, तो डेटा दूसरी परत से सुरक्षित होता है।\nयह कुंजी डिवाइस पर संग्रहीत नहीं होती और केवल उपयोगकर्ता को ज्ञात होती है।\n\nसत्र सुरक्षा:\nजब ऐप बैकग्राउंड में जाता है, तो एक्सेस स्वचालित रूप से लॉक हो जाता है।\nएन्क्रिप्शन कुंजियाँ केवल प्रोसेसिंग के दौरान मेमोरी में रखी जाती हैं।\n\nस्क्रीन सुरक्षा:\nस्क्रीनशॉट और स्क्रीन रिकॉर्डिंग सिस्टम स्तर पर ब्लॉक किए जाते हैं।\n\nबैकअप:\nनिर्यात के दौरान डेटा एक एन्क्रिप्टेड ब्लॉक (encrypted blob) के रूप में बनाया जाता है और केवल सही जानकारी से पुनर्स्थापित किया जा सकता है।\n\nLynra उपयोगकर्ता डेटा तक पहुंच, पढ़ या पुनर्प्राप्त नहीं कर सकता।\n\nपूरा सुरक्षा मॉडल डेटा पर पूर्ण नियंत्रण उपयोगकर्ता के पास होने पर आधारित है।';
+
+  @override
+  String get advancedSecurityTitle => 'उन्नत सुरक्षा';
+
+  @override
+  String get alreadyExists => 'यह आइटम पहले से मौजूद है';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'संलग्नक तैयार है';
+
+  @override
+  String get attachmentRemoved => 'संलग्नक हटाया गया';
+
+  @override
+  String get attachmentTooLarge => 'अधिकतम 2 MB';
+
+  @override
   String get authenticateToContinue => 'जारी रखने के लिए सत्यापित करें';
+
+  @override
+  String get backupReminder => 'अपने डेटा को सुरक्षित रखने के लिए बैकअप बनाने पर विचार करें';
 
   @override
   String get bankDetails => 'बैंक विवरण';
@@ -166,6 +64,18 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'बायोमेट्रिक - PIN बैकअप के साथ';
+
+  @override
+  String get cancel => 'रद्द करें';
+
+  @override
+  String get clear => 'साफ़ करें';
+
+  @override
+  String get clearMyVault => 'मेरा वॉल्ट साफ़ करें';
+
+  @override
+  String get clearMyVaultConfirm => 'यह मेरे वॉल्ट की सभी प्रविष्टियों को हटा देगा। इसे वापस नहीं किया जा सकता।';
 
   @override
   String get collection => 'संग्रह';
@@ -187,6 +97,12 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get createVaultKey => 'अपनी वॉल्ट कुंजी बनाएं';
+
+  @override
+  String get csvimportfailed => 'CSV आयात विफल हुआ।';
+
+  @override
+  String get csvTemplate => 'CSV टेम्पलेट';
 
   @override
   String get delete => 'हटाएँ';
@@ -211,13 +127,22 @@ class AppLocalizationsHi extends AppLocalizations {
   String get details => 'विवरण';
 
   @override
+  String get downloadTemplate => 'टेम्पलेट डाउनलोड करें';
+
+  @override
   String get drawNewPattern => 'नया पैटर्न बनाएं';
 
   @override
   String get drawVaultKey => 'अपनी वॉल्ट कुंजी बनाएं';
 
   @override
+  String get duplicate => 'डुप्लिकेट';
+
+  @override
   String get editEntry => 'एंट्री संपादित करें';
+
+  @override
+  String get empty => 'खाली';
 
   @override
   String get enableVaultWord => 'वॉल्ट शब्द सक्षम करें';
@@ -238,16 +163,31 @@ class AppLocalizationsHi extends AppLocalizations {
   String get export => 'निर्यात';
 
   @override
+  String get exportBackup => 'एन्क्रिप्टेड बैकअप निर्यात करें';
+
+  @override
   String get exportComingNext => 'निर्यात जल्द आ रहा है';
 
   @override
   String get exportCompleted => 'निर्यात पूरा हुआ';
 
   @override
+  String get exportCSV => 'CSV फ़ाइल के रूप में निर्यात करें';
+
+  @override
   String get exportData => 'डेटा निर्यात करें';
 
   @override
   String get exportPin => 'बैकअप PIN';
+
+  @override
+  String get exportText => 'टेक्स्ट फ़ाइल के रूप में निर्यात करें';
+
+  @override
+  String get feedback => 'फ़ीडबैक';
+
+  @override
+  String get freeLimitEntries => 'आप मुफ्त संस्करण में अधिकतम 2 प्रविष्टियाँ जोड़ सकते हैं।';
 
   @override
   String get generatePassword => 'पासवर्ड बनाएँ';
@@ -271,7 +211,16 @@ class AppLocalizationsHi extends AppLocalizations {
   String get import => 'आयात';
 
   @override
+  String get imported => 'आयातित';
+
+  @override
+  String get importBackup => 'एन्क्रिप्टेड बैकअप आयात करें';
+
+  @override
   String get importCompleted => 'आयात पूरा हुआ';
+
+  @override
+  String get importCSV => 'CSV फ़ाइल से आयात करें';
 
   @override
   String get importData => 'डेटा आयात करें';
@@ -283,7 +232,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get importPin => 'रीस्टोर PIN';
 
   @override
+  String get importText => 'टेक्स्ट फ़ाइल से आयात करें';
+
+  @override
   String get language => 'भाषा';
+
+  @override
+  String get limitReached => 'सीमा पूरी हो गई';
 
   @override
   String get lynraSecurity => 'Lynra सुरक्षा';
@@ -302,6 +257,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get myVault => 'मेरा वॉल्ट';
+
+  @override
+  String get myVaultCleared => 'वॉल्ट साफ़ किया गया';
 
   @override
   String get newCollection => 'नया संग्रह';
@@ -343,7 +301,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get passwordCopied => 'पासवर्ड कॉपी हुआ';
 
   @override
+  String get pattern => 'पैटर्न';
+
+  @override
   String get patternMismatch => 'पैटर्न मेल नहीं खाए। फिर से शुरू करें';
+
+  @override
+  String get patternSkipped => 'पैटर्न छोड़ा गया';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsHi extends AppLocalizations {
   String get privateByDesign => 'गोपनीयता एक मूल सिद्धांत है, सुविधा नहीं';
 
   @override
+  String get removeAttachment => 'फ़ाइल हटाएं';
+
+  @override
   String get save => 'सहेजें';
 
   @override
   String get savePin => 'PIN सहेजें';
 
   @override
+  String get search => 'खोजें';
+
+  @override
   String get secondaryLock => 'द्वितीयक लॉक';
 
   @override
   String get security => 'सुरक्षा';
+
+  @override
+  String get securityManifesto => 'सुरक्षा मॉडल';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote एक ऑफलाइन सुरक्षित वॉल्ट है जो आपके डेटा को केवल आपके डिवाइस पर संग्रहीत करता है।\nएप्लिकेशन किसी सर्वर का उपयोग नहीं करता, आपको ट्रैक नहीं करता और कोई डेटा एकत्र नहीं करता।\nआपकी सभी प्रविष्टियाँ मजबूत एन्क्रिप्शन द्वारा सुरक्षित हैं और केवल आपके द्वारा ही एक्सेस की जा सकती हैं।\nजब ऐप बैकग्राउंड में जाता है, तो यह स्वचालित रूप से लॉक हो जाता है और स्क्रीनशॉट रोके जाते हैं।\nयदि अनलॉक जानकारी भूल जाती है, तो डेटा पुनर्प्राप्त नहीं किया जा सकता।\nविस्तृत तकनीकी जानकारी के लिए नीचे उन्नत सुरक्षा अनुभाग देखें।';
+
+  @override
+  String get securitySummaryTitle => 'सुरक्षा सारांश';
 
   @override
   String get selectLanguage => 'भाषा चुनें';
@@ -380,6 +359,18 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get setPin => 'PIN सेट करें';
+
+  @override
+  String get sort => 'क्रमबद्ध करें';
+
+  @override
+  String get sortFavorites => 'पसंदीदा';
+
+  @override
+  String get sortUpdated => 'अंतिम अपडेट';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'मानक';
@@ -405,13 +396,31 @@ class AppLocalizationsHi extends AppLocalizations {
   String get weak => 'कमज़ोर';
 
   @override
+  String get viewAttachment => 'संलग्नक देखें';
+
+  @override
   String get wrongPattern => 'गलत पैटर्न। फिर से प्रयास करें';
 
   @override
   String get wrongPin => 'गलत PIN';
 
   @override
+  String get textTemplate => 'टेक्स्ट टेम्पलेट';
+
+  @override
   String get title => 'शीर्षक';
+
+  @override
+  String get txtImportCompleted => 'आयात पूरा हुआ।';
+
+  @override
+  String get txtImportCompletedWithSkip => 'आयात पूरा हुआ। %d पैटर्न प्रविष्टियाँ छोड़ दी गईं।';
+
+  @override
+  String get txtExportCompletedWithSkip => 'निर्यात पूरा हुआ। यह फ़ाइल एन्क्रिप्टेड नहीं है। %d पैटर्न प्रविष्टियाँ छोड़ दी गईं।';
+
+  @override
+  String get txtExportCompleted => 'निर्यात पूरा हुआ। यह फ़ाइल एन्क्रिप्टेड नहीं है।';
 
   @override
   String get unlock => 'अनलॉक';
@@ -421,6 +430,12 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get unlockVault => 'वॉल्ट अनलॉक करें';
+
+  @override
+  String get unlockToSearch => 'खोजने के लिए अनलॉक करें';
+
+  @override
+  String get upgrade => 'अपग्रेड करें';
 
   @override
   String get untitled => 'बिना शीर्षक';
@@ -438,19 +453,4 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get usernameEmail => 'उपयोगकर्ता नाम / ईमेल';
-
-  @override
-  String get securityManifesto => 'सुरक्षा मॉडल';
-
-  @override
-  String get securitySummaryTitle => 'सुरक्षा सारांश';
-
-  @override
-  String get advancedSecurityTitle => 'उन्नत सुरक्षा';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote एक ऑफलाइन सुरक्षित वॉल्ट है जो आपके डेटा को केवल आपके डिवाइस पर संग्रहीत करता है।\nएप्लिकेशन किसी सर्वर का उपयोग नहीं करता, आपको ट्रैक नहीं करता और कोई डेटा एकत्र नहीं करता।\nआपकी सभी प्रविष्टियाँ मजबूत एन्क्रिप्शन द्वारा सुरक्षित हैं और केवल आपके द्वारा ही एक्सेस की जा सकती हैं।\nजब ऐप बैकग्राउंड में जाता है, तो यह स्वचालित रूप से लॉक हो जाता है और स्क्रीनशॉट रोके जाते हैं।\nयदि अनलॉक जानकारी भूल जाती है, तो डेटा पुनर्प्राप्त नहीं किया जा सकता।\nविस्तृत तकनीकी जानकारी के लिए नीचे उन्नत सुरक्षा अनुभाग देखें।';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote आधुनिक क्रिप्टोग्राफ़िक सिद्धांतों के अनुसार डिज़ाइन किया गया है।\n\nडेटा सुरक्षा:\nप्रविष्टियों की सामग्री AES-256-GCM एल्गोरिथ्म के साथ एन्क्रिप्ट की जाती है।\nडेटाबेस SQLCipher का उपयोग करके पूरी तरह एन्क्रिप्टेड रूप में संग्रहीत किया जाता है।\n\nकुंजी प्रबंधन:\nमुख्य कुंजी (Master Key) उपयोगकर्ता कुंजियों से PBKDF2-HMAC-SHA256 एल्गोरिथ्म द्वारा व्युत्पन्न की जाती है।\nयह कुंजी कभी भी साधारण रूप में संग्रहीत नहीं होती और केवल सक्रिय सत्र के दौरान उपयोग की जाती है।\n\nकुंजी पृथक्करण (Key Separation):\nडेटाबेस एक्सेस और डेटा एन्क्रिप्शन अलग-अलग कुंजियों का उपयोग करते हैं।\n\nअतिरिक्त सुरक्षा परत:\nजब Vault Word सक्रिय होता है, तो डेटा दूसरी परत से सुरक्षित होता है।\nयह कुंजी डिवाइस पर संग्रहीत नहीं होती और केवल उपयोगकर्ता को ज्ञात होती है।\n\nसत्र सुरक्षा:\nजब ऐप बैकग्राउंड में जाता है, तो एक्सेस स्वचालित रूप से लॉक हो जाता है।\nएन्क्रिप्शन कुंजियाँ केवल प्रोसेसिंग के दौरान मेमोरी में रखी जाती हैं।\n\nस्क्रीन सुरक्षा:\nस्क्रीनशॉट और स्क्रीन रिकॉर्डिंग सिस्टम स्तर पर ब्लॉक किए जाते हैं।\n\nबैकअप:\nनिर्यात के दौरान डेटा एक एन्क्रिप्टेड ब्लॉक (encrypted blob) के रूप में बनाया जाता है और केवल सही जानकारी से पुनर्स्थापित किया जा सकता है।\n\nLynra उपयोगकर्ता डेटा तक पहुंच, पढ़ या पुनर्प्राप्त नहीं कर सकता।\n\nपूरा सुरक्षा मॉडल डेटा पर पूर्ण नियंत्रण उपयोगकर्ता के पास होने पर आधारित है।';
 }

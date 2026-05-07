@@ -46,7 +46,7 @@ class VaultListScreen extends StatefulWidget {
 class _VaultListScreenState extends State<VaultListScreen> {
   final repo = VaultRepository();
 	String typeFilter = 'all'; // all, standard, note, pattern
-Widget _chip(String value, String label, IconData icon) {
+Widget _chip(String value, IconData icon) {
   final selected = typeFilter == value;
 
   return GestureDetector(
@@ -57,7 +57,7 @@ Widget _chip(String value, String label, IconData icon) {
       load();
     },
     child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: selected
             ? const Color(0xFF123247)
@@ -69,27 +69,12 @@ Widget _chip(String value, String label, IconData icon) {
               : Colors.white24,
         ),
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(
-            icon,
-            size: 15,
-            color: selected
-                ? const Color(0xFF22D3EE)
-                : Colors.white70,
-          ),
-          const SizedBox(width: 6),
-          Text(
-            label,
-            style: TextStyle(
-              color: selected
-                  ? const Color(0xFF22D3EE)
-                  : Colors.white70,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
-        ],
+      child: Icon(
+        icon,
+        size: 18,
+        color: selected
+            ? const Color(0xFF22D3EE)
+            : Colors.white70,
       ),
     ),
   );
@@ -885,19 +870,31 @@ if (_vaultWordEnabled)
 Padding(
   padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
   child: SingleChildScrollView(
-  scrollDirection: Axis.horizontal,
-  child: Row(
-    children: [
-      _chip('all', 'All', Icons.apps_rounded),
-      const SizedBox(width: 6),
-      _chip('standard', 'Standard', Icons.badge_outlined),
-      const SizedBox(width: 6),
-      _chip('note', 'Note', Icons.note_alt_outlined),
-      const SizedBox(width: 6),
-      _chip('pattern', 'Pattern', Icons.grid_3x3),
-    ],
+    scrollDirection: Axis.horizontal,
+    child: Row(
+      children: [
+        _chip(
+          'all',
+          Icons.apps_rounded,
+        ),
+        const SizedBox(width: 6),
+        _chip(
+          'standard',
+          Icons.badge_outlined,
+        ),
+        const SizedBox(width: 6),
+        _chip(
+          'note',
+          Icons.note_alt_outlined,
+        ),
+        const SizedBox(width: 6),
+        _chip(
+          'pattern',
+          Icons.grid_3x3,
+        ),
+      ],
+    ),
   ),
-),
 ),
           Expanded(
             child: filteredItems.isEmpty

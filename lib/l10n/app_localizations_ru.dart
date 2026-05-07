@@ -9,133 +9,10 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
-  String get feedback => 'Обратная связь';
-
-  @override
-  String get imported => 'Импортировано';
-
-  @override
-  String get duplicate => 'Дубликат';
-
-  @override
-  String get empty => 'Пусто';
-
-  @override
-  String get patternSkipped => 'Паттерн пропущен';
-
-  @override
-  String get clear => 'Очистить';
-
-  @override
-  String get clearMyVault => 'Очистить Моё Хранилище';
-
-  @override
-  String get clearMyVaultConfirm => 'Это удалит все записи в Моём Хранилище. Это действие нельзя отменить.';
-
-  @override
-  String get csvimportfailed => 'Ошибка импорта CSV.';
-
-  @override
-  String get myVaultCleared => 'Хранилище очищено';
-
-  @override
-  String get txtImportCompleted => 'Импорт завершён.';
-
-  @override
-  String get txtImportCompletedWithSkip => 'Импорт завершён. %d записей с паттернами были пропущены.';
-
-  @override
-  String get txtExportCompletedWithSkip => 'Экспорт завершён. Этот файл не зашифрован. %d записей с паттернами были пропущены.';
-
-  @override
-  String get importCSV => 'Импорт из CSV-файла';
-
-  @override
-  String get exportCSV => 'Экспортировать как файл CSV';
-
-  @override
-  String get csvTemplate => 'Шаблон CSV';
-
-  @override
-  String get textTemplate => 'Текстовый шаблон';
-
-  @override
-  String get txtExportCompleted => 'Экспорт завершён. Этот файл не зашифрован.';
-
-  @override
-  String get exportBackup => 'Экспорт зашифрованной резервной копии';
-
-  @override
-  String get exportText => 'Экспорт в текстовый файл';
-
-  @override
-  String get importBackup => 'Импорт зашифрованной резервной копии';
-
-  @override
-  String get importText => 'Импорт из текстового файла';
-
-  @override
-  String get downloadTemplate => 'Скачать шаблон';
-
-  @override
-  String get alreadyExists => 'Этот элемент уже существует';
-
-  @override
-  String get backupReminder => 'Рекомендуется создать резервную копию для защиты ваших данных';
-
-  @override
-  String get sort => 'Сортировка';
-
-  @override
-  String get sortFavorites => 'Избранное';
-
-  @override
-  String get sortUpdated => 'Последнее обновление';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'Шаблон';
-
-  @override
-  String get removeAttachment => 'Удалить файл';
-
-  @override
-  String get attachmentRemoved => 'Вложение удалено';
-
-  @override
-  String get viewAttachment => 'Просмотреть вложение';
+  String get add => 'Добавить';
 
   @override
   String get addAttachment => 'Добавить вложение';
-
-  @override
-  String get attachmentReady => 'Вложение готово';
-
-  @override
-  String get attachmentTooLarge => 'Максимум 2 МБ';
-
-  @override
-  String get search => 'Поиск';
-
-  @override
-  String get unlockToSearch => 'Разблокируйте для поиска';
-
-  @override
-  String get limitReached => 'Лимит достигнут';
-
-  @override
-  String get freeLimitEntries => 'В бесплатной версии можно добавить до 2 записей.';
-
-  @override
-  String get upgrade => 'Обновить';
-
-  @override
-  String get cancel => 'Отмена';
-
-  @override
-  String get add => 'Добавить';
 
   @override
   String get addFirstSecureEntry => 'Нажмите +, чтобы добавить первую запись.';
@@ -144,10 +21,31 @@ class AppLocalizationsRu extends AppLocalizations {
   String get addIban => 'Добавить IBAN';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote разработан в соответствии с современными криптографическими принципами.\n\nЗащита данных:\nСодержимое записей шифруется с использованием алгоритма AES-256-GCM.\nБаза данных полностью хранится в зашифрованном виде с использованием SQLCipher.\n\nУправление ключами:\nГлавный ключ (Master Key) выводится из пользовательских ключей с помощью алгоритма PBKDF2-HMAC-SHA256.\nЭтот ключ никогда не хранится в открытом виде и используется только во время активной сессии.\n\nРазделение ключей (Key Separation):\nДоступ к базе данных и шифрование данных используют разные ключи.\n\nДополнительный уровень безопасности:\nПри активации Vault Word данные защищаются дополнительным уровнем.\nЭтот ключ не хранится на устройстве и известен только пользователю.\n\nБезопасность сеанса:\nПри переходе приложения в фон доступ автоматически блокируется.\nКлючи шифрования хранятся в памяти только во время обработки.\n\nБезопасность экрана:\nСкриншоты и запись экрана блокируются на уровне системы.\n\nРезервное копирование:\nПри экспорте данные создаются в виде зашифрованного блока (encrypted blob) и могут быть восстановлены только с правильной информацией.\n\nLynra не может получить доступ к данным пользователя, прочитать или восстановить их.\n\nВся модель безопасности основана на полном контроле пользователя над своими данными.';
+
+  @override
+  String get advancedSecurityTitle => 'Расширенная безопасность';
+
+  @override
+  String get alreadyExists => 'Этот элемент уже существует';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'Вложение готово';
+
+  @override
+  String get attachmentRemoved => 'Вложение удалено';
+
+  @override
+  String get attachmentTooLarge => 'Максимум 2 МБ';
+
+  @override
   String get authenticateToContinue => 'Подтвердите для продолжения';
+
+  @override
+  String get backupReminder => 'Рекомендуется создать резервную копию для защиты ваших данных';
 
   @override
   String get bankDetails => 'Банковские данные';
@@ -166,6 +64,18 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Биометрия — с резервным PIN';
+
+  @override
+  String get cancel => 'Отмена';
+
+  @override
+  String get clear => 'Очистить';
+
+  @override
+  String get clearMyVault => 'Очистить Моё Хранилище';
+
+  @override
+  String get clearMyVaultConfirm => 'Это удалит все записи в Моём Хранилище. Это действие нельзя отменить.';
 
   @override
   String get collection => 'Коллекция';
@@ -187,6 +97,12 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get createVaultKey => 'Создайте ключ хранилища';
+
+  @override
+  String get csvimportfailed => 'Ошибка импорта CSV.';
+
+  @override
+  String get csvTemplate => 'Шаблон CSV';
 
   @override
   String get delete => 'Удалить';
@@ -211,13 +127,22 @@ class AppLocalizationsRu extends AppLocalizations {
   String get details => 'Детали';
 
   @override
+  String get downloadTemplate => 'Скачать шаблон';
+
+  @override
   String get drawNewPattern => 'Нарисуйте новый рисунок';
 
   @override
   String get drawVaultKey => 'Нарисуйте ключ хранилища';
 
   @override
+  String get duplicate => 'Дубликат';
+
+  @override
   String get editEntry => 'Редактировать запись';
+
+  @override
+  String get empty => 'Пусто';
 
   @override
   String get enableVaultWord => 'Включить кодовое слово';
@@ -238,16 +163,31 @@ class AppLocalizationsRu extends AppLocalizations {
   String get export => 'Экспорт';
 
   @override
+  String get exportBackup => 'Экспорт зашифрованной резервной копии';
+
+  @override
   String get exportComingNext => 'Экспорт скоро';
 
   @override
   String get exportCompleted => 'Экспорт завершён';
 
   @override
+  String get exportCSV => 'Экспортировать как файл CSV';
+
+  @override
   String get exportData => 'Экспорт данных';
 
   @override
   String get exportPin => 'PIN для резервной копии';
+
+  @override
+  String get exportText => 'Экспорт в текстовый файл';
+
+  @override
+  String get feedback => 'Обратная связь';
+
+  @override
+  String get freeLimitEntries => 'В бесплатной версии можно добавить до 2 записей.';
 
   @override
   String get generatePassword => 'Сгенерировать пароль';
@@ -271,7 +211,16 @@ class AppLocalizationsRu extends AppLocalizations {
   String get import => 'Импорт';
 
   @override
+  String get imported => 'Импортировано';
+
+  @override
+  String get importBackup => 'Импорт зашифрованной резервной копии';
+
+  @override
   String get importCompleted => 'Импорт завершён';
+
+  @override
+  String get importCSV => 'Импорт из CSV-файла';
 
   @override
   String get importData => 'Импорт данных';
@@ -283,7 +232,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get importPin => 'PIN восстановления';
 
   @override
+  String get importText => 'Импорт из текстового файла';
+
+  @override
   String get language => 'Язык';
+
+  @override
+  String get limitReached => 'Лимит достигнут';
 
   @override
   String get lynraSecurity => 'Lynra Безопасность';
@@ -302,6 +257,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get myVault => 'Моё хранилище';
+
+  @override
+  String get myVaultCleared => 'Хранилище очищено';
 
   @override
   String get newCollection => 'Новая коллекция';
@@ -343,7 +301,13 @@ class AppLocalizationsRu extends AppLocalizations {
   String get passwordCopied => 'Пароль скопирован';
 
   @override
+  String get pattern => 'Шаблон';
+
+  @override
   String get patternMismatch => 'Рисунки не совпали. Повторите';
+
+  @override
+  String get patternSkipped => 'Паттерн пропущен';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsRu extends AppLocalizations {
   String get privateByDesign => 'Приватность — основа, а не функция';
 
   @override
+  String get removeAttachment => 'Удалить файл';
+
+  @override
   String get save => 'Сохранить';
 
   @override
   String get savePin => 'Сохранить PIN';
 
   @override
+  String get search => 'Поиск';
+
+  @override
   String get secondaryLock => 'Доп. защита';
 
   @override
   String get security => 'Безопасность';
+
+  @override
+  String get securityManifesto => 'Модель безопасности';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote — это офлайн защищённое хранилище, которое хранит ваши данные только на вашем устройстве.\nПриложение не использует серверы, не отслеживает вас и не собирает данные.\nВсе ваши записи защищены надёжным шифрованием и доступны только вам.\nКогда приложение уходит в фон, оно автоматически блокируется и предотвращает создание скриншотов.\nЕсли данные для разблокировки будут забыты, восстановить их невозможно.\nДля получения подробной технической информации ознакомьтесь с разделом Расширенная безопасность ниже.';
+
+  @override
+  String get securitySummaryTitle => 'Сводка безопасности';
 
   @override
   String get selectLanguage => 'Выбрать язык';
@@ -380,6 +359,18 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get setPin => 'Установить PIN';
+
+  @override
+  String get sort => 'Сортировка';
+
+  @override
+  String get sortFavorites => 'Избранное';
+
+  @override
+  String get sortUpdated => 'Последнее обновление';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'Стандарт';
@@ -405,13 +396,31 @@ class AppLocalizationsRu extends AppLocalizations {
   String get weak => 'Слабый';
 
   @override
+  String get viewAttachment => 'Просмотреть вложение';
+
+  @override
   String get wrongPattern => 'Неверный рисунок. Повторите';
 
   @override
   String get wrongPin => 'Неверный PIN';
 
   @override
+  String get textTemplate => 'Текстовый шаблон';
+
+  @override
   String get title => 'Заголовок';
+
+  @override
+  String get txtImportCompleted => 'Импорт завершён.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Импорт завершён. %d записей с паттернами были пропущены.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Экспорт завершён. Этот файл не зашифрован. %d записей с паттернами были пропущены.';
+
+  @override
+  String get txtExportCompleted => 'Экспорт завершён. Этот файл не зашифрован.';
 
   @override
   String get unlock => 'Разблокировать';
@@ -421,6 +430,12 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get unlockVault => 'Открыть хранилище';
+
+  @override
+  String get unlockToSearch => 'Разблокируйте для поиска';
+
+  @override
+  String get upgrade => 'Обновить';
 
   @override
   String get untitled => 'Без названия';
@@ -438,19 +453,4 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Имя пользователя / Email';
-
-  @override
-  String get securityManifesto => 'Модель безопасности';
-
-  @override
-  String get securitySummaryTitle => 'Сводка безопасности';
-
-  @override
-  String get advancedSecurityTitle => 'Расширенная безопасность';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote — это офлайн защищённое хранилище, которое хранит ваши данные только на вашем устройстве.\nПриложение не использует серверы, не отслеживает вас и не собирает данные.\nВсе ваши записи защищены надёжным шифрованием и доступны только вам.\nКогда приложение уходит в фон, оно автоматически блокируется и предотвращает создание скриншотов.\nЕсли данные для разблокировки будут забыты, восстановить их невозможно.\nДля получения подробной технической информации ознакомьтесь с разделом Расширенная безопасность ниже.';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote разработан в соответствии с современными криптографическими принципами.\n\nЗащита данных:\nСодержимое записей шифруется с использованием алгоритма AES-256-GCM.\nБаза данных полностью хранится в зашифрованном виде с использованием SQLCipher.\n\nУправление ключами:\nГлавный ключ (Master Key) выводится из пользовательских ключей с помощью алгоритма PBKDF2-HMAC-SHA256.\nЭтот ключ никогда не хранится в открытом виде и используется только во время активной сессии.\n\nРазделение ключей (Key Separation):\nДоступ к базе данных и шифрование данных используют разные ключи.\n\nДополнительный уровень безопасности:\nПри активации Vault Word данные защищаются дополнительным уровнем.\nЭтот ключ не хранится на устройстве и известен только пользователю.\n\nБезопасность сеанса:\nПри переходе приложения в фон доступ автоматически блокируется.\nКлючи шифрования хранятся в памяти только во время обработки.\n\nБезопасность экрана:\nСкриншоты и запись экрана блокируются на уровне системы.\n\nРезервное копирование:\nПри экспорте данные создаются в виде зашифрованного блока (encrypted blob) и могут быть восстановлены только с правильной информацией.\n\nLynra не может получить доступ к данным пользователя, прочитать или восстановить их.\n\nВся модель безопасности основана на полном контроле пользователя над своими данными.';
 }

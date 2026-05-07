@@ -9,133 +9,10 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
-  String get feedback => 'Feedback';
-
-  @override
-  String get imported => 'Importiert';
-
-  @override
-  String get duplicate => 'Duplikat';
-
-  @override
-  String get empty => 'Leer';
-
-  @override
-  String get patternSkipped => 'Muster übersprungen';
-
-  @override
-  String get clear => 'Löschen';
-
-  @override
-  String get clearMyVault => 'Meinen Tresor leeren';
-
-  @override
-  String get clearMyVaultConfirm => 'Dadurch werden alle Einträge in meinem Tresor gelöscht. Dies kann nicht rückgängig gemacht werden.';
-
-  @override
-  String get csvimportfailed => 'CSV-Import fehlgeschlagen.';
-
-  @override
-  String get myVaultCleared => 'Tresor geleert';
-
-  @override
-  String get txtImportCompleted => 'Import abgeschlossen.';
-
-  @override
-  String get txtImportCompletedWithSkip => 'Import abgeschlossen. %d Muster-Einträge wurden übersprungen.';
-
-  @override
-  String get txtExportCompletedWithSkip => 'Export abgeschlossen. Diese Datei ist nicht verschlüsselt. %d Muster-Einträge wurden übersprungen.';
-
-  @override
-  String get importCSV => 'Aus CSV-Datei importieren';
-
-  @override
-  String get exportCSV => 'Als CSV-Datei exportieren';
-
-  @override
-  String get csvTemplate => 'CSV-Vorlage';
-
-  @override
-  String get textTemplate => 'Textvorlage';
-
-  @override
-  String get txtExportCompleted => 'Export abgeschlossen. Diese Datei ist nicht verschlüsselt.';
-
-  @override
-  String get exportBackup => 'Verschlüsseltes Backup exportieren';
-
-  @override
-  String get exportText => 'Als Textdatei exportieren';
-
-  @override
-  String get importBackup => 'Verschlüsseltes Backup importieren';
-
-  @override
-  String get importText => 'Aus Textdatei importieren';
-
-  @override
-  String get downloadTemplate => 'Vorlage herunterladen';
-
-  @override
-  String get alreadyExists => 'Dieser Eintrag existiert bereits';
-
-  @override
-  String get backupReminder => 'Erwägen Sie, ein Backup zu erstellen, um Ihre Daten zu schützen';
-
-  @override
-  String get sort => 'Sortieren';
-
-  @override
-  String get sortFavorites => 'Favoriten';
-
-  @override
-  String get sortUpdated => 'Zuletzt aktualisiert';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'Muster';
-
-  @override
-  String get removeAttachment => 'Datei entfernen';
-
-  @override
-  String get attachmentRemoved => 'Anhang entfernt';
-
-  @override
-  String get viewAttachment => 'Anhang anzeigen';
+  String get add => 'Hinzufügen';
 
   @override
   String get addAttachment => 'Datei hinzufügen';
-
-  @override
-  String get attachmentReady => 'Anhang bereit';
-
-  @override
-  String get attachmentTooLarge => 'Maximal 2 MB';
-
-  @override
-  String get search => 'Suchen';
-
-  @override
-  String get unlockToSearch => 'Zum Suchen entsperren';
-
-  @override
-  String get limitReached => 'Limit erreicht';
-
-  @override
-  String get freeLimitEntries => 'In der kostenlosen Version kannst du bis zu 2 Einträge hinzufügen.';
-
-  @override
-  String get upgrade => 'Upgrade';
-
-  @override
-  String get cancel => 'Abbrechen';
-
-  @override
-  String get add => 'Hinzufügen';
 
   @override
   String get addFirstSecureEntry => 'Tippen Sie auf die + Taste, um Ihren ersten sicheren Eintrag hinzuzufügen.';
@@ -144,10 +21,31 @@ class AppLocalizationsDe extends AppLocalizations {
   String get addIban => 'IBAN hinzufügen';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote wurde gemäß modernen kryptografischen Prinzipien entwickelt.\n\nDatenschutz:\nDie Inhalte der Einträge werden mit dem AES-256-GCM-Algorithmus verschlüsselt.\nDie Datenbank wird vollständig verschlüsselt mit SQLCipher gespeichert.\n\nSchlüsselverwaltung:\nDer Hauptschlüssel (Master Key) wird aus Benutzerschlüsseln mit dem PBKDF2-HMAC-SHA256-Algorithmus abgeleitet.\nDieser Schlüssel wird niemals im Klartext gespeichert und nur während der aktiven Sitzung verwendet.\n\nSchlüsseltrennung (Key Separation):\nDatenbankzugriff und Datenverschlüsselung erfolgen mit unterschiedlichen Schlüsseln.\n\nZusätzliche Sicherheitsebene:\nWenn das Vault Word aktiviert ist, werden die Daten durch eine zweite Ebene geschützt.\nDieser Schlüssel wird nicht auf dem Gerät gespeichert und ist nur dem Benutzer bekannt.\n\nSitzungssicherheit:\nWenn die Anwendung in den Hintergrund wechselt, wird der Zugriff automatisch gesperrt.\nVerschlüsselungsschlüssel werden nur während der Verarbeitung im Speicher gehalten.\n\nBildschirmsicherheit:\nScreenshots und Bildschirmaufnahmen werden auf Systemebene verhindert.\n\nBackup:\nBeim Export werden die Daten als verschlüsselter Datenblock (encrypted blob) erstellt und können nur mit den richtigen Informationen wiederhergestellt werden.\n\nLynra kann nicht auf Benutzerdaten zugreifen, sie lesen oder wiederherstellen.\n\nDas gesamte Sicherheitsmodell basiert darauf, dass die Daten ausschließlich vom Benutzer kontrolliert werden.';
+
+  @override
+  String get advancedSecurityTitle => 'Erweiterte Sicherheit';
+
+  @override
+  String get alreadyExists => 'Dieser Eintrag existiert bereits';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'Anhang bereit';
+
+  @override
+  String get attachmentRemoved => 'Anhang entfernt';
+
+  @override
+  String get attachmentTooLarge => 'Maximal 2 MB';
+
+  @override
   String get authenticateToContinue => 'Zur Fortsetzung authentifizieren';
+
+  @override
+  String get backupReminder => 'Erwägen Sie, ein Backup zu erstellen, um Ihre Daten zu schützen';
 
   @override
   String get bankDetails => 'Bankdaten';
@@ -166,6 +64,18 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Biometrisch - mit PIN-Backup';
+
+  @override
+  String get cancel => 'Abbrechen';
+
+  @override
+  String get clear => 'Löschen';
+
+  @override
+  String get clearMyVault => 'Meinen Tresor leeren';
+
+  @override
+  String get clearMyVaultConfirm => 'Dadurch werden alle Einträge in meinem Tresor gelöscht. Dies kann nicht rückgängig gemacht werden.';
 
   @override
   String get collection => 'Sammlung';
@@ -187,6 +97,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get createVaultKey => 'Tresorschlüssel erstellen';
+
+  @override
+  String get csvimportfailed => 'CSV-Import fehlgeschlagen.';
+
+  @override
+  String get csvTemplate => 'CSV-Vorlage';
 
   @override
   String get delete => 'Löschen';
@@ -211,13 +127,22 @@ class AppLocalizationsDe extends AppLocalizations {
   String get details => 'Details';
 
   @override
+  String get downloadTemplate => 'Vorlage herunterladen';
+
+  @override
   String get drawNewPattern => 'Neues Muster zeichnen';
 
   @override
   String get drawVaultKey => 'Tresorschlüssel zeichnen';
 
   @override
+  String get duplicate => 'Duplikat';
+
+  @override
   String get editEntry => 'Eintrag bearbeiten';
+
+  @override
+  String get empty => 'Leer';
 
   @override
   String get enableVaultWord => 'Tresorwort aktivieren';
@@ -238,16 +163,31 @@ class AppLocalizationsDe extends AppLocalizations {
   String get export => 'Exportieren';
 
   @override
+  String get exportBackup => 'Verschlüsseltes Backup exportieren';
+
+  @override
   String get exportComingNext => 'Export folgt bald';
 
   @override
   String get exportCompleted => 'Export abgeschlossen';
 
   @override
+  String get exportCSV => 'Als CSV-Datei exportieren';
+
+  @override
   String get exportData => 'Daten exportieren';
 
   @override
   String get exportPin => 'Backup-PIN';
+
+  @override
+  String get exportText => 'Als Textdatei exportieren';
+
+  @override
+  String get feedback => 'Feedback';
+
+  @override
+  String get freeLimitEntries => 'In der kostenlosen Version kannst du bis zu 2 Einträge hinzufügen.';
 
   @override
   String get generatePassword => 'Passwort generieren';
@@ -271,7 +211,16 @@ class AppLocalizationsDe extends AppLocalizations {
   String get import => 'Importieren';
 
   @override
+  String get imported => 'Importiert';
+
+  @override
+  String get importBackup => 'Verschlüsseltes Backup importieren';
+
+  @override
   String get importCompleted => 'Import abgeschlossen';
+
+  @override
+  String get importCSV => 'Aus CSV-Datei importieren';
 
   @override
   String get importData => 'Daten importieren';
@@ -283,7 +232,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get importPin => 'Wiederherstellungs-PIN';
 
   @override
+  String get importText => 'Aus Textdatei importieren';
+
+  @override
   String get language => 'Sprache';
+
+  @override
+  String get limitReached => 'Limit erreicht';
 
   @override
   String get lynraSecurity => 'Lynra Sicherheit';
@@ -302,6 +257,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get myVault => 'Mein Tresor';
+
+  @override
+  String get myVaultCleared => 'Tresor geleert';
 
   @override
   String get newCollection => 'Neue Sammlung';
@@ -343,7 +301,13 @@ class AppLocalizationsDe extends AppLocalizations {
   String get passwordCopied => 'Passwort kopiert';
 
   @override
+  String get pattern => 'Muster';
+
+  @override
   String get patternMismatch => 'Muster stimmen nicht überein. Erneut versuchen';
+
+  @override
+  String get patternSkipped => 'Muster übersprungen';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsDe extends AppLocalizations {
   String get privateByDesign => 'Privatsphäre ist grundlegend, kein Feature';
 
   @override
+  String get removeAttachment => 'Datei entfernen';
+
+  @override
   String get save => 'Speichern';
 
   @override
   String get savePin => 'PIN speichern';
 
   @override
+  String get search => 'Suchen';
+
+  @override
   String get secondaryLock => 'Sekundäre Sperre';
 
   @override
   String get security => 'Sicherheit';
+
+  @override
+  String get securityManifesto => 'Sicherheitsmodell';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote ist ein Offline-Sicherheitstresor, der Ihre Daten ausschließlich auf Ihrem Gerät speichert.\nDie Anwendung verwendet keinen Server, verfolgt Sie nicht und sammelt keine Daten.\nAlle Ihre Einträge sind mit starker Verschlüsselung geschützt und nur für Sie zugänglich.\nWenn die Anwendung in den Hintergrund wechselt, wird sie automatisch gesperrt und Bildschirmaufnahmen werden verhindert.\nWenn die Entsperrinformationen vergessen werden, können die Daten nicht wiederhergestellt werden.\nFür detaillierte technische Informationen lesen Sie bitte den Abschnitt Erweiterte Sicherheit unten.';
+
+  @override
+  String get securitySummaryTitle => 'Sicherheitsübersicht';
 
   @override
   String get selectLanguage => 'Sprache auswählen';
@@ -380,6 +359,18 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get setPin => 'PIN festlegen';
+
+  @override
+  String get sort => 'Sortieren';
+
+  @override
+  String get sortFavorites => 'Favoriten';
+
+  @override
+  String get sortUpdated => 'Zuletzt aktualisiert';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'Standard';
@@ -405,13 +396,31 @@ class AppLocalizationsDe extends AppLocalizations {
   String get weak => 'Schwach';
 
   @override
+  String get viewAttachment => 'Anhang anzeigen';
+
+  @override
   String get wrongPattern => 'Falsches Muster. Erneut versuchen';
 
   @override
   String get wrongPin => 'Falsche PIN';
 
   @override
+  String get textTemplate => 'Textvorlage';
+
+  @override
   String get title => 'Titel';
+
+  @override
+  String get txtImportCompleted => 'Import abgeschlossen.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Import abgeschlossen. %d Muster-Einträge wurden übersprungen.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Export abgeschlossen. Diese Datei ist nicht verschlüsselt. %d Muster-Einträge wurden übersprungen.';
+
+  @override
+  String get txtExportCompleted => 'Export abgeschlossen. Diese Datei ist nicht verschlüsselt.';
 
   @override
   String get unlock => 'Entsperren';
@@ -421,6 +430,12 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get unlockVault => 'Tresor entsperren';
+
+  @override
+  String get unlockToSearch => 'Zum Suchen entsperren';
+
+  @override
+  String get upgrade => 'Upgrade';
 
   @override
   String get untitled => 'Ohne Titel';
@@ -438,19 +453,4 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Benutzername / E-Mail';
-
-  @override
-  String get securityManifesto => 'Sicherheitsmodell';
-
-  @override
-  String get securitySummaryTitle => 'Sicherheitsübersicht';
-
-  @override
-  String get advancedSecurityTitle => 'Erweiterte Sicherheit';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote ist ein Offline-Sicherheitstresor, der Ihre Daten ausschließlich auf Ihrem Gerät speichert.\nDie Anwendung verwendet keinen Server, verfolgt Sie nicht und sammelt keine Daten.\nAlle Ihre Einträge sind mit starker Verschlüsselung geschützt und nur für Sie zugänglich.\nWenn die Anwendung in den Hintergrund wechselt, wird sie automatisch gesperrt und Bildschirmaufnahmen werden verhindert.\nWenn die Entsperrinformationen vergessen werden, können die Daten nicht wiederhergestellt werden.\nFür detaillierte technische Informationen lesen Sie bitte den Abschnitt Erweiterte Sicherheit unten.';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote wurde gemäß modernen kryptografischen Prinzipien entwickelt.\n\nDatenschutz:\nDie Inhalte der Einträge werden mit dem AES-256-GCM-Algorithmus verschlüsselt.\nDie Datenbank wird vollständig verschlüsselt mit SQLCipher gespeichert.\n\nSchlüsselverwaltung:\nDer Hauptschlüssel (Master Key) wird aus Benutzerschlüsseln mit dem PBKDF2-HMAC-SHA256-Algorithmus abgeleitet.\nDieser Schlüssel wird niemals im Klartext gespeichert und nur während der aktiven Sitzung verwendet.\n\nSchlüsseltrennung (Key Separation):\nDatenbankzugriff und Datenverschlüsselung erfolgen mit unterschiedlichen Schlüsseln.\n\nZusätzliche Sicherheitsebene:\nWenn das Vault Word aktiviert ist, werden die Daten durch eine zweite Ebene geschützt.\nDieser Schlüssel wird nicht auf dem Gerät gespeichert und ist nur dem Benutzer bekannt.\n\nSitzungssicherheit:\nWenn die Anwendung in den Hintergrund wechselt, wird der Zugriff automatisch gesperrt.\nVerschlüsselungsschlüssel werden nur während der Verarbeitung im Speicher gehalten.\n\nBildschirmsicherheit:\nScreenshots und Bildschirmaufnahmen werden auf Systemebene verhindert.\n\nBackup:\nBeim Export werden die Daten als verschlüsselter Datenblock (encrypted blob) erstellt und können nur mit den richtigen Informationen wiederhergestellt werden.\n\nLynra kann nicht auf Benutzerdaten zugreifen, sie lesen oder wiederherstellen.\n\nDas gesamte Sicherheitsmodell basiert darauf, dass die Daten ausschließlich vom Benutzer kontrolliert werden.';
 }

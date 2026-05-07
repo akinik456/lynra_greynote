@@ -9,133 +9,10 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
-  String get feedback => 'Feedback';
-
-  @override
-  String get imported => 'Importerad';
-
-  @override
-  String get duplicate => 'Duplicera';
-
-  @override
-  String get empty => 'Tom';
-
-  @override
-  String get patternSkipped => 'Mönster hoppades över';
-
-  @override
-  String get clear => 'Rensa';
-
-  @override
-  String get clearMyVault => 'Rensa Mitt Valv';
-
-  @override
-  String get clearMyVaultConfirm => 'Detta kommer att radera alla poster i Mitt Valv. Detta kan inte ångras.';
-
-  @override
-  String get csvimportfailed => 'CSV-import misslyckades.';
-
-  @override
-  String get myVaultCleared => 'Valvet rensat';
-
-  @override
-  String get txtImportCompleted => 'Import slutförd.';
-
-  @override
-  String get txtImportCompletedWithSkip => 'Import slutförd. %d mönsterposter hoppades över.';
-
-  @override
-  String get txtExportCompletedWithSkip => 'Export slutförd. Den här filen är inte krypterad. %d mönsterposter hoppades över.';
-
-  @override
-  String get importCSV => 'Importera från CSV-fil';
-
-  @override
-  String get exportCSV => 'Exportera som CSV-fil';
-
-  @override
-  String get csvTemplate => 'CSV-mall';
-
-  @override
-  String get textTemplate => 'Textmall';
-
-  @override
-  String get txtExportCompleted => 'Export klar. Den här filen är inte krypterad.';
-
-  @override
-  String get exportBackup => 'Exportera krypterad säkerhetskopia';
-
-  @override
-  String get exportText => 'Exportera som textfil';
-
-  @override
-  String get importBackup => 'Importera krypterad säkerhetskopia';
-
-  @override
-  String get importText => 'Importera från textfil';
-
-  @override
-  String get downloadTemplate => 'Ladda ner mall';
-
-  @override
-  String get alreadyExists => 'Detta objekt finns redan';
-
-  @override
-  String get backupReminder => 'Överväg att skapa en säkerhetskopia för att skydda dina data';
-
-  @override
-  String get sort => 'Sortera';
-
-  @override
-  String get sortFavorites => 'Favoriter';
-
-  @override
-  String get sortUpdated => 'Senast uppdaterad';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'Mönster';
-
-  @override
-  String get removeAttachment => 'Remove';
-
-  @override
-  String get attachmentRemoved => 'Ta bort fil';
-
-  @override
-  String get viewAttachment => 'Visa bilaga';
+  String get add => 'Lägg till';
 
   @override
   String get addAttachment => 'Lägg till fil';
-
-  @override
-  String get attachmentReady => 'Bilaga klar';
-
-  @override
-  String get attachmentTooLarge => 'Max 2 MB';
-
-  @override
-  String get search => 'Sök';
-
-  @override
-  String get unlockToSearch => 'Lås upp för att söka';
-
-  @override
-  String get limitReached => 'Gräns nådd';
-
-  @override
-  String get freeLimitEntries => 'Du kan lägga till upp till 2 poster i gratisversionen.';
-
-  @override
-  String get upgrade => 'Uppgradera';
-
-  @override
-  String get cancel => 'Avbryt';
-
-  @override
-  String get add => 'Lägg till';
 
   @override
   String get addFirstSecureEntry => 'Tryck på + för att lägga till din första säkra post.';
@@ -144,10 +21,31 @@ class AppLocalizationsSv extends AppLocalizations {
   String get addIban => 'Lägg till IBAN';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote är utformad enligt moderna kryptografiska principer.\n\nDataskydd:\nInnehållet i poster krypteras med AES-256-GCM-algoritmen.\nDatabasen lagras helt krypterad med SQLCipher.\n\nNyckelhantering:\nHuvudnyckeln (Master Key) härleds från användarnycklar med PBKDF2-HMAC-SHA256-algoritmen.\nDenna nyckel lagras aldrig i klartext och används endast under den aktiva sessionen.\n\nNyckelseparation (Key Separation):\nDatabasåtkomst och datakryptering använder olika nycklar.\n\nExtra säkerhetslager:\nNär Vault Word aktiveras skyddas data med ett andra lager.\nDenna nyckel lagras inte på enheten och är endast känd av användaren.\n\nSessionssäkerhet:\nNär appen går till bakgrunden låses åtkomsten automatiskt.\nKrypteringsnycklar lagras endast i minnet under bearbetning.\n\nSkärmsäkerhet:\nSkärmdumpar och skärminspelning blockeras på systemnivå.\n\nSäkerhetskopiering:\nVid export skapas data som ett krypterat block (encrypted blob) och kan endast återställas med korrekt information.\n\nLynra kan inte komma åt, läsa eller återställa användardata.\n\nHela säkerhetsmodellen bygger på att användaren har full kontroll över sina data.';
+
+  @override
+  String get advancedSecurityTitle => 'Avancerad säkerhet';
+
+  @override
+  String get alreadyExists => 'Detta objekt finns redan';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'Bilaga klar';
+
+  @override
+  String get attachmentRemoved => 'Bilaga borttagen';
+
+  @override
+  String get attachmentTooLarge => 'Max 2 MB';
+
+  @override
   String get authenticateToContinue => 'Autentisera för att fortsätta';
+
+  @override
+  String get backupReminder => 'Överväg att skapa en säkerhetskopia för att skydda dina data';
 
   @override
   String get bankDetails => 'Bankuppgifter';
@@ -166,6 +64,18 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Biometrisk - med PIN som backup';
+
+  @override
+  String get cancel => 'Avbryt';
+
+  @override
+  String get clear => 'Rensa';
+
+  @override
+  String get clearMyVault => 'Rensa Mitt Valv';
+
+  @override
+  String get clearMyVaultConfirm => 'Detta kommer att radera alla poster i Mitt Valv. Detta kan inte ångras.';
 
   @override
   String get collection => 'Samling';
@@ -187,6 +97,12 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get createVaultKey => 'Skapa din nyckel';
+
+  @override
+  String get csvimportfailed => 'CSV-import misslyckades.';
+
+  @override
+  String get csvTemplate => 'CSV-mall';
 
   @override
   String get delete => 'Ta bort';
@@ -211,13 +127,22 @@ class AppLocalizationsSv extends AppLocalizations {
   String get details => 'Detaljer';
 
   @override
+  String get downloadTemplate => 'Ladda ner mall';
+
+  @override
   String get drawNewPattern => 'Rita nytt mönster';
 
   @override
   String get drawVaultKey => 'Rita din nyckel';
 
   @override
+  String get duplicate => 'Duplicera';
+
+  @override
   String get editEntry => 'Redigera post';
+
+  @override
+  String get empty => 'Tom';
 
   @override
   String get enableVaultWord => 'Aktivera valvord';
@@ -238,16 +163,31 @@ class AppLocalizationsSv extends AppLocalizations {
   String get export => 'Exportera';
 
   @override
+  String get exportBackup => 'Exportera krypterad säkerhetskopia';
+
+  @override
   String get exportComingNext => 'Export kommer snart';
 
   @override
   String get exportCompleted => 'Export klar';
 
   @override
+  String get exportCSV => 'Exportera som CSV-fil';
+
+  @override
   String get exportData => 'Exportera data';
 
   @override
   String get exportPin => 'Säkerhetskopierings-PIN';
+
+  @override
+  String get exportText => 'Exportera som textfil';
+
+  @override
+  String get feedback => 'Feedback';
+
+  @override
+  String get freeLimitEntries => 'Du kan lägga till upp till 2 poster i gratisversionen.';
 
   @override
   String get generatePassword => 'Generera lösenord';
@@ -271,7 +211,16 @@ class AppLocalizationsSv extends AppLocalizations {
   String get import => 'Importera';
 
   @override
+  String get imported => 'Importerad';
+
+  @override
+  String get importBackup => 'Importera krypterad säkerhetskopia';
+
+  @override
   String get importCompleted => 'Import klar';
+
+  @override
+  String get importCSV => 'Importera från CSV-fil';
 
   @override
   String get importData => 'Importera data';
@@ -283,7 +232,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get importPin => 'Återställnings-PIN';
 
   @override
+  String get importText => 'Importera från textfil';
+
+  @override
   String get language => 'Språk';
+
+  @override
+  String get limitReached => 'Gräns nådd';
 
   @override
   String get lynraSecurity => 'Lynra Säkerhet';
@@ -302,6 +257,9 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get myVault => 'Mitt valv';
+
+  @override
+  String get myVaultCleared => 'Valvet rensat';
 
   @override
   String get newCollection => 'Ny samling';
@@ -343,7 +301,13 @@ class AppLocalizationsSv extends AppLocalizations {
   String get passwordCopied => 'Lösenord kopierat';
 
   @override
+  String get pattern => 'Mönster';
+
+  @override
   String get patternMismatch => 'Mönster matchade inte. Försök igen';
+
+  @override
+  String get patternSkipped => 'Mönster hoppades över';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsSv extends AppLocalizations {
   String get privateByDesign => 'Integritet är grund, inte funktion';
 
   @override
+  String get removeAttachment => 'Remove';
+
+  @override
   String get save => 'Spara';
 
   @override
   String get savePin => 'Spara PIN';
 
   @override
+  String get search => 'Sök';
+
+  @override
   String get secondaryLock => 'Sekundärt lås';
 
   @override
   String get security => 'Säkerhet';
+
+  @override
+  String get securityManifesto => 'Säkerhetsmodell';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote är ett offline säkert valv som lagrar dina data endast på din enhet.\nApplikationen använder inga servrar, spårar dig inte och samlar inte in några data.\nAlla dina poster skyddas med stark kryptering och kan endast nås av dig.\nNär appen går till bakgrunden låses den automatiskt och skärmdumpar förhindras.\nOm upplåsningsinformationen glöms bort kan data inte återställas.\nFör detaljerad teknisk information, se avsnittet Avancerad säkerhet nedan.';
+
+  @override
+  String get securitySummaryTitle => 'Säkerhetsöversikt';
 
   @override
   String get selectLanguage => 'Välj språk';
@@ -380,6 +359,18 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get setPin => 'Ställ in PIN';
+
+  @override
+  String get sort => 'Sortera';
+
+  @override
+  String get sortFavorites => 'Favoriter';
+
+  @override
+  String get sortUpdated => 'Senast uppdaterad';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'Standard';
@@ -405,13 +396,31 @@ class AppLocalizationsSv extends AppLocalizations {
   String get weak => 'Svag';
 
   @override
+  String get viewAttachment => 'Visa bilaga';
+
+  @override
   String get wrongPattern => 'Fel mönster. Försök igen';
 
   @override
   String get wrongPin => 'Fel PIN';
 
   @override
+  String get textTemplate => 'Textmall';
+
+  @override
   String get title => 'Titel';
+
+  @override
+  String get txtImportCompleted => 'Import slutförd.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Import slutförd. %d mönsterposter hoppades över.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Export slutförd. Den här filen är inte krypterad. %d mönsterposter hoppades över.';
+
+  @override
+  String get txtExportCompleted => 'Export klar. Den här filen är inte krypterad.';
 
   @override
   String get unlock => 'Lås upp';
@@ -421,6 +430,12 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get unlockVault => 'Lås upp valv';
+
+  @override
+  String get unlockToSearch => 'Lås upp för att söka';
+
+  @override
+  String get upgrade => 'Uppgradera';
 
   @override
   String get untitled => 'Utan titel';
@@ -438,19 +453,4 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Användarnamn / E-post';
-
-  @override
-  String get securityManifesto => 'Säkerhetsmodell';
-
-  @override
-  String get securitySummaryTitle => 'Säkerhetsöversikt';
-
-  @override
-  String get advancedSecurityTitle => 'Avancerad säkerhet';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote är ett offline säkert valv som lagrar dina data endast på din enhet.\nApplikationen använder inga servrar, spårar dig inte och samlar inte in några data.\nAlla dina poster skyddas med stark kryptering och kan endast nås av dig.\nNär appen går till bakgrunden låses den automatiskt och skärmdumpar förhindras.\nOm upplåsningsinformationen glöms bort kan data inte återställas.\nFör detaljerad teknisk information, se avsnittet Avancerad säkerhet nedan.';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote är utformad enligt moderna kryptografiska principer.\n\nDataskydd:\nInnehållet i poster krypteras med AES-256-GCM-algoritmen.\nDatabasen lagras helt krypterad med SQLCipher.\n\nNyckelhantering:\nHuvudnyckeln (Master Key) härleds från användarnycklar med PBKDF2-HMAC-SHA256-algoritmen.\nDenna nyckel lagras aldrig i klartext och används endast under den aktiva sessionen.\n\nNyckelseparation (Key Separation):\nDatabasåtkomst och datakryptering använder olika nycklar.\n\nExtra säkerhetslager:\nNär Vault Word aktiveras skyddas data med ett andra lager.\nDenna nyckel lagras inte på enheten och är endast känd av användaren.\n\nSessionssäkerhet:\nNär appen går till bakgrunden låses åtkomsten automatiskt.\nKrypteringsnycklar lagras endast i minnet under bearbetning.\n\nSkärmsäkerhet:\nSkärmdumpar och skärminspelning blockeras på systemnivå.\n\nSäkerhetskopiering:\nVid export skapas data som ett krypterat block (encrypted blob) och kan endast återställas med korrekt information.\n\nLynra kan inte komma åt, läsa eller återställa användardata.\n\nHela säkerhetsmodellen bygger på att användaren har full kontroll över sina data.';
 }

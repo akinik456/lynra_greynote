@@ -9,133 +9,10 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
-  String get feedback => 'Phản hồi';
-
-  @override
-  String get imported => 'Đã nhập';
-
-  @override
-  String get duplicate => 'Trùng lặp';
-
-  @override
-  String get empty => 'Trống';
-
-  @override
-  String get patternSkipped => 'Đã bỏ qua pattern';
-
-  @override
-  String get clear => 'Xóa';
-
-  @override
-  String get clearMyVault => 'Xóa Kho Của Tôi';
-
-  @override
-  String get clearMyVaultConfirm => 'Thao tác này sẽ xóa tất cả mục trong Kho Của Tôi. Không thể hoàn tác.';
-
-  @override
-  String get csvimportfailed => 'Nhập CSV thất bại.';
-
-  @override
-  String get myVaultCleared => 'Kho đã được xóa';
-
-  @override
-  String get txtImportCompleted => 'Nhập hoàn tất.';
-
-  @override
-  String get txtImportCompletedWithSkip => 'Nhập hoàn tất. %d mục pattern đã bị bỏ qua.';
-
-  @override
-  String get txtExportCompletedWithSkip => 'Xuất hoàn tất. Tệp này không được mã hóa. %d mục pattern đã bị bỏ qua.';
-
-  @override
-  String get importCSV => 'Nhập từ tệp CSV';
-
-  @override
-  String get exportCSV => 'Xuất dưới dạng tệp CSV';
-
-  @override
-  String get csvTemplate => 'Mẫu CSV';
-
-  @override
-  String get textTemplate => 'Mẫu văn bản';
-
-  @override
-  String get txtExportCompleted => 'Xuất hoàn tất. Tệp này không được mã hóa.';
-
-  @override
-  String get exportBackup => 'Xuất bản sao lưu được mã hóa';
-
-  @override
-  String get exportText => 'Xuất dưới dạng tệp văn bản';
-
-  @override
-  String get importBackup => 'Nhập bản sao lưu được mã hóa';
-
-  @override
-  String get importText => 'Nhập từ tệp văn bản';
-
-  @override
-  String get downloadTemplate => 'Tải mẫu';
-
-  @override
-  String get alreadyExists => 'Mục này đã tồn tại';
-
-  @override
-  String get backupReminder => 'Hãy cân nhắc tạo bản sao lưu để bảo vệ dữ liệu của bạn';
-
-  @override
-  String get sort => 'Sắp xếp';
-
-  @override
-  String get sortFavorites => 'Yêu thích';
-
-  @override
-  String get sortUpdated => 'Cập nhật gần đây';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'Mẫu';
-
-  @override
-  String get removeAttachment => 'Xóa tệp';
-
-  @override
-  String get attachmentRemoved => 'Tệp đính kèm đã bị xóa';
-
-  @override
-  String get viewAttachment => 'Xem tệp đính kèm';
+  String get add => 'Thêm';
 
   @override
   String get addAttachment => 'Thêm tệp đính kèm';
-
-  @override
-  String get attachmentReady => 'Tệp đính kèm đã sẵn sàng';
-
-  @override
-  String get attachmentTooLarge => 'Tối đa 2 MB';
-
-  @override
-  String get search => 'Tìm kiếm';
-
-  @override
-  String get unlockToSearch => 'Mở khóa để tìm kiếm';
-
-  @override
-  String get limitReached => 'Đã đạt giới hạn';
-
-  @override
-  String get freeLimitEntries => 'Bạn có thể thêm tối đa 2 mục trong phiên bản miễn phí.';
-
-  @override
-  String get upgrade => 'Nâng cấp';
-
-  @override
-  String get cancel => 'Hủy';
-
-  @override
-  String get add => 'Thêm';
 
   @override
   String get addFirstSecureEntry => 'Nhấn nút + để thêm mục an toàn đầu tiên.';
@@ -144,10 +21,31 @@ class AppLocalizationsVi extends AppLocalizations {
   String get addIban => 'Thêm IBAN';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote được thiết kế theo các nguyên tắc mật mã hiện đại.\n\nBảo vệ Dữ liệu:\nNội dung các mục được mã hóa bằng thuật toán AES-256-GCM.\nCơ sở dữ liệu được lưu trữ hoàn toàn dưới dạng mã hóa bằng SQLCipher.\n\nQuản lý Khóa:\nKhóa chính (Master Key) được dẫn xuất từ khóa người dùng bằng thuật toán PBKDF2-HMAC-SHA256.\nKhóa này không bao giờ được lưu ở dạng văn bản thuần và chỉ được sử dụng trong phiên hoạt động.\n\nTách Khóa (Key Separation):\nTruy cập cơ sở dữ liệu và mã hóa dữ liệu sử dụng các khóa khác nhau.\n\nLớp Bảo mật Bổ sung:\nKhi Vault Word được bật, dữ liệu được bảo vệ bằng lớp thứ hai.\nKhóa này không được lưu trên thiết bị và chỉ người dùng biết.\n\nBảo mật Phiên:\nKhi ứng dụng chuyển sang nền, quyền truy cập sẽ tự động bị khóa.\nKhóa mã hóa chỉ được giữ trong bộ nhớ trong quá trình xử lý.\n\nBảo mật Màn hình:\nChặn chụp màn hình và ghi màn hình ở cấp hệ thống.\n\nSao lưu:\nKhi xuất, dữ liệu được tạo thành một khối mã hóa (encrypted blob) và chỉ có thể khôi phục bằng thông tin chính xác.\n\nLynra không thể truy cập, đọc hoặc khôi phục dữ liệu người dùng.\n\nToàn bộ mô hình bảo mật dựa trên việc người dùng kiểm soát hoàn toàn dữ liệu.';
+
+  @override
+  String get advancedSecurityTitle => 'Bảo mật Nâng cao';
+
+  @override
+  String get alreadyExists => 'Mục này đã tồn tại';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'Tệp đính kèm đã sẵn sàng';
+
+  @override
+  String get attachmentRemoved => 'Tệp đính kèm đã bị xóa';
+
+  @override
+  String get attachmentTooLarge => 'Tối đa 2 MB';
+
+  @override
   String get authenticateToContinue => 'Xác thực để tiếp tục';
+
+  @override
+  String get backupReminder => 'Hãy cân nhắc tạo bản sao lưu để bảo vệ dữ liệu của bạn';
 
   @override
   String get bankDetails => 'Thông tin ngân hàng';
@@ -166,6 +64,18 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Sinh trắc học - kèm PIN dự phòng';
+
+  @override
+  String get cancel => 'Hủy';
+
+  @override
+  String get clear => 'Xóa';
+
+  @override
+  String get clearMyVault => 'Xóa Kho Của Tôi';
+
+  @override
+  String get clearMyVaultConfirm => 'Thao tác này sẽ xóa tất cả mục trong Kho Của Tôi. Không thể hoàn tác.';
 
   @override
   String get collection => 'Bộ sưu tập';
@@ -187,6 +97,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get createVaultKey => 'Tạo khóa kho';
+
+  @override
+  String get csvimportfailed => 'Nhập CSV thất bại.';
+
+  @override
+  String get csvTemplate => 'Mẫu CSV';
 
   @override
   String get delete => 'Xóa';
@@ -211,13 +127,22 @@ class AppLocalizationsVi extends AppLocalizations {
   String get details => 'Chi tiết';
 
   @override
+  String get downloadTemplate => 'Tải mẫu';
+
+  @override
   String get drawNewPattern => 'Vẽ mẫu mới';
 
   @override
   String get drawVaultKey => 'Vẽ khóa kho của bạn';
 
   @override
+  String get duplicate => 'Trùng lặp';
+
+  @override
   String get editEntry => 'Sửa mục';
+
+  @override
+  String get empty => 'Trống';
 
   @override
   String get enableVaultWord => 'Bật từ khóa kho';
@@ -238,16 +163,31 @@ class AppLocalizationsVi extends AppLocalizations {
   String get export => 'Xuất';
 
   @override
+  String get exportBackup => 'Xuất bản sao lưu được mã hóa';
+
+  @override
   String get exportComingNext => 'Xuất sắp có';
 
   @override
   String get exportCompleted => 'Xuất hoàn tất';
 
   @override
+  String get exportCSV => 'Xuất dưới dạng tệp CSV';
+
+  @override
   String get exportData => 'Xuất dữ liệu';
 
   @override
   String get exportPin => 'PIN sao lưu';
+
+  @override
+  String get exportText => 'Xuất dưới dạng tệp văn bản';
+
+  @override
+  String get feedback => 'Phản hồi';
+
+  @override
+  String get freeLimitEntries => 'Bạn có thể thêm tối đa 2 mục trong phiên bản miễn phí.';
 
   @override
   String get generatePassword => 'Tạo mật khẩu';
@@ -271,7 +211,16 @@ class AppLocalizationsVi extends AppLocalizations {
   String get import => 'Nhập';
 
   @override
+  String get imported => 'Đã nhập';
+
+  @override
+  String get importBackup => 'Nhập bản sao lưu được mã hóa';
+
+  @override
   String get importCompleted => 'Nhập hoàn tất';
+
+  @override
+  String get importCSV => 'Nhập từ tệp CSV';
 
   @override
   String get importData => 'Nhập dữ liệu';
@@ -283,7 +232,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get importPin => 'PIN khôi phục';
 
   @override
+  String get importText => 'Nhập từ tệp văn bản';
+
+  @override
   String get language => 'Ngôn ngữ';
+
+  @override
+  String get limitReached => 'Đã đạt giới hạn';
 
   @override
   String get lynraSecurity => 'Bảo mật Lynra';
@@ -302,6 +257,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get myVault => 'Kho của tôi';
+
+  @override
+  String get myVaultCleared => 'Kho đã được xóa';
 
   @override
   String get newCollection => 'Bộ sưu tập mới';
@@ -343,7 +301,13 @@ class AppLocalizationsVi extends AppLocalizations {
   String get passwordCopied => 'Đã sao chép mật khẩu';
 
   @override
+  String get pattern => 'Mẫu';
+
+  @override
   String get patternMismatch => 'Mẫu không khớp. Thử lại';
+
+  @override
+  String get patternSkipped => 'Đã bỏ qua pattern';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsVi extends AppLocalizations {
   String get privateByDesign => 'Quyền riêng tư là nền tảng, không phải tính năng';
 
   @override
+  String get removeAttachment => 'Xóa tệp';
+
+  @override
   String get save => 'Lưu';
 
   @override
   String get savePin => 'Lưu PIN';
 
   @override
+  String get search => 'Tìm kiếm';
+
+  @override
   String get secondaryLock => 'Khóa phụ';
 
   @override
   String get security => 'Bảo mật';
+
+  @override
+  String get securityManifesto => 'Mô hình bảo mật';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote là một két bảo mật ngoại tuyến lưu trữ dữ liệu của bạn chỉ trên thiết bị của bạn.\nỨng dụng không sử dụng máy chủ, không theo dõi bạn và không thu thập bất kỳ dữ liệu nào.\nTất cả các mục của bạn được bảo vệ bằng mã hóa mạnh và chỉ bạn mới có thể truy cập.\nKhi ứng dụng chuyển sang nền, nó sẽ tự động khóa và chặn chụp màn hình.\nNếu thông tin mở khóa bị quên, dữ liệu không thể khôi phục.\nĐể biết thêm thông tin kỹ thuật, vui lòng xem phần Bảo mật Nâng cao bên dưới.';
+
+  @override
+  String get securitySummaryTitle => 'Tóm tắt Bảo mật';
 
   @override
   String get selectLanguage => 'Chọn ngôn ngữ';
@@ -380,6 +359,18 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get setPin => 'Đặt PIN';
+
+  @override
+  String get sort => 'Sắp xếp';
+
+  @override
+  String get sortFavorites => 'Yêu thích';
+
+  @override
+  String get sortUpdated => 'Cập nhật gần đây';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'Chuẩn';
@@ -405,13 +396,31 @@ class AppLocalizationsVi extends AppLocalizations {
   String get weak => 'Yếu';
 
   @override
+  String get viewAttachment => 'Xem tệp đính kèm';
+
+  @override
   String get wrongPattern => 'Mẫu sai. Thử lại';
 
   @override
   String get wrongPin => 'PIN sai';
 
   @override
+  String get textTemplate => 'Mẫu văn bản';
+
+  @override
   String get title => 'Tiêu đề';
+
+  @override
+  String get txtImportCompleted => 'Nhập hoàn tất.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Nhập hoàn tất. %d mục pattern đã bị bỏ qua.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Xuất hoàn tất. Tệp này không được mã hóa. %d mục pattern đã bị bỏ qua.';
+
+  @override
+  String get txtExportCompleted => 'Xuất hoàn tất. Tệp này không được mã hóa.';
 
   @override
   String get unlock => 'Mở khóa';
@@ -421,6 +430,12 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get unlockVault => 'Mở kho';
+
+  @override
+  String get unlockToSearch => 'Mở khóa để tìm kiếm';
+
+  @override
+  String get upgrade => 'Nâng cấp';
 
   @override
   String get untitled => 'Không tiêu đề';
@@ -438,19 +453,4 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Tên người dùng / Email';
-
-  @override
-  String get securityManifesto => 'Mô hình bảo mật';
-
-  @override
-  String get securitySummaryTitle => 'Tóm tắt Bảo mật';
-
-  @override
-  String get advancedSecurityTitle => 'Bảo mật Nâng cao';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote là một két bảo mật ngoại tuyến lưu trữ dữ liệu của bạn chỉ trên thiết bị của bạn.\nỨng dụng không sử dụng máy chủ, không theo dõi bạn và không thu thập bất kỳ dữ liệu nào.\nTất cả các mục của bạn được bảo vệ bằng mã hóa mạnh và chỉ bạn mới có thể truy cập.\nKhi ứng dụng chuyển sang nền, nó sẽ tự động khóa và chặn chụp màn hình.\nNếu thông tin mở khóa bị quên, dữ liệu không thể khôi phục.\nĐể biết thêm thông tin kỹ thuật, vui lòng xem phần Bảo mật Nâng cao bên dưới.';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote được thiết kế theo các nguyên tắc mật mã hiện đại.\n\nBảo vệ Dữ liệu:\nNội dung các mục được mã hóa bằng thuật toán AES-256-GCM.\nCơ sở dữ liệu được lưu trữ hoàn toàn dưới dạng mã hóa bằng SQLCipher.\n\nQuản lý Khóa:\nKhóa chính (Master Key) được dẫn xuất từ khóa người dùng bằng thuật toán PBKDF2-HMAC-SHA256.\nKhóa này không bao giờ được lưu ở dạng văn bản thuần và chỉ được sử dụng trong phiên hoạt động.\n\nTách Khóa (Key Separation):\nTruy cập cơ sở dữ liệu và mã hóa dữ liệu sử dụng các khóa khác nhau.\n\nLớp Bảo mật Bổ sung:\nKhi Vault Word được bật, dữ liệu được bảo vệ bằng lớp thứ hai.\nKhóa này không được lưu trên thiết bị và chỉ người dùng biết.\n\nBảo mật Phiên:\nKhi ứng dụng chuyển sang nền, quyền truy cập sẽ tự động bị khóa.\nKhóa mã hóa chỉ được giữ trong bộ nhớ trong quá trình xử lý.\n\nBảo mật Màn hình:\nChặn chụp màn hình và ghi màn hình ở cấp hệ thống.\n\nSao lưu:\nKhi xuất, dữ liệu được tạo thành một khối mã hóa (encrypted blob) và chỉ có thể khôi phục bằng thông tin chính xác.\n\nLynra không thể truy cập, đọc hoặc khôi phục dữ liệu người dùng.\n\nToàn bộ mô hình bảo mật dựa trên việc người dùng kiểm soát hoàn toàn dữ liệu.';
 }

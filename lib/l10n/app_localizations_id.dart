@@ -9,133 +9,10 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
-  String get feedback => 'Masukan';
-
-  @override
-  String get imported => 'Diimpor';
-
-  @override
-  String get duplicate => 'Duplikat';
-
-  @override
-  String get empty => 'Kosong';
-
-  @override
-  String get patternSkipped => 'Pola dilewati';
-
-  @override
-  String get clear => 'Bersihkan';
-
-  @override
-  String get clearMyVault => 'Bersihkan Vault Saya';
-
-  @override
-  String get clearMyVaultConfirm => 'Ini akan menghapus semua entri di Vault Saya. Tindakan ini tidak dapat dibatalkan.';
-
-  @override
-  String get csvimportfailed => 'Impor CSV gagal.';
-
-  @override
-  String get myVaultCleared => 'Vault dibersihkan';
-
-  @override
-  String get txtImportCompleted => 'Impor selesai.';
-
-  @override
-  String get txtImportCompletedWithSkip => 'Impor selesai. %d entri pola dilewati.';
-
-  @override
-  String get txtExportCompletedWithSkip => 'Ekspor selesai. File ini tidak dienkripsi. %d entri pola dilewati.';
-
-  @override
-  String get importCSV => 'Impor dari file CSV';
-
-  @override
-  String get exportCSV => 'Ekspor sebagai file CSV';
-
-  @override
-  String get csvTemplate => 'Template CSV';
-
-  @override
-  String get textTemplate => 'Template Teks';
-
-  @override
-  String get txtExportCompleted => 'Ekspor selesai. File ini tidak terenkripsi.';
-
-  @override
-  String get exportBackup => 'Ekspor cadangan terenkripsi';
-
-  @override
-  String get exportText => 'Ekspor sebagai file teks';
-
-  @override
-  String get importBackup => 'Impor cadangan terenkripsi';
-
-  @override
-  String get importText => 'Impor dari file teks';
-
-  @override
-  String get downloadTemplate => 'Unduh template';
-
-  @override
-  String get alreadyExists => 'Item ini sudah ada';
-
-  @override
-  String get backupReminder => 'Pertimbangkan untuk membuat cadangan agar data Anda tetap aman';
-
-  @override
-  String get sort => 'Urutkan';
-
-  @override
-  String get sortFavorites => 'Favorit';
-
-  @override
-  String get sortUpdated => 'Terakhir diperbarui';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'Pola';
-
-  @override
-  String get removeAttachment => 'Hapus file';
-
-  @override
-  String get attachmentRemoved => 'Lampiran dihapus';
-
-  @override
-  String get viewAttachment => 'Lihat lampiran';
+  String get add => 'Tambah';
 
   @override
   String get addAttachment => 'Tambah lampiran';
-
-  @override
-  String get attachmentReady => 'Lampiran siap';
-
-  @override
-  String get attachmentTooLarge => 'Maksimal 2 MB';
-
-  @override
-  String get search => 'Cari';
-
-  @override
-  String get unlockToSearch => 'Buka kunci untuk mencari';
-
-  @override
-  String get limitReached => 'Batas tercapai';
-
-  @override
-  String get freeLimitEntries => 'Anda dapat menambahkan hingga 2 entri di versi gratis.';
-
-  @override
-  String get upgrade => 'Upgrade';
-
-  @override
-  String get cancel => 'Batal';
-
-  @override
-  String get add => 'Tambah';
 
   @override
   String get addFirstSecureEntry => 'Ketuk tombol + untuk menambahkan entri aman pertama Anda.';
@@ -144,10 +21,31 @@ class AppLocalizationsId extends AppLocalizations {
   String get addIban => 'Tambah IBAN';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote dirancang sesuai dengan prinsip kriptografi modern.\n\nPerlindungan Data:\nIsi catatan dienkripsi menggunakan algoritma AES-256-GCM.\nDatabase disimpan sepenuhnya terenkripsi menggunakan SQLCipher.\n\nManajemen Kunci:\nKunci utama (Master Key) diturunkan dari kunci pengguna menggunakan algoritma PBKDF2-HMAC-SHA256.\nKunci ini tidak pernah disimpan dalam bentuk teks biasa dan hanya digunakan selama sesi aktif.\n\nPemisahan Kunci (Key Separation):\nAkses database dan enkripsi data menggunakan kunci yang berbeda.\n\nLapisan Keamanan Tambahan:\nSaat Vault Word diaktifkan, data dilindungi oleh lapisan kedua.\nKunci ini tidak disimpan di perangkat dan hanya diketahui oleh pengguna.\n\nKeamanan Sesi:\nSaat aplikasi masuk ke latar belakang, akses akan terkunci secara otomatis.\nKunci enkripsi hanya disimpan di memori selama pemrosesan.\n\nKeamanan Layar:\nTangkapan layar dan perekaman layar diblokir pada tingkat sistem.\n\nCadangan:\nSaat diekspor, data dibuat sebagai blok terenkripsi (encrypted blob) dan hanya dapat dipulihkan dengan informasi yang benar.\n\nLynra tidak dapat mengakses, membaca, atau memulihkan data pengguna.\n\nSeluruh model keamanan didasarkan pada kontrol penuh pengguna atas data.';
+
+  @override
+  String get advancedSecurityTitle => 'Keamanan Lanjutan';
+
+  @override
+  String get alreadyExists => 'Item ini sudah ada';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'Lampiran siap';
+
+  @override
+  String get attachmentRemoved => 'Lampiran dihapus';
+
+  @override
+  String get attachmentTooLarge => 'Maksimal 2 MB';
+
+  @override
   String get authenticateToContinue => 'Autentikasi untuk melanjutkan';
+
+  @override
+  String get backupReminder => 'Pertimbangkan untuk membuat cadangan agar data Anda tetap aman';
 
   @override
   String get bankDetails => 'Detail Bank';
@@ -166,6 +64,18 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Biometrik - dengan PIN cadangan';
+
+  @override
+  String get cancel => 'Batal';
+
+  @override
+  String get clear => 'Bersihkan';
+
+  @override
+  String get clearMyVault => 'Bersihkan Vault Saya';
+
+  @override
+  String get clearMyVaultConfirm => 'Ini akan menghapus semua entri di Vault Saya. Tindakan ini tidak dapat dibatalkan.';
 
   @override
   String get collection => 'Koleksi';
@@ -187,6 +97,12 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get createVaultKey => 'Buat Kunci Vault Anda';
+
+  @override
+  String get csvimportfailed => 'Impor CSV gagal.';
+
+  @override
+  String get csvTemplate => 'Template CSV';
 
   @override
   String get delete => 'Hapus';
@@ -211,13 +127,22 @@ class AppLocalizationsId extends AppLocalizations {
   String get details => 'Detail';
 
   @override
+  String get downloadTemplate => 'Unduh template';
+
+  @override
   String get drawNewPattern => 'Gambar pola baru';
 
   @override
   String get drawVaultKey => 'Gambar kunci vault Anda';
 
   @override
+  String get duplicate => 'Duplikat';
+
+  @override
   String get editEntry => 'Edit Entri';
+
+  @override
+  String get empty => 'Kosong';
 
   @override
   String get enableVaultWord => 'Aktifkan Kata Vault';
@@ -238,16 +163,31 @@ class AppLocalizationsId extends AppLocalizations {
   String get export => 'Ekspor';
 
   @override
+  String get exportBackup => 'Ekspor cadangan terenkripsi';
+
+  @override
   String get exportComingNext => 'Ekspor segera hadir';
 
   @override
   String get exportCompleted => 'Ekspor selesai';
 
   @override
+  String get exportCSV => 'Ekspor sebagai file CSV';
+
+  @override
   String get exportData => 'Ekspor Data';
 
   @override
   String get exportPin => 'PIN Cadangan';
+
+  @override
+  String get exportText => 'Ekspor sebagai file teks';
+
+  @override
+  String get feedback => 'Masukan';
+
+  @override
+  String get freeLimitEntries => 'Anda dapat menambahkan hingga 2 entri di versi gratis.';
 
   @override
   String get generatePassword => 'Buat Kata Sandi';
@@ -271,7 +211,16 @@ class AppLocalizationsId extends AppLocalizations {
   String get import => 'Impor';
 
   @override
+  String get imported => 'Diimpor';
+
+  @override
+  String get importBackup => 'Impor cadangan terenkripsi';
+
+  @override
   String get importCompleted => 'Impor selesai';
+
+  @override
+  String get importCSV => 'Impor dari file CSV';
 
   @override
   String get importData => 'Impor Data';
@@ -283,7 +232,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get importPin => 'PIN Pemulihan';
 
   @override
+  String get importText => 'Impor dari file teks';
+
+  @override
   String get language => 'Bahasa';
+
+  @override
+  String get limitReached => 'Batas tercapai';
 
   @override
   String get lynraSecurity => 'Keamanan Lynra';
@@ -302,6 +257,9 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get myVault => 'Vault Saya';
+
+  @override
+  String get myVaultCleared => 'Vault dibersihkan';
 
   @override
   String get newCollection => 'Koleksi Baru';
@@ -343,7 +301,13 @@ class AppLocalizationsId extends AppLocalizations {
   String get passwordCopied => 'Kata sandi disalin';
 
   @override
+  String get pattern => 'Pola';
+
+  @override
   String get patternMismatch => 'Pola tidak cocok. Ulangi';
+
+  @override
+  String get patternSkipped => 'Pola dilewati';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsId extends AppLocalizations {
   String get privateByDesign => 'Privasi adalah dasar, bukan fitur';
 
   @override
+  String get removeAttachment => 'Hapus file';
+
+  @override
   String get save => 'Simpan';
 
   @override
   String get savePin => 'Simpan PIN';
 
   @override
+  String get search => 'Cari';
+
+  @override
   String get secondaryLock => 'Kunci Sekunder';
 
   @override
   String get security => 'Keamanan';
+
+  @override
+  String get securityManifesto => 'Model Keamanan';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote adalah brankas aman offline yang menyimpan data Anda hanya di perangkat Anda.\nAplikasi ini tidak menggunakan server, tidak melacak Anda, dan tidak mengumpulkan data apa pun.\nSemua catatan Anda dilindungi dengan enkripsi kuat dan hanya dapat diakses oleh Anda.\nSaat aplikasi masuk ke latar belakang, aplikasi akan terkunci secara otomatis dan tangkapan layar dicegah.\nJika informasi pembukaan kunci dilupakan, data tidak dapat dipulihkan.\nUntuk informasi teknis lebih lanjut, silakan lihat bagian Keamanan Lanjutan di bawah ini.';
+
+  @override
+  String get securitySummaryTitle => 'Ringkasan Keamanan';
 
   @override
   String get selectLanguage => 'Pilih Bahasa';
@@ -380,6 +359,18 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get setPin => 'Atur PIN';
+
+  @override
+  String get sort => 'Urutkan';
+
+  @override
+  String get sortFavorites => 'Favorit';
+
+  @override
+  String get sortUpdated => 'Terakhir diperbarui';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'Standar';
@@ -405,13 +396,31 @@ class AppLocalizationsId extends AppLocalizations {
   String get weak => 'Lemah';
 
   @override
+  String get viewAttachment => 'Lihat lampiran';
+
+  @override
   String get wrongPattern => 'Pola salah. Coba lagi';
 
   @override
   String get wrongPin => 'PIN salah';
 
   @override
+  String get textTemplate => 'Template Teks';
+
+  @override
   String get title => 'Judul';
+
+  @override
+  String get txtImportCompleted => 'Impor selesai.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Impor selesai. %d entri pola dilewati.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Ekspor selesai. File ini tidak dienkripsi. %d entri pola dilewati.';
+
+  @override
+  String get txtExportCompleted => 'Ekspor selesai. File ini tidak terenkripsi.';
 
   @override
   String get unlock => 'Buka';
@@ -421,6 +430,12 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get unlockVault => 'Buka Vault';
+
+  @override
+  String get unlockToSearch => 'Buka kunci untuk mencari';
+
+  @override
+  String get upgrade => 'Upgrade';
 
   @override
   String get untitled => 'Tanpa Judul';
@@ -438,19 +453,4 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Username / Email';
-
-  @override
-  String get securityManifesto => 'Model Keamanan';
-
-  @override
-  String get securitySummaryTitle => 'Ringkasan Keamanan';
-
-  @override
-  String get advancedSecurityTitle => 'Keamanan Lanjutan';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote adalah brankas aman offline yang menyimpan data Anda hanya di perangkat Anda.\nAplikasi ini tidak menggunakan server, tidak melacak Anda, dan tidak mengumpulkan data apa pun.\nSemua catatan Anda dilindungi dengan enkripsi kuat dan hanya dapat diakses oleh Anda.\nSaat aplikasi masuk ke latar belakang, aplikasi akan terkunci secara otomatis dan tangkapan layar dicegah.\nJika informasi pembukaan kunci dilupakan, data tidak dapat dipulihkan.\nUntuk informasi teknis lebih lanjut, silakan lihat bagian Keamanan Lanjutan di bawah ini.';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote dirancang sesuai dengan prinsip kriptografi modern.\n\nPerlindungan Data:\nIsi catatan dienkripsi menggunakan algoritma AES-256-GCM.\nDatabase disimpan sepenuhnya terenkripsi menggunakan SQLCipher.\n\nManajemen Kunci:\nKunci utama (Master Key) diturunkan dari kunci pengguna menggunakan algoritma PBKDF2-HMAC-SHA256.\nKunci ini tidak pernah disimpan dalam bentuk teks biasa dan hanya digunakan selama sesi aktif.\n\nPemisahan Kunci (Key Separation):\nAkses database dan enkripsi data menggunakan kunci yang berbeda.\n\nLapisan Keamanan Tambahan:\nSaat Vault Word diaktifkan, data dilindungi oleh lapisan kedua.\nKunci ini tidak disimpan di perangkat dan hanya diketahui oleh pengguna.\n\nKeamanan Sesi:\nSaat aplikasi masuk ke latar belakang, akses akan terkunci secara otomatis.\nKunci enkripsi hanya disimpan di memori selama pemrosesan.\n\nKeamanan Layar:\nTangkapan layar dan perekaman layar diblokir pada tingkat sistem.\n\nCadangan:\nSaat diekspor, data dibuat sebagai blok terenkripsi (encrypted blob) dan hanya dapat dipulihkan dengan informasi yang benar.\n\nLynra tidak dapat mengakses, membaca, atau memulihkan data pengguna.\n\nSeluruh model keamanan didasarkan pada kontrol penuh pengguna atas data.';
 }

@@ -9,145 +9,43 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get feedback => 'ملاحظات';
-
-  @override
-  String get imported => 'تم الاستيراد';
-
-  @override
-  String get duplicate => 'مكرر';
-
-  @override
-  String get empty => 'فارغ';
-
-  @override
-  String get patternSkipped => 'تم تخطي النمط';
-
-  @override
-  String get clear => 'مسح';
-
-  @override
-  String get clearMyVault => 'مسح الخزنة الخاصة بي';
-
-  @override
-  String get clearMyVaultConfirm => 'سيؤدي هذا إلى حذف جميع الإدخالات في خزنتي. لا يمكن التراجع عن هذا الإجراء.';
-
-  @override
-  String get csvimportfailed => 'فشل استيراد CSV.';
-
-  @override
-  String get myVaultCleared => 'تم مسح الخزنة';
-
-  @override
-  String get txtImportCompleted => 'اكتملت عملية الاستيراد';
-
-  @override
-  String get txtImportCompletedWithSkip => 'اكتمل الاستيراد. تم تخطي %d من إدخالات النمط.';
-
-  @override
-  String get txtExportCompletedWithSkip => 'اكتمل التصدير. هذا الملف غير مشفر. تم تخطي %d من إدخالات النمط.';
-
-  @override
-  String get importCSV => 'استيراد من ملف CSV';
-
-  @override
-  String get exportCSV => 'تصدير كملف CSV';
-
-  @override
-  String get csvTemplate => 'قالب CSV';
-
-  @override
-  String get textTemplate => 'قالب نصي';
-
-  @override
-  String get txtExportCompleted => 'اكتملت عملية التصدير. هذا الملف غير مشفر';
-
-  @override
-  String get exportBackup => 'تصدير نسخة احتياطية مشفرة';
-
-  @override
-  String get exportText => 'تصدير كملف نصي';
-
-  @override
-  String get importBackup => 'استيراد نسخة احتياطية مشفرة';
-
-  @override
-  String get importText => 'استيراد من ملف نصي';
-
-  @override
-  String get downloadTemplate => 'تنزيل القالب';
-
-  @override
-  String get alreadyExists => 'هذا العنصر موجود بالفعل';
-
-  @override
-  String get backupReminder => 'فكر في إنشاء نسخة احتياطية للحفاظ على أمان بياناتك';
-
-  @override
-  String get sort => 'ترتيب';
-
-  @override
-  String get sortFavorites => 'المفضلة';
-
-  @override
-  String get sortUpdated => 'آخر تحديث';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'نمط';
-
-  @override
-  String get removeAttachment => 'إزالة الملف';
-
-  @override
-  String get attachmentRemoved => 'تمت إزالة المرفق';
-
-  @override
-  String get viewAttachment => 'عرض المرفق';
+  String get add => 'إضافة';
 
   @override
   String get addAttachment => 'إضافة مرفق';
 
   @override
-  String get attachmentReady => 'المرفق جاهز';
-
-  @override
-  String get attachmentTooLarge => 'الحد الأقصى 2 ميجابايت';
-
-  @override
-  String get search => 'بحث';
-
-  @override
-  String get unlockToSearch => 'افتح القفل للبحث';
-
-  @override
-  String get limitReached => 'تم الوصول إلى الحد';
-
-  @override
-  String get freeLimitEntries => 'يمكنك إضافة ما يصل إلى سجلين في النسخة المجانية.';
-
-  @override
-  String get upgrade => 'ترقية';
-
-  @override
-  String get cancel => 'إلغاء';
-
-  @override
-  String get add => 'إضافة';
-
-  @override
-  String get addFirstSecureEntry => 'اضغط على زر + لإضافة أول عنصر آمن.';
+  String get addFirstSecureEntry => 'اضغط على زر + لإضافة أول عنصر آمن';
 
   @override
   String get addIban => 'إضافة IBAN';
 
   @override
+  String get advancedSecurityBody => 'تم تصميم Lynra GreyNote وفقًا لمبادئ التشفير الحديثة.\n\nحماية البيانات:\nيتم تشفير محتويات السجلات باستخدام خوارزمية AES-256-GCM.\nيتم تخزين قاعدة البيانات بشكل مشفر بالكامل باستخدام SQLCipher.\n\nإدارة المفاتيح:\nيتم اشتقاق المفتاح الرئيسي (Master Key) من مفاتيح المستخدم باستخدام خوارزمية PBKDF2-HMAC-SHA256.\nلا يتم تخزين هذا المفتاح كنص صريح ويُستخدم فقط أثناء الجلسة النشطة.\n\nفصل المفاتيح (Key Separation):\nيتم استخدام مفاتيح مختلفة للوصول إلى قاعدة البيانات وتشفير البيانات.\n\nطبقة أمان إضافية:\nعند تفعيل Vault Word، يتم حماية البيانات بطبقة ثانية.\nلا يتم تخزين هذا المفتاح على الجهاز ويكون معروفًا فقط للمستخدم.\n\nأمان الجلسة:\nعند انتقال التطبيق إلى الخلفية يتم قفل الوصول تلقائيًا.\nيتم الاحتفاظ بمفاتيح التشفير في الذاكرة فقط أثناء المعالجة.\n\nأمان الشاشة:\nيتم حظر لقطات الشاشة وتسجيل الشاشة على مستوى النظام.\n\nالنسخ الاحتياطي:\nعند التصدير، يتم إنشاء البيانات ككتلة مشفرة (encrypted blob) ولا يمكن استعادتها إلا باستخدام المعلومات الصحيحة.\n\nلا يمكن لـ Lynra الوصول إلى بيانات المستخدم أو قراءتها أو استعادتها.\n\nيعتمد نموذج الأمان بالكامل على سيطرة المستخدم الكاملة على البيانات';
+
+  @override
+  String get advancedSecurityTitle => 'الأمان المتقدم';
+
+  @override
+  String get alreadyExists => 'هذا العنصر موجود بالفعل';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'المرفق جاهز';
+
+  @override
+  String get attachmentRemoved => 'تمت إزالة المرفق';
+
+  @override
+  String get attachmentTooLarge => 'الحد الأقصى 2 ميجابايت';
+
+  @override
   String get authenticateToContinue => 'تحقق للمتابعة';
+
+  @override
+  String get backupReminder => 'فكر في إنشاء نسخة احتياطية للحفاظ على أمان بياناتك';
 
   @override
   String get bankDetails => 'تفاصيل البنك';
@@ -166,6 +64,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'القياسات الحيوية - مع رمز PIN احتياطي';
+
+  @override
+  String get cancel => 'إلغاء';
+
+  @override
+  String get clear => 'مسح';
+
+  @override
+  String get clearMyVault => 'مسح الخزنة الخاصة بي';
+
+  @override
+  String get clearMyVaultConfirm => 'سيؤدي هذا إلى حذف جميع الإدخالات في خزنتي. لا يمكن التراجع عن هذا الإجراء';
 
   @override
   String get collection => 'مجموعة';
@@ -189,6 +99,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get createVaultKey => 'أنشئ مفتاح الخزنة';
 
   @override
+  String get csvimportfailed => 'فشل استيراد CSV';
+
+  @override
+  String get csvTemplate => 'قالب CSV';
+
+  @override
   String get delete => 'حذف';
 
   @override
@@ -196,7 +112,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String deleteCollectionConfirm(Object name) {
-    return 'حذف \"$name\"؟\n\nسيتم حذف جميع العناصر نهائيًا.';
+    return 'حذف \"$name\"؟\n\nسيتم حذف جميع العناصر نهائيًا';
   }
 
   @override
@@ -211,13 +127,22 @@ class AppLocalizationsAr extends AppLocalizations {
   String get details => 'التفاصيل';
 
   @override
+  String get downloadTemplate => 'تنزيل القالب';
+
+  @override
   String get drawNewPattern => 'ارسم نمطًا جديدًا';
 
   @override
   String get drawVaultKey => 'ارسم مفتاح الخزنة';
 
   @override
+  String get duplicate => 'مكرر';
+
+  @override
   String get editEntry => 'تعديل العنصر';
+
+  @override
+  String get empty => 'فارغ';
 
   @override
   String get enableVaultWord => 'تفعيل كلمة الخزنة';
@@ -238,10 +163,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get export => 'تصدير';
 
   @override
+  String get exportBackup => 'تصدير نسخة احتياطية مشفرة';
+
+  @override
   String get exportComingNext => 'التصدير قريبًا';
 
   @override
   String get exportCompleted => 'تم التصدير';
+
+  @override
+  String get exportCSV => 'تصدير كملف CSV';
 
   @override
   String get exportData => 'تصدير البيانات';
@@ -250,10 +181,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get exportPin => 'PIN النسخ الاحتياطي';
 
   @override
+  String get exportText => 'تصدير كملف نصي';
+
+  @override
+  String get feedback => 'ملاحظات';
+
+  @override
+  String get freeLimitEntries => 'يمكنك إضافة ما يصل إلى سجلين في النسخة المجانية';
+
+  @override
   String get generatePassword => 'إنشاء كلمة مرور';
 
   @override
-  String get generatePasswordDescription => 'أنشئ كلمة مرور قوية أدناه. النسخ سيملأ الحقل تلقائيًا.';
+  String get generatePasswordDescription => 'أنشئ كلمة مرور قوية أدناه. النسخ سيملأ الحقل تلقائيًا';
 
   @override
   String get generate => 'إنشاء';
@@ -271,7 +211,16 @@ class AppLocalizationsAr extends AppLocalizations {
   String get import => 'استيراد';
 
   @override
+  String get imported => 'تم الاستيراد';
+
+  @override
+  String get importBackup => 'استيراد نسخة احتياطية مشفرة';
+
+  @override
   String get importCompleted => 'تم الاستيراد';
+
+  @override
+  String get importCSV => 'استيراد من ملف CSV';
 
   @override
   String get importData => 'استيراد البيانات';
@@ -283,7 +232,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get importPin => 'PIN الاستعادة';
 
   @override
+  String get importText => 'استيراد من ملف نصي';
+
+  @override
   String get language => 'اللغة';
+
+  @override
+  String get limitReached => 'تم الوصول إلى الحد';
 
   @override
   String get lynraSecurity => 'أمان Lynra';
@@ -302,6 +257,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get myVault => 'خزنتي';
+
+  @override
+  String get myVaultCleared => 'تم مسح الخزنة';
 
   @override
   String get newCollection => 'مجموعة جديدة';
@@ -331,7 +289,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get noUsername => 'لا يوجد اسم مستخدم';
 
   @override
-  String get onboardingDescription => 'بياناتك تبقى على جهازك.\n\nLynraGreyNote لا يستخدم خوادم ولا يتتبعك ولا يجمع أي معلومات.\n\nكل ما تحفظه مشفر ومخزن محليًا.\nأنت الوحيد الذي يمكنه الوصول.\n\nاستخدم PIN ثانوي أو القياسات الحيوية للوصول السريع والآمن.\nفعّل كلمة الخزنة لإضافة طبقة خصوصية وإخفاء المحتوى عند الحاجة.';
+  String get onboardingDescription => 'بياناتك تبقى على جهازك.\n\nLynraGreyNote لا يستخدم خوادم ولا يتتبعك ولا يجمع أي معلومات.\n\nكل ما تحفظه مشفر ومخزن محليًا.\nأنت الوحيد الذي يمكنه الوصول.\n\nاستخدم PIN ثانوي أو القياسات الحيوية للوصول السريع والآمن.\nفعّل كلمة الخزنة لإضافة طبقة خصوصية وإخفاء المحتوى عند الحاجة';
 
   @override
   String get optionalNote => 'ملاحظة اختيارية';
@@ -343,7 +301,13 @@ class AppLocalizationsAr extends AppLocalizations {
   String get passwordCopied => 'تم نسخ كلمة المرور';
 
   @override
+  String get pattern => 'نمط';
+
+  @override
   String get patternMismatch => 'الأنماط غير متطابقة. حاول مرة أخرى';
+
+  @override
+  String get patternSkipped => 'تم تخطي النمط';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String get privateByDesign => 'الخصوصية أساس وليست ميزة';
 
   @override
+  String get removeAttachment => 'إزالة الملف';
+
+  @override
   String get save => 'حفظ';
 
   @override
   String get savePin => 'حفظ PIN';
 
   @override
+  String get search => 'بحث';
+
+  @override
   String get secondaryLock => 'قفل ثانوي';
 
   @override
   String get security => 'الأمان';
+
+  @override
+  String get securityManifesto => 'نموذج الأمان';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote هو خزنة آمنة تعمل دون اتصال وتخزن بياناتك فقط على جهازك.\nلا يستخدم التطبيق أي خوادم ولا يتتبعك ولا يجمع أي بيانات.\nجميع سجلاتك محمية بتشفير قوي ولا يمكن الوصول إليها إلا من قبلك.\nعند انتقال التطبيق إلى الخلفية يتم قفله تلقائيًا ويتم منع لقطات الشاشة.\nإذا تم نسيان معلومات فتح القفل فلا يمكن استعادة البيانات.\nللحصول على معلومات تقنية مفصلة، يرجى مراجعة قسم الأمان المتقدم أدناه';
+
+  @override
+  String get securitySummaryTitle => 'ملخص الأمان';
 
   @override
   String get selectLanguage => 'اختر اللغة';
@@ -380,6 +359,18 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get setPin => 'تعيين PIN';
+
+  @override
+  String get sort => 'ترتيب';
+
+  @override
+  String get sortFavorites => 'المفضلة';
+
+  @override
+  String get sortUpdated => 'آخر تحديث';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'قياسي';
@@ -405,13 +396,31 @@ class AppLocalizationsAr extends AppLocalizations {
   String get weak => 'ضعيف';
 
   @override
+  String get viewAttachment => 'عرض المرفق';
+
+  @override
   String get wrongPattern => 'نمط خاطئ. حاول مرة أخرى';
 
   @override
   String get wrongPin => 'PIN غير صحيح';
 
   @override
+  String get textTemplate => 'قالب نصي';
+
+  @override
   String get title => 'العنوان';
+
+  @override
+  String get txtImportCompleted => 'اكتملت عملية الاستيراد';
+
+  @override
+  String get txtImportCompletedWithSkip => 'اكتمل الاستيراد. تم تخطي %d من إدخالات النمط';
+
+  @override
+  String get txtExportCompletedWithSkip => 'اكتمل التصدير. هذا الملف غير مشفر. تم تخطي %d من إدخالات النمط';
+
+  @override
+  String get txtExportCompleted => 'اكتملت عملية التصدير. هذا الملف غير مشفر';
 
   @override
   String get unlock => 'فتح';
@@ -421,6 +430,12 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get unlockVault => 'فتح الخزنة';
+
+  @override
+  String get unlockToSearch => 'افتح القفل للبحث';
+
+  @override
+  String get upgrade => 'ترقية';
 
   @override
   String get untitled => 'بدون عنوان';
@@ -438,19 +453,4 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get usernameEmail => 'اسم المستخدم / البريد الإلكتروني';
-
-  @override
-  String get securityManifesto => 'نموذج الأمان';
-
-  @override
-  String get securitySummaryTitle => 'ملخص الأمان';
-
-  @override
-  String get advancedSecurityTitle => 'الأمان المتقدم';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote هو خزنة آمنة تعمل دون اتصال وتخزن بياناتك فقط على جهازك.\nلا يستخدم التطبيق أي خوادم ولا يتتبعك ولا يجمع أي بيانات.\nجميع سجلاتك محمية بتشفير قوي ولا يمكن الوصول إليها إلا من قبلك.\nعند انتقال التطبيق إلى الخلفية يتم قفله تلقائيًا ويتم منع لقطات الشاشة.\nإذا تم نسيان معلومات فتح القفل فلا يمكن استعادة البيانات.\nللحصول على معلومات تقنية مفصلة، يرجى مراجعة قسم الأمان المتقدم أدناه.';
-
-  @override
-  String get advancedSecurityBody => 'تم تصميم Lynra GreyNote وفقًا لمبادئ التشفير الحديثة.\n\nحماية البيانات:\nيتم تشفير محتويات السجلات باستخدام خوارزمية AES-256-GCM.\nيتم تخزين قاعدة البيانات بشكل مشفر بالكامل باستخدام SQLCipher.\n\nإدارة المفاتيح:\nيتم اشتقاق المفتاح الرئيسي (Master Key) من مفاتيح المستخدم باستخدام خوارزمية PBKDF2-HMAC-SHA256.\nلا يتم تخزين هذا المفتاح كنص صريح ويُستخدم فقط أثناء الجلسة النشطة.\n\nفصل المفاتيح (Key Separation):\nيتم استخدام مفاتيح مختلفة للوصول إلى قاعدة البيانات وتشفير البيانات.\n\nطبقة أمان إضافية:\nعند تفعيل Vault Word، يتم حماية البيانات بطبقة ثانية.\nلا يتم تخزين هذا المفتاح على الجهاز ويكون معروفًا فقط للمستخدم.\n\nأمان الجلسة:\nعند انتقال التطبيق إلى الخلفية يتم قفل الوصول تلقائيًا.\nيتم الاحتفاظ بمفاتيح التشفير في الذاكرة فقط أثناء المعالجة.\n\nأمان الشاشة:\nيتم حظر لقطات الشاشة وتسجيل الشاشة على مستوى النظام.\n\nالنسخ الاحتياطي:\nعند التصدير، يتم إنشاء البيانات ككتلة مشفرة (encrypted blob) ولا يمكن استعادتها إلا باستخدام المعلومات الصحيحة.\n\nلا يمكن لـ Lynra الوصول إلى بيانات المستخدم أو قراءتها أو استعادتها.\n\nيعتمد نموذج الأمان بالكامل على سيطرة المستخدم الكاملة على البيانات.';
 }

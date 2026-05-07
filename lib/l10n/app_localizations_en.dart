@@ -9,133 +9,10 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String get feedback => 'Feedback';
-
-  @override
-  String get imported => 'Imported';
-
-  @override
-  String get duplicate => 'Duplicate';
-
-  @override
-  String get empty => 'Empty';
-
-  @override
-  String get patternSkipped => 'Pattern skipped';
-
-  @override
-  String get clear => 'Clear';
-
-  @override
-  String get clearMyVault => 'Clear My Vault';
-
-  @override
-  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
-
-  @override
-  String get csvimportfailed => 'CSV import failed';
-
-  @override
-  String get myVaultCleared => 'My Vault cleared';
-
-  @override
-  String get txtImportCompleted => 'Import completed.';
-
-  @override
-  String get txtImportCompletedWithSkip => 'Import completed. %d pattern entries were skipped.';
-
-  @override
-  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
-
-  @override
-  String get importCSV => 'Import from CSV File';
-
-  @override
-  String get exportCSV => 'Export as csv File';
-
-  @override
-  String get csvTemplate => 'csv Template';
-
-  @override
-  String get textTemplate => 'text Template';
-
-  @override
-  String get txtExportCompleted => 'Export completed. This file is not encrypted.';
-
-  @override
-  String get exportBackup => 'Export Encrypted Backup';
-
-  @override
-  String get exportText => 'Export as Text File';
-
-  @override
-  String get importBackup => 'Import Encrypted Backup';
-
-  @override
-  String get importText => 'Import from Text File';
-
-  @override
-  String get downloadTemplate => 'Download Template';
-
-  @override
-  String get alreadyExists => 'This item already exists';
-
-  @override
-  String get backupReminder => 'Consider creating a backup to keep your data safe';
-
-  @override
-  String get sort => 'Sort';
-
-  @override
-  String get sortFavorites => 'Favorites';
-
-  @override
-  String get sortUpdated => 'Last updated';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'Pattern';
-
-  @override
-  String get removeAttachment => 'Remove';
-
-  @override
-  String get attachmentRemoved => 'Attachment removed';
-
-  @override
-  String get viewAttachment => 'View Attachment';
+  String get add => 'Add';
 
   @override
   String get addAttachment => 'Add Attachment';
-
-  @override
-  String get attachmentReady => 'Attachment ready';
-
-  @override
-  String get attachmentTooLarge => 'Max 2MB allowed';
-
-  @override
-  String get search => 'Search';
-
-  @override
-  String get unlockToSearch => 'Unlock to search';
-
-  @override
-  String get limitReached => 'Limit reached';
-
-  @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
-
-  @override
-  String get upgrade => 'Upgrade';
-
-  @override
-  String get cancel => 'Cancel';
-
-  @override
-  String get add => 'Add';
 
   @override
   String get addFirstSecureEntry => 'Tap the + button to add your first secure entry.';
@@ -144,10 +21,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addIban => 'Add IBAN';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote is designed in accordance with modern cryptography principles.\n\nData Protection:\nRecord contents are encrypted using the AES-256-GCM algorithm.\nThe database is stored fully encrypted using SQLCipher.\n\nKey Management:\nThe master key is derived from user secrets using the PBKDF2-HMAC-SHA256 algorithm.\nThis key is never stored in plain form and is only used during an active session.\n\nKey Separation:\nDatabase access and data encryption operations are performed using separate keys.\n\nAdditional Security Layer:\nWhen the Vault Word feature is enabled, your data is protected with a second layer.\nThis key is not stored on the device and is known only by the user.\n\nSession Security:\nWhen the app goes to the background, access is automatically locked.\nEncryption keys exist in memory only for the duration of operations.\n\nScreen Security:\nScreenshots and screen recordings are blocked at the system level.\n\nBackup:\nData is exported as an encrypted blob and can only be restored with the correct credentials.\n\nLynra cannot access, read, or recover your data.\n\nThe entire security model is built on user-controlled data.';
+
+  @override
+  String get advancedSecurityTitle => 'Advanced Security';
+
+  @override
+  String get alreadyExists => 'This item already exists';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'Attachment ready';
+
+  @override
+  String get attachmentRemoved => 'Attachment removed';
+
+  @override
+  String get attachmentTooLarge => 'Max 2MB allowed';
+
+  @override
   String get authenticateToContinue => 'Authenticate to continue';
+
+  @override
+  String get backupReminder => 'Consider creating a backup to keep your data safe';
 
   @override
   String get bankDetails => 'Bank Details';
@@ -166,6 +64,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Biometric - with PIN backup';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get clear => 'Clear';
+
+  @override
+  String get clearMyVault => 'Clear My Vault';
+
+  @override
+  String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
 
   @override
   String get collection => 'Collection';
@@ -187,6 +97,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get createVaultKey => 'Create Your Vault Key';
+
+  @override
+  String get csvimportfailed => 'CSV import failed';
+
+  @override
+  String get csvTemplate => 'csv Template';
 
   @override
   String get delete => 'Delete';
@@ -211,13 +127,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get details => 'Details';
 
   @override
+  String get downloadTemplate => 'Download Template';
+
+  @override
   String get drawNewPattern => 'Draw a new pattern';
 
   @override
   String get drawVaultKey => 'Draw your vault key';
 
   @override
+  String get duplicate => 'Duplicate';
+
+  @override
   String get editEntry => 'Edit Entry';
+
+  @override
+  String get empty => 'Empty';
 
   @override
   String get enableVaultWord => 'Enable Vault Word';
@@ -238,16 +163,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get export => 'Export';
 
   @override
+  String get exportBackup => 'Export Encrypted Backup';
+
+  @override
   String get exportComingNext => 'Export coming next';
 
   @override
   String get exportCompleted => 'Export completed';
 
   @override
+  String get exportCSV => 'Export as csv File';
+
+  @override
   String get exportData => 'Export Data';
 
   @override
   String get exportPin => 'Backup PIN';
+
+  @override
+  String get exportText => 'Export as Text File';
+
+  @override
+  String get feedback => 'Feedback';
+
+  @override
+  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
 
   @override
   String get generatePassword => 'Generate Password';
@@ -271,7 +211,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get import => 'Import';
 
   @override
+  String get imported => 'Imported';
+
+  @override
+  String get importBackup => 'Import Encrypted Backup';
+
+  @override
   String get importCompleted => 'Import completed';
+
+  @override
+  String get importCSV => 'Import from CSV File';
 
   @override
   String get importData => 'Import Data';
@@ -283,7 +232,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get importPin => 'Restore Pin';
 
   @override
+  String get importText => 'Import from Text File';
+
+  @override
   String get language => 'Language';
+
+  @override
+  String get limitReached => 'Limit reached';
 
   @override
   String get lynraSecurity => 'Lynra Security';
@@ -302,6 +257,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get myVault => 'My Vault';
+
+  @override
+  String get myVaultCleared => 'My Vault cleared';
 
   @override
   String get newCollection => 'New Collection';
@@ -343,7 +301,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get passwordCopied => 'Password copied';
 
   @override
+  String get pattern => 'Pattern';
+
+  @override
   String get patternMismatch => 'Patterns did not match. Start again';
+
+  @override
+  String get patternSkipped => 'Pattern skipped';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get privateByDesign => 'Privacy is a fundamental, not a feature';
 
   @override
+  String get removeAttachment => 'Remove';
+
+  @override
   String get save => 'Save';
 
   @override
   String get savePin => 'Save PIN';
 
   @override
+  String get search => 'Search';
+
+  @override
   String get secondaryLock => 'Secondary Lock';
 
   @override
   String get security => 'Security';
+
+  @override
+  String get securityManifesto => 'Security Model';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote is an offline secure vault that stores your data only on your device.\nThe app does not use servers, does not track you, and does not collect any data.\nAll your records are protected with strong encryption and can only be accessed by you.\nWhen the app goes to the background, it automatically locks and prevents screenshots.\nIf unlock credentials are forgotten, data cannot be recovered.\nFor detailed technical information, please refer to the Advanced Security section below.';
+
+  @override
+  String get securitySummaryTitle => 'Security Summary';
 
   @override
   String get selectLanguage => 'Select Language';
@@ -380,6 +359,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get setPin => 'Set PIN';
+
+  @override
+  String get sort => 'Sort';
+
+  @override
+  String get sortFavorites => 'Favorites';
+
+  @override
+  String get sortUpdated => 'Last updated';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'Standard';
@@ -405,13 +396,31 @@ class AppLocalizationsEn extends AppLocalizations {
   String get weak => 'Weak';
 
   @override
+  String get viewAttachment => 'View Attachment';
+
+  @override
   String get wrongPattern => 'Wrong pattern. Try again';
 
   @override
   String get wrongPin => 'Wrong PIN';
 
   @override
+  String get textTemplate => 'text Template';
+
+  @override
   String get title => 'Title';
+
+  @override
+  String get txtImportCompleted => 'Import completed.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'Import completed. %d pattern entries were skipped.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Export completed. This file is not encrypted. %d pattern entries were skipped.';
+
+  @override
+  String get txtExportCompleted => 'Export completed. This file is not encrypted.';
 
   @override
   String get unlock => 'Unlock';
@@ -421,6 +430,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get unlockVault => 'Unlock Vault';
+
+  @override
+  String get unlockToSearch => 'Unlock to search';
+
+  @override
+  String get upgrade => 'Upgrade';
 
   @override
   String get untitled => 'Untitled';
@@ -438,19 +453,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Username / Email';
-
-  @override
-  String get securityManifesto => 'Security Model';
-
-  @override
-  String get securitySummaryTitle => 'Security Summary';
-
-  @override
-  String get advancedSecurityTitle => 'Advanced Security';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote is an offline secure vault that stores your data only on your device.\nThe app does not use servers, does not track you, and does not collect any data.\nAll your records are protected with strong encryption and can only be accessed by you.\nWhen the app goes to the background, it automatically locks and prevents screenshots.\nIf unlock credentials are forgotten, data cannot be recovered.\nFor detailed technical information, please refer to the Advanced Security section below.';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote is designed in accordance with modern cryptography principles.\n\nData Protection:\nRecord contents are encrypted using the AES-256-GCM algorithm.\nThe database is stored fully encrypted using SQLCipher.\n\nKey Management:\nThe master key is derived from user secrets using the PBKDF2-HMAC-SHA256 algorithm.\nThis key is never stored in plain form and is only used during an active session.\n\nKey Separation:\nDatabase access and data encryption operations are performed using separate keys.\n\nAdditional Security Layer:\nWhen the Vault Word feature is enabled, your data is protected with a second layer.\nThis key is not stored on the device and is known only by the user.\n\nSession Security:\nWhen the app goes to the background, access is automatically locked.\nEncryption keys exist in memory only for the duration of operations.\n\nScreen Security:\nScreenshots and screen recordings are blocked at the system level.\n\nBackup:\nData is exported as an encrypted blob and can only be restored with the correct credentials.\n\nLynra cannot access, read, or recover your data.\n\nThe entire security model is built on user-controlled data.';
 }

@@ -3,15 +3,15 @@
 "imported": "Aktarıldı",
 "duplicate": "Kopya",
 "empty": "Boş",
-"patternSkipped": "Pattern atlandı",
+"patternSkipped": "Desen atlandı",
 "clear": "Temizle",
 "clearMyVault": "Kasamı Temizle",
 "clearMyVaultConfirm": "Bu işlem Kasamdaki tüm kayıtları silecektir. Bu işlem geri alınamaz.",
 "csvimportfailed": "CSV içe aktarma başarısız oldu.",
 "myVaultCleared": "Kasa temizlendi",
 "txtImportCompleted": "İçe aktarma tamamlandı.",
-"txtImportCompletedWithSkip": "İçe aktarma tamamlandı. %d pattern kaydı atlandı.",
-"txtExportCompletedWithSkip": "Dışa aktarma tamamlandı. Bu dosya şifrelenmemiştir. %d pattern kaydı atlandı.",
+"txtImportCompletedWithSkip": "İçe aktarma tamamlandı. %d desen kaydı atlandı.",
+"txtExportCompletedWithSkip": "Dışa aktarma tamamlandı. Bu dosya şifrelenmemiştir. %d desen kaydı atlandı.",
 
 
 "importCSV": 										"CSV Dosyasından İçe Aktar",

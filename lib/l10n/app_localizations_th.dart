@@ -9,133 +9,10 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
-  String get feedback => 'ข้อเสนอแนะ';
-
-  @override
-  String get imported => 'นำเข้าแล้ว';
-
-  @override
-  String get duplicate => 'ซ้ำ';
-
-  @override
-  String get empty => 'ว่างเปล่า';
-
-  @override
-  String get patternSkipped => 'ข้าม pattern';
-
-  @override
-  String get clear => 'ล้าง';
-
-  @override
-  String get clearMyVault => 'ล้าง Vault ของฉัน';
-
-  @override
-  String get clearMyVaultConfirm => 'การดำเนินการนี้จะลบข้อมูลทั้งหมดใน Vault ของฉัน และไม่สามารถย้อนกลับได้';
-
-  @override
-  String get csvimportfailed => 'การนำเข้า CSV ล้มเหลว';
-
-  @override
-  String get myVaultCleared => 'ล้าง Vault แล้ว';
-
-  @override
-  String get txtImportCompleted => 'นำเข้าเสร็จสมบูรณ์';
-
-  @override
-  String get txtImportCompletedWithSkip => 'นำเข้าเสร็จสมบูรณ์ ข้ามรายการ pattern จำนวน %d รายการ';
-
-  @override
-  String get txtExportCompletedWithSkip => 'ส่งออกเสร็จสมบูรณ์ ไฟล์นี้ไม่ได้เข้ารหัส ข้ามรายการ pattern จำนวน %d รายการ';
-
-  @override
-  String get importCSV => 'นำเข้าจากไฟล์ CSV';
-
-  @override
-  String get exportCSV => 'ส่งออกเป็นไฟล์ CSV';
-
-  @override
-  String get csvTemplate => 'เทมเพลต CSV';
-
-  @override
-  String get textTemplate => 'เทมเพลตข้อความ';
-
-  @override
-  String get txtExportCompleted => 'ส่งออกเสร็จสิ้น ไฟล์นี้ไม่ได้เข้ารหัส';
-
-  @override
-  String get exportBackup => 'ส่งออกข้อมูลสำรองที่เข้ารหัส';
-
-  @override
-  String get exportText => 'ส่งออกเป็นไฟล์ข้อความ';
-
-  @override
-  String get importBackup => 'นำเข้าข้อมูลสำรองที่เข้ารหัส';
-
-  @override
-  String get importText => 'นำเข้าจากไฟล์ข้อความ';
-
-  @override
-  String get downloadTemplate => 'ดาวน์โหลดเทมเพลต';
-
-  @override
-  String get alreadyExists => 'รายการนี้มีอยู่แล้ว';
-
-  @override
-  String get backupReminder => 'พิจารณาสร้างข้อมูลสำรองเพื่อปกป้องข้อมูลของคุณ';
-
-  @override
-  String get sort => 'จัดเรียง';
-
-  @override
-  String get sortFavorites => 'รายการโปรด';
-
-  @override
-  String get sortUpdated => 'อัปเดตล่าสุด';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'รูปแบบ';
-
-  @override
-  String get removeAttachment => 'ลบไฟล์';
-
-  @override
-  String get attachmentRemoved => 'ลบไฟล์แนบแล้ว';
-
-  @override
-  String get viewAttachment => 'ดูไฟล์แนบ';
+  String get add => 'เพิ่ม';
 
   @override
   String get addAttachment => 'เพิ่มไฟล์แนบ';
-
-  @override
-  String get attachmentReady => 'ไฟล์แนบพร้อมแล้ว';
-
-  @override
-  String get attachmentTooLarge => 'สูงสุด 2 MB';
-
-  @override
-  String get search => 'ค้นหา';
-
-  @override
-  String get unlockToSearch => 'ปลดล็อกเพื่อค้นหา';
-
-  @override
-  String get limitReached => 'ถึงขีดจำกัดแล้ว';
-
-  @override
-  String get freeLimitEntries => 'คุณสามารถเพิ่มได้สูงสุด 2 รายการในเวอร์ชันฟรี';
-
-  @override
-  String get upgrade => 'อัปเกรด';
-
-  @override
-  String get cancel => 'ยกเลิก';
-
-  @override
-  String get add => 'เพิ่ม';
 
   @override
   String get addFirstSecureEntry => 'แตะปุ่ม + เพื่อเพิ่มรายการที่ปลอดภัยรายการแรก';
@@ -144,10 +21,31 @@ class AppLocalizationsTh extends AppLocalizations {
   String get addIban => 'เพิ่ม IBAN';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote ถูกออกแบบตามหลักการเข้ารหัสสมัยใหม่\n\nการปกป้องข้อมูล:\nเนื้อหาของข้อมูลถูกเข้ารหัสด้วยอัลกอริทึม AES-256-GCM\nฐานข้อมูลถูกจัดเก็บแบบเข้ารหัสทั้งหมดโดยใช้ SQLCipher\n\nการจัดการกุญแจ:\nกุญแจหลัก (Master Key) ถูกสร้างจากกุญแจผู้ใช้ด้วยอัลกอริทึม PBKDF2-HMAC-SHA256\nกุญแจนี้จะไม่ถูกเก็บในรูปแบบข้อความปกติ และใช้เฉพาะในระหว่างเซสชันที่ใช้งาน\n\nการแยกกุญแจ (Key Separation):\nการเข้าถึงฐานข้อมูลและการเข้ารหัสข้อมูลใช้กุญแจที่แตกต่างกัน\n\nชั้นความปลอดภัยเพิ่มเติม:\nเมื่อเปิดใช้ Vault Word ข้อมูลจะถูกปกป้องด้วยชั้นที่สอง\nกุญแจนี้จะไม่ถูกเก็บไว้ในอุปกรณ์และมีเพียงผู้ใช้เท่านั้นที่ทราบ\n\nความปลอดภัยของเซสชัน:\nเมื่อแอปทำงานในพื้นหลัง การเข้าถึงจะถูกล็อกโดยอัตโนมัติ\nกุญแจการเข้ารหัสจะถูกเก็บไว้ในหน่วยความจำเฉพาะระหว่างการประมวลผล\n\nความปลอดภัยหน้าจอ:\nการจับภาพหน้าจอและการบันทึกหน้าจอจะถูกบล็อกในระดับระบบ\n\nการสำรองข้อมูล:\nเมื่อส่งออก ข้อมูลจะถูกสร้างเป็นบล็อกที่เข้ารหัส (encrypted blob) และสามารถกู้คืนได้เฉพาะด้วยข้อมูลที่ถูกต้อง\n\nLynra ไม่สามารถเข้าถึง อ่าน หรือกู้คืนข้อมูลของผู้ใช้ได้\n\nโมเดลความปลอดภัยทั้งหมดตั้งอยู่บนการควบคุมข้อมูลโดยผู้ใช้อย่างสมบูรณ์';
+
+  @override
+  String get advancedSecurityTitle => 'ความปลอดภัยขั้นสูง';
+
+  @override
+  String get alreadyExists => 'รายการนี้มีอยู่แล้ว';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'ไฟล์แนบพร้อมแล้ว';
+
+  @override
+  String get attachmentRemoved => 'ลบไฟล์แนบแล้ว';
+
+  @override
+  String get attachmentTooLarge => 'สูงสุด 2 MB';
+
+  @override
   String get authenticateToContinue => 'ยืนยันตัวตนเพื่อดำเนินการต่อ';
+
+  @override
+  String get backupReminder => 'พิจารณาสร้างข้อมูลสำรองเพื่อปกป้องข้อมูลของคุณ';
 
   @override
   String get bankDetails => 'ข้อมูลธนาคาร';
@@ -166,6 +64,18 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'ไบโอเมตริก - พร้อม PIN สำรอง';
+
+  @override
+  String get cancel => 'ยกเลิก';
+
+  @override
+  String get clear => 'ล้าง';
+
+  @override
+  String get clearMyVault => 'ล้าง Vault ของฉัน';
+
+  @override
+  String get clearMyVaultConfirm => 'การดำเนินการนี้จะลบข้อมูลทั้งหมดใน Vault ของฉัน และไม่สามารถย้อนกลับได้';
 
   @override
   String get collection => 'คอลเลกชัน';
@@ -187,6 +97,12 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get createVaultKey => 'สร้างกุญแจคลัง';
+
+  @override
+  String get csvimportfailed => 'การนำเข้า CSV ล้มเหลว';
+
+  @override
+  String get csvTemplate => 'เทมเพลต CSV';
 
   @override
   String get delete => 'ลบ';
@@ -211,13 +127,22 @@ class AppLocalizationsTh extends AppLocalizations {
   String get details => 'รายละเอียด';
 
   @override
+  String get downloadTemplate => 'ดาวน์โหลดเทมเพลต';
+
+  @override
   String get drawNewPattern => 'วาดรูปแบบใหม่';
 
   @override
   String get drawVaultKey => 'วาดกุญแจคลังของคุณ';
 
   @override
+  String get duplicate => 'ซ้ำ';
+
+  @override
   String get editEntry => 'แก้ไขรายการ';
+
+  @override
+  String get empty => 'ว่างเปล่า';
 
   @override
   String get enableVaultWord => 'เปิดใช้คำคลัง';
@@ -238,16 +163,31 @@ class AppLocalizationsTh extends AppLocalizations {
   String get export => 'ส่งออก';
 
   @override
+  String get exportBackup => 'ส่งออกข้อมูลสำรองที่เข้ารหัส';
+
+  @override
   String get exportComingNext => 'กำลังจะมีการส่งออก';
 
   @override
   String get exportCompleted => 'ส่งออกเสร็จสิ้น';
 
   @override
+  String get exportCSV => 'ส่งออกเป็นไฟล์ CSV';
+
+  @override
   String get exportData => 'ส่งออกข้อมูล';
 
   @override
   String get exportPin => 'PIN สำรอง';
+
+  @override
+  String get exportText => 'ส่งออกเป็นไฟล์ข้อความ';
+
+  @override
+  String get feedback => 'ข้อเสนอแนะ';
+
+  @override
+  String get freeLimitEntries => 'คุณสามารถเพิ่มได้สูงสุด 2 รายการในเวอร์ชันฟรี';
 
   @override
   String get generatePassword => 'สร้างรหัสผ่าน';
@@ -271,7 +211,16 @@ class AppLocalizationsTh extends AppLocalizations {
   String get import => 'นำเข้า';
 
   @override
+  String get imported => 'นำเข้าแล้ว';
+
+  @override
+  String get importBackup => 'นำเข้าข้อมูลสำรองที่เข้ารหัส';
+
+  @override
   String get importCompleted => 'นำเข้าเสร็จสิ้น';
+
+  @override
+  String get importCSV => 'นำเข้าจากไฟล์ CSV';
 
   @override
   String get importData => 'นำเข้าข้อมูล';
@@ -283,7 +232,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get importPin => 'PIN กู้คืน';
 
   @override
+  String get importText => 'นำเข้าจากไฟล์ข้อความ';
+
+  @override
   String get language => 'ภาษา';
+
+  @override
+  String get limitReached => 'ถึงขีดจำกัดแล้ว';
 
   @override
   String get lynraSecurity => 'ความปลอดภัย Lynra';
@@ -302,6 +257,9 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get myVault => 'คลังของฉัน';
+
+  @override
+  String get myVaultCleared => 'ล้าง Vault แล้ว';
 
   @override
   String get newCollection => 'คอลเลกชันใหม่';
@@ -343,7 +301,13 @@ class AppLocalizationsTh extends AppLocalizations {
   String get passwordCopied => 'คัดลอกรหัสผ่านแล้ว';
 
   @override
+  String get pattern => 'รูปแบบ';
+
+  @override
   String get patternMismatch => 'รูปแบบไม่ตรงกัน เริ่มใหม่';
+
+  @override
+  String get patternSkipped => 'ข้าม pattern';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsTh extends AppLocalizations {
   String get privateByDesign => 'ความเป็นส่วนตัวคือพื้นฐาน ไม่ใช่ฟีเจอร์';
 
   @override
+  String get removeAttachment => 'ลบไฟล์';
+
+  @override
   String get save => 'บันทึก';
 
   @override
   String get savePin => 'บันทึก PIN';
 
   @override
+  String get search => 'ค้นหา';
+
+  @override
   String get secondaryLock => 'ล็อกเสริม';
 
   @override
   String get security => 'ความปลอดภัย';
+
+  @override
+  String get securityManifesto => 'โมเดลความปลอดภัย';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote เป็นตู้เซฟแบบออฟไลน์ที่เก็บข้อมูลของคุณไว้เฉพาะบนอุปกรณ์ของคุณเท่านั้น\nแอปนี้ไม่ใช้เซิร์ฟเวอร์ ไม่ติดตามคุณ และไม่เก็บข้อมูลใด ๆ\nข้อมูลทั้งหมดของคุณได้รับการปกป้องด้วยการเข้ารหัสที่แข็งแกร่ง และมีเพียงคุณเท่านั้นที่สามารถเข้าถึงได้\nเมื่อแอปทำงานในพื้นหลัง แอปจะถูกล็อกโดยอัตโนมัติและป้องกันการจับภาพหน้าจอ\nหากลืมข้อมูลปลดล็อก จะไม่สามารถกู้คืนข้อมูลได้\nสำหรับข้อมูลทางเทคนิคเพิ่มเติม โปรดดูส่วนความปลอดภัยขั้นสูงด้านล่าง';
+
+  @override
+  String get securitySummaryTitle => 'สรุปความปลอดภัย';
 
   @override
   String get selectLanguage => 'เลือกภาษา';
@@ -380,6 +359,18 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get setPin => 'ตั้งค่า PIN';
+
+  @override
+  String get sort => 'จัดเรียง';
+
+  @override
+  String get sortFavorites => 'รายการโปรด';
+
+  @override
+  String get sortUpdated => 'อัปเดตล่าสุด';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'มาตรฐาน';
@@ -405,13 +396,31 @@ class AppLocalizationsTh extends AppLocalizations {
   String get weak => 'อ่อน';
 
   @override
+  String get viewAttachment => 'ดูไฟล์แนบ';
+
+  @override
   String get wrongPattern => 'รูปแบบไม่ถูกต้อง ลองอีกครั้ง';
 
   @override
   String get wrongPin => 'PIN ไม่ถูกต้อง';
 
   @override
+  String get textTemplate => 'เทมเพลตข้อความ';
+
+  @override
   String get title => 'ชื่อ';
+
+  @override
+  String get txtImportCompleted => 'นำเข้าเสร็จสมบูรณ์';
+
+  @override
+  String get txtImportCompletedWithSkip => 'นำเข้าเสร็จสมบูรณ์ ข้ามรายการ pattern จำนวน %d รายการ';
+
+  @override
+  String get txtExportCompletedWithSkip => 'ส่งออกเสร็จสมบูรณ์ ไฟล์นี้ไม่ได้เข้ารหัส ข้ามรายการ pattern จำนวน %d รายการ';
+
+  @override
+  String get txtExportCompleted => 'ส่งออกเสร็จสิ้น ไฟล์นี้ไม่ได้เข้ารหัส';
 
   @override
   String get unlock => 'ปลดล็อก';
@@ -421,6 +430,12 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get unlockVault => 'ปลดล็อกคลัง';
+
+  @override
+  String get unlockToSearch => 'ปลดล็อกเพื่อค้นหา';
+
+  @override
+  String get upgrade => 'อัปเกรด';
 
   @override
   String get untitled => 'ไม่มีชื่อ';
@@ -438,19 +453,4 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get usernameEmail => 'ชื่อผู้ใช้ / อีเมล';
-
-  @override
-  String get securityManifesto => 'โมเดลความปลอดภัย';
-
-  @override
-  String get securitySummaryTitle => 'สรุปความปลอดภัย';
-
-  @override
-  String get advancedSecurityTitle => 'ความปลอดภัยขั้นสูง';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote เป็นตู้เซฟแบบออฟไลน์ที่เก็บข้อมูลของคุณไว้เฉพาะบนอุปกรณ์ของคุณเท่านั้น\nแอปนี้ไม่ใช้เซิร์ฟเวอร์ ไม่ติดตามคุณ และไม่เก็บข้อมูลใด ๆ\nข้อมูลทั้งหมดของคุณได้รับการปกป้องด้วยการเข้ารหัสที่แข็งแกร่ง และมีเพียงคุณเท่านั้นที่สามารถเข้าถึงได้\nเมื่อแอปทำงานในพื้นหลัง แอปจะถูกล็อกโดยอัตโนมัติและป้องกันการจับภาพหน้าจอ\nหากลืมข้อมูลปลดล็อก จะไม่สามารถกู้คืนข้อมูลได้\nสำหรับข้อมูลทางเทคนิคเพิ่มเติม โปรดดูส่วนความปลอดภัยขั้นสูงด้านล่าง';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote ถูกออกแบบตามหลักการเข้ารหัสสมัยใหม่\n\nการปกป้องข้อมูล:\nเนื้อหาของข้อมูลถูกเข้ารหัสด้วยอัลกอริทึม AES-256-GCM\nฐานข้อมูลถูกจัดเก็บแบบเข้ารหัสทั้งหมดโดยใช้ SQLCipher\n\nการจัดการกุญแจ:\nกุญแจหลัก (Master Key) ถูกสร้างจากกุญแจผู้ใช้ด้วยอัลกอริทึม PBKDF2-HMAC-SHA256\nกุญแจนี้จะไม่ถูกเก็บในรูปแบบข้อความปกติ และใช้เฉพาะในระหว่างเซสชันที่ใช้งาน\n\nการแยกกุญแจ (Key Separation):\nการเข้าถึงฐานข้อมูลและการเข้ารหัสข้อมูลใช้กุญแจที่แตกต่างกัน\n\nชั้นความปลอดภัยเพิ่มเติม:\nเมื่อเปิดใช้ Vault Word ข้อมูลจะถูกปกป้องด้วยชั้นที่สอง\nกุญแจนี้จะไม่ถูกเก็บไว้ในอุปกรณ์และมีเพียงผู้ใช้เท่านั้นที่ทราบ\n\nความปลอดภัยของเซสชัน:\nเมื่อแอปทำงานในพื้นหลัง การเข้าถึงจะถูกล็อกโดยอัตโนมัติ\nกุญแจการเข้ารหัสจะถูกเก็บไว้ในหน่วยความจำเฉพาะระหว่างการประมวลผล\n\nความปลอดภัยหน้าจอ:\nการจับภาพหน้าจอและการบันทึกหน้าจอจะถูกบล็อกในระดับระบบ\n\nการสำรองข้อมูล:\nเมื่อส่งออก ข้อมูลจะถูกสร้างเป็นบล็อกที่เข้ารหัส (encrypted blob) และสามารถกู้คืนได้เฉพาะด้วยข้อมูลที่ถูกต้อง\n\nLynra ไม่สามารถเข้าถึง อ่าน หรือกู้คืนข้อมูลของผู้ใช้ได้\n\nโมเดลความปลอดภัยทั้งหมดตั้งอยู่บนการควบคุมข้อมูลโดยผู้ใช้อย่างสมบูรณ์';
 }

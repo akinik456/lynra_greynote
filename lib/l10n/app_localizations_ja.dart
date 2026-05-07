@@ -9,133 +9,10 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get feedback => 'フィードバック';
-
-  @override
-  String get imported => 'インポート済み';
-
-  @override
-  String get duplicate => '重複';
-
-  @override
-  String get empty => '空';
-
-  @override
-  String get patternSkipped => 'パターンをスキップ';
-
-  @override
-  String get clear => 'クリア';
-
-  @override
-  String get clearMyVault => 'マイVaultをクリア';
-
-  @override
-  String get clearMyVaultConfirm => 'これによりマイVault内のすべての項目が削除されます。この操作は元に戻せません。';
-
-  @override
-  String get csvimportfailed => 'CSVインポートに失敗しました。';
-
-  @override
-  String get myVaultCleared => 'Vaultをクリアしました';
-
-  @override
-  String get txtImportCompleted => 'インポートが完了しました。';
-
-  @override
-  String get txtImportCompletedWithSkip => 'インポートが完了しました。%d 件のパターン項目がスキップされました。';
-
-  @override
-  String get txtExportCompletedWithSkip => 'エクスポートが完了しました。このファイルは暗号化されていません。%d 件のパターン項目がスキップされました。';
-
-  @override
-  String get importCSV => 'CSVファイルからインポート';
-
-  @override
-  String get exportCSV => 'CSVファイルとしてエクスポート';
-
-  @override
-  String get csvTemplate => 'CSVテンプレート';
-
-  @override
-  String get textTemplate => 'テキストテンプレート';
-
-  @override
-  String get txtExportCompleted => 'エクスポートが完了しました。このファイルは暗号化されていません。';
-
-  @override
-  String get exportBackup => '暗号化されたバックアップをエクスポート';
-
-  @override
-  String get exportText => 'テキストファイルとしてエクスポート';
-
-  @override
-  String get importBackup => '暗号化されたバックアップをインポート';
-
-  @override
-  String get importText => 'テキストファイルからインポート';
-
-  @override
-  String get downloadTemplate => 'テンプレートをダウンロード';
-
-  @override
-  String get alreadyExists => 'この項目はすでに存在します';
-
-  @override
-  String get backupReminder => 'データを保護するためにバックアップの作成を検討してください';
-
-  @override
-  String get sort => '並び替え';
-
-  @override
-  String get sortFavorites => 'お気に入り';
-
-  @override
-  String get sortUpdated => '最終更新';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'パターン';
-
-  @override
-  String get removeAttachment => 'ファイルを削除';
-
-  @override
-  String get attachmentRemoved => '添付ファイルが削除されました';
-
-  @override
-  String get viewAttachment => '添付ファイルを表示';
+  String get add => '追加';
 
   @override
   String get addAttachment => '添付ファイルを追加';
-
-  @override
-  String get attachmentReady => '添付ファイルの準備完了';
-
-  @override
-  String get attachmentTooLarge => '最大2MB';
-
-  @override
-  String get search => '検索';
-
-  @override
-  String get unlockToSearch => '検索するにはロック解除';
-
-  @override
-  String get limitReached => '上限に達しました';
-
-  @override
-  String get freeLimitEntries => '無料版では最大2件まで追加できます。';
-
-  @override
-  String get upgrade => 'アップグレード';
-
-  @override
-  String get cancel => 'キャンセル';
-
-  @override
-  String get add => '追加';
 
   @override
   String get addFirstSecureEntry => '+ ボタンをタップして最初のセキュアエントリを追加してください。';
@@ -144,10 +21,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get addIban => 'IBANを追加';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNoteは最新の暗号化原則に基づいて設計されています。\n\nデータ保護:\n記録の内容はAES-256-GCMアルゴリズムで暗号化されます。\nデータベースはSQLCipherを使用して完全に暗号化された状態で保存されます。\n\nキー管理:\nマスターキーはPBKDF2-HMAC-SHA256アルゴリズムを使用してユーザーキーから導出されます。\nこのキーは平文で保存されることはなく、アクティブセッション中のみ使用されます。\n\nキー分離 (Key Separation):\nデータベースアクセスとデータ暗号化は異なるキーを使用します。\n\n追加のセキュリティ層:\nVault Wordが有効になると、データは第2層で保護されます。\nこのキーはデバイスに保存されず、ユーザーのみが知っています。\n\nセッションセキュリティ:\nアプリがバックグラウンドに移行するとアクセスは自動的にロックされます。\n暗号化キーは処理中のみメモリに保持されます。\n\n画面セキュリティ:\nスクリーンショットおよび画面録画はシステムレベルでブロックされます。\n\nバックアップ:\nエクスポート時、データは暗号化ブロック(encrypted blob)として作成され、正しい情報でのみ復元できます。\n\nLynraはユーザーデータにアクセス、読み取り、または復元することはできません。\n\nすべてのセキュリティモデルはデータがユーザーによって完全に制御されることに基づいています。';
+
+  @override
+  String get advancedSecurityTitle => '高度なセキュリティ';
+
+  @override
+  String get alreadyExists => 'この項目はすでに存在します';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => '添付ファイルの準備完了';
+
+  @override
+  String get attachmentRemoved => '添付ファイルが削除されました';
+
+  @override
+  String get attachmentTooLarge => '最大2MB';
+
+  @override
   String get authenticateToContinue => '続行するには認証してください';
+
+  @override
+  String get backupReminder => 'データを保護するためにバックアップの作成を検討してください';
 
   @override
   String get bankDetails => '銀行情報';
@@ -166,6 +64,18 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => '生体認証 - PINバックアップ付き';
+
+  @override
+  String get cancel => 'キャンセル';
+
+  @override
+  String get clear => 'クリア';
+
+  @override
+  String get clearMyVault => 'マイVaultをクリア';
+
+  @override
+  String get clearMyVaultConfirm => 'これによりマイVault内のすべての項目が削除されます。この操作は元に戻せません。';
 
   @override
   String get collection => 'コレクション';
@@ -187,6 +97,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get createVaultKey => 'ボルトキーを作成';
+
+  @override
+  String get csvimportfailed => 'CSVインポートに失敗しました。';
+
+  @override
+  String get csvTemplate => 'CSVテンプレート';
 
   @override
   String get delete => '削除';
@@ -211,13 +127,22 @@ class AppLocalizationsJa extends AppLocalizations {
   String get details => '詳細';
 
   @override
+  String get downloadTemplate => 'テンプレートをダウンロード';
+
+  @override
   String get drawNewPattern => '新しいパターンを描く';
 
   @override
   String get drawVaultKey => 'ボルトキーを描いてください';
 
   @override
+  String get duplicate => '重複';
+
+  @override
   String get editEntry => 'エントリを編集';
+
+  @override
+  String get empty => '空';
 
   @override
   String get enableVaultWord => 'ボルトワードを有効化';
@@ -238,16 +163,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get export => 'エクスポート';
 
   @override
+  String get exportBackup => '暗号化されたバックアップをエクスポート';
+
+  @override
   String get exportComingNext => 'エクスポート機能は近日公開';
 
   @override
   String get exportCompleted => 'エクスポート完了';
 
   @override
+  String get exportCSV => 'CSVファイルとしてエクスポート';
+
+  @override
   String get exportData => 'データをエクスポート';
 
   @override
   String get exportPin => 'バックアップPIN';
+
+  @override
+  String get exportText => 'テキストファイルとしてエクスポート';
+
+  @override
+  String get feedback => 'フィードバック';
+
+  @override
+  String get freeLimitEntries => '無料版では最大2件まで追加できます。';
 
   @override
   String get generatePassword => 'パスワード生成';
@@ -271,7 +211,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get import => 'インポート';
 
   @override
+  String get imported => 'インポート済み';
+
+  @override
+  String get importBackup => '暗号化されたバックアップをインポート';
+
+  @override
   String get importCompleted => 'インポート完了';
+
+  @override
+  String get importCSV => 'CSVファイルからインポート';
 
   @override
   String get importData => 'データをインポート';
@@ -283,7 +232,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get importPin => '復元PIN';
 
   @override
+  String get importText => 'テキストファイルからインポート';
+
+  @override
   String get language => '言語';
+
+  @override
+  String get limitReached => '上限に達しました';
 
   @override
   String get lynraSecurity => 'Lynraセキュリティ';
@@ -302,6 +257,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get myVault => 'マイボルト';
+
+  @override
+  String get myVaultCleared => 'Vaultをクリアしました';
 
   @override
   String get newCollection => '新しいコレクション';
@@ -343,7 +301,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get passwordCopied => 'パスワードをコピーしました';
 
   @override
+  String get pattern => 'パターン';
+
+  @override
   String get patternMismatch => 'パターンが一致しません。もう一度やり直してください';
+
+  @override
+  String get patternSkipped => 'パターンをスキップ';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get privateByDesign => 'プライバシーは機能ではなく基本です';
 
   @override
+  String get removeAttachment => 'ファイルを削除';
+
+  @override
   String get save => '保存';
 
   @override
   String get savePin => 'PINを保存';
 
   @override
+  String get search => '検索';
+
+  @override
   String get secondaryLock => 'セカンダリロック';
 
   @override
   String get security => 'セキュリティ';
+
+  @override
+  String get securityManifesto => 'セキュリティモデル';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNoteは、データをデバイス内のみに保存するオフラインのセキュアボルトです。\nこのアプリはサーバーを使用せず、ユーザーを追跡せず、データを収集しません。\nすべての記録は強力な暗号化で保護され、ユーザーのみがアクセスできます。\nアプリがバックグラウンドに移行すると自動的にロックされ、スクリーンショットが防止されます。\nロック解除情報を忘れた場合、データは復元できません。\n詳細な技術情報については、以下の高度なセキュリティセクションをご覧ください。';
+
+  @override
+  String get securitySummaryTitle => 'セキュリティ概要';
 
   @override
   String get selectLanguage => '言語を選択';
@@ -380,6 +359,18 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get setPin => 'PINを設定';
+
+  @override
+  String get sort => '並び替え';
+
+  @override
+  String get sortFavorites => 'お気に入り';
+
+  @override
+  String get sortUpdated => '最終更新';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => '標準';
@@ -405,13 +396,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get weak => '弱い';
 
   @override
+  String get viewAttachment => '添付ファイルを表示';
+
+  @override
   String get wrongPattern => '誤ったパターンです。もう一度お試しください';
 
   @override
   String get wrongPin => '誤ったPIN';
 
   @override
+  String get textTemplate => 'テキストテンプレート';
+
+  @override
   String get title => 'タイトル';
+
+  @override
+  String get txtImportCompleted => 'インポートが完了しました。';
+
+  @override
+  String get txtImportCompletedWithSkip => 'インポートが完了しました。%d 件のパターン項目がスキップされました。';
+
+  @override
+  String get txtExportCompletedWithSkip => 'エクスポートが完了しました。このファイルは暗号化されていません。%d 件のパターン項目がスキップされました。';
+
+  @override
+  String get txtExportCompleted => 'エクスポートが完了しました。このファイルは暗号化されていません。';
 
   @override
   String get unlock => 'ロック解除';
@@ -421,6 +430,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get unlockVault => 'ボルトをロック解除';
+
+  @override
+  String get unlockToSearch => '検索するにはロック解除';
+
+  @override
+  String get upgrade => 'アップグレード';
 
   @override
   String get untitled => '無題';
@@ -438,19 +453,4 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get usernameEmail => 'ユーザー名 / メール';
-
-  @override
-  String get securityManifesto => 'セキュリティモデル';
-
-  @override
-  String get securitySummaryTitle => 'セキュリティ概要';
-
-  @override
-  String get advancedSecurityTitle => '高度なセキュリティ';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNoteは、データをデバイス内のみに保存するオフラインのセキュアボルトです。\nこのアプリはサーバーを使用せず、ユーザーを追跡せず、データを収集しません。\nすべての記録は強力な暗号化で保護され、ユーザーのみがアクセスできます。\nアプリがバックグラウンドに移行すると自動的にロックされ、スクリーンショットが防止されます。\nロック解除情報を忘れた場合、データは復元できません。\n詳細な技術情報については、以下の高度なセキュリティセクションをご覧ください。';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNoteは最新の暗号化原則に基づいて設計されています。\n\nデータ保護:\n記録の内容はAES-256-GCMアルゴリズムで暗号化されます。\nデータベースはSQLCipherを使用して完全に暗号化された状態で保存されます。\n\nキー管理:\nマスターキーはPBKDF2-HMAC-SHA256アルゴリズムを使用してユーザーキーから導出されます。\nこのキーは平文で保存されることはなく、アクティブセッション中のみ使用されます。\n\nキー分離 (Key Separation):\nデータベースアクセスとデータ暗号化は異なるキーを使用します。\n\n追加のセキュリティ層:\nVault Wordが有効になると、データは第2層で保護されます。\nこのキーはデバイスに保存されず、ユーザーのみが知っています。\n\nセッションセキュリティ:\nアプリがバックグラウンドに移行するとアクセスは自動的にロックされます。\n暗号化キーは処理中のみメモリに保持されます。\n\n画面セキュリティ:\nスクリーンショットおよび画面録画はシステムレベルでブロックされます。\n\nバックアップ:\nエクスポート時、データは暗号化ブロック(encrypted blob)として作成され、正しい情報でのみ復元できます。\n\nLynraはユーザーデータにアクセス、読み取り、または復元することはできません。\n\nすべてのセキュリティモデルはデータがユーザーによって完全に制御されることに基づいています。';
 }

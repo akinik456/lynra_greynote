@@ -9,133 +9,10 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
-  String get feedback => 'Geri Bildirim';
-
-  @override
-  String get imported => 'Aktarıldı';
-
-  @override
-  String get duplicate => 'Kopya';
-
-  @override
-  String get empty => 'Boş';
-
-  @override
-  String get patternSkipped => 'Pattern atlandı';
-
-  @override
-  String get clear => 'Temizle';
-
-  @override
-  String get clearMyVault => 'Kasamı Temizle';
-
-  @override
-  String get clearMyVaultConfirm => 'Bu işlem Kasamdaki tüm kayıtları silecektir. Bu işlem geri alınamaz.';
-
-  @override
-  String get csvimportfailed => 'CSV içe aktarma başarısız oldu.';
-
-  @override
-  String get myVaultCleared => 'Kasa temizlendi';
-
-  @override
-  String get txtImportCompleted => 'İçe aktarma tamamlandı.';
-
-  @override
-  String get txtImportCompletedWithSkip => 'İçe aktarma tamamlandı. %d pattern kaydı atlandı.';
-
-  @override
-  String get txtExportCompletedWithSkip => 'Dışa aktarma tamamlandı. Bu dosya şifrelenmemiştir. %d pattern kaydı atlandı.';
-
-  @override
-  String get importCSV => 'CSV Dosyasından İçe Aktar';
-
-  @override
-  String get exportCSV => 'CSV dosyası olarak dışa aktar';
-
-  @override
-  String get csvTemplate => 'CSV Şablonu';
-
-  @override
-  String get textTemplate => 'Metin Şablonu';
-
-  @override
-  String get txtExportCompleted => 'Dışa aktarma tamamlandı. Bu dosya şifreli değildir.';
-
-  @override
-  String get exportBackup => 'Şifreli Yedek Olarak Dışa Aktar';
-
-  @override
-  String get exportText => 'Metin Dosyası Olarak Dışa Aktar';
-
-  @override
-  String get importBackup => 'Şifreli Yedeği İçe Aktar';
-
-  @override
-  String get importText => 'Metin Dosyasından İçe Aktar';
-
-  @override
-  String get downloadTemplate => 'Şablonu İndir';
-
-  @override
-  String get alreadyExists => 'Bu kayıt zaten mevcut';
-
-  @override
-  String get backupReminder => 'Verilerinizi güvende tutmak için yedek almayı unutmayın';
-
-  @override
-  String get sort => 'Sırala';
-
-  @override
-  String get sortFavorites => 'Favoriler';
-
-  @override
-  String get sortUpdated => 'Son güncellenen';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => 'Desen';
-
-  @override
-  String get removeAttachment => 'Dosyayı kaldır';
-
-  @override
-  String get attachmentRemoved => 'Ek kaldırıldı';
-
-  @override
-  String get viewAttachment => 'Eki görüntüle';
+  String get add => 'Ekle';
 
   @override
   String get addAttachment => 'Dosya ekle';
-
-  @override
-  String get attachmentReady => 'Ek hazır';
-
-  @override
-  String get attachmentTooLarge => 'Maksimum 2 MB';
-
-  @override
-  String get search => 'Ara';
-
-  @override
-  String get unlockToSearch => 'Unlock to search';
-
-  @override
-  String get limitReached => 'Limit reached';
-
-  @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
-
-  @override
-  String get upgrade => 'Upgrade';
-
-  @override
-  String get cancel => 'İptal';
-
-  @override
-  String get add => 'Ekle';
 
   @override
   String get addFirstSecureEntry => 'İlk güvenli kaydını eklemek için + butonuna dokun.';
@@ -144,10 +21,31 @@ class AppLocalizationsTr extends AppLocalizations {
   String get addIban => 'IBAN Ekle';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote, modern kriptografi prensiplerine uygun olarak tasarlanmıştır.\n\nVeri Koruma:\nKayıt içerikleri AES-256-GCM algoritması ile şifrelenir.\nVeritabanı SQLCipher kullanılarak tamamen şifreli şekilde saklanır.\n\nAnahtar Yönetimi:\nAna anahtar (Master Key), kullanıcı anahtarlarından PBKDF2-HMAC-SHA256 algoritması ile türetilir.\nBu anahtar hiçbir zaman açık şekilde saklanmaz ve yalnızca aktif oturum sırasında kullanılır.\n\nAnahtar Ayrımı (Key Separation):\nVeritabanı erişimi ve veri şifreleme işlemleri farklı anahtarlarla gerçekleştirilir.\n\nEk Güvenlik Katmanı:\nKasa Anahtarı (Vault Word) etkinleştirildiğinde, veriler ikinci bir katmanla korunur.\nBu anahtar cihazda saklanmaz ve yalnızca kullanıcı tarafından bilinir.\n\nOturum Güvenliği:\nUygulama arka plana alındığında erişim otomatik olarak kilitlenir.\nŞifreleme anahtarları bellekte yalnızca işlem süresi boyunca tutulur.\n\nEkran Güvenliği:\nEkran görüntüsü ve ekran kaydı sistem seviyesinde engellenir.\n\nYedekleme:\nVeriler dışa aktarılırken şifreli bir veri bloğu (encrypted blob) olarak oluşturulur ve yalnızca doğru bilgilerle geri yüklenebilir.\n\nLynra, kullanıcı verilerine erişemez, okuyamaz veya kurtaramaz.\n\nTüm güvenlik modeli, verilerin yalnızca kullanıcı tarafından kontrol edilmesi üzerine kuruludur.';
+
+  @override
+  String get advancedSecurityTitle => 'Gelişmiş Güvenlik';
+
+  @override
+  String get alreadyExists => 'Bu kayıt zaten mevcut';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => 'Ek hazır';
+
+  @override
+  String get attachmentRemoved => 'Ek kaldırıldı';
+
+  @override
+  String get attachmentTooLarge => 'Maksimum 2 MB';
+
+  @override
   String get authenticateToContinue => 'Devam etmek için doğrulayın';
+
+  @override
+  String get backupReminder => 'Verilerinizi güvende tutmak için yedek almayı unutmayın';
 
   @override
   String get bankDetails => 'Banka Bilgileri';
@@ -166,6 +64,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => 'Biyometrik - PIN yedekli';
+
+  @override
+  String get cancel => 'İptal';
+
+  @override
+  String get clear => 'Temizle';
+
+  @override
+  String get clearMyVault => 'Kasamı Temizle';
+
+  @override
+  String get clearMyVaultConfirm => 'Bu işlem Kasamdaki tüm kayıtları silecektir. Bu işlem geri alınamaz.';
 
   @override
   String get collection => 'Koleksiyon';
@@ -187,6 +97,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get createVaultKey => 'Kasa Anahtarı Oluştur';
+
+  @override
+  String get csvimportfailed => 'CSV içe aktarma başarısız oldu.';
+
+  @override
+  String get csvTemplate => 'CSV Şablonu';
 
   @override
   String get delete => 'Sil';
@@ -211,13 +127,22 @@ class AppLocalizationsTr extends AppLocalizations {
   String get details => 'Detaylar';
 
   @override
+  String get downloadTemplate => 'Şablonu İndir';
+
+  @override
   String get drawNewPattern => 'Yeni bir desen çiz';
 
   @override
   String get drawVaultKey => 'Kasa anahtarını çiz';
 
   @override
+  String get duplicate => 'Kopya';
+
+  @override
   String get editEntry => 'Kaydı Düzenle';
+
+  @override
+  String get empty => 'Boş';
 
   @override
   String get enableVaultWord => 'Kasa Anahtarını Etkinleştir';
@@ -238,16 +163,31 @@ class AppLocalizationsTr extends AppLocalizations {
   String get export => 'Dışa Aktar';
 
   @override
+  String get exportBackup => 'Şifreli Yedek Olarak Dışa Aktar';
+
+  @override
   String get exportComingNext => 'Dışa aktarma yakında';
 
   @override
   String get exportCompleted => 'Dışa aktarma tamamlandı';
 
   @override
+  String get exportCSV => 'CSV dosyası olarak dışa aktar';
+
+  @override
   String get exportData => 'Veriyi Dışa Aktar';
 
   @override
   String get exportPin => 'Yedekleme PIN’i';
+
+  @override
+  String get exportText => 'Metin Dosyası Olarak Dışa Aktar';
+
+  @override
+  String get feedback => 'Geri Bildirim';
+
+  @override
+  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
 
   @override
   String get generatePassword => 'Şifre oluştur';
@@ -271,7 +211,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get import => 'İçe Aktar';
 
   @override
+  String get imported => 'Aktarıldı';
+
+  @override
+  String get importBackup => 'Şifreli Yedeği İçe Aktar';
+
+  @override
   String get importCompleted => 'İçe aktarma tamamlandı';
+
+  @override
+  String get importCSV => 'CSV Dosyasından İçe Aktar';
 
   @override
   String get importData => 'Veriyi İçe Aktar';
@@ -283,7 +232,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get importPin => 'Geri Yükleme PIN’i';
 
   @override
+  String get importText => 'Metin Dosyasından İçe Aktar';
+
+  @override
   String get language => 'Dil';
+
+  @override
+  String get limitReached => 'Limit reached';
 
   @override
   String get lynraSecurity => 'Lynra Güvenlik';
@@ -302,6 +257,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get myVault => 'Kasam';
+
+  @override
+  String get myVaultCleared => 'Kasa temizlendi';
 
   @override
   String get newCollection => 'Yeni Koleksiyon';
@@ -343,7 +301,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get passwordCopied => 'Şifre kopyalandı';
 
   @override
+  String get pattern => 'Desen';
+
+  @override
   String get patternMismatch => 'Desenler eşleşmedi. Tekrar başla';
+
+  @override
+  String get patternSkipped => 'Desen atlandı';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsTr extends AppLocalizations {
   String get privateByDesign => 'Gizlilik Özellik Değil Temeldir';
 
   @override
+  String get removeAttachment => 'Dosyayı kaldır';
+
+  @override
   String get save => 'Kaydet';
 
   @override
   String get savePin => 'PIN Kaydet';
 
   @override
+  String get search => 'Ara';
+
+  @override
   String get secondaryLock => 'İkincil Kilit';
 
   @override
   String get security => 'Güvenlik';
+
+  @override
+  String get securityManifesto => 'Güvenlik Modeli';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote, verilerinizi yalnızca cihazınızda saklayan çevrimdışı bir güvenli kasadır.\nUygulama sunucu kullanmaz, sizi takip etmez ve hiçbir veri toplamaz.\nTüm kayıtlarınız güçlü şifreleme ile korunur ve yalnızca siz erişebilirsiniz.\nUygulama arka plana alındığında otomatik olarak kilitlenir ve ekran görüntüsü alınması engellenir.\nKilit açma bilgileri unutulursa veriler geri getirilemez.\nDetaylı teknik bilgi için aşağıdaki Gelişmiş Güvenlik bölümünü inceleyebilirsiniz.';
+
+  @override
+  String get securitySummaryTitle => 'Güvenlik Özeti';
 
   @override
   String get selectLanguage => 'Dil Seç';
@@ -380,6 +359,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get setPin => 'PIN Ayarla';
+
+  @override
+  String get sort => 'Sırala';
+
+  @override
+  String get sortFavorites => 'Favoriler';
+
+  @override
+  String get sortUpdated => 'Son güncellenen';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => 'Standart';
@@ -399,13 +390,31 @@ class AppLocalizationsTr extends AppLocalizations {
   String get weak => 'Zayıf';
 
   @override
+  String get viewAttachment => 'Eki görüntüle';
+
+  @override
   String get wrongPattern => 'Yanlış desen. Tekrar dene';
 
   @override
   String get wrongPin => 'Yanlış PIN';
 
   @override
+  String get textTemplate => 'Metin Şablonu';
+
+  @override
   String get title => 'Başlık';
+
+  @override
+  String get txtImportCompleted => 'İçe aktarma tamamlandı.';
+
+  @override
+  String get txtImportCompletedWithSkip => 'İçe aktarma tamamlandı. %d desen kaydı atlandı.';
+
+  @override
+  String get txtExportCompletedWithSkip => 'Dışa aktarma tamamlandı. Bu dosya şifrelenmemiştir. %d desen kaydı atlandı.';
+
+  @override
+  String get txtExportCompleted => 'Dışa aktarma tamamlandı. Bu dosya şifreli değildir.';
 
   @override
   String get unlock => 'Kilidi Aç';
@@ -415,6 +424,12 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get unlockVault => 'Kasayı Aç';
+
+  @override
+  String get unlockToSearch => 'Unlock to search';
+
+  @override
+  String get upgrade => 'Upgrade';
 
   @override
   String get untitled => 'Başlıksız';
@@ -432,19 +447,4 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get usernameEmail => 'Kullanıcı Adı / E-posta';
-
-  @override
-  String get securityManifesto => 'Güvenlik Modeli';
-
-  @override
-  String get securitySummaryTitle => 'Güvenlik Özeti';
-
-  @override
-  String get advancedSecurityTitle => 'Gelişmiş Güvenlik';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote, verilerinizi yalnızca cihazınızda saklayan çevrimdışı bir güvenli kasadır.\nUygulama sunucu kullanmaz, sizi takip etmez ve hiçbir veri toplamaz.\nTüm kayıtlarınız güçlü şifreleme ile korunur ve yalnızca siz erişebilirsiniz.\nUygulama arka plana alındığında otomatik olarak kilitlenir ve ekran görüntüsü alınması engellenir.\nKilit açma bilgileri unutulursa veriler geri getirilemez.\nDetaylı teknik bilgi için aşağıdaki Gelişmiş Güvenlik bölümünü inceleyebilirsiniz.';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote, modern kriptografi prensiplerine uygun olarak tasarlanmıştır.\n\nVeri Koruma:\nKayıt içerikleri AES-256-GCM algoritması ile şifrelenir.\nVeritabanı SQLCipher kullanılarak tamamen şifreli şekilde saklanır.\n\nAnahtar Yönetimi:\nAna anahtar (Master Key), kullanıcı anahtarlarından PBKDF2-HMAC-SHA256 algoritması ile türetilir.\nBu anahtar hiçbir zaman açık şekilde saklanmaz ve yalnızca aktif oturum sırasında kullanılır.\n\nAnahtar Ayrımı (Key Separation):\nVeritabanı erişimi ve veri şifreleme işlemleri farklı anahtarlarla gerçekleştirilir.\n\nEk Güvenlik Katmanı:\nKasa Anahtarı (Vault Word) etkinleştirildiğinde, veriler ikinci bir katmanla korunur.\nBu anahtar cihazda saklanmaz ve yalnızca kullanıcı tarafından bilinir.\n\nOturum Güvenliği:\nUygulama arka plana alındığında erişim otomatik olarak kilitlenir.\nŞifreleme anahtarları bellekte yalnızca işlem süresi boyunca tutulur.\n\nEkran Güvenliği:\nEkran görüntüsü ve ekran kaydı sistem seviyesinde engellenir.\n\nYedekleme:\nVeriler dışa aktarılırken şifreli bir veri bloğu (encrypted blob) olarak oluşturulur ve yalnızca doğru bilgilerle geri yüklenebilir.\n\nLynra, kullanıcı verilerine erişemez, okuyamaz veya kurtaramaz.\n\nTüm güvenlik modeli, verilerin yalnızca kullanıcı tarafından kontrol edilmesi üzerine kuruludur.';
 }

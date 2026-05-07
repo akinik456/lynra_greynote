@@ -130,263 +130,17 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
-  /// No description provided for @feedback.
+  /// No description provided for @add.
   ///
   /// In en, this message translates to:
-  /// **'Feedback'**
-  String get feedback;
-
-  /// No description provided for @imported.
-  ///
-  /// In en, this message translates to:
-  /// **'Imported'**
-  String get imported;
-
-  /// No description provided for @duplicate.
-  ///
-  /// In en, this message translates to:
-  /// **'Duplicate'**
-  String get duplicate;
-
-  /// No description provided for @empty.
-  ///
-  /// In en, this message translates to:
-  /// **'Empty'**
-  String get empty;
-
-  /// No description provided for @patternSkipped.
-  ///
-  /// In en, this message translates to:
-  /// **'Pattern skipped'**
-  String get patternSkipped;
-
-  /// No description provided for @clear.
-  ///
-  /// In en, this message translates to:
-  /// **'Clear'**
-  String get clear;
-
-  /// No description provided for @clearMyVault.
-  ///
-  /// In en, this message translates to:
-  /// **'Clear My Vault'**
-  String get clearMyVault;
-
-  /// No description provided for @clearMyVaultConfirm.
-  ///
-  /// In en, this message translates to:
-  /// **'This will delete all entries in My Vault. This cannot be undone.'**
-  String get clearMyVaultConfirm;
-
-  /// No description provided for @csvimportfailed.
-  ///
-  /// In en, this message translates to:
-  /// **'CSV import failed'**
-  String get csvimportfailed;
-
-  /// No description provided for @myVaultCleared.
-  ///
-  /// In en, this message translates to:
-  /// **'My Vault cleared'**
-  String get myVaultCleared;
-
-  /// No description provided for @txtImportCompleted.
-  ///
-  /// In en, this message translates to:
-  /// **'Import completed.'**
-  String get txtImportCompleted;
-
-  /// No description provided for @txtImportCompletedWithSkip.
-  ///
-  /// In en, this message translates to:
-  /// **'Import completed. %d pattern entries were skipped.'**
-  String get txtImportCompletedWithSkip;
-
-  /// No description provided for @txtExportCompletedWithSkip.
-  ///
-  /// In en, this message translates to:
-  /// **'Export completed. This file is not encrypted. %d pattern entries were skipped.'**
-  String get txtExportCompletedWithSkip;
-
-  /// No description provided for @importCSV.
-  ///
-  /// In en, this message translates to:
-  /// **'Import from CSV File'**
-  String get importCSV;
-
-  /// No description provided for @exportCSV.
-  ///
-  /// In en, this message translates to:
-  /// **'Export as csv File'**
-  String get exportCSV;
-
-  /// No description provided for @csvTemplate.
-  ///
-  /// In en, this message translates to:
-  /// **'csv Template'**
-  String get csvTemplate;
-
-  /// No description provided for @textTemplate.
-  ///
-  /// In en, this message translates to:
-  /// **'text Template'**
-  String get textTemplate;
-
-  /// No description provided for @txtExportCompleted.
-  ///
-  /// In en, this message translates to:
-  /// **'Export completed. This file is not encrypted.'**
-  String get txtExportCompleted;
-
-  /// No description provided for @exportBackup.
-  ///
-  /// In en, this message translates to:
-  /// **'Export Encrypted Backup'**
-  String get exportBackup;
-
-  /// No description provided for @exportText.
-  ///
-  /// In en, this message translates to:
-  /// **'Export as Text File'**
-  String get exportText;
-
-  /// No description provided for @importBackup.
-  ///
-  /// In en, this message translates to:
-  /// **'Import Encrypted Backup'**
-  String get importBackup;
-
-  /// No description provided for @importText.
-  ///
-  /// In en, this message translates to:
-  /// **'Import from Text File'**
-  String get importText;
-
-  /// No description provided for @downloadTemplate.
-  ///
-  /// In en, this message translates to:
-  /// **'Download Template'**
-  String get downloadTemplate;
-
-  /// No description provided for @alreadyExists.
-  ///
-  /// In en, this message translates to:
-  /// **'This item already exists'**
-  String get alreadyExists;
-
-  /// No description provided for @backupReminder.
-  ///
-  /// In en, this message translates to:
-  /// **'Consider creating a backup to keep your data safe'**
-  String get backupReminder;
-
-  /// No description provided for @sort.
-  ///
-  /// In en, this message translates to:
-  /// **'Sort'**
-  String get sort;
-
-  /// No description provided for @sortFavorites.
-  ///
-  /// In en, this message translates to:
-  /// **'Favorites'**
-  String get sortFavorites;
-
-  /// No description provided for @sortUpdated.
-  ///
-  /// In en, this message translates to:
-  /// **'Last updated'**
-  String get sortUpdated;
-
-  /// No description provided for @sortAZ.
-  ///
-  /// In en, this message translates to:
-  /// **'A–Z'**
-  String get sortAZ;
-
-  /// No description provided for @pattern.
-  ///
-  /// In en, this message translates to:
-  /// **'Pattern'**
-  String get pattern;
-
-  /// No description provided for @removeAttachment.
-  ///
-  /// In en, this message translates to:
-  /// **'Remove'**
-  String get removeAttachment;
-
-  /// No description provided for @attachmentRemoved.
-  ///
-  /// In en, this message translates to:
-  /// **'Attachment removed'**
-  String get attachmentRemoved;
-
-  /// No description provided for @viewAttachment.
-  ///
-  /// In en, this message translates to:
-  /// **'View Attachment'**
-  String get viewAttachment;
+  /// **'Add'**
+  String get add;
 
   /// No description provided for @addAttachment.
   ///
   /// In en, this message translates to:
   /// **'Add Attachment'**
   String get addAttachment;
-
-  /// No description provided for @attachmentReady.
-  ///
-  /// In en, this message translates to:
-  /// **'Attachment ready'**
-  String get attachmentReady;
-
-  /// No description provided for @attachmentTooLarge.
-  ///
-  /// In en, this message translates to:
-  /// **'Max 2MB allowed'**
-  String get attachmentTooLarge;
-
-  /// No description provided for @search.
-  ///
-  /// In en, this message translates to:
-  /// **'Search'**
-  String get search;
-
-  /// No description provided for @unlockToSearch.
-  ///
-  /// In en, this message translates to:
-  /// **'Unlock to search'**
-  String get unlockToSearch;
-
-  /// No description provided for @limitReached.
-  ///
-  /// In en, this message translates to:
-  /// **'Limit reached'**
-  String get limitReached;
-
-  /// No description provided for @freeLimitEntries.
-  ///
-  /// In en, this message translates to:
-  /// **'You can add up to 2 entries in the free version.'**
-  String get freeLimitEntries;
-
-  /// No description provided for @upgrade.
-  ///
-  /// In en, this message translates to:
-  /// **'Upgrade'**
-  String get upgrade;
-
-  /// No description provided for @cancel.
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
-
-  /// No description provided for @add.
-  ///
-  /// In en, this message translates to:
-  /// **'Add'**
-  String get add;
 
   /// No description provided for @addFirstSecureEntry.
   ///
@@ -400,17 +154,59 @@ abstract class AppLocalizations {
   /// **'Add IBAN'**
   String get addIban;
 
+  /// No description provided for @advancedSecurityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Lynra GreyNote is designed in accordance with modern cryptography principles.\n\nData Protection:\nRecord contents are encrypted using the AES-256-GCM algorithm.\nThe database is stored fully encrypted using SQLCipher.\n\nKey Management:\nThe master key is derived from user secrets using the PBKDF2-HMAC-SHA256 algorithm.\nThis key is never stored in plain form and is only used during an active session.\n\nKey Separation:\nDatabase access and data encryption operations are performed using separate keys.\n\nAdditional Security Layer:\nWhen the Vault Word feature is enabled, your data is protected with a second layer.\nThis key is not stored on the device and is known only by the user.\n\nSession Security:\nWhen the app goes to the background, access is automatically locked.\nEncryption keys exist in memory only for the duration of operations.\n\nScreen Security:\nScreenshots and screen recordings are blocked at the system level.\n\nBackup:\nData is exported as an encrypted blob and can only be restored with the correct credentials.\n\nLynra cannot access, read, or recover your data.\n\nThe entire security model is built on user-controlled data.'**
+  String get advancedSecurityBody;
+
+  /// No description provided for @advancedSecurityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced Security'**
+  String get advancedSecurityTitle;
+
+  /// No description provided for @alreadyExists.
+  ///
+  /// In en, this message translates to:
+  /// **'This item already exists'**
+  String get alreadyExists;
+
   /// No description provided for @appTitle.
   ///
   /// In en, this message translates to:
   /// **'LynraGreyNote'**
   String get appTitle;
 
+  /// No description provided for @attachmentReady.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment ready'**
+  String get attachmentReady;
+
+  /// No description provided for @attachmentRemoved.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment removed'**
+  String get attachmentRemoved;
+
+  /// No description provided for @attachmentTooLarge.
+  ///
+  /// In en, this message translates to:
+  /// **'Max 2MB allowed'**
+  String get attachmentTooLarge;
+
   /// No description provided for @authenticateToContinue.
   ///
   /// In en, this message translates to:
   /// **'Authenticate to continue'**
   String get authenticateToContinue;
+
+  /// No description provided for @backupReminder.
+  ///
+  /// In en, this message translates to:
+  /// **'Consider creating a backup to keep your data safe'**
+  String get backupReminder;
 
   /// No description provided for @bankDetails.
   ///
@@ -447,6 +243,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Biometric - with PIN backup'**
   String get biometricWithBackupPin;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @clear.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clear;
+
+  /// No description provided for @clearMyVault.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear My Vault'**
+  String get clearMyVault;
+
+  /// No description provided for @clearMyVaultConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'This will delete all entries in My Vault. This cannot be undone.'**
+  String get clearMyVaultConfirm;
 
   /// No description provided for @collection.
   ///
@@ -490,6 +310,18 @@ abstract class AppLocalizations {
   /// **'Create Your Vault Key'**
   String get createVaultKey;
 
+  /// No description provided for @csvimportfailed.
+  ///
+  /// In en, this message translates to:
+  /// **'CSV import failed'**
+  String get csvimportfailed;
+
+  /// No description provided for @csvTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'csv Template'**
+  String get csvTemplate;
+
   /// No description provided for @delete.
   ///
   /// In en, this message translates to:
@@ -526,6 +358,12 @@ abstract class AppLocalizations {
   /// **'Details'**
   String get details;
 
+  /// No description provided for @downloadTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'Download Template'**
+  String get downloadTemplate;
+
   /// No description provided for @drawNewPattern.
   ///
   /// In en, this message translates to:
@@ -538,11 +376,23 @@ abstract class AppLocalizations {
   /// **'Draw your vault key'**
   String get drawVaultKey;
 
+  /// No description provided for @duplicate.
+  ///
+  /// In en, this message translates to:
+  /// **'Duplicate'**
+  String get duplicate;
+
   /// No description provided for @editEntry.
   ///
   /// In en, this message translates to:
   /// **'Edit Entry'**
   String get editEntry;
+
+  /// No description provided for @empty.
+  ///
+  /// In en, this message translates to:
+  /// **'Empty'**
+  String get empty;
 
   /// No description provided for @enableVaultWord.
   ///
@@ -580,6 +430,12 @@ abstract class AppLocalizations {
   /// **'Export'**
   String get export;
 
+  /// No description provided for @exportBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Export Encrypted Backup'**
+  String get exportBackup;
+
   /// No description provided for @exportComingNext.
   ///
   /// In en, this message translates to:
@@ -592,6 +448,12 @@ abstract class AppLocalizations {
   /// **'Export completed'**
   String get exportCompleted;
 
+  /// No description provided for @exportCSV.
+  ///
+  /// In en, this message translates to:
+  /// **'Export as csv File'**
+  String get exportCSV;
+
   /// No description provided for @exportData.
   ///
   /// In en, this message translates to:
@@ -603,6 +465,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Backup PIN'**
   String get exportPin;
+
+  /// No description provided for @exportText.
+  ///
+  /// In en, this message translates to:
+  /// **'Export as Text File'**
+  String get exportText;
+
+  /// No description provided for @feedback.
+  ///
+  /// In en, this message translates to:
+  /// **'Feedback'**
+  String get feedback;
+
+  /// No description provided for @freeLimitEntries.
+  ///
+  /// In en, this message translates to:
+  /// **'You can add up to 2 entries in the free version.'**
+  String get freeLimitEntries;
 
   /// No description provided for @generatePassword.
   ///
@@ -646,11 +526,29 @@ abstract class AppLocalizations {
   /// **'Import'**
   String get import;
 
+  /// No description provided for @imported.
+  ///
+  /// In en, this message translates to:
+  /// **'Imported'**
+  String get imported;
+
+  /// No description provided for @importBackup.
+  ///
+  /// In en, this message translates to:
+  /// **'Import Encrypted Backup'**
+  String get importBackup;
+
   /// No description provided for @importCompleted.
   ///
   /// In en, this message translates to:
   /// **'Import completed'**
   String get importCompleted;
+
+  /// No description provided for @importCSV.
+  ///
+  /// In en, this message translates to:
+  /// **'Import from CSV File'**
+  String get importCSV;
 
   /// No description provided for @importData.
   ///
@@ -670,11 +568,23 @@ abstract class AppLocalizations {
   /// **'Restore Pin'**
   String get importPin;
 
+  /// No description provided for @importText.
+  ///
+  /// In en, this message translates to:
+  /// **'Import from Text File'**
+  String get importText;
+
   /// No description provided for @language.
   ///
   /// In en, this message translates to:
   /// **'Language'**
   String get language;
+
+  /// No description provided for @limitReached.
+  ///
+  /// In en, this message translates to:
+  /// **'Limit reached'**
+  String get limitReached;
 
   /// No description provided for @lynraSecurity.
   ///
@@ -711,6 +621,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'My Vault'**
   String get myVault;
+
+  /// No description provided for @myVaultCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'My Vault cleared'**
+  String get myVaultCleared;
 
   /// No description provided for @newCollection.
   ///
@@ -790,11 +706,23 @@ abstract class AppLocalizations {
   /// **'Password copied'**
   String get passwordCopied;
 
+  /// No description provided for @pattern.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern'**
+  String get pattern;
+
   /// No description provided for @patternMismatch.
   ///
   /// In en, this message translates to:
   /// **'Patterns did not match. Start again'**
   String get patternMismatch;
+
+  /// No description provided for @patternSkipped.
+  ///
+  /// In en, this message translates to:
+  /// **'Pattern skipped'**
+  String get patternSkipped;
 
   /// No description provided for @pin.
   ///
@@ -826,6 +754,12 @@ abstract class AppLocalizations {
   /// **'Privacy is a fundamental, not a feature'**
   String get privateByDesign;
 
+  /// No description provided for @removeAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get removeAttachment;
+
   /// No description provided for @save.
   ///
   /// In en, this message translates to:
@@ -838,6 +772,12 @@ abstract class AppLocalizations {
   /// **'Save PIN'**
   String get savePin;
 
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
   /// No description provided for @secondaryLock.
   ///
   /// In en, this message translates to:
@@ -849,6 +789,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Security'**
   String get security;
+
+  /// No description provided for @securityManifesto.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Model'**
+  String get securityManifesto;
+
+  /// No description provided for @securitySummaryBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Lynra GreyNote is an offline secure vault that stores your data only on your device.\nThe app does not use servers, does not track you, and does not collect any data.\nAll your records are protected with strong encryption and can only be accessed by you.\nWhen the app goes to the background, it automatically locks and prevents screenshots.\nIf unlock credentials are forgotten, data cannot be recovered.\nFor detailed technical information, please refer to the Advanced Security section below.'**
+  String get securitySummaryBody;
+
+  /// No description provided for @securitySummaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Security Summary'**
+  String get securitySummaryTitle;
 
   /// No description provided for @selectLanguage.
   ///
@@ -867,6 +825,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set PIN'**
   String get setPin;
+
+  /// No description provided for @sort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sort'**
+  String get sort;
+
+  /// No description provided for @sortFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Favorites'**
+  String get sortFavorites;
+
+  /// No description provided for @sortUpdated.
+  ///
+  /// In en, this message translates to:
+  /// **'Last updated'**
+  String get sortUpdated;
+
+  /// No description provided for @sortAZ.
+  ///
+  /// In en, this message translates to:
+  /// **'A–Z'**
+  String get sortAZ;
 
   /// No description provided for @standard.
   ///
@@ -898,6 +880,12 @@ abstract class AppLocalizations {
   /// **'Weak'**
   String get weak;
 
+  /// No description provided for @viewAttachment.
+  ///
+  /// In en, this message translates to:
+  /// **'View Attachment'**
+  String get viewAttachment;
+
   /// No description provided for @wrongPattern.
   ///
   /// In en, this message translates to:
@@ -910,11 +898,41 @@ abstract class AppLocalizations {
   /// **'Wrong PIN'**
   String get wrongPin;
 
+  /// No description provided for @textTemplate.
+  ///
+  /// In en, this message translates to:
+  /// **'text Template'**
+  String get textTemplate;
+
   /// No description provided for @title.
   ///
   /// In en, this message translates to:
   /// **'Title'**
   String get title;
+
+  /// No description provided for @txtImportCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Import completed.'**
+  String get txtImportCompleted;
+
+  /// No description provided for @txtImportCompletedWithSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Import completed. %d pattern entries were skipped.'**
+  String get txtImportCompletedWithSkip;
+
+  /// No description provided for @txtExportCompletedWithSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Export completed. This file is not encrypted. %d pattern entries were skipped.'**
+  String get txtExportCompletedWithSkip;
+
+  /// No description provided for @txtExportCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Export completed. This file is not encrypted.'**
+  String get txtExportCompleted;
 
   /// No description provided for @unlock.
   ///
@@ -933,6 +951,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Unlock Vault'**
   String get unlockVault;
+
+  /// No description provided for @unlockToSearch.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock to search'**
+  String get unlockToSearch;
+
+  /// No description provided for @upgrade.
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade'**
+  String get upgrade;
 
   /// No description provided for @untitled.
   ///
@@ -963,36 +993,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Username / Email'**
   String get usernameEmail;
-
-  /// No description provided for @securityManifesto.
-  ///
-  /// In en, this message translates to:
-  /// **'Security Model'**
-  String get securityManifesto;
-
-  /// No description provided for @securitySummaryTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Security Summary'**
-  String get securitySummaryTitle;
-
-  /// No description provided for @advancedSecurityTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Advanced Security'**
-  String get advancedSecurityTitle;
-
-  /// No description provided for @securitySummaryBody.
-  ///
-  /// In en, this message translates to:
-  /// **'Lynra GreyNote is an offline secure vault that stores your data only on your device.\nThe app does not use servers, does not track you, and does not collect any data.\nAll your records are protected with strong encryption and can only be accessed by you.\nWhen the app goes to the background, it automatically locks and prevents screenshots.\nIf unlock credentials are forgotten, data cannot be recovered.\nFor detailed technical information, please refer to the Advanced Security section below.'**
-  String get securitySummaryBody;
-
-  /// No description provided for @advancedSecurityBody.
-  ///
-  /// In en, this message translates to:
-  /// **'Lynra GreyNote is designed in accordance with modern cryptography principles.\n\nData Protection:\nRecord contents are encrypted using the AES-256-GCM algorithm.\nThe database is stored fully encrypted using SQLCipher.\n\nKey Management:\nThe master key is derived from user secrets using the PBKDF2-HMAC-SHA256 algorithm.\nThis key is never stored in plain form and is only used during an active session.\n\nKey Separation:\nDatabase access and data encryption operations are performed using separate keys.\n\nAdditional Security Layer:\nWhen the Vault Word feature is enabled, your data is protected with a second layer.\nThis key is not stored on the device and is known only by the user.\n\nSession Security:\nWhen the app goes to the background, access is automatically locked.\nEncryption keys exist in memory only for the duration of operations.\n\nScreen Security:\nScreenshots and screen recordings are blocked at the system level.\n\nBackup:\nData is exported as an encrypted blob and can only be restored with the correct credentials.\n\nLynra cannot access, read, or recover your data.\n\nThe entire security model is built on user-controlled data.'**
-  String get advancedSecurityBody;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

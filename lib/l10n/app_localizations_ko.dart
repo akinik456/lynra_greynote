@@ -9,133 +9,10 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
-  String get feedback => '피드백';
-
-  @override
-  String get imported => '가져옴';
-
-  @override
-  String get duplicate => '중복';
-
-  @override
-  String get empty => '비어 있음';
-
-  @override
-  String get patternSkipped => '패턴 건너뜀';
-
-  @override
-  String get clear => '지우기';
-
-  @override
-  String get clearMyVault => '내 Vault 지우기';
-
-  @override
-  String get clearMyVaultConfirm => '이 작업은 내 Vault의 모든 항목을 삭제합니다. 되돌릴 수 없습니다.';
-
-  @override
-  String get csvimportfailed => 'CSV 가져오기에 실패했습니다.';
-
-  @override
-  String get myVaultCleared => 'Vault가 비워졌습니다';
-
-  @override
-  String get txtImportCompleted => '가져오기가 완료되었습니다.';
-
-  @override
-  String get txtImportCompletedWithSkip => '가져오기가 완료되었습니다. %d개의 패턴 항목이 건너뛰어졌습니다.';
-
-  @override
-  String get txtExportCompletedWithSkip => '내보내기가 완료되었습니다. 이 파일은 암호화되지 않았습니다. %d개의 패턴 항목이 건너뛰어졌습니다.';
-
-  @override
-  String get importCSV => 'CSV 파일에서 가져오기';
-
-  @override
-  String get exportCSV => 'CSV 파일로 내보내기';
-
-  @override
-  String get csvTemplate => 'CSV 템플릿';
-
-  @override
-  String get textTemplate => '텍스트 템플릿';
-
-  @override
-  String get txtExportCompleted => '내보내기가 완료되었습니다. 이 파일은 암호화되어 있지 않습니다.';
-
-  @override
-  String get exportBackup => '암호화된 백업 내보내기';
-
-  @override
-  String get exportText => '텍스트 파일로 내보내기';
-
-  @override
-  String get importBackup => '암호화된 백업 가져오기';
-
-  @override
-  String get importText => '텍스트 파일에서 가져오기';
-
-  @override
-  String get downloadTemplate => '템플릿 다운로드';
-
-  @override
-  String get alreadyExists => '이 항목은 이미 존재합니다';
-
-  @override
-  String get backupReminder => '데이터를 안전하게 보호하려면 백업을 고려하세요';
-
-  @override
-  String get sort => '정렬';
-
-  @override
-  String get sortFavorites => '즐겨찾기';
-
-  @override
-  String get sortUpdated => '최근 업데이트';
-
-  @override
-  String get sortAZ => 'A–Z';
-
-  @override
-  String get pattern => '패턴';
-
-  @override
-  String get removeAttachment => '파일 제거';
-
-  @override
-  String get attachmentRemoved => '첨부 파일이 삭제되었습니다';
-
-  @override
-  String get viewAttachment => '첨부 파일 보기';
+  String get add => '추가';
 
   @override
   String get addAttachment => '첨부 파일 추가';
-
-  @override
-  String get attachmentReady => '첨부 파일 준비됨';
-
-  @override
-  String get attachmentTooLarge => '최대 2MB';
-
-  @override
-  String get search => '검색';
-
-  @override
-  String get unlockToSearch => '검색하려면 잠금 해제';
-
-  @override
-  String get limitReached => '제한 도달';
-
-  @override
-  String get freeLimitEntries => '무료 버전에서는 최대 2개의 항목을 추가할 수 있습니다.';
-
-  @override
-  String get upgrade => '업그레이드';
-
-  @override
-  String get cancel => '취소';
-
-  @override
-  String get add => '추가';
 
   @override
   String get addFirstSecureEntry => '+ 버튼을 눌러 첫 번째 보안 항목을 추가하세요.';
@@ -144,10 +21,31 @@ class AppLocalizationsKo extends AppLocalizations {
   String get addIban => 'IBAN 추가';
 
   @override
+  String get advancedSecurityBody => 'Lynra GreyNote는 현대 암호화 원칙에 따라 설계되었습니다.\n\n데이터 보호:\n항목 내용은 AES-256-GCM 알고리즘으로 암호화됩니다.\n데이터베이스는 SQLCipher를 사용하여 완전히 암호화된 상태로 저장됩니다.\n\n키 관리:\n마스터 키는 PBKDF2-HMAC-SHA256 알고리즘을 사용하여 사용자 키로부터 파생됩니다.\n이 키는 평문으로 저장되지 않으며 활성 세션 동안에만 사용됩니다.\n\n키 분리 (Key Separation):\n데이터베이스 접근과 데이터 암호화는 서로 다른 키를 사용합니다.\n\n추가 보안 계층:\nVault Word가 활성화되면 데이터는 두 번째 계층으로 보호됩니다.\n이 키는 기기에 저장되지 않으며 사용자만 알고 있습니다.\n\n세션 보안:\n앱이 백그라운드로 전환되면 접근이 자동으로 잠깁니다.\n암호화 키는 처리 중에만 메모리에 유지됩니다.\n\n화면 보안:\n스크린샷 및 화면 녹화는 시스템 수준에서 차단됩니다.\n\n백업:\n내보내기 시 데이터는 암호화된 블록(encrypted blob)으로 생성되며 올바른 정보로만 복원할 수 있습니다.\n\nLynra는 사용자 데이터에 접근하거나 읽거나 복구할 수 없습니다.\n\n전체 보안 모델은 데이터가 사용자에 의해 완전히 제어된다는 원칙에 기반합니다.';
+
+  @override
+  String get advancedSecurityTitle => '고급 보안';
+
+  @override
+  String get alreadyExists => '이 항목은 이미 존재합니다';
+
+  @override
   String get appTitle => 'LynraGreyNote';
 
   @override
+  String get attachmentReady => '첨부 파일 준비됨';
+
+  @override
+  String get attachmentRemoved => '첨부 파일이 삭제되었습니다';
+
+  @override
+  String get attachmentTooLarge => '최대 2MB';
+
+  @override
   String get authenticateToContinue => '계속하려면 인증하세요';
+
+  @override
+  String get backupReminder => '데이터를 안전하게 보호하려면 백업을 고려하세요';
 
   @override
   String get bankDetails => '은행 정보';
@@ -166,6 +64,18 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get biometricWithBackupPin => '생체인증 - PIN 백업 포함';
+
+  @override
+  String get cancel => '취소';
+
+  @override
+  String get clear => '지우기';
+
+  @override
+  String get clearMyVault => '내 Vault 지우기';
+
+  @override
+  String get clearMyVaultConfirm => '이 작업은 내 Vault의 모든 항목을 삭제합니다. 되돌릴 수 없습니다.';
 
   @override
   String get collection => '컬렉션';
@@ -187,6 +97,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get createVaultKey => '볼트 키 생성';
+
+  @override
+  String get csvimportfailed => 'CSV 가져오기에 실패했습니다.';
+
+  @override
+  String get csvTemplate => 'CSV 템플릿';
 
   @override
   String get delete => '삭제';
@@ -211,13 +127,22 @@ class AppLocalizationsKo extends AppLocalizations {
   String get details => '상세 정보';
 
   @override
+  String get downloadTemplate => '템플릿 다운로드';
+
+  @override
   String get drawNewPattern => '새 패턴 그리기';
 
   @override
   String get drawVaultKey => '볼트 키를 그리세요';
 
   @override
+  String get duplicate => '중복';
+
+  @override
   String get editEntry => '항목 수정';
+
+  @override
+  String get empty => '비어 있음';
 
   @override
   String get enableVaultWord => '볼트 단어 활성화';
@@ -238,16 +163,31 @@ class AppLocalizationsKo extends AppLocalizations {
   String get export => '내보내기';
 
   @override
+  String get exportBackup => '암호화된 백업 내보내기';
+
+  @override
   String get exportComingNext => '내보내기 기능 준비 중';
 
   @override
   String get exportCompleted => '내보내기 완료';
 
   @override
+  String get exportCSV => 'CSV 파일로 내보내기';
+
+  @override
   String get exportData => '데이터 내보내기';
 
   @override
   String get exportPin => '백업 PIN';
+
+  @override
+  String get exportText => '텍스트 파일로 내보내기';
+
+  @override
+  String get feedback => '피드백';
+
+  @override
+  String get freeLimitEntries => '무료 버전에서는 최대 2개의 항목을 추가할 수 있습니다.';
 
   @override
   String get generatePassword => '비밀번호 생성';
@@ -271,7 +211,16 @@ class AppLocalizationsKo extends AppLocalizations {
   String get import => '가져오기';
 
   @override
+  String get imported => '가져옴';
+
+  @override
+  String get importBackup => '암호화된 백업 가져오기';
+
+  @override
   String get importCompleted => '가져오기 완료';
+
+  @override
+  String get importCSV => 'CSV 파일에서 가져오기';
 
   @override
   String get importData => '데이터 가져오기';
@@ -283,7 +232,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get importPin => '복원 PIN';
 
   @override
+  String get importText => '텍스트 파일에서 가져오기';
+
+  @override
   String get language => '언어';
+
+  @override
+  String get limitReached => '제한 도달';
 
   @override
   String get lynraSecurity => 'Lynra 보안';
@@ -302,6 +257,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get myVault => '내 볼트';
+
+  @override
+  String get myVaultCleared => 'Vault가 비워졌습니다';
 
   @override
   String get newCollection => '새 컬렉션';
@@ -343,7 +301,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get passwordCopied => '비밀번호 복사됨';
 
   @override
+  String get pattern => '패턴';
+
+  @override
   String get patternMismatch => '패턴이 일치하지 않습니다. 다시 시도하세요';
+
+  @override
+  String get patternSkipped => '패턴 건너뜀';
 
   @override
   String get pin => 'PIN';
@@ -361,16 +325,31 @@ class AppLocalizationsKo extends AppLocalizations {
   String get privateByDesign => '프라이버시는 기능이 아닌 기본입니다';
 
   @override
+  String get removeAttachment => '파일 제거';
+
+  @override
   String get save => '저장';
 
   @override
   String get savePin => 'PIN 저장';
 
   @override
+  String get search => '검색';
+
+  @override
   String get secondaryLock => '보조 잠금';
 
   @override
   String get security => '보안';
+
+  @override
+  String get securityManifesto => '보안 모델';
+
+  @override
+  String get securitySummaryBody => 'Lynra GreyNote는 데이터를 오직 기기 내에만 저장하는 오프라인 보안 금고입니다.\n이 애플리케이션은 서버를 사용하지 않으며, 사용자를 추적하거나 데이터를 수집하지 않습니다.\n모든 항목은 강력한 암호화로 보호되며 오직 사용자만 접근할 수 있습니다.\n앱이 백그라운드로 전환되면 자동으로 잠기며 화면 캡처가 차단됩니다.\n잠금 해제 정보를 잊어버리면 데이터를 복구할 수 없습니다.\n자세한 기술 정보는 아래 고급 보안 섹션을 확인하십시오.';
+
+  @override
+  String get securitySummaryTitle => '보안 요약';
 
   @override
   String get selectLanguage => '언어 선택';
@@ -380,6 +359,18 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get setPin => 'PIN 설정';
+
+  @override
+  String get sort => '정렬';
+
+  @override
+  String get sortFavorites => '즐겨찾기';
+
+  @override
+  String get sortUpdated => '최근 업데이트';
+
+  @override
+  String get sortAZ => 'A–Z';
 
   @override
   String get standard => '표준';
@@ -405,13 +396,31 @@ class AppLocalizationsKo extends AppLocalizations {
   String get weak => '약함';
 
   @override
+  String get viewAttachment => '첨부 파일 보기';
+
+  @override
   String get wrongPattern => '잘못된 패턴입니다. 다시 시도하세요';
 
   @override
   String get wrongPin => '잘못된 PIN';
 
   @override
+  String get textTemplate => '텍스트 템플릿';
+
+  @override
   String get title => '제목';
+
+  @override
+  String get txtImportCompleted => '가져오기가 완료되었습니다.';
+
+  @override
+  String get txtImportCompletedWithSkip => '가져오기가 완료되었습니다. %d개의 패턴 항목이 건너뛰어졌습니다.';
+
+  @override
+  String get txtExportCompletedWithSkip => '내보내기가 완료되었습니다. 이 파일은 암호화되지 않았습니다. %d개의 패턴 항목이 건너뛰어졌습니다.';
+
+  @override
+  String get txtExportCompleted => '내보내기가 완료되었습니다. 이 파일은 암호화되어 있지 않습니다.';
 
   @override
   String get unlock => '잠금 해제';
@@ -421,6 +430,12 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get unlockVault => '볼트 잠금 해제';
+
+  @override
+  String get unlockToSearch => '검색하려면 잠금 해제';
+
+  @override
+  String get upgrade => '업그레이드';
 
   @override
   String get untitled => '제목 없음';
@@ -438,19 +453,4 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get usernameEmail => '사용자 이름 / 이메일';
-
-  @override
-  String get securityManifesto => '보안 모델';
-
-  @override
-  String get securitySummaryTitle => '보안 요약';
-
-  @override
-  String get advancedSecurityTitle => '고급 보안';
-
-  @override
-  String get securitySummaryBody => 'Lynra GreyNote는 데이터를 오직 기기 내에만 저장하는 오프라인 보안 금고입니다.\n이 애플리케이션은 서버를 사용하지 않으며, 사용자를 추적하거나 데이터를 수집하지 않습니다.\n모든 항목은 강력한 암호화로 보호되며 오직 사용자만 접근할 수 있습니다.\n앱이 백그라운드로 전환되면 자동으로 잠기며 화면 캡처가 차단됩니다.\n잠금 해제 정보를 잊어버리면 데이터를 복구할 수 없습니다.\n자세한 기술 정보는 아래 고급 보안 섹션을 확인하십시오.';
-
-  @override
-  String get advancedSecurityBody => 'Lynra GreyNote는 현대 암호화 원칙에 따라 설계되었습니다.\n\n데이터 보호:\n항목 내용은 AES-256-GCM 알고리즘으로 암호화됩니다.\n데이터베이스는 SQLCipher를 사용하여 완전히 암호화된 상태로 저장됩니다.\n\n키 관리:\n마스터 키는 PBKDF2-HMAC-SHA256 알고리즘을 사용하여 사용자 키로부터 파생됩니다.\n이 키는 평문으로 저장되지 않으며 활성 세션 동안에만 사용됩니다.\n\n키 분리 (Key Separation):\n데이터베이스 접근과 데이터 암호화는 서로 다른 키를 사용합니다.\n\n추가 보안 계층:\nVault Word가 활성화되면 데이터는 두 번째 계층으로 보호됩니다.\n이 키는 기기에 저장되지 않으며 사용자만 알고 있습니다.\n\n세션 보안:\n앱이 백그라운드로 전환되면 접근이 자동으로 잠깁니다.\n암호화 키는 처리 중에만 메모리에 유지됩니다.\n\n화면 보안:\n스크린샷 및 화면 녹화는 시스템 수준에서 차단됩니다.\n\n백업:\n내보내기 시 데이터는 암호화된 블록(encrypted blob)으로 생성되며 올바른 정보로만 복원할 수 있습니다.\n\nLynra는 사용자 데이터에 접근하거나 읽거나 복구할 수 없습니다.\n\n전체 보안 모델은 데이터가 사용자에 의해 완전히 제어된다는 원칙에 기반합니다.';
 }
