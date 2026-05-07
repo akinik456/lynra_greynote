@@ -88,7 +88,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
     "title": titleCtrl.text.trim(),
     "username": usernameCtrl.text.trim(),
     "password": passwordCtrl.text,
-    "note": entryType == "pattern" ? "" : noteCtrl.text.trim(),
+    "note": noteCtrl.text.trim(),
 		"pattern": entryType == "pattern" ? (patternValue ?? "") : "",
 		"iban": showBankDetails ? ibanCtrl.text.trim() : "",
 		"type": entryType,

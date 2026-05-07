@@ -537,6 +537,19 @@ class _PatternViewCard extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _PatternViewer(pattern: pattern),
+const SizedBox(height: 12),
+Center(
+  child: Text(
+    pattern,
+    style: TextStyle(
+      color: Colors.white.withOpacity(0.55),
+      fontSize: 13,
+      fontWeight: FontWeight.w500,
+      letterSpacing: 0.4,
+    ),
+  ),
+),
+					
         ],
       ),
     );

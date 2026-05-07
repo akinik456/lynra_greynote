@@ -380,7 +380,13 @@ List<VaultItem> get filteredItems {
   Future<void> openAdd() async {
   final result = await Navigator.push(
     context,
-    MaterialPageRoute(builder: (_) => const AddEditScreen()),
+    MaterialPageRoute(
+  builder: (_) => AddEditScreen(
+    initialData: {
+      "type": typeFilter == "all" ? "standard" : typeFilter,
+    },
+  ),
+),
   );
   if (result == null) return;
 	
