@@ -57,8 +57,8 @@ class VaultDetailScreen extends StatelessWidget {
 									? Icons.star_rounded
 									: Icons.star_border_rounded,
 							color: item.isFavorite
-									? Colors.amber
-									: Colors.white.withOpacity(0.55),
+									? Color(0xFFFFD54F)
+									: Colors.white.withOpacity(0.6),
 						),
 						onPressed: null
 					),
@@ -198,10 +198,10 @@ class VaultDetailScreen extends StatelessWidget {
 										);
 									Navigator.pop(context, true);
 									},
-									icon: const Icon(Icons.delete, color: Colors.red, size: 18),
+									icon: const Icon(Icons.delete, color: Color(0xFFFF6B6B), size: 18),
 									label: Text(
 										AppLocalizations.of(context)!.removeAttachment,
-										style: const TextStyle(color: Colors.red),
+										style: const TextStyle(color: Color(0xFFFF6B6B)),
 									),
 								),
 							],
@@ -542,7 +542,7 @@ Center(
   child: Text(
     pattern,
     style: TextStyle(
-      color: Colors.white.withOpacity(0.55),
+      color: Colors.white.withOpacity(0.68),
       fontSize: 13,
       fontWeight: FontWeight.w500,
       letterSpacing: 0.4,

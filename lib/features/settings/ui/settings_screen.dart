@@ -127,7 +127,7 @@ Future<String?> _getUnwrappedMasterKey() async {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               decoration: BoxDecoration(
-                color: const Color(0xFF123247),
+                color: const Color(0xFF1E293B),
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
@@ -201,7 +201,7 @@ _Item(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               decoration: BoxDecoration(
-                color: const Color(0xFF123247),
+                color: const Color(0xFF1E293B),
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
@@ -276,7 +276,7 @@ _Item(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               decoration: BoxDecoration(
-                color: const Color(0xFF123247),
+                color: const Color(0xFF1E293B),
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
@@ -408,7 +408,7 @@ _Item(
                         width: 42,
                         height: 4,
                         decoration: BoxDecoration(
-                          color: Colors.white24,
+                          color: Colors.white.withOpacity(0.08),
                           borderRadius: BorderRadius.circular(999),
                         ),
                       ),
@@ -426,7 +426,7 @@ _Item(
                         decoration: BoxDecoration(
                           color: const Color(0xFF0F172A),
                           borderRadius: BorderRadius.circular(14),
-                          border: Border.all(color: Colors.white10),
+                          border: Border.all(color: Colors.white.withOpacity(0.05)),
                         ),
                         child: TextField(
                           onChanged: (value) {
@@ -435,10 +435,10 @@ _Item(
                             });
                           },
                           style: const TextStyle(color: Colors.white),
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             hintText: "Search language...",
-                            hintStyle: TextStyle(color: Colors.white54),
-                            prefixIcon: Icon(Icons.search, color: Colors.white54),
+                            hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
+                            prefixIcon: Icon(Icons.search, color: Colors.white.withOpacity(0.6)),
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.symmetric(
                               horizontal: 14,
@@ -454,7 +454,7 @@ _Item(
                           child: ListView.separated(
                             itemCount: filtered.length,
                             separatorBuilder: (_, __) =>
-                                const Divider(height: 1, color: Colors.white10),
+                                Divider(height: 1, color: Colors.white.withOpacity(0.05)),
                             itemBuilder: (context, index) {
                               final item = filtered[index];
                               final locale = item["locale"] as Locale;
@@ -926,7 +926,7 @@ Future<void> exportTxt() async {
 			content: Text(
 				msg,
 				style: const TextStyle(
-					color: Colors.red,
+					color: Color(0xFFFF6B6B),
 					fontWeight: FontWeight.w500,
 				),
 			),
@@ -977,7 +977,7 @@ ScaffoldMessenger.of(context).showSnackBar(
   content: Text(
     msg,
     style: const TextStyle(
-      color: Colors.red,
+      color: Color(0xFFFF6B6B),
       fontWeight: FontWeight.w500,
     ),
   ),
@@ -1113,7 +1113,7 @@ ScaffoldMessenger.of(context).showSnackBar(
     content: Text(
       msg,
       style: const TextStyle(
-        color: Colors.red,
+        color: Color(0xFFFFD54F),
         fontWeight: FontWeight.w500,
       ),
     ),
@@ -1255,7 +1255,7 @@ ScaffoldMessenger.of(context).showSnackBar(
     content: Text(
       msg,
       style: const TextStyle(
-        color: Colors.red,
+        color: Color(0xFFFFD54F),
         fontWeight: FontWeight.w500,
       ),
     ),

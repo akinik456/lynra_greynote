@@ -60,21 +60,21 @@ Widget _chip(String value, IconData icon, {Color? color}) {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: selected
-            ? const Color(0xFF123247)
+            ? const Color(0xFF1E293B)
             : Colors.transparent,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: selected
               ? const Color(0xFF22D3EE)
-              : Colors.white24,
+              : Colors.white.withOpacity(0.08),
         ),
       ),
       child: Icon(
         icon,
         size: 18,
         color: selected
-             ? (color ?? const Color(0xFF22D3EE))
-            : Colors.white70,
+             ? (color ?? Color(0xFF22D3EE))
+            : Colors.white.withOpacity(0.68),
       ),
     ),
   );
@@ -663,7 +663,7 @@ if (_vaultWordEnabled)
         width: 8,
         height: 8,
         decoration: BoxDecoration(
-          color: Colors.greenAccent,
+          color: Color(0xFF14B8A6),
           shape: BoxShape.circle,
         ),
       ),
@@ -746,8 +746,8 @@ if (_vaultWordEnabled)
                     ? Icons.star_rounded
                     : Icons.star_border_rounded,
                 color: showFavoritesOnly
-                    ? const Color(0xFF22D3EE)
-                    : Colors.white70,
+                    ? Color(0xFF22D3EE)
+                    : Colors.white.withOpacity(0.68),
                 size: 24,
               ),
               onPressed: () {
@@ -780,7 +780,7 @@ if (_vaultWordEnabled)
                               horizontal: 22, vertical: 18),
                           decoration: BoxDecoration(
                             color: selected
-                                ? const Color(0xFF123247)
+                                ? const Color(0xFF1E293B)
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(18),
                           ),
@@ -887,13 +887,13 @@ Padding(
         _chip(
 					'standard',
 					Icons.badge_outlined,
-					color: Colors.greenAccent,
+					color: Color(0xFF14B8A6),
 				),
 
 				_chip(
 					'note',
 					Icons.note_alt_outlined,
-					color: Colors.orangeAccent,
+					color: Color(0xFFF472B6),
 				),
 
 				_chip(
@@ -1534,8 +1534,8 @@ class _VaultHeaderCard extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colors.white.withOpacity(0.04),
-            Colors.white.withOpacity(0.02),
+            Colors.white.withOpacity(0.05),
+            Colors.white.withOpacity(0.05),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
@@ -1546,7 +1546,7 @@ class _VaultHeaderCard extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.18),
+            color: Colors.black.withOpacity(0.25),
             blurRadius: 24,
             offset: const Offset(0, 12),
           ),
@@ -1558,10 +1558,10 @@ class _VaultHeaderCard extends StatelessWidget {
             width: 54,
             height: 54,
             decoration: BoxDecoration(
-              color: const Color(0xFF22D3EE).withOpacity(0.12),
+              color: const Color(0xFF22D3EE).withOpacity(0.1),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: const Color(0xFF22D3EE).withOpacity(0.22),
+                color: const Color(0xFF22D3EE).withOpacity(0.25),
               ),
             ),
             child: Icon(
@@ -1644,7 +1644,7 @@ class _VaultCard extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.14),
+            color: Colors.black.withOpacity(0.25),
             blurRadius: 18,
             offset: const Offset(0, 8),
           ),
@@ -1664,7 +1664,7 @@ class _VaultCard extends StatelessWidget {
                   width: 48,
                   height: 48,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF22D3EE).withOpacity(0.12),
+                    color: const Color(0xFF22D3EE).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Center(
@@ -1702,12 +1702,12 @@ class _VaultCard extends StatelessWidget {
 														),
 													),
 													if (item.hasAttachment)
-														const Padding(
+														Padding(
 															padding: EdgeInsets.only(left: 6),
 															child: Icon(
 																Icons.attach_file,
 																size: 16,
-																color: Colors.white70,
+																color: Colors.white.withOpacity(0.68),
 															),
 														),
 												],
@@ -1733,7 +1733,7 @@ class _VaultCard extends StatelessWidget {
                         AppLocalizations.of(context)!.updatedDate(formattedDate),
                         style: TextStyle(
                           fontSize: 11,
-                          color: Colors.white.withOpacity(0.42),
+                          color: Colors.white.withOpacity(0.4),
                         ),
                       ),
                     ],
@@ -1752,7 +1752,7 @@ class _VaultCard extends StatelessWidget {
         : Icons.star_border_rounded,
     size: 20,
     color: item.isFavorite
-        ? Colors.amber
+        ? Color(0xFFFFD54F)
         : Colors.white.withOpacity(0.4),
   ),
   onPressed: () async {
@@ -1771,7 +1771,7 @@ class _VaultCard extends StatelessWidget {
                 //const SizedBox(width: 8),
                 Icon(
                   Icons.chevron_right_rounded,
-                  color: Colors.white.withOpacity(0.45),
+                  color: Colors.white.withOpacity(0.6),
                 ),
               ],
             ),
@@ -1796,7 +1796,7 @@ class _TypeIcon extends StatelessWidget {
     switch (type) {
       case "note":
         icon = Icons.note_alt_outlined;
-        color = Colors.orangeAccent;
+        color = Color(0xFFF472B6);
         break;
       case "pattern":
         icon = Icons.grid_3x3;
@@ -1804,7 +1804,7 @@ class _TypeIcon extends StatelessWidget {
         break;
       default:
         icon = Icons.badge_outlined;
-        color = Colors.greenAccent;
+        color = Color(0xFF14B8A6);
     }
 
     return Icon(
@@ -1856,7 +1856,7 @@ class _EmptyState extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.white.withOpacity(0.62),
+                color: Colors.white.withOpacity(0.6),
               ),
             ),
           ],

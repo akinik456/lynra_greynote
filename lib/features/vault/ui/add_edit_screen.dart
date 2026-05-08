@@ -342,10 +342,10 @@ Widget build(BuildContext context) {
 																	: "",
 											style: TextStyle(
 												color: passwordStrengthKey == "weak"
-														? Colors.redAccent
+														? Color(0xFFFF6B6B)
 														: passwordStrengthKey == "medium"
-																? Colors.orangeAccent
-																: Colors.greenAccent,
+																? Color(0xFFFFD54F)
+																: Color(0xFF14B8A6),
 												fontSize: 12,
 												fontWeight: FontWeight.w600,
 											),
@@ -446,7 +446,7 @@ Widget build(BuildContext context) {
           child: Text(
             AppLocalizations.of(context)!.strong,
             style: const TextStyle(
-              color: Colors.greenAccent,
+              color: Color(0xFF14B8A6),
               fontSize: 11,
               fontWeight: FontWeight.w600,
             ),

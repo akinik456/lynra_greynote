@@ -77,7 +77,7 @@ void onPatternComplete(List<int> pattern) {
                       vertical: 20,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.04),
+                      color: Colors.white.withOpacity(0.05),
                       borderRadius: BorderRadius.circular(24),
                       border: Border.all(
                         color: Colors.white.withOpacity(0.08),
@@ -138,7 +138,7 @@ void onPatternComplete(List<int> pattern) {
                       vertical: 24,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.03),
+                      color: Colors.white.withOpacity(0.05),
                       borderRadius: BorderRadius.circular(28),
                       border: Border.all(
                         color: _primary.withOpacity(0.14),
