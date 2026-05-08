@@ -4,6 +4,7 @@ import 'package:local_auth/local_auth.dart';
 import 'pin_setup_screen.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../core/security/biometric_helper.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../auth/data/auth_storage.dart';
 
 class SecurityScreen extends StatefulWidget {
@@ -21,11 +22,7 @@ class _SecurityScreenState extends State<SecurityScreen> {
   final storage = const FlutterSecureStorage();
   final auth = LocalAuthentication();
 
-  static const Color _bgColor = Color(0xFF020617);
-  static const Color _cardColor = Color(0xFF0F172A);
-  static const Color _primary = Color(0xFF22D3EE);
-  static const Color _textPrimary = Color(0xFFE2E8F0);
-  static const Color _textSecondary = Color(0xFF94A3B8);
+  static const Color _primary = AppColors.accent;
 
   @override
   void initState() {
@@ -58,16 +55,16 @@ String getSecondaryLockText() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _bgColor,
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: _bgColor,
-        surfaceTintColor: _bgColor,
+        backgroundColor: AppColors.background,
+        surfaceTintColor: AppColors.background,
         elevation: 0,
         centerTitle: true,
         title: Text(
 		AppLocalizations.of(context)!.security,
           style: TextStyle(
-            color: _textPrimary,
+            color: AppColors.textPrimary,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -91,7 +88,7 @@ void openLockSelector() {
     context: context,
     builder: (context) {
       return Dialog(
-        backgroundColor: _cardColor,
+        backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(28),
         ),
@@ -104,7 +101,7 @@ void openLockSelector() {
                 AppLocalizations.of(context)!.secondaryLock,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: _textPrimary,
+                  color: AppColors.textPrimary,
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                 ),
@@ -184,34 +181,31 @@ class _Item extends StatelessWidget {
     required this.onTap,
   });
 
-  static const Color _cardColor = Color(0xFF0F172A);
-  static const Color _primary = Color(0xFF22D3EE);
-  static const Color _textPrimary = Color(0xFFE2E8F0);
-  static const Color _textSecondary = Color(0xFF94A3B8);
+  static const Color _primary = AppColors.accent;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: _cardColor,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
-          color: Colors.white.withOpacity(0.05),
+          color: Colors.white.withOpacity(AppOpacity.subtle),
         ),
       ),
       child: ListTile(
         title: Text(
           title,
           style: const TextStyle(
-            color: _textPrimary,
+            color: AppColors.textPrimary,
             fontWeight: FontWeight.w600,
           ),
         ),
         subtitle: Text(
           subtitle,
           style: const TextStyle(
-            color: _textSecondary,
+            color: AppColors.textSecondary,
           ),
         ),
         trailing: const Icon(
@@ -244,8 +238,8 @@ class _DialogItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         decoration: BoxDecoration(
           color: selected
-              ? const Color(0xFF22D3EE).withOpacity(0.1)
-              : Colors.transparent,
+              ? AppColors.accent.withOpacity(AppOpacity.subtleStrong)
+              : AppColors.transparent,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Row(
@@ -253,11 +247,11 @@ class _DialogItem extends StatelessWidget {
             Expanded(
               child: Text(
                 title,
-                style: const TextStyle(color: Color(0xFFE2E8F0)),
+                style: const TextStyle(color: AppColors.textPrimary),
               ),
             ),
             if (selected)
-              const Icon(Icons.check, color: Color(0xFF22D3EE)),
+              const Icon(Icons.check, color: AppColors.accent),
           ],
         ),
       ),

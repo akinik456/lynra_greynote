@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF020617),
+      backgroundColor: AppColors.background,
       body: Center(
         child: TweenAnimationBuilder<double>(
           duration: const Duration(milliseconds: 300),
@@ -53,7 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xFF22D3EE).withOpacity(0.25),
+                  color: AppColors.accent.withOpacity(AppOpacity.overlay),
                   blurRadius: 40,
                   spreadRadius: 10,
                 ),

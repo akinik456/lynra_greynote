@@ -4,6 +4,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../core/security/crypto_helper.dart';
+import '../../../core/theme/app_colors.dart';
 
 class OnboardingScreen extends StatelessWidget {
 const OnboardingScreen({super.key});
@@ -13,7 +14,7 @@ Widget build(BuildContext context) {
 const storage = FlutterSecureStorage();
 
 return Scaffold(
-  backgroundColor: const Color(0xFF020617),
+  backgroundColor: AppColors.background,
   body: SafeArea(
     child: SingleChildScrollView(
       child: Padding(
@@ -51,7 +52,7 @@ return Scaffold(
               style: TextStyle(
                 fontSize: 16,
                 height: 1.6,
-                color: Colors.white.withOpacity(0.82),
+                color: Colors.white.withOpacity(AppOpacity.body),
               ),
             ),
 
@@ -61,10 +62,10 @@ return Scaffold(
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: AppColors.transparent,
                   elevation: 0,
                   side: const BorderSide(
-                    color: Color(0xFF22D3EE),
+                    color: AppColors.accent,
                     width: 1,
                   ),
                 ),

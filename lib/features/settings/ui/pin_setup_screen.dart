@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../auth/data/auth_storage.dart';
+import '../../../core/theme/app_colors.dart';
 
 
 class PinSetupScreen extends StatefulWidget {
@@ -20,11 +21,7 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
   bool obscurePin = true;
   final storage = const FlutterSecureStorage();
 
-  static const Color _bgColor = Color(0xFF020617);
-  static const Color _cardColor = Color(0xFF0F172A);
-  static const Color _primary = Color(0xFF22D3EE);
-  static const Color _textPrimary = Color(0xFFE2E8F0);
-  static const Color _textSecondary = Color(0xFF94A3B8);
+  static const Color _primary = AppColors.accent;
 
   Future<bool> hasPin() async {
     final value = await AuthStorage.safeRead("user_pin");
@@ -34,16 +31,16 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _bgColor,
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: _bgColor,
-        surfaceTintColor: _bgColor,
+        backgroundColor: AppColors.background,
+        surfaceTintColor: AppColors.background,
         elevation: 0,
         centerTitle: true,
         title: Text(
 		AppLocalizations.of(context)!.setPin,
           style: TextStyle(
-            color: _textPrimary,
+            color: AppColors.textPrimary,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -62,21 +59,21 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
                 obscureText: obscurePin,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: _textPrimary,
+                  color: AppColors.textPrimary,
                   fontSize: 18,
                   letterSpacing: 4,
                 ),
                 decoration: InputDecoration(
                   counterText: "",
                   hintText: "••••••",
-                  hintStyle: const TextStyle(color: _textSecondary),
+                  hintStyle: const TextStyle(color: AppColors.textSecondary),
                   border: InputBorder.none,
                   suffixIcon: IconButton(
                     icon: Icon(
                       obscurePin
                           ? Icons.visibility
                           : Icons.visibility_off,
-                      color: _textSecondary,
+                      color: AppColors.textSecondary,
                     ),
                     onPressed: () {
                       setState(() {
@@ -97,21 +94,21 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
                 obscureText: obscurePin,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: _textPrimary,
+                  color: AppColors.textPrimary,
                   fontSize: 18,
                   letterSpacing: 4,
                 ),
                 decoration: InputDecoration(
                   counterText: "",
                   hintText: "••••••",
-                  hintStyle: const TextStyle(color: _textSecondary),
+                  hintStyle: const TextStyle(color: AppColors.textSecondary),
                   border: InputBorder.none,
                   suffixIcon: IconButton(
                     icon: Icon(
                       obscurePin
                           ? Icons.visibility
                           : Icons.visibility_off,
-                      color: _textSecondary,
+                      color: AppColors.textSecondary,
                     ),
                     onPressed: () {
                       setState(() {
@@ -129,7 +126,7 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _primary,
-                  foregroundColor: Colors.black,
+                  foregroundColor: AppColors.black,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14),
                   ),
@@ -191,10 +188,10 @@ class _FieldCard extends StatelessWidget {
   14,
 ),
       decoration: BoxDecoration(
-        color: const Color(0xFF0F172A),
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
-          color: Colors.white.withOpacity(0.05),
+          color: Colors.white.withOpacity(AppOpacity.subtle),
         ),
       ),
       child: Column(
@@ -204,7 +201,7 @@ class _FieldCard extends StatelessWidget {
 						Text(
 							label,
 							style: TextStyle(
-								color: Colors.white.withOpacity(0.6), // ✅ eski hal
+								color: Colors.white.withOpacity(AppOpacity.secondary), // ✅ eski hal
 								fontSize: 12,
 								fontWeight: FontWeight.w600,          // ✅ eski hal
 							),

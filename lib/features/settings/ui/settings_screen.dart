@@ -20,6 +20,8 @@ import '../../../core/db/database_helper.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../core/security/crypto_helper.dart';
 import '../../../core/attachments/attachment_service.dart';
+import '../../../core/theme/app_colors.dart';
+
 
 class SettingsScreen extends StatefulWidget {
   final String vaultKey;
@@ -40,11 +42,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   final repo = VaultRepository();
 
-  static const Color _bgColor = Color(0xFF020617);
-  static const Color _cardColor = Color(0xFF0F172A);
-  static const Color _primary = Color(0xFF22D3EE);
-  static const Color _textPrimary = Color(0xFFE2E8F0);
-  static const Color _textSecondary = Color(0xFF94A3B8);
+  static const Color _primary = AppColors.accent;
 		
 	
 Future<String?> _getUnwrappedMasterKey() async {
@@ -65,15 +63,15 @@ Future<String?> _getUnwrappedMasterKey() async {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: _bgColor,
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: _bgColor,
-        surfaceTintColor: _bgColor,
+        backgroundColor: AppColors.background,
+        surfaceTintColor: AppColors.background,
         elevation: 0,
         centerTitle: true,
         title: Text(AppLocalizations.of(context)!.settings,
           style: TextStyle(
-            color: _textPrimary,
+            color: AppColors.textPrimary,
             fontWeight: FontWeight.w700,
           ),
         ),
@@ -111,7 +109,7 @@ Future<String?> _getUnwrappedMasterKey() async {
   onTap: () async {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF0F172A),
+      backgroundColor: AppColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
@@ -127,13 +125,13 @@ Future<String?> _getUnwrappedMasterKey() async {
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               decoration: BoxDecoration(
-                color: const Color(0xFF1E293B),
+                color: AppColors.surfaceElevated,
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
                 label,
                 style: const TextStyle(
-                  color: Color(0xFFE2E8F0),
+                  color: AppColors.textPrimary,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
@@ -185,7 +183,7 @@ _Item(
   onTap: () async {
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF0F172A),
+      backgroundColor: AppColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
@@ -201,13 +199,13 @@ _Item(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               decoration: BoxDecoration(
-                color: const Color(0xFF1E293B),
+                color: AppColors.surfaceElevated,
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
                 label,
                 style: const TextStyle(
-                  color: Color(0xFFE2E8F0),
+                  color: AppColors.textPrimary,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
@@ -260,7 +258,7 @@ _Item(
 
     showModalBottomSheet(
       context: context,
-      backgroundColor: const Color(0xFF0F172A),
+      backgroundColor: AppColors.surface,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
       ),
@@ -276,13 +274,13 @@ _Item(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
               decoration: BoxDecoration(
-                color: const Color(0xFF1E293B),
+                color: AppColors.surfaceElevated,
                 borderRadius: BorderRadius.circular(18),
               ),
               child: Text(
                 label,
                 style: const TextStyle(
-                  color: Color(0xFFE2E8F0),
+                  color: AppColors.textPrimary,
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                 ),
@@ -375,7 +373,7 @@ _Item(
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: const Color(0xFF020617),
+      backgroundColor: AppColors.background,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
@@ -408,7 +406,7 @@ _Item(
                         width: 42,
                         height: 4,
                         decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.08),
+                          color: Colors.white.withOpacity(AppOpacity.subtle),
                           borderRadius: BorderRadius.circular(999),
                         ),
                       ),
@@ -418,15 +416,15 @@ _Item(
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
-                          color: Colors.white,
+                          color: AppColors.white,
                         ),
                       ),
                       const SizedBox(height: 14),
                       Container(
                         decoration: BoxDecoration(
-                          color: const Color(0xFF0F172A),
+                          color: AppColors.surface,
                           borderRadius: BorderRadius.circular(14),
-                          border: Border.all(color: Colors.white.withOpacity(0.05)),
+                          border: Border.all(color: Colors.white.withOpacity(AppOpacity.subtle)),
                         ),
                         child: TextField(
                           onChanged: (value) {
@@ -434,11 +432,11 @@ _Item(
                               query = value;
                             });
                           },
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(color: AppColors.white),
                           decoration: InputDecoration(
                             hintText: "Search language...",
-                            hintStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
-                            prefixIcon: Icon(Icons.search, color: Colors.white.withOpacity(0.6)),
+                            hintStyle: TextStyle(color: Colors.white.withOpacity(AppOpacity.secondary)),
+                            prefixIcon: Icon(Icons.search, color: Colors.white.withOpacity(AppOpacity.secondary)),
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.symmetric(
                               horizontal: 14,
@@ -454,7 +452,7 @@ _Item(
                           child: ListView.separated(
                             itemCount: filtered.length,
                             separatorBuilder: (_, __) =>
-                                Divider(height: 1, color: Colors.white.withOpacity(0.05)),
+                                Divider(height: 1, color: Colors.white.withOpacity(AppOpacity.subtle)),
                             itemBuilder: (context, index) {
                               final item = filtered[index];
                               final locale = item["locale"] as Locale;
@@ -464,8 +462,8 @@ _Item(
 
                               return Material(
                                 color: isSelected
-                                    ? const Color(0xFF0F172A)
-                                    : Colors.transparent,
+                                    ? AppColors.surface
+                                    : AppColors.transparent,
                                 child: ListTile(
                                   minTileHeight: 56,
                                   title: Text(
@@ -475,8 +473,8 @@ _Item(
                                         : TextAlign.left,
                                     style: TextStyle(
                                       color: isSelected
-                                          ? const Color(0xFF22D3EE)
-                                          : Colors.white,
+                                          ? AppColors.accent
+                                          : AppColors.white,
                                       fontWeight: isSelected
                                           ? FontWeight.w600
                                           : FontWeight.w400,
@@ -485,7 +483,7 @@ _Item(
                                   trailing: isSelected
                                       ? const Icon(
                                           Icons.check,
-                                          color: Color(0xFF22D3EE),
+                                          color: AppColors.accent,
                                         )
                                       : null,
                                   onTap: () {
@@ -542,7 +540,7 @@ final exportPin = await showDialog<String>(
   context: context,
   builder: (context) {
     return Dialog(
-      backgroundColor: const Color(0xFF0F172A),
+      backgroundColor: AppColors.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(28),
       ),
@@ -555,7 +553,7 @@ final exportPin = await showDialog<String>(
               AppLocalizations.of(context)!.exportPin,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Color(0xFFE2E8F0),
+                color: AppColors.textPrimary,
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
               ),
@@ -568,12 +566,12 @@ final exportPin = await showDialog<String>(
               keyboardType: TextInputType.number,
               maxLength: 5,
               obscureText: true,
-              style: const TextStyle(color: Color(0xFFE2E8F0)),
+              style: const TextStyle(color: AppColors.textPrimary),
               decoration: InputDecoration(
                 hintText: AppLocalizations.of(context)!.enterPinHint,
-                hintStyle: const TextStyle(color: Color(0xFF94A3B8)),
+                hintStyle: const TextStyle(color: AppColors.textSecondary),
                 filled: true,
-                fillColor: const Color(0xFF020617),
+                fillColor: AppColors.background,
                 counterText: "",
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 border: OutlineInputBorder(
@@ -592,15 +590,15 @@ final exportPin = await showDialog<String>(
                     onPressed: () => Navigator.pop(context),
                     child: Text(
                       AppLocalizations.of(context)!.cancel,
-                      style: const TextStyle(color: Color(0xFF94A3B8)),
+                      style: const TextStyle(color: AppColors.textSecondary),
                     ),
                   ),
                 ),
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF22D3EE),
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: AppColors.black,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
@@ -926,7 +924,7 @@ Future<void> exportTxt() async {
 			content: Text(
 				msg,
 				style: const TextStyle(
-					color: Color(0xFFFF6B6B),
+					color: AppColors.securityWarning,
 					fontWeight: FontWeight.w500,
 				),
 			),
@@ -977,7 +975,7 @@ ScaffoldMessenger.of(context).showSnackBar(
   content: Text(
     msg,
     style: const TextStyle(
-      color: Color(0xFFFF6B6B),
+      color: AppColors.securityWarning,
       fontWeight: FontWeight.w500,
     ),
   ),
@@ -1113,7 +1111,7 @@ ScaffoldMessenger.of(context).showSnackBar(
     content: Text(
       msg,
       style: const TextStyle(
-        color: Color(0xFFFFD54F),
+        color: AppColors.favorite,
         fontWeight: FontWeight.w500,
       ),
     ),
@@ -1255,7 +1253,7 @@ ScaffoldMessenger.of(context).showSnackBar(
     content: Text(
       msg,
       style: const TextStyle(
-        color: Color(0xFFFFD54F),
+        color: AppColors.favorite,
         fontWeight: FontWeight.w500,
       ),
     ),
@@ -1389,26 +1387,24 @@ class _Item extends StatelessWidget {
     required this.onTap,
   });
 
-  static const Color _cardColor = Color(0xFF0F172A);
-  static const Color _primary = Color(0xFF22D3EE);
-  static const Color _textPrimary = Color(0xFFE2E8F0);
+  static const Color _primary = AppColors.accent;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       decoration: BoxDecoration(
-        color: _cardColor,
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
-          color: Colors.white.withOpacity(0.05),
+          color: Colors.white.withOpacity(AppOpacity.subtle),
         ),
       ),
       child: ListTile(
         title: Text(
           title,
           style: const TextStyle(
-            color: _textPrimary,
+            color: AppColors.textPrimary,
             fontWeight: FontWeight.w600,
 			fontSize: 15,
           ),

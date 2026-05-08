@@ -4,42 +4,6 @@ static const Color _chipColor = Color(0xFF1E293B);
 static const Color _primary = Color(0xFF22D3EE);
 static const Color _textPrimary = Color(0xFFE2E8F0);
 static const Color _textSecondary = Color(0xFF94A3B8);
-static const Color _borderColor = Color(0xFF334155);
 
-0xFF020617											20
-0xFF0F172A											32
-0xFF14B8A6											4
-0xFF14B8A6.withOpacity(0.08)		4
-0xFF14B8A6.withOpacity(0.10)		2
-0xFF14B8A6.withOpacity(0.05)		2
-0xFF1E293B											10
-0xFF334155											1
-0xFF334155.withOpacity(0.65)		1
-0xFFF472B6											2
-0xFF8B5CF6											2
-0xFF94A3B8											28
-0xFF94A3B8.withOpacity(0.45)		1
-0xFF22D3EE											42
-0xFF22D3EE.withOpacity(0.1)			1
-0xFF22D3EE).withOpacity(0.12)		2
-0xFF22D3EE).withOpacity(0.22)		1
-0xFF22D3EE).withOpacity(0.25)		1
-0xFF22D3EE.withOpacity(0.35)		1
-0xFF22D3EE).withOpacity(0.75)		1
-0xFF334155											1
-0xFF334155.withOpacity(0.65)		1
-0xFFCBD5E1											1
-0xFFE2E8F0											31
-0xFFFF6B6B											5
-0xFFFFD54F											5
 
-Colors.black										14
-Colors.black.withOpacity(0.25)	4
-Colors.white										5
-Colors.white.withOpacity(0.05)	20
-Colors.white.withOpacity(0.08)	2
-Colors.white.withOpacity(0.4)		3
-Colors.white.withOpacity(0.6)		15
-Colors.white.withOpacity(0.68)	2
-Colors.white.withOpacity(0.8)		1
-Colors.transparent							12
+

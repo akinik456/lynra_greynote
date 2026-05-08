@@ -29,6 +29,7 @@ import '../../auth/data/auth_storage.dart';
 import '../../../core/security/crypto_helper.dart';
 import '../../../core/security/inactivity_lock_wrapper.dart';
 import '../../../core/attachments/attachment_service.dart';
+import '../../../core/theme/app_colors.dart';
 import '../../auth/data/auth_storage.dart';
 import '../../../main.dart';
 
@@ -60,21 +61,21 @@ Widget _chip(String value, IconData icon, {Color? color}) {
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: selected
-            ? const Color(0xFF1E293B)
-            : Colors.transparent,
+            ? AppColors.surfaceElevated
+            : AppColors.transparent,
         borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: selected
-              ? const Color(0xFF22D3EE)
-              : Colors.white.withOpacity(0.08),
+              ? AppColors.accent
+              : AppColors.white.withOpacity(AppOpacity.body),
         ),
       ),
       child: Icon(
         icon,
         size: 18,
         color: selected
-             ? (color ?? Color(0xFF22D3EE))
-            : Colors.white.withOpacity(0.68),
+             ? (color ?? AppColors.accent)
+            : AppColors.white.withOpacity(AppOpacity.readable),
       ),
     ),
   );
@@ -92,13 +93,9 @@ Widget _chip(String value, IconData icon, {Color? color}) {
   List<VaultCollection> collections = [];
   List<VaultItem> items = [];
 
-  static const Color _bgColor = Color(0xFF020617);
-  static const Color _cardColor = Color(0xFF0F172A);
-  static const Color _chipColor = Color(0xFF1E293B);
-  static const Color _primary = Color(0xFF22D3EE);
-  static const Color _textPrimary = Color(0xFFE2E8F0);
-  static const Color _textSecondary = Color(0xFF94A3B8);
-  static const Color _borderColor = Color(0xFF334155);
+  static const Color _chipColor = AppColors.surfaceElevated;
+  static const Color _primary = AppColors.accent;
+  static const Color _borderColor = AppColors.border;
   String? _masterKey;
   SecretKey? _payloadKey;
   int itemCount = 0;
@@ -464,7 +461,7 @@ Future<void> delete(VaultItem item) async {
     context: context,
     builder: (context) {
       return Dialog(
-        backgroundColor: const Color(0xFF0F172A),
+        backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -478,7 +475,7 @@ Future<void> delete(VaultItem item) async {
                 AppLocalizations.of(context)!.deleteEntry,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFFE2E8F0),
+                  color: AppColors.textPrimary,
                   fontWeight: FontWeight.w700,
                   fontSize: 18,
                 ),
@@ -492,7 +489,7 @@ Future<void> delete(VaultItem item) async {
                     .deleteEntryConfirm(item.title),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFF94A3B8),
+                  color: AppColors.textSecondary,
                   fontSize: 14,
                 ),
               ),
@@ -509,7 +506,7 @@ Future<void> delete(VaultItem item) async {
                       child: Text(
                         AppLocalizations.of(context)!.cancel,
                         style: const TextStyle(
-                          color: Color(0xFF94A3B8),
+                          color: AppColors.textSecondary,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -521,8 +518,8 @@ Future<void> delete(VaultItem item) async {
                       height: 48,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-													backgroundColor: const Color(0xFF22D3EE), // cyan
-													foregroundColor: Colors.black,
+													backgroundColor: AppColors.accent, // cyan
+													foregroundColor: AppColors.black,
 													shape: RoundedRectangleBorder(
 														borderRadius: BorderRadius.circular(14),
 													),
@@ -567,10 +564,10 @@ Future<void> delete(VaultItem item) async {
     shouldHide = isVaultWordEnabled && !isVaultUnlocked;
 
     return Scaffold(
-      backgroundColor: _bgColor,
+      backgroundColor: AppColors.background,
       appBar: AppBar(
-        backgroundColor: _bgColor,
-        surfaceTintColor: _bgColor,
+        backgroundColor: AppColors.background,
+        surfaceTintColor: AppColors.background,
         centerTitle: true,
         elevation: 0,
         title: Column(
@@ -582,7 +579,7 @@ Future<void> delete(VaultItem item) async {
           const TextSpan(
             text: 'LynraGreyNote',
             style: TextStyle(
-              color: Color(0xFF22D3EE),
+              color: AppColors.accent,
               fontWeight: FontWeight.w700,
               letterSpacing: 0.2,
               fontSize: 18,
@@ -592,7 +589,7 @@ Future<void> delete(VaultItem item) async {
             const TextSpan(
               text: ' ✦',
               style: TextStyle(
-                color: Color(0xFF22D3EE),
+                color: AppColors.accent,
                 fontWeight: FontWeight.w700,
               ),
             ),
@@ -604,7 +601,7 @@ Future<void> delete(VaultItem item) async {
       Text(
         "Version $_appVersion",
         style: TextStyle(
-          color: Colors.white.withOpacity(0.4),
+          color: AppColors.white.withOpacity(AppOpacity.metadata),
           fontSize: 11,
           fontWeight: FontWeight.w500,
         ),
@@ -621,7 +618,7 @@ Future<void> delete(VaultItem item) async {
   },
 ),				
           IconButton(
-			  icon: const Icon(Icons.settings_outlined, color: _textPrimary),
+			  icon: const Icon(Icons.settings_outlined, color: AppColors.textPrimary),
 			  onPressed: () async {
 				final key = _payloadKey;
 				if (key == null) return;
@@ -649,7 +646,7 @@ if (_vaultWordEnabled)
     IconButton(
       icon: Icon(
         shouldHide ? Icons.visibility_off : Icons.visibility,
-        color: _textPrimary,
+        color: AppColors.textPrimary,
       ),
       onPressed: showVaultUnlockDialog,
     ),
@@ -663,7 +660,7 @@ if (_vaultWordEnabled)
         width: 8,
         height: 8,
         decoration: BoxDecoration(
-          color: Color(0xFF14B8A6),
+          color: AppColors.success,
           shape: BoxShape.circle,
         ),
       ),
@@ -746,8 +743,8 @@ if (_vaultWordEnabled)
                     ? Icons.star_rounded
                     : Icons.star_border_rounded,
                 color: showFavoritesOnly
-                    ? Color(0xFF22D3EE)
-                    : Colors.white.withOpacity(0.68),
+                    ? AppColors.accent
+                    : AppColors.white.withOpacity(AppOpacity.readable),
                 size: 24,
               ),
               onPressed: () {
@@ -762,7 +759,7 @@ if (_vaultWordEnabled)
             IconButton(
               icon: const Icon(
                 Icons.swap_vert_rounded,
-                color: Color(0xFF22D3EE),
+                color: AppColors.accent,
                 size: 30,
               ),
               onPressed: () async {
@@ -780,8 +777,8 @@ if (_vaultWordEnabled)
                               horizontal: 22, vertical: 18),
                           decoration: BoxDecoration(
                             color: selected
-                                ? const Color(0xFF1E293B)
-                                : Colors.transparent,
+                                ? AppColors.surfaceElevated
+                                : AppColors.transparent,
                             borderRadius: BorderRadius.circular(18),
                           ),
                           child: Row(
@@ -790,7 +787,7 @@ if (_vaultWordEnabled)
                                 child: Text(
                                   label,
                                   style: const TextStyle(
-                                    color: Color(0xFFE2E8F0),
+                                    color: AppColors.textPrimary,
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -799,7 +796,7 @@ if (_vaultWordEnabled)
                               if (selected)
                                 const Icon(
                                   Icons.check_rounded,
-                                  color: Color(0xFF22D3EE),
+                                  color: AppColors.accent,
                                   size: 30,
                                 ),
                             ],
@@ -809,7 +806,7 @@ if (_vaultWordEnabled)
                     }
 
                     return Dialog(
-                      backgroundColor: const Color(0xFF0F172A),
+                      backgroundColor: AppColors.surface,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(28),
                       ),
@@ -822,7 +819,7 @@ if (_vaultWordEnabled)
                             Text(
                               AppLocalizations.of(context)!.sort,
                               style: const TextStyle(
-                                color: Color(0xFFE2E8F0),
+                                color: AppColors.textPrimary,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
                               ),
@@ -865,7 +862,7 @@ if (_vaultWordEnabled)
       ),
 
       filled: true,
-      fillColor: const Color(0xFF1E293B),
+      fillColor: AppColors.surfaceElevated,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(16),
         borderSide: BorderSide.none,
@@ -887,19 +884,19 @@ Padding(
         _chip(
 					'standard',
 					Icons.badge_outlined,
-					color: Color(0xFF14B8A6),
+					color: AppColors.success,
 				),
 
 				_chip(
 					'note',
 					Icons.note_alt_outlined,
-					color: Color(0xFFF472B6),
+					color: AppColors.note,
 				),
 
 				_chip(
 					'pattern',
 					Icons.grid_3x3,
-					color: const Color(0xFF8B5CF6),
+					color: AppColors.pattern,
 				),
       ],
     ),
@@ -911,7 +908,7 @@ Padding(
                 : RefreshIndicator(
                     onRefresh: load,
                     color: _primary,
-                    backgroundColor: _cardColor,
+                    backgroundColor: AppColors.surface,
                     child: ListView.builder(
                       physics: const AlwaysScrollableScrollPhysics(),
                       padding: const EdgeInsets.fromLTRB(12, 8, 12, 96),
@@ -987,7 +984,7 @@ Padding(
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: _primary,
-        foregroundColor: Colors.black,
+        foregroundColor: AppColors.black,
         onPressed: () {
   final itemCount = items
       .where((item) => item.collectionId == selectedCollectionId)
@@ -1016,7 +1013,7 @@ Padding(
   context: context,
   builder: (context) {
     return Dialog(
-      backgroundColor: const Color(0xFF0F172A),
+      backgroundColor: AppColors.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(18),
       ),
@@ -1028,7 +1025,7 @@ Padding(
             Text(AppLocalizations.of(context)!.unlockContent,
 							textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Color(0xFFE2E8F0),
+                color: AppColors.textPrimary,
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
               ),
@@ -1038,18 +1035,18 @@ Padding(
             Container(
               padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
               decoration: BoxDecoration(
-                color: const Color(0xFF020617),
+                color: AppColors.background,
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.05),
+                  color: AppColors.white.withOpacity(AppOpacity.subtle),
                 ),
               ),
               child: TextField(
                 controller: ctrl,
-                style: const TextStyle(color: Color(0xFFE2E8F0)),
+                style: const TextStyle(color: AppColors.textPrimary),
                 decoration: InputDecoration(
                   hintText: AppLocalizations.of(context)!.enterVaultWord,
-                  hintStyle: TextStyle(color: Color(0xFF94A3B8)),
+                  hintStyle: TextStyle(color: AppColors.textSecondary),
                   border: InputBorder.none,
                 ),
               ),
@@ -1061,15 +1058,15 @@ Padding(
                   child: TextButton(
                     onPressed: () => Navigator.pop(context, false),
                     child: Text(AppLocalizations.of(context)!.cancel,
-                      style: TextStyle(color: Color(0xFF94A3B8)),
+                      style: TextStyle(color: AppColors.textSecondary),
                     ),
                   ),
                 ),
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF22D3EE),
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: AppColors.black,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
@@ -1106,7 +1103,7 @@ void showUpgradeDialog() {
   showDialog(
     context: context,
     builder: (_) => Dialog(
-      backgroundColor: const Color(0xFF0F172A),
+      backgroundColor: AppColors.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20),
       ),
@@ -1120,7 +1117,7 @@ void showUpgradeDialog() {
               AppLocalizations.of(context)!.limitReached,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Color(0xFFE2E8F0),
+                color: AppColors.textPrimary,
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
               ),
@@ -1133,7 +1130,7 @@ void showUpgradeDialog() {
               AppLocalizations.of(context)!.freeLimitEntries,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Color(0xFF94A3B8),
+                color: AppColors.textSecondary,
                 fontSize: 14,
               ),
             ),
@@ -1149,7 +1146,7 @@ void showUpgradeDialog() {
                     child: Text(
                       AppLocalizations.of(context)!.cancel,
                       style: const TextStyle(
-                        color: Color(0xFF94A3B8),
+                        color: AppColors.textSecondary,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -1161,8 +1158,8 @@ void showUpgradeDialog() {
                     height: 48,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF22D3EE),
-                        foregroundColor: Colors.black,
+                        backgroundColor: AppColors.accent,
+                        foregroundColor: AppColors.black,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(14),
                         ),
@@ -1214,7 +1211,7 @@ void showUpgradeDialog() {
   context: context,
   builder: (context) {
     return Dialog(
-      backgroundColor: const Color(0xFF0F172A),
+      backgroundColor: AppColors.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(28),
       ),
@@ -1227,7 +1224,7 @@ void showUpgradeDialog() {
               AppLocalizations.of(context)!.newCollection,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                color: Color(0xFFE2E8F0),
+                color: AppColors.textPrimary,
                 fontWeight: FontWeight.w700,
                 fontSize: 18,
               ),
@@ -1238,12 +1235,12 @@ void showUpgradeDialog() {
             TextField(
               controller: controller,
               autofocus: true,
-              style: const TextStyle(color: Color(0xFFE2E8F0)),
+              style: const TextStyle(color: AppColors.textPrimary),
               decoration: InputDecoration(
                 hintText: AppLocalizations.of(context)!.collectionExample,
-                hintStyle: const TextStyle(color: Color(0xFF94A3B8)),
+                hintStyle: const TextStyle(color: AppColors.textSecondary),
                 filled: true,
-                fillColor: const Color(0xFF020617),
+                fillColor: AppColors.background,
                 contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(16),
@@ -1261,15 +1258,15 @@ void showUpgradeDialog() {
                     onPressed: () => Navigator.pop(context),
                     child: Text(
                       AppLocalizations.of(context)!.cancel,
-                      style: const TextStyle(color: Color(0xFF94A3B8)),
+                      style: const TextStyle(color: AppColors.textSecondary),
                     ),
                   ),
                 ),
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF22D3EE),
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.accent,
+                      foregroundColor: AppColors.black,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
@@ -1315,7 +1312,7 @@ void showUpgradeDialog() {
     context: context,
     builder: (context) {
       return Dialog(
-        backgroundColor: const Color(0xFF0F172A),
+        backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -1329,7 +1326,7 @@ void showUpgradeDialog() {
                 AppLocalizations.of(context)!.deleteCollection,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFFE2E8F0),
+                  color: AppColors.textPrimary,
                   fontWeight: FontWeight.w700,
                   fontSize: 18,
                 ),
@@ -1343,7 +1340,7 @@ void showUpgradeDialog() {
                     .deleteCollectionConfirm(collection.name),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFF94A3B8),
+                  color: AppColors.textSecondary,
                   fontSize: 14,
                 ),
               ),
@@ -1359,7 +1356,7 @@ void showUpgradeDialog() {
                       child: Text(
                         AppLocalizations.of(context)!.cancel,
                         style: const TextStyle(
-                          color: Color(0xFF94A3B8),
+                          color: AppColors.textSecondary,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -1371,8 +1368,8 @@ void showUpgradeDialog() {
                       height: 48,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF22D3EE),
-                          foregroundColor: Colors.black,
+                          backgroundColor: AppColors.accent,
+                          foregroundColor: AppColors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(14),
                           ),
@@ -1414,7 +1411,7 @@ Future<void> openClearDefaultCollection(VaultCollection collection) async {
     context: context,
     builder: (context) {
       return Dialog(
-        backgroundColor: const Color(0xFF0F172A),
+        backgroundColor: AppColors.surface,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
@@ -1428,7 +1425,7 @@ Future<void> openClearDefaultCollection(VaultCollection collection) async {
                 AppLocalizations.of(context)!.clearMyVault,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFFE2E8F0),
+                  color: AppColors.textPrimary,
                   fontWeight: FontWeight.w700,
                   fontSize: 18,
                 ),
@@ -1441,7 +1438,7 @@ Future<void> openClearDefaultCollection(VaultCollection collection) async {
                 AppLocalizations.of(context)!.clearMyVaultConfirm,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  color: Color(0xFF94A3B8),
+                  color: AppColors.textSecondary,
                   fontSize: 14,
                 ),
               ),
@@ -1457,7 +1454,7 @@ Future<void> openClearDefaultCollection(VaultCollection collection) async {
                       child: Text(
                         AppLocalizations.of(context)!.cancel,
                         style: const TextStyle(
-                          color: Color(0xFF94A3B8),
+                          color: AppColors.textSecondary,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
@@ -1469,8 +1466,8 @@ Future<void> openClearDefaultCollection(VaultCollection collection) async {
                       height: 48,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF22D3EE),
-                          foregroundColor: Colors.black,
+                          backgroundColor: AppColors.accent,
+                          foregroundColor: AppColors.black,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(14),
                           ),
@@ -1534,19 +1531,19 @@ class _VaultHeaderCard extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colors.white.withOpacity(0.05),
-            Colors.white.withOpacity(0.05),
+            AppColors.white.withOpacity(AppOpacity.subtle),
+            AppColors.white.withOpacity(AppOpacity.subtle),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(22),
         border: Border.all(
-          color: const Color(0xFF334155).withOpacity(0.65),
+          color: AppColors.border.withOpacity(AppOpacity.readable),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.25),
+            color: AppColors.black.withOpacity(AppOpacity.overlay),
             blurRadius: 24,
             offset: const Offset(0, 12),
           ),
@@ -1558,15 +1555,15 @@ class _VaultHeaderCard extends StatelessWidget {
             width: 54,
             height: 54,
             decoration: BoxDecoration(
-              color: const Color(0xFF22D3EE).withOpacity(0.1),
+              color: AppColors.accent.withOpacity(AppOpacity.subtleStrong),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: const Color(0xFF22D3EE).withOpacity(0.25),
+                color: AppColors.accent.withOpacity(AppOpacity.overlay),
               ),
             ),
             child: Icon(
               isLocked ? Icons.lock_outline : Icons.lock_open_rounded,
-              color: const Color(0xFF22D3EE),
+              color: AppColors.accent,
               size: 28,
             ),
           ),
@@ -1578,7 +1575,7 @@ class _VaultHeaderCard extends StatelessWidget {
                 Text(
                   AppLocalizations.of(context)!.collection,
                   style: TextStyle(
-                    color: Color(0xFFE2E8F0),
+                    color: AppColors.textPrimary,
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                   ),
@@ -1590,7 +1587,7 @@ class _VaultHeaderCard extends StatelessWidget {
 					totalItems,
 				  ),
                   style: const TextStyle(
-                    color: Color(0xFF94A3B8),
+                    color: AppColors.textSecondary,
                     fontSize: 13,
                   ),
                 ),
@@ -1637,21 +1634,21 @@ class _VaultCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 10),
       decoration: BoxDecoration(
-        color: const Color(0xFF0F172A),
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
-          color: Colors.white.withOpacity(0.05),
+          color: AppColors.white.withOpacity(AppOpacity.subtle),
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.25),
+            color: AppColors.black.withOpacity(AppOpacity.overlay),
             blurRadius: 18,
             offset: const Offset(0, 8),
           ),
         ],
       ),
       child: Material(
-        color: Colors.transparent,
+        color: AppColors.transparent,
         child: InkWell(
           borderRadius: BorderRadius.circular(18),
           onTap: onTap,
@@ -1664,7 +1661,7 @@ class _VaultCard extends StatelessWidget {
                   width: 48,
                   height: 48,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF22D3EE).withOpacity(0.1),
+                    color: AppColors.accent.withOpacity(AppOpacity.subtleStrong),
                     borderRadius: BorderRadius.circular(14),
                   ),
                   child: Center(
@@ -1673,7 +1670,7 @@ class _VaultCard extends StatelessWidget {
                       style: const TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w700,
-                        color: Color(0xFF22D3EE),
+                        color: AppColors.accent,
                       ),
                     ),
                   ),
@@ -1695,7 +1692,7 @@ class _VaultCard extends StatelessWidget {
 															maxLines: 1,
 															overflow: TextOverflow.ellipsis,
 															style: const TextStyle(
-																color: Color(0xFFE2E8F0),
+																color: AppColors.textPrimary,
 																fontSize: 16,
 																fontWeight: FontWeight.w700,
 															),
@@ -1707,7 +1704,7 @@ class _VaultCard extends StatelessWidget {
 															child: Icon(
 																Icons.attach_file,
 																size: 16,
-																color: Colors.white.withOpacity(0.68),
+																color: AppColors.white.withOpacity(AppOpacity.readable),
 															),
 														),
 												],
@@ -1724,7 +1721,7 @@ class _VaultCard extends StatelessWidget {
 													overflow: TextOverflow.ellipsis,
 													style: TextStyle(
 														fontSize: 13,
-														color: Colors.white.withOpacity(0.68),
+														color: AppColors.white.withOpacity(AppOpacity.readable),
 													),
 												),
 											],
@@ -1733,7 +1730,7 @@ class _VaultCard extends StatelessWidget {
                         AppLocalizations.of(context)!.updatedDate(formattedDate),
                         style: TextStyle(
                           fontSize: 11,
-                          color: Colors.white.withOpacity(0.4),
+                          color: AppColors.white.withOpacity(AppOpacity.metadata),
                         ),
                       ),
                     ],
@@ -1752,8 +1749,8 @@ class _VaultCard extends StatelessWidget {
         : Icons.star_border_rounded,
     size: 20,
     color: item.isFavorite
-        ? Color(0xFFFFD54F)
-        : Colors.white.withOpacity(0.4),
+        ? AppColors.favorite
+        : AppColors.white.withOpacity(AppOpacity.metadata),
   ),
   onPressed: () async {
   final newValue = !item.isFavorite;
@@ -1771,7 +1768,7 @@ class _VaultCard extends StatelessWidget {
                 //const SizedBox(width: 8),
                 Icon(
                   Icons.chevron_right_rounded,
-                  color: Colors.white.withOpacity(0.6),
+                  color: AppColors.white.withOpacity(AppOpacity.secondary),
                 ),
               ],
             ),
@@ -1796,21 +1793,21 @@ class _TypeIcon extends StatelessWidget {
     switch (type) {
       case "note":
         icon = Icons.note_alt_outlined;
-        color = Color(0xFFF472B6);
+        color = AppColors.note;
         break;
       case "pattern":
         icon = Icons.grid_3x3;
-        color = const Color(0xFF8B5CF6);
+        color = AppColors.pattern;
         break;
       default:
         icon = Icons.badge_outlined;
-        color = Color(0xFF14B8A6);
+        color = AppColors.success;
     }
 
     return Icon(
       icon,
       size: 18,
-      color: color.withOpacity(0.85),
+      color: color.withOpacity(AppOpacity.body),
     );
   }
 }
@@ -1829,23 +1826,23 @@ class _EmptyState extends StatelessWidget {
               width: 78,
               height: 78,
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.05),
+                color: AppColors.white.withOpacity(AppOpacity.subtle),
                 borderRadius: BorderRadius.circular(22),
                 border: Border.all(
-                  color: Colors.white.withOpacity(0.05),
+                  color: AppColors.white.withOpacity(AppOpacity.subtle),
                 ),
               ),
               child: const Icon(
                 Icons.lock_outline,
                 size: 36,
-                color: Color(0xFF22D3EE),
+                color: AppColors.accent,
               ),
             ),
             const SizedBox(height: 18),
             Text(
 						AppLocalizations.of(context)!.noEntriesYet,
               style: TextStyle(
-                color: Color(0xFFE2E8F0),
+                color: AppColors.textPrimary,
                 fontSize: 20,
                 fontWeight: FontWeight.w700,
               ),
@@ -1856,7 +1853,7 @@ class _EmptyState extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.white.withOpacity(0.6),
+                color: AppColors.white.withOpacity(AppOpacity.secondary),
               ),
             ),
           ],
@@ -1902,16 +1899,16 @@ class _CollectionBar extends StatelessWidget {
               avatar: const Icon(
                 Icons.add,
                 size: 16,
-                color: Color(0xFF22D3EE),
+                color: AppColors.accent,
               ),
               label: Text(AppLocalizations.of(context)!.collection),
               onPressed: onAdd,
-              backgroundColor: const Color(0xFF1E293B),
+              backgroundColor: AppColors.surfaceElevated,
               side: BorderSide(
-                color: Colors.white.withOpacity(0.05),
+                color: AppColors.white.withOpacity(AppOpacity.subtle),
               ),
               labelStyle: const TextStyle(
-                color: Color(0xFF22D3EE),
+                color: AppColors.accent,
                 fontWeight: FontWeight.w700,
                 fontSize: 13,
               ),
@@ -1941,15 +1938,15 @@ class _CollectionBar extends StatelessWidget {
 							),
               selected: selected,
               onSelected: (_) => onSelected(collection.id),
-              selectedColor: const Color(0xFF22D3EE),
-              backgroundColor: const Color(0xFF1E293B),
+              selectedColor: AppColors.accent,
+              backgroundColor: AppColors.surfaceElevated,
               side: BorderSide(
                 color: selected
-                    ? const Color(0xFF22D3EE)
-                    : Colors.white.withOpacity(0.05),
+                    ? AppColors.accent
+                    : AppColors.white.withOpacity(AppOpacity.subtle),
               ),
               labelStyle: TextStyle(
-                color: selected ? Colors.black : Colors.white,
+                color: selected ? AppColors.black : AppColors.white,
                 fontWeight: FontWeight.w600,
               ),
               shape: RoundedRectangleBorder(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../core/theme/app_colors.dart';
 
 class PatternUnlockScreen extends StatefulWidget {
   final String savedPattern;
@@ -17,10 +18,7 @@ class PatternUnlockScreen extends StatefulWidget {
 class _PatternUnlockScreenState extends State<PatternUnlockScreen> {
   String messageKey = 'drawVaultKey';
 
-  static const Color _bgBottom = Color(0xFF020617);
-  static const Color _primary = Color(0xFF14B8A6);
-  static const Color _textPrimary = Color(0xFFE2E8F0);
-  static const Color _textSecondary = Color(0xFF94A3B8);
+  static const Color _primary = AppColors.success;
 
 // Mevcut onPatternComplete fonksiyonunu şu şekilde güncelle:
 void onPatternComplete(List<int> pattern) {
@@ -45,21 +43,21 @@ void onPatternComplete(List<int> pattern) {
     return false;
   },
   child:   Scaffold(
-      backgroundColor:  Colors.transparent,
+      backgroundColor:  AppColors.transparent,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-		surfaceTintColor: Colors.transparent,
+        backgroundColor: AppColors.transparent,
+		surfaceTintColor: AppColors.transparent,
         elevation: 0,
         title: Text(
 		AppLocalizations.of(context)!.unlock,
           style: TextStyle(
-            color: _textPrimary,
+            color: AppColors.textPrimary,
             fontSize: 18,
             fontWeight: FontWeight.w600,
           ),
         ),
-        iconTheme: const IconThemeData(color: _textPrimary),
+        iconTheme: const IconThemeData(color: AppColors.textPrimary),
       ),
       body: Stack(
         children: [
@@ -77,10 +75,10 @@ void onPatternComplete(List<int> pattern) {
                       vertical: 20,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.05),
+                      color: Colors.white.withOpacity(AppOpacity.subtle),
                       borderRadius: BorderRadius.circular(24),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.08),
+                        color: Colors.white.withOpacity(AppOpacity.subtle),
                       ),
                     ),
                     child: Column(
@@ -90,13 +88,13 @@ void onPatternComplete(List<int> pattern) {
                           height: 64,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: _primary.withOpacity(0.08),
+                            color: _primary.withOpacity(AppOpacity.subtle),
                             border: Border.all(
-                              color: _primary.withOpacity(0.28),
+                              color: _primary.withOpacity(AppOpacity.overlay),
                             ),
                             boxShadow: [
                               BoxShadow(
-                                color: _primary.withOpacity(0.12),
+                                color: _primary.withOpacity(AppOpacity.subtleStrong),
                                 blurRadius: 24,
                                 spreadRadius: 2,
                               ),
@@ -112,7 +110,7 @@ void onPatternComplete(List<int> pattern) {
                         Text(
 						AppLocalizations.of(context)!.unlockVault,
                           style: TextStyle(
-                            color: _textPrimary,
+                            color: AppColors.textPrimary,
                             fontSize: 20,
                             fontWeight: FontWeight.w700,
                             letterSpacing: 0.2,
@@ -121,7 +119,7 @@ void onPatternComplete(List<int> pattern) {
                         const SizedBox(height: 8),
 						Text(_t(context, messageKey),
                           style: const TextStyle(
-                            color: _textSecondary,
+                            color: AppColors.textSecondary,
                             fontSize: 15,
                             height: 1.45,
                           ),
@@ -138,14 +136,14 @@ void onPatternComplete(List<int> pattern) {
                       vertical: 24,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.05),
+                      color: Colors.white.withOpacity(AppOpacity.subtle),
                       borderRadius: BorderRadius.circular(28),
                       border: Border.all(
-                        color: _primary.withOpacity(0.14),
+                        color: _primary.withOpacity(AppOpacity.subtleStrong),
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.25),
+                          color: AppColors.black.withOpacity(AppOpacity.overlay),
                           blurRadius: 30,
                           offset: const Offset(0, 12),
                         ),
@@ -181,8 +179,8 @@ class _PatternBackground extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color(0xFF0F172A),
-                Color(0xFF020617),
+                AppColors.surface,
+                AppColors.background,
               ],
             ),
           ),
@@ -195,10 +193,10 @@ class _PatternBackground extends StatelessWidget {
             height: 220,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: const Color(0xFF14B8A6).withOpacity(0.08),
+              color: AppColors.success.withOpacity(AppOpacity.subtle),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xFF14B8A6).withOpacity(0.10),
+                  color: AppColors.success.withOpacity(AppOpacity.subtleStrong),
                   blurRadius: 120,
                   spreadRadius: 30,
                 ),
@@ -214,10 +212,10 @@ class _PatternBackground extends StatelessWidget {
             height: 180,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              color: const Color(0xFF14B8A6).withOpacity(0.05),
+              color: AppColors.success.withOpacity(AppOpacity.subtle),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xFF14B8A6).withOpacity(0.08),
+                  color: AppColors.success.withOpacity(AppOpacity.subtle),
                   blurRadius: 100,
                   spreadRadius: 22,
                 ),
@@ -231,7 +229,7 @@ class _PatternBackground extends StatelessWidget {
             child: Icon(
               Icons.shield_outlined,
               size: 300,
-              color: Colors.white,
+              color: AppColors.white,
             ),
           ),
         ),
@@ -354,8 +352,8 @@ class _PatternPainter extends CustomPainter {
 
   _PatternPainter({required this.selected});
 
-  static const Color primary = Color(0xFF14B8A6);
-  static const Color idle = Color(0xFF94A3B8);
+  static const Color primary = AppColors.success;
+  static const Color idle = AppColors.textSecondary;
 
   Offset getPosition(int index, Size size) {
     final row = index ~/ 3;
@@ -373,7 +371,7 @@ class _PatternPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final glowPaint = Paint()
-      ..color = primary.withOpacity(0.25)
+      ..color = primary.withOpacity(AppOpacity.overlay)
       ..strokeWidth = 8
       ..strokeCap = StrokeCap.round
       ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8);

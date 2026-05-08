@@ -8,6 +8,7 @@ import 'l10n/app_localizations.dart';
 import 'core/db/database_helper.dart';
 import 'core/security/biometric_helper.dart';
 import 'core/security/inactivity_lock_wrapper.dart';
+import 'core/theme/app_colors.dart';
 import 'features/auth/data/auth_storage.dart';
 import 'features/auth/ui/pattern_setup_screen.dart';
 import 'features/auth/ui/pattern_unlock_screen.dart';
@@ -140,10 +141,10 @@ class _LynraAppState extends State<LynraApp> {
         Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
       ],
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: const Color(0xFF0F172A),
-        cardColor: const Color(0xFF1E293B),
+        scaffoldBackgroundColor: AppColors.surface,
+        cardColor: AppColors.surfaceElevated,
         colorScheme: const ColorScheme.dark(
-          primary: Color(0xFF22D3EE),
+          primary: AppColors.accent,
         ),
       ),
       home: const AppGate(),

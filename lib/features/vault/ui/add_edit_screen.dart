@@ -13,6 +13,8 @@ import '../data/vault_repository.dart';
 import '../../../core/security/crypto_helper.dart';
 import '../../../main.dart';
 import '../../../core/utils/clipboard_helper.dart';
+import '../../../core/theme/app_colors.dart';
+
 
 class AddEditScreen extends StatefulWidget {
   final Map<String, dynamic>? initialData;
@@ -42,11 +44,7 @@ class _AddEditScreenState extends State<AddEditScreen> {
 	String? _attachmentType;
 	String? patternValue;
   
-  static const Color _bgColor = Color(0xFF020617);
-  static const Color _cardColor = Color(0xFF0F172A);
-  static const Color _primary = Color(0xFF22D3EE);
-  static const Color _textPrimary = Color(0xFFE2E8F0);
-  static const Color _textSecondary = Color(0xFF94A3B8);
+  static const Color _primary = AppColors.accent;
 
   @override
   void initState() {
@@ -123,10 +121,10 @@ Widget build(BuildContext context) {
   final isEdit = widget.initialData != null;
 
   return Scaffold(
-    backgroundColor: _bgColor,
+    backgroundColor: AppColors.background,
     appBar: AppBar(
-      backgroundColor: _bgColor,
-      surfaceTintColor: _bgColor,
+      backgroundColor: AppColors.background,
+      surfaceTintColor: AppColors.background,
       elevation: 0,
       centerTitle: true,
       title: Text(
@@ -134,7 +132,7 @@ Widget build(BuildContext context) {
             ? AppLocalizations.of(context)!.editEntry
             : AppLocalizations.of(context)!.newEntry,
         style: const TextStyle(
-          color: _textPrimary,
+          color: AppColors.textPrimary,
           fontWeight: FontWeight.w700,
           letterSpacing: 0.2,
         ),
@@ -186,14 +184,14 @@ Widget build(BuildContext context) {
               controller: titleCtrl,
               maxLines: 1,
               style: const TextStyle(
-                color: _textPrimary,
+                color: AppColors.textPrimary,
                 fontSize: 15,
               ),
               decoration: InputDecoration(
                 isDense: true,
                 contentPadding: const EdgeInsets.symmetric(vertical: 4),
                 hintText: AppLocalizations.of(context)!.title,
-                hintStyle: const TextStyle(color: _textSecondary),
+                hintStyle: const TextStyle(color: AppColors.textSecondary),
                 border: InputBorder.none,
               ),
             ),
@@ -209,14 +207,14 @@ Widget build(BuildContext context) {
                 controller: usernameCtrl,
                 maxLines: 1,
                 style: const TextStyle(
-                  color: _textPrimary,
+                  color: AppColors.textPrimary,
                   fontSize: 15,
                 ),
                 decoration: InputDecoration(
                   isDense: true,
                   contentPadding: const EdgeInsets.symmetric(vertical: 4),
                   hintText: AppLocalizations.of(context)!.usernameEmail,
-                  hintStyle: const TextStyle(color: _textSecondary),
+                  hintStyle: const TextStyle(color: AppColors.textSecondary),
                   border: InputBorder.none,
                 ),
               ),
@@ -233,7 +231,7 @@ Widget build(BuildContext context) {
 										child: Text(
 											AppLocalizations.of(context)!.addIban,
 											style: const TextStyle(
-												color: _textPrimary,
+												color: AppColors.textPrimary,
 												fontSize: 15,
 											),
 										),
@@ -266,14 +264,14 @@ Widget build(BuildContext context) {
                   controller: ibanCtrl,
                   maxLines: 1,
                   style: const TextStyle(
-                    color: _textPrimary,
+                    color: AppColors.textPrimary,
                     fontSize: 15,
                   ),
                   decoration: const InputDecoration(
                     isDense: true,
                     contentPadding: EdgeInsets.symmetric(vertical: 4),
                     hintText: "XX00 0000 0000 0000 0000 0000 00",
-                    hintStyle: TextStyle(color: _textSecondary),
+                    hintStyle: TextStyle(color: AppColors.textSecondary),
                     border: InputBorder.none,
                   ),
                 ),
@@ -296,14 +294,14 @@ Widget build(BuildContext context) {
 													onChanged: updatePasswordStrength,
 													maxLines: 1,
 													style: const TextStyle(
-														color: _textPrimary,
+														color: AppColors.textPrimary,
 														fontSize: 15,
 													),
 													decoration: InputDecoration(
 														isDense: true,
 														contentPadding: const EdgeInsets.symmetric(vertical: 4),
 														hintText: AppLocalizations.of(context)!.password,
-														hintStyle: const TextStyle(color: _textSecondary),
+														hintStyle: const TextStyle(color: AppColors.textSecondary),
 														border: InputBorder.none,
 													),
 												),
@@ -320,7 +318,7 @@ Widget build(BuildContext context) {
 														},
 														child: Icon(
 															hidePassword ? Icons.visibility : Icons.visibility_off,
-															color: _textSecondary,
+															color: AppColors.textSecondary,
 															size: 26,
 														),
 													),
@@ -342,10 +340,10 @@ Widget build(BuildContext context) {
 																	: "",
 											style: TextStyle(
 												color: passwordStrengthKey == "weak"
-														? Color(0xFFFF6B6B)
+														? AppColors.securityWarning
 														: passwordStrengthKey == "medium"
-																? Color(0xFFFFD54F)
-																: Color(0xFF14B8A6),
+																? AppColors.favorite
+																: AppColors.success,
 												fontSize: 12,
 												fontWeight: FontWeight.w600,
 											),
@@ -362,7 +360,7 @@ Widget build(BuildContext context) {
       Text(
         AppLocalizations.of(context)!.generatePasswordDescription,
         style: TextStyle(
-          color: _textSecondary,
+          color: AppColors.textSecondary,
           fontSize: 13,
           height: 1.3, // 🔥 1.4 → 1.3
         ),
@@ -404,8 +402,8 @@ Widget build(BuildContext context) {
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: generatedPassword.isEmpty
-                    ? _textSecondary
-                    : _textPrimary,
+                    ? AppColors.textSecondary
+                    : AppColors.textPrimary,
                 fontSize: 13,
                 height: 1.0,
               ),
@@ -446,7 +444,7 @@ Widget build(BuildContext context) {
           child: Text(
             AppLocalizations.of(context)!.strong,
             style: const TextStyle(
-              color: Color(0xFF14B8A6),
+              color: AppColors.success,
               fontSize: 11,
               fontWeight: FontWeight.w600,
             ),
@@ -463,10 +461,10 @@ Widget build(BuildContext context) {
 						controller: noteCtrl,
 						minLines: entryType == "note" ? 6 : 2,
 						maxLines: entryType == "note" ? null : 2,
-						style: const TextStyle(color: _textPrimary),
+						style: const TextStyle(color: AppColors.textPrimary),
 						decoration: InputDecoration(
 							hintText: AppLocalizations.of(context)!.optionalNote,
-							hintStyle: const TextStyle(color: _textSecondary),
+							hintStyle: const TextStyle(color: AppColors.textSecondary),
 							border: InputBorder.none,
 						),
 					),
@@ -495,7 +493,7 @@ Widget build(BuildContext context) {
 										? AppLocalizations.of(context)!.drawNewPattern
 										: patternValue!,
 								style: TextStyle(
-									color: _textSecondary,
+									color: AppColors.textSecondary,
 									fontSize: 12,
 								),
 							),
@@ -515,7 +513,7 @@ Widget build(BuildContext context) {
 										icon: const Icon(Icons.close, size: 18),
 										label: Text(AppLocalizations.of(context)!.delete),
 										style: OutlinedButton.styleFrom(
-											side: BorderSide(color: Colors.white.withOpacity(0.6)),
+											side: BorderSide(color: Colors.white.withOpacity(AppOpacity.secondary)),
 											foregroundColor: _primary,
 											shape: RoundedRectangleBorder(
 												borderRadius: BorderRadius.circular(16),
@@ -582,8 +580,8 @@ if (entryType != "pattern")
             icon: const Icon(Icons.attach_file),
             label: Text(AppLocalizations.of(context)!.addAttachment),
             style: OutlinedButton.styleFrom(
-              side: BorderSide(color: Colors.white.withOpacity(0.6)),
-              foregroundColor: const Color(0xFF22D3EE),
+              side: BorderSide(color: Colors.white.withOpacity(AppOpacity.secondary)),
+              foregroundColor: AppColors.accent,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
               ),
@@ -602,7 +600,7 @@ if (entryType != "pattern")
           label: Text(AppLocalizations.of(context)!.save),
           style: ElevatedButton.styleFrom(
             backgroundColor: _primary,
-            foregroundColor: Colors.black,
+            foregroundColor: AppColors.black,
             padding: const EdgeInsets.symmetric(horizontal: 18),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
@@ -624,7 +622,7 @@ else
           label: Text(AppLocalizations.of(context)!.save),
           style: ElevatedButton.styleFrom(
             backgroundColor: _primary,
-            foregroundColor: Colors.black,
+            foregroundColor: AppColors.black,
             padding: const EdgeInsets.symmetric(horizontal: 18),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
@@ -674,10 +672,10 @@ class _FieldCard extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 14),
       padding: const EdgeInsets.fromLTRB(16, 14, 12, 14),
       decoration: BoxDecoration(
-        color: const Color(0xFF0F172A),
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
-          color: Colors.white.withOpacity(0.05),
+          color: Colors.white.withOpacity(AppOpacity.subtle),
         ),
       ),
       child: Column(
@@ -687,7 +685,7 @@ class _FieldCard extends StatelessWidget {
             label,
             style: TextStyle(
               fontSize: 12,
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withOpacity(AppOpacity.secondary),
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -718,14 +716,14 @@ class _TypeButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           elevation: 0,
           backgroundColor:
-              selected ? const Color(0xFF22D3EE) : const Color(0xFF0F172A),
-          foregroundColor: selected ? Colors.black : const Color(0xFFE2E8F0),
+              selected ? AppColors.accent : AppColors.surface,
+          foregroundColor: selected ? AppColors.black : AppColors.textPrimary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14),
             side: BorderSide(
               color: selected
-                  ? const Color(0xFF22D3EE)
-                  : Colors.white.withOpacity(0.05),
+                  ? AppColors.accent
+                  : Colors.white.withOpacity(AppOpacity.subtle),
             ),
           ),
         ),
@@ -759,8 +757,7 @@ class _PatternInputState extends State<_PatternInput> {
   Offset? _currentDragPoint;
 
   static const double _dotSize = 14;
-  static const Color _primary = Color(0xFF22D3EE);
-  static const Color _textSecondary = Color(0xFF94A3B8);
+  static const Color _primary = AppColors.accent;
 
   @override
   void initState() {
@@ -903,11 +900,11 @@ void didUpdateWidget(covariant _PatternInput oldWidget) {
                           shape: BoxShape.circle,
                           color: selected
                               ? _primary
-                              : _textSecondary.withOpacity(0.45),
+                              : AppColors.textSecondary.withOpacity(AppOpacity.metadata),
                           boxShadow: selected
                               ? [
                                   BoxShadow(
-                                    color: _primary.withOpacity(0.35),
+                                    color: _primary.withOpacity(AppOpacity.metadata),
                                     blurRadius: 14,
                                     spreadRadius: 2,
                                   ),
@@ -938,14 +935,14 @@ class _PatternPainter extends CustomPainter {
     required this.currentDragPoint,
   });
 
-  static const Color _primary = Color(0xFF22D3EE);
+  static const Color _primary = AppColors.accent;
 
   @override
   void paint(Canvas canvas, Size size) {
     if (selected.isEmpty || centers.length != 9) return;
 
     final paint = Paint()
-      ..color = _primary.withOpacity(0.75)
+      ..color = _primary.withOpacity(AppOpacity.body)
       ..strokeWidth = 4
       ..strokeCap = StrokeCap.round;
 

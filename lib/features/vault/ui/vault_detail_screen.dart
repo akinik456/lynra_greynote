@@ -18,6 +18,7 @@ import '../../../core/db/database_helper.dart';
 import '../../../core/attachments/attachment_service.dart';
 import '../data/vault_repository.dart';
 import '../../../core/utils/clipboard_helper.dart';
+import '../../../core/theme/app_colors.dart';
 
 class VaultDetailScreen extends StatelessWidget {
   final VaultItem item;
@@ -37,10 +38,10 @@ class VaultDetailScreen extends StatelessWidget {
         shouldHide ? randomFakeText() : (item.title.isEmpty ? AppLocalizations.of(context)!.entryDetails : item.title);
 
     return Scaffold(
-			backgroundColor: const Color(0xFF020617),
+			backgroundColor: AppColors.background,
       appBar: AppBar(
-	    backgroundColor: const Color(0xFF020617), 
-			surfaceTintColor: const Color(0xFF020617), 
+	    backgroundColor: AppColors.background, 
+			surfaceTintColor: AppColors.background, 
 			elevation: 0,
         title: Text(
           pageTitle,
@@ -57,8 +58,8 @@ class VaultDetailScreen extends StatelessWidget {
 									? Icons.star_rounded
 									: Icons.star_border_rounded,
 							color: item.isFavorite
-									? Color(0xFFFFD54F)
-									: Colors.white.withOpacity(0.6),
+									? AppColors.favorite
+									: Colors.white.withOpacity(AppOpacity.secondary),
 						),
 						onPressed: null
 					),
@@ -152,8 +153,8 @@ class VaultDetailScreen extends StatelessWidget {
 														context,
 														MaterialPageRoute(
 															builder: (_) => Scaffold(
-																backgroundColor: Colors.black,
-																appBar: AppBar(backgroundColor: Colors.black),
+																backgroundColor: AppColors.black,
+																appBar: AppBar(backgroundColor: AppColors.black),
 																body: Center(
 																	child: Image.memory(bytes),
 																),
@@ -172,8 +173,8 @@ class VaultDetailScreen extends StatelessWidget {
 											icon: const Icon(Icons.attach_file, size: 18),
 											label: Text(AppLocalizations.of(context)!.viewAttachment),
 											style: OutlinedButton.styleFrom(
-												side: BorderSide(color: Colors.white.withOpacity(0.6)),
-												foregroundColor: const Color(0xFF22D3EE),
+												side: BorderSide(color: Colors.white.withOpacity(AppOpacity.secondary)),
+												foregroundColor: AppColors.accent,
 												shape: RoundedRectangleBorder(
 													borderRadius: BorderRadius.circular(16),
 												),
@@ -198,10 +199,10 @@ class VaultDetailScreen extends StatelessWidget {
 										);
 									Navigator.pop(context, true);
 									},
-									icon: const Icon(Icons.delete, color: Color(0xFFFF6B6B), size: 18),
+									icon: const Icon(Icons.delete, color: AppColors.securityWarning, size: 18),
 									label: Text(
 										AppLocalizations.of(context)!.removeAttachment,
-										style: const TextStyle(color: Color(0xFFFF6B6B)),
+										style: const TextStyle(color: AppColors.securityWarning),
 									),
 								),
 							],
@@ -248,7 +249,7 @@ class _CopyTile extends StatelessWidget {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withOpacity(AppOpacity.secondary),
             ),
           ),
           const SizedBox(height: 8),
@@ -303,7 +304,7 @@ class _PasswordTileState extends State<_PasswordTile> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withOpacity(AppOpacity.secondary),
             ),
           ),
           const SizedBox(height: 8),
@@ -389,7 +390,7 @@ class _InfoCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withOpacity(AppOpacity.secondary),
             ),
           ),
           const SizedBox(height: 8),
@@ -432,7 +433,7 @@ class _MetaCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withOpacity(AppOpacity.secondary),
             ),
           ),
           const SizedBox(height: 10),
@@ -463,7 +464,7 @@ class _MetaRow extends StatelessWidget {
             label,
             style: TextStyle(
               fontSize: 14,
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withOpacity(AppOpacity.secondary),
             ),
           ),
         ),
@@ -491,10 +492,10 @@ class _CardWrapper extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 10),
       padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
       decoration: BoxDecoration(
-        color: const Color(0xFF0F172A),
+        color: AppColors.surface,
         borderRadius: BorderRadius.circular(18),
         border: Border.all(
-          color: Colors.white.withOpacity(0.05),
+          color: Colors.white.withOpacity(AppOpacity.subtle),
         ),
       ),
       child: child,
@@ -532,7 +533,7 @@ class _PatternViewCard extends StatelessWidget {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withOpacity(AppOpacity.secondary),
             ),
           ),
           const SizedBox(height: 12),
@@ -542,7 +543,7 @@ Center(
   child: Text(
     pattern,
     style: TextStyle(
-      color: Colors.white.withOpacity(0.68),
+      color: Colors.white.withOpacity(AppOpacity.readable),
       fontSize: 13,
       fontWeight: FontWeight.w500,
       letterSpacing: 0.4,
@@ -618,12 +619,12 @@ class _PatternViewer extends StatelessWidget {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: isSelected
-                            ? const Color(0xFF22D3EE)
-                            : const Color(0xFF94A3B8).withOpacity(0.45),
-                        boxShadow: isSelected
+                            ? AppColors.accent
+                            : AppColors.textSecondary.withOpacity(AppOpacity.metadata),
+														boxShadow: isSelected
                             ? [
                                 BoxShadow(
-                                  color: const Color(0xFF22D3EE).withOpacity(0.35),
+                                  color: AppColors.accent.withOpacity(AppOpacity.metadata),
                                   blurRadius: 14,
                                   spreadRadius: 2,
                                 ),
@@ -656,7 +657,7 @@ class _PatternViewPainter extends CustomPainter {
     if (selected.isEmpty || centers.length != 9) return;
 
     final paint = Paint()
-      ..color = const Color(0xFF22D3EE).withOpacity(0.75)
+      ..color = AppColors.accent.withOpacity(AppOpacity.body)
       ..strokeWidth = 4
       ..strokeCap = StrokeCap.round;
 
