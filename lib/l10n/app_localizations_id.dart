@@ -127,6 +127,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get details => 'Detail';
 
   @override
+  String get disable => 'Nonaktifkan';
+
+  @override
+  String get disableVaultWord => 'Nonaktifkan kata vault';
+
+  @override
   String get downloadTemplate => 'Unduh template';
 
   @override

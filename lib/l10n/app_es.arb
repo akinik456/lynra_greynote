@@ -85,6 +85,8 @@
   }
 },
 "details": 					"Detalles",
+"disable": "Desactivar",
+"disableVaultWord": "Desactivar palabra de bóveda",
 "drawNewPattern":  			"Dibuja un nuevo patrón",
 "drawVaultKey":    			"Dibuja tu patrón de seguridad",
 "editEntry": 				"Editar entrada",

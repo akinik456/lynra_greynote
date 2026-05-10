@@ -30,7 +30,7 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
 
     setState(() {
       enabled = enabledValue == "true";
-      wordCtrl.text = savedWord ?? "";
+      wordCtrl.text = "";//AppLocalizations.of(context)!.enterVaultWord;//savedWord ?? "";
     });
   }
 
@@ -78,11 +78,21 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
                   ),
                 ),
                 value: enabled,
-                onChanged: (val) {
-                  setState(() {
-                    enabled = val;
-                  });
-                },
+                onChanged: (val) async {
+  if (enabled && !val) {
+    final ok = await _confirmVaultWordDisable(context);
+
+    if (ok != true) return;
+  }
+
+  setState(() {
+    enabled = val;
+
+    if (!enabled) {
+      wordCtrl.clear();
+    }
+  });
+},
               ),
             ),
             const SizedBox(height: 16),
@@ -120,14 +130,17 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
                   ),
                 ),
                 onPressed: () async {
-                  await storage.write(
-                    key: "vault_word_enabled",
-                    value: enabled.toString(),
-                  );
-                  await storage.write(
-                    key: "vault_word",
-                    value: wordCtrl.text,
-                  );
+                  if (enabled && wordCtrl.text.trim().isNotEmpty) {
+  await storage.write(
+    key: "vault_word",
+    value: wordCtrl.text.trim(),
+  );
+}
+
+await storage.write(
+  key: "vault_word_enabled",
+  value: enabled.toString(),
+);
 
                   Navigator.pop(context, true);
                 },
@@ -141,4 +154,98 @@ class _VaultWordScreenState extends State<VaultWordScreen> {
       ),
     );
   }
+	Future<bool> _confirmVaultWordDisable(BuildContext context) async {
+  final ctrl = TextEditingController();
+
+  final result = await showDialog<bool>(
+    context: context,
+    builder: (context) {
+      return Dialog(
+        backgroundColor: AppColors.surface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                AppLocalizations.of(context)!.disableVaultWord,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  color: AppColors.textPrimary,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18,
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              Container(
+                padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+                decoration: BoxDecoration(
+                  color: AppColors.background,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: AppColors.white.withOpacity(AppOpacity.subtle),
+                  ),
+                ),
+                child: TextField(
+                  controller: ctrl,
+                  style: const TextStyle(color: AppColors.textPrimary),
+                  decoration: InputDecoration(
+                    hintText: AppLocalizations.of(context)!.enterVaultWord,
+                    hintStyle: TextStyle(color: AppColors.textSecondary),
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+
+              Row(
+                children: [
+                  Expanded(
+                    child: TextButton(
+                      onPressed: () => Navigator.pop(context, false),
+                      child: Text(
+                        AppLocalizations.of(context)!.cancel,
+                        style: TextStyle(color: AppColors.textSecondary),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.accent,
+                        foregroundColor: AppColors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                      ),
+                      onPressed: () async {
+                        final saved =
+                            await AuthStorage.safeRead("vault_word");
+
+                        final ok = saved != null &&
+                            saved.toLowerCase() ==
+                                ctrl.text.toLowerCase();
+
+                        Navigator.pop(context, ok);
+                      },
+                      child: Text(
+                        AppLocalizations.of(context)!.disable,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+  return result == true;
+}
 }

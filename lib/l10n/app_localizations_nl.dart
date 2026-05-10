@@ -127,6 +127,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String get details => 'Details';
 
   @override
+  String get disable => 'Uitschakelen';
+
+  @override
+  String get disableVaultWord => 'Vault-woord uitschakelen';
+
+  @override
   String get downloadTemplate => 'Sjabloon downloaden';
 
   @override

@@ -127,6 +127,12 @@ class AppLocalizationsFr extends AppLocalizations {
   String get details => 'Détails';
 
   @override
+  String get disable => 'Désactiver';
+
+  @override
+  String get disableVaultWord => 'Désactiver le mot du coffre';
+
+  @override
   String get downloadTemplate => 'Télécharger le modèle';
 
   @override

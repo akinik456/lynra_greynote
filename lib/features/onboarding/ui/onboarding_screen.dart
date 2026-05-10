@@ -84,7 +84,7 @@ return Scaffold(
                 child: Text(
                   AppLocalizations.of(context)!.continueText,
                   style: const TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

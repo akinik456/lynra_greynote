@@ -159,7 +159,7 @@ class _FieldCard extends StatelessWidget {
               label,
               style: TextStyle(
                 color: Colors.white.withOpacity(AppOpacity.secondary),
-                fontSize: 12,
+                fontSize: 13,
                 fontWeight: FontWeight.w600,
               ),
             ),

@@ -83,6 +83,8 @@
   }
 },
 "details": 					"Detalhes",
+"disable": "Desativar",
+"disableVaultWord": "Desativar palavra do cofre",
 "drawNewPattern": 			"Desenhe um novo padrão",
 "drawVaultKey": 			"Desenhe seu padrão de seguranç",
 "editEntry": 				"Editar item",

@@ -48,6 +48,8 @@
   }
 },
 "details": 											"Details",
+"disable": 											"Disable",
+"disableVaultWord": 						"Disable Vault Word",
 "downloadTemplate": 						"Download Template",
 "drawNewPattern":  							"Draw a new pattern",
 "drawVaultKey":    							"Draw your vault key",

@@ -127,6 +127,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get details => 'Chi tiết';
 
   @override
+  String get disable => 'Tắt';
+
+  @override
+  String get disableVaultWord => 'Tắt từ vault';
+
+  @override
   String get downloadTemplate => 'Tải mẫu';
 
   @override

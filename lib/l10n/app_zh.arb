@@ -82,6 +82,8 @@
   }
 },
 "details": 					"详情",
+"disable": "禁用",
+"disableVaultWord": "禁用保险库词",
 "drawNewPattern":  			"绘制新图案",
 "drawVaultKey":    			"绘制您的密钥",
 "editEntry": 				"编辑条目",

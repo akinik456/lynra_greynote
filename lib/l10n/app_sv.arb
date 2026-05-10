@@ -79,6 +79,7 @@
   }
 },
 "details": 					"Detaljer",
+"disable": "Inaktivera","disableVaultWord": "Inaktivera vault-ord",
 "drawNewPattern":  			"Rita nytt mönster",
 "drawVaultKey":    			"Rita din nyckel",
 "editEntry": 				"Redigera post",

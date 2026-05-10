@@ -83,6 +83,8 @@
   }
 },
 "details": 					"Details",
+"disable": "Uitschakelen",
+"disableVaultWord": "Vault-woord uitschakelen",
 "drawNewPattern":  			"Teken een nieuw patroon",
 "drawVaultKey":    			"Teken je kluissleutel",
 "editEntry": 				"Item bewerken",

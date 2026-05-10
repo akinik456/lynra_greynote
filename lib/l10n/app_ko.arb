@@ -83,6 +83,8 @@
   }
 },
 "details": 					"상세 정보",
+"disable": "비활성화",
+"disableVaultWord": "Vault 단어 비활성화",
 "drawNewPattern":  			"새 패턴 그리기",
 "drawVaultKey":    			"볼트 키를 그리세요",
 "editEntry": 				"항목 수정",

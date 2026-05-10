@@ -127,6 +127,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String get details => 'Detalles';
 
   @override
+  String get disable => 'Desactivar';
+
+  @override
+  String get disableVaultWord => 'Desactivar palabra de bóveda';
+
+  @override
   String get downloadTemplate => 'Descargar plantilla';
 
   @override

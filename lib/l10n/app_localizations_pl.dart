@@ -127,6 +127,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String get details => 'Szczegóły';
 
   @override
+  String get disable => 'Wyłącz';
+
+  @override
+  String get disableVaultWord => 'Wyłącz słowo sejfu';
+
+  @override
   String get downloadTemplate => 'Pobierz szablon';
 
   @override

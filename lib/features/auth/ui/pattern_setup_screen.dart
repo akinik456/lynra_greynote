@@ -84,7 +84,7 @@ void onPatternComplete(List<int> pattern) async { // async ekledik
         elevation: 0,
         centerTitle: false,
         title: Text(
-		AppLocalizations.of(context)!.createVaultKey,
+				AppLocalizations.of(context)!.createVaultKey,
           style: TextStyle(
             color: AppColors.textPrimary,
             fontSize: 18,
@@ -143,7 +143,7 @@ void onPatternComplete(List<int> pattern) async { // async ekledik
                         ),
                         const SizedBox(height: 18),
                         Text(
-						AppLocalizations.of(context)!.lynraSecurity,
+													AppLocalizations.of(context)!.lynraSecurity,
                           style: TextStyle(
                             color: AppColors.textPrimary,
                             fontSize: 20,
@@ -154,10 +154,10 @@ void onPatternComplete(List<int> pattern) async { // async ekledik
                         ),
                         const SizedBox(height: 8),
                         Text(
-						_t(context, messageKey),
+												_t(context, messageKey),
                           style: const TextStyle(
                             color: AppColors.textSecondary,
-                            fontSize: 15,
+                            fontSize: 16,
                             height: 1.45,
                           ),
                           textAlign: TextAlign.center,

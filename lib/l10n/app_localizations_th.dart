@@ -127,6 +127,12 @@ class AppLocalizationsTh extends AppLocalizations {
   String get details => 'รายละเอียด';
 
   @override
+  String get disable => 'ปิดใช้งาน';
+
+  @override
+  String get disableVaultWord => 'ปิดใช้งานคำ Vault';
+
+  @override
   String get downloadTemplate => 'ดาวน์โหลดเทมเพลต';
 
   @override

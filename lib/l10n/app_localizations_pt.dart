@@ -127,6 +127,12 @@ class AppLocalizationsPt extends AppLocalizations {
   String get details => 'Details';
 
   @override
+  String get disable => 'Disable';
+
+  @override
+  String get disableVaultWord => 'Disable Vault Word';
+
+  @override
   String get downloadTemplate => 'Download Template';
 
   @override
@@ -576,6 +582,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get details => 'Detalhes';
+
+  @override
+  String get disable => 'Desativar';
+
+  @override
+  String get disableVaultWord => 'Desativar palavra do cofre';
 
   @override
   String get downloadTemplate => 'Baixar modelo';

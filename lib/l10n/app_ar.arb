@@ -77,6 +77,8 @@
   }
 },
 "details": 					"التفاصيل",
+"disable": "تعطيل",
+"disableVaultWord": "تعطيل كلمة الخزنة",
 "drawNewPattern":  			"ارسم نمطًا جديدًا",
 "drawVaultKey":    			"ارسم مفتاح الخزنة",
 "editEntry": 				"تعديل العنصر",

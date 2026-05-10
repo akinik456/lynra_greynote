@@ -82,6 +82,8 @@
   }
 },
 "details": 					"Detail",
+"disable": "Nonaktifkan",
+"disableVaultWord": "Nonaktifkan kata vault",
 "drawNewPattern":  			"Gambar pola baru",
 "drawVaultKey":    			"Gambar kunci vault Anda",
 "editEntry": 				"Edit Entri",

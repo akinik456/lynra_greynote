@@ -84,6 +84,8 @@
   }
 },
 "details": 					"Szczegóły",
+"disable": "Wyłącz",
+"disableVaultWord": "Wyłącz słowo sejfu",
 "drawNewPattern":  			"Narysuj nowy wzór",
 "drawVaultKey":    			"Narysuj klucz skarbca",
 "editEntry": 				"Edytuj wpis",

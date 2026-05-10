@@ -50,7 +50,7 @@ void onPatternComplete(List<int> pattern) {
 		surfaceTintColor: AppColors.transparent,
         elevation: 0,
         title: Text(
-		AppLocalizations.of(context)!.unlock,
+					AppLocalizations.of(context)!.unlock,
           style: TextStyle(
             color: AppColors.textPrimary,
             fontSize: 18,
@@ -108,7 +108,7 @@ void onPatternComplete(List<int> pattern) {
                         ),
                         const SizedBox(height: 16),
                         Text(
-						AppLocalizations.of(context)!.unlockVault,
+												AppLocalizations.of(context)!.unlockVault,
                           style: TextStyle(
                             color: AppColors.textPrimary,
                             fontSize: 20,
@@ -117,10 +117,10 @@ void onPatternComplete(List<int> pattern) {
                           ),
                         ),
                         const SizedBox(height: 8),
-						Text(_t(context, messageKey),
+												Text(_t(context, messageKey),
                           style: const TextStyle(
                             color: AppColors.textSecondary,
-                            fontSize: 15,
+                            fontSize: 16,
                             height: 1.45,
                           ),
                           textAlign: TextAlign.center,

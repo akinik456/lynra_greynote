@@ -84,6 +84,8 @@
   }
 },
 "details": 					"詳細",
+"disable": "無効化",
+"disableVaultWord": "Vaultワードを無効化",
 "drawNewPattern":  			"新しいパターンを描く",
 "drawVaultKey":    			"ボルトキーを描いてください",
 "editEntry": 				"エントリを編集",

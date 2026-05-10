@@ -80,6 +80,8 @@
   }
 },
 "details": 					"Детали",
+"disable": "Отключить",
+"disableVaultWord": "Отключить vault-слово",
 "drawNewPattern":  			"Нарисуйте новый рисунок",
 "drawVaultKey":    			"Нарисуйте ключ хранилища",
 "editEntry": 				"Редактировать запись",

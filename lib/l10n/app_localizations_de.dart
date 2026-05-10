@@ -127,6 +127,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get details => 'Details';
 
   @override
+  String get disable => 'Deaktivieren';
+
+  @override
+  String get disableVaultWord => 'Vault-Wort deaktivieren';
+
+  @override
   String get downloadTemplate => 'Vorlage herunterladen';
 
   @override

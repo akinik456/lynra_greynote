@@ -127,6 +127,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get details => 'Detaylar';
 
   @override
+  String get disable => 'Devre Dışı Bırak';
+
+  @override
+  String get disableVaultWord => 'Kasa Kelimesini Devre Dışı Bırak';
+
+  @override
   String get downloadTemplate => 'Şablonu İndir';
 
   @override

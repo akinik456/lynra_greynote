@@ -886,13 +886,13 @@ Padding(
 					Icons.badge_outlined,
 					color: AppColors.success,
 				),
-
+				const SizedBox(width: 6),
 				_chip(
 					'note',
 					Icons.note_alt_outlined,
 					color: AppColors.note,
 				),
-
+				const SizedBox(width: 6),
 				_chip(
 					'pattern',
 					Icons.grid_3x3,

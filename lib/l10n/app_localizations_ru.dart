@@ -127,6 +127,12 @@ class AppLocalizationsRu extends AppLocalizations {
   String get details => 'Детали';
 
   @override
+  String get disable => 'Отключить';
+
+  @override
+  String get disableVaultWord => 'Отключить vault-слово';
+
+  @override
   String get downloadTemplate => 'Скачать шаблон';
 
   @override

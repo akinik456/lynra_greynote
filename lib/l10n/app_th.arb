@@ -81,6 +81,8 @@
   }
 },
 "details": 					"รายละเอียด",
+"disable": "ปิดใช้งาน",
+"disableVaultWord": "ปิดใช้งานคำ Vault",
 "drawNewPattern":  			"วาดรูปแบบใหม่",
 "drawVaultKey":    			"วาดกุญแจคลังของคุณ",
 "editEntry": 				"แก้ไขรายการ",

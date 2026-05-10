@@ -127,6 +127,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String get details => 'Detaljer';
 
   @override
+  String get disable => 'Inaktivera';
+
+  @override
+  String get disableVaultWord => 'Inaktivera vault-ord';
+
+  @override
   String get downloadTemplate => 'Ladda ner mall';
 
   @override

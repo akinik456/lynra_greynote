@@ -84,6 +84,8 @@
   }
 },
 "details": 					"Dettagli",
+"disable": "Disattiva",
+"disableVaultWord": "Disattiva parola cassaforte",
 "drawNewPattern":  			"Disegna un nuovo schema",
 "drawVaultKey":    			"Disegna il tuo schema di sicurezza",
 "editEntry": 				"Modifica elemento",

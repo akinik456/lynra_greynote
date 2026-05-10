@@ -28,23 +28,23 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
     return value != null;
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+   @override
+Widget build(BuildContext context) {
+  return Scaffold(
+    backgroundColor: AppColors.background,
+    appBar: AppBar(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        backgroundColor: AppColors.background,
-        surfaceTintColor: AppColors.background,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-		AppLocalizations.of(context)!.setPin,
-          style: TextStyle(
-            color: AppColors.textPrimary,
-            fontWeight: FontWeight.w700,
-          ),
+      surfaceTintColor: AppColors.background,
+      elevation: 0,
+      centerTitle: true,
+      title: Text(
+        AppLocalizations.of(context)!.setPin,
+        style: const TextStyle(
+          color: AppColors.textPrimary,
+          fontWeight: FontWeight.w700,
         ),
       ),
+    ),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -149,7 +149,7 @@ class _PinSetupScreenState extends State<PinSetupScreen> {
                     return;
                   }
                   await storage.write(key: "user_pin", value: pin);
-				  await storage.write(key: "secondary_lock", value: widget.mode);
+									await storage.write(key: "secondary_lock", value: widget.mode);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(content: Text(AppLocalizations.of(context)!.pinSaved)),
                   );
@@ -202,7 +202,7 @@ class _FieldCard extends StatelessWidget {
 							label,
 							style: TextStyle(
 								color: Colors.white.withOpacity(AppOpacity.secondary), // ✅ eski hal
-								fontSize: 12,
+								fontSize: 13,
 								fontWeight: FontWeight.w600,          // ✅ eski hal
 							),
 						),

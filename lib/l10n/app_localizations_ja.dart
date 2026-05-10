@@ -127,6 +127,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get details => '詳細';
 
   @override
+  String get disable => '無効化';
+
+  @override
+  String get disableVaultWord => 'Vaultワードを無効化';
+
+  @override
   String get downloadTemplate => 'テンプレートをダウンロード';
 
   @override

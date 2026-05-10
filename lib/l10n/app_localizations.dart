@@ -358,6 +358,18 @@ abstract class AppLocalizations {
   /// **'Details'**
   String get details;
 
+  /// No description provided for @disable.
+  ///
+  /// In en, this message translates to:
+  /// **'Disable'**
+  String get disable;
+
+  /// No description provided for @disableVaultWord.
+  ///
+  /// In en, this message translates to:
+  /// **'Disable Vault Word'**
+  String get disableVaultWord;
+
   /// No description provided for @downloadTemplate.
   ///
   /// In en, this message translates to:

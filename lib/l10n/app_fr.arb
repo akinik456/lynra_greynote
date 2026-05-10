@@ -84,6 +84,8 @@
   }
 },
 "details": 					"Détails",
+"disable": "Désactiver",
+"disableVaultWord": "Désactiver le mot du coffre",
 "drawNewPattern": 			"Dessiner un nouveau schéma",
 "drawVaultKey": 			"Dessinez votre schéma de sécurité",
 "editEntry": 				"Modifier l’entrée",

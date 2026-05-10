@@ -81,6 +81,8 @@
   }
 },
 "details": 					"Chi tiết",
+"disable": "Tắt",
+"disableVaultWord": "Tắt từ vault",
 "drawNewPattern":  			"Vẽ mẫu mới",
 "drawVaultKey":    			"Vẽ khóa kho của bạn",
 "editEntry": 				"Sửa mục",

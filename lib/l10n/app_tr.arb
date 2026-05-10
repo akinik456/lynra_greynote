@@ -87,6 +87,8 @@
   }
 },
 "details": 					"Detaylar",
+"disable": "Devre Dışı Bırak",
+"disableVaultWord": "Kasa Kelimesini Devre Dışı Bırak",
 "drawNewPattern": 			"Yeni bir desen çiz",
 "drawVaultKey": 			"Kasa anahtarını çiz",
 "editEntry": 				"Kaydı Düzenle",

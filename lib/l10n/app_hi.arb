@@ -83,6 +83,8 @@
   }
 },
 "details": 					"विवरण",
+"disable": "अक्षम करें",
+"disableVaultWord": "वॉल्ट शब्द अक्षम करें",
 "drawNewPattern":  			"नया पैटर्न बनाएं",
 "drawVaultKey":    			"अपनी वॉल्ट कुंजी बनाएं",
 "editEntry": 				"एंट्री संपादित करें",

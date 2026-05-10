@@ -127,6 +127,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get details => 'Dettagli';
 
   @override
+  String get disable => 'Disattiva';
+
+  @override
+  String get disableVaultWord => 'Disattiva parola cassaforte';
+
+  @override
   String get downloadTemplate => 'Scarica modello';
 
   @override

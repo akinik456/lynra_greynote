@@ -127,6 +127,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get details => '상세 정보';
 
   @override
+  String get disable => '비활성화';
+
+  @override
+  String get disableVaultWord => 'Vault 단어 비활성화';
+
+  @override
   String get downloadTemplate => '템플릿 다운로드';
 
   @override

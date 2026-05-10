@@ -1,7 +1,10 @@
 static const Color _bgColor = Color(0xFF020617);
 static const Color _cardColor = Color(0xFF0F172A);
 static const Color _chipColor = Color(0xFF1E293B);
-
-
+fontWeight:											71
+FontWeight.w400									1
+FontWeight.w500									17
+FontWeight.w600									22
+FontWeight.w700									32
 
 

@@ -127,6 +127,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get details => '详情';
 
   @override
+  String get disable => '禁用';
+
+  @override
+  String get disableVaultWord => '禁用保险库词';
+
+  @override
   String get downloadTemplate => '下载模板';
 
   @override

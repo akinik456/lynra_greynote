@@ -127,6 +127,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get details => 'التفاصيل';
 
   @override
+  String get disable => 'تعطيل';
+
+  @override
+  String get disableVaultWord => 'تعطيل كلمة الخزنة';
+
+  @override
   String get downloadTemplate => 'تنزيل القالب';
 
   @override

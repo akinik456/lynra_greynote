@@ -127,6 +127,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get details => 'Details';
 
   @override
+  String get disable => 'Disable';
+
+  @override
+  String get disableVaultWord => 'Disable Vault Word';
+
+  @override
   String get downloadTemplate => 'Download Template';
 
   @override

@@ -127,6 +127,12 @@ class AppLocalizationsHi extends AppLocalizations {
   String get details => 'विवरण';
 
   @override
+  String get disable => 'अक्षम करें';
+
+  @override
+  String get disableVaultWord => 'वॉल्ट शब्द अक्षम करें';
+
+  @override
   String get downloadTemplate => 'टेम्पलेट डाउनलोड करें';
 
   @override
