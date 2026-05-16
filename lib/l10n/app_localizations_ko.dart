@@ -331,6 +331,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get privateByDesign => '프라이버시는 기능이 아닌 기본입니다';
 
   @override
+  String get rateOnPlayStore => 'Play 스토어에서 평가하기';
+
+  @override
   String get removeAttachment => '파일 제거';
 
   @override

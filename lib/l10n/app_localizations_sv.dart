@@ -331,6 +331,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get privateByDesign => 'Integritet är grund, inte funktion';
 
   @override
+  String get rateOnPlayStore => 'Betygsätt på Play Store';
+
+  @override
   String get removeAttachment => 'Remove';
 
   @override

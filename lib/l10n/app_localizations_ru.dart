@@ -331,6 +331,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get privateByDesign => 'Приватность — основа, а не функция';
 
   @override
+  String get rateOnPlayStore => 'Оценить в Play Маркете';
+
+  @override
   String get removeAttachment => 'Удалить файл';
 
   @override

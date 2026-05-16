@@ -476,8 +476,8 @@ _Item(
                                           ? AppColors.accent
                                           : AppColors.white,
                                       fontWeight: isSelected
-                                          ? FontWeight.w600
-                                          : FontWeight.w400,
+                                          ? FontWeight.w700
+                                          : FontWeight.w600,
                                     ),
                                   ),
                                   trailing: isSelected
@@ -519,12 +519,24 @@ _Item(
 						},
 					),
 					_Item(
-  title: AppLocalizations.of(context)!.feedback,
+  title: AppLocalizations.of(context)!.rateOnPlayStore,//"Rate on Play Store",
   onTap: () async {
-    await openFeedback();
+    final Uri url = Uri.parse(
+      "https://play.google.com/store/apps/details?id=com.akinik.findlostgadget",//?*?
+    );
+
+    await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    );
   },
 ),
-					
+					_Item(
+						title: AppLocalizations.of(context)!.feedback,
+						onTap: () async {
+							await openFeedback();
+						},
+					),					
         ],
       ),
     );

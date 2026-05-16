@@ -13,7 +13,7 @@ class InactivityLockWrapper extends StatefulWidget {
     required this.child,
     required this.onTimeout,
     required this.enabled,
-    this.timeout = const Duration(minutes: 1),
+    this.timeout = const Duration(minutes: 1),//?*? 1 dkk yeterli mi
   });
 
   @override

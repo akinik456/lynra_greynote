@@ -331,6 +331,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get privateByDesign => 'Privacy is een basis, geen functie';
 
   @override
+  String get rateOnPlayStore => 'Beoordeel in Play Store';
+
+  @override
   String get removeAttachment => 'Bestand verwijderen';
 
   @override

@@ -331,6 +331,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get privateByDesign => 'गोपनीयता एक मूल सिद्धांत है, सुविधा नहीं';
 
   @override
+  String get rateOnPlayStore => 'Play Store पर रेट करें';
+
+  @override
   String get removeAttachment => 'फ़ाइल हटाएं';
 
   @override

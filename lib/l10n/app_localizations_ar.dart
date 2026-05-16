@@ -331,6 +331,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get privateByDesign => 'الخصوصية أساس وليست ميزة';
 
   @override
+  String get rateOnPlayStore => 'قيّم على متجر Play';
+
+  @override
   String get removeAttachment => 'إزالة الملف';
 
   @override

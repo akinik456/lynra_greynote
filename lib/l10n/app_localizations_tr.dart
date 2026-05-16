@@ -193,7 +193,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get feedback => 'Geri Bildirim';
 
   @override
-  String get freeLimitEntries => 'You can add up to 2 entries in the free version.';
+  String get freeLimitEntries => 'Ücretsiz sürümde en fazla 2 kayıt ekleyebilirsin.';
 
   @override
   String get generatePassword => 'Şifre oluştur';
@@ -244,7 +244,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get language => 'Dil';
 
   @override
-  String get limitReached => 'Limit reached';
+  String get limitReached => 'Limit aşıldı';
 
   @override
   String get lynraSecurity => 'Lynra Güvenlik';
@@ -329,6 +329,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get privateByDesign => 'Gizlilik Özellik Değil Temeldir';
+
+  @override
+  String get rateOnPlayStore => 'Play Store\'da Puanla';
 
   @override
   String get removeAttachment => 'Dosyayı kaldır';
@@ -432,10 +435,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get unlockVault => 'Kasayı Aç';
 
   @override
-  String get unlockToSearch => 'Unlock to search';
+  String get unlockToSearch => 'Aramak için kilidi aç';
 
   @override
-  String get upgrade => 'Upgrade';
+  String get upgrade => 'Yükselt';
 
   @override
   String get untitled => 'Başlıksız';

@@ -331,6 +331,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get privateByDesign => 'Privasi adalah dasar, bukan fitur';
 
   @override
+  String get rateOnPlayStore => 'Beri Rating di Play Store';
+
+  @override
   String get removeAttachment => 'Hapus file';
 
   @override

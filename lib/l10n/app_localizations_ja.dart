@@ -331,6 +331,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get privateByDesign => 'プライバシーは機能ではなく基本です';
 
   @override
+  String get rateOnPlayStore => 'Playストアで評価';
+
+  @override
   String get removeAttachment => 'ファイルを削除';
 
   @override

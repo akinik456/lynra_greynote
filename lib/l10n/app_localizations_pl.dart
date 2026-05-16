@@ -331,6 +331,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get privateByDesign => 'Prywatność to podstawa, nie funkcja';
 
   @override
+  String get rateOnPlayStore => 'Oceń w Play Store';
+
+  @override
   String get removeAttachment => 'Usuń plik';
 
   @override

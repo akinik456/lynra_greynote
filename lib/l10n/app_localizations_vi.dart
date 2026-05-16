@@ -331,6 +331,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get privateByDesign => 'Quyền riêng tư là nền tảng, không phải tính năng';
 
   @override
+  String get rateOnPlayStore => 'Đánh giá trên Play Store';
+
+  @override
   String get removeAttachment => 'Xóa tệp';
 
   @override

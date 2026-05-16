@@ -331,6 +331,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get privateByDesign => '隐私是基础，而非功能';
 
   @override
+  String get rateOnPlayStore => '在 Play 商店评分';
+
+  @override
   String get removeAttachment => '移除文件';
 
   @override

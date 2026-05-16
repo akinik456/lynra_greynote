@@ -331,6 +331,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get privateByDesign => 'Privacy is a fundamental, not a feature';
 
   @override
+  String get rateOnPlayStore => 'Rate on Play Store';
+
+  @override
   String get removeAttachment => 'Remove';
 
   @override

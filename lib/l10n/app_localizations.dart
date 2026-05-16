@@ -766,6 +766,12 @@ abstract class AppLocalizations {
   /// **'Privacy is a fundamental, not a feature'**
   String get privateByDesign;
 
+  /// No description provided for @rateOnPlayStore.
+  ///
+  /// In en, this message translates to:
+  /// **'Rate on Play Store'**
+  String get rateOnPlayStore;
+
   /// No description provided for @removeAttachment.
   ///
   /// In en, this message translates to:

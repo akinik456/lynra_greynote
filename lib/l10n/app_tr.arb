@@ -1,4 +1,5 @@
 {
+"rateOnPlayStore": "Play Store'da Puanla",
 "feedback": "Geri Bildirim",
 "imported": "Aktarıldı",
 "duplicate": "Kopya",
@@ -41,14 +42,12 @@
 "attachmentReady": 							"Ek hazır",
 "attachmentTooLarge": 					"Maksimum 2 MB",
 
-"search": 					"Ara",
-"unlockToSearch": 			"Unlock to search",
-
-
-"limitReached": 			"Limit reached",
-"freeLimitEntries": 		"You can add up to 2 entries in the free version.",
-"upgrade": 					"Upgrade",
-"cancel": 					"Cancel",
+"search": 											"Ara",
+"unlockToSearch":               "Aramak için kilidi aç",
+"limitReached":                 "Limit aşıldı",
+"freeLimitEntries":             "Ücretsiz sürümde en fazla 2 kayıt ekleyebilirsin.",
+"upgrade":                      "Yükselt",
+"cancel": 											"İptal",
 
 
 "@@locale":					"tr",

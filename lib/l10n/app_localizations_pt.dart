@@ -331,6 +331,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get privateByDesign => 'Privacy is a fundamental, not a feature';
 
   @override
+  String get rateOnPlayStore => 'Rate on Play Store';
+
+  @override
   String get removeAttachment => 'Remove';
 
   @override
@@ -786,6 +789,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get privateByDesign => 'Privacidade é fundamental, não um recurso';
+
+  @override
+  String get rateOnPlayStore => 'Avaliar na Play Store';
 
   @override
   String get removeAttachment => 'Remover arquivo';

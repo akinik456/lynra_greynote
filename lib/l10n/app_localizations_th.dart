@@ -331,6 +331,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get privateByDesign => 'ความเป็นส่วนตัวคือพื้นฐาน ไม่ใช่ฟีเจอร์';
 
   @override
+  String get rateOnPlayStore => 'ให้คะแนนบน Play Store';
+
+  @override
   String get removeAttachment => 'ลบไฟล์';
 
   @override
