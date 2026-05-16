@@ -10,7 +10,7 @@
 "appTitle": 										"LynraGreyNote",
 "attachmentReady": 							"Attachment ready",
 "attachmentRemoved": 						"Attachment removed",
-"attachmentTooLarge": 					"Max 2MB allowed",
+"attachmentTooLarge": 					"Max 5MB allowed",
 "authenticateToContinue": 			"Authenticate to continue",
 "backupReminder":								"Consider creating a backup to keep your data safe",
 "bankDetails": 									"Bank Details",

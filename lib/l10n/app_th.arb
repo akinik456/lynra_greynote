@@ -37,7 +37,7 @@
 "viewAttachment": 							"ดูไฟล์แนบ",
 "addAttachment": 								"เพิ่มไฟล์แนบ",
 "attachmentReady": 							"ไฟล์แนบพร้อมแล้ว",
-"attachmentTooLarge": 					"สูงสุด 2 MB",
+"attachmentTooLarge": 					"สูงสุด 5 MB",
 
 "search": 					"ค้นหา",
 "unlockToSearch": 			"ปลดล็อกเพื่อค้นหา",

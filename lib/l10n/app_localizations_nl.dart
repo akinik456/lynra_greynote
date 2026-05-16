@@ -39,7 +39,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get attachmentRemoved => 'Bijlage verwijderd';
 
   @override
-  String get attachmentTooLarge => 'Maximaal 2 MB';
+  String get attachmentTooLarge => 'Maximaal 5 MB';
 
   @override
   String get authenticateToContinue => 'Verifieer om door te gaan';

@@ -39,7 +39,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get attachmentRemoved => 'Anhang entfernt';
 
   @override
-  String get attachmentTooLarge => 'Maximal 2 MB';
+  String get attachmentTooLarge => 'Maximal 5 MB';
 
   @override
   String get authenticateToContinue => 'Zur Fortsetzung authentifizieren';

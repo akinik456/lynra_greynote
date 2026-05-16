@@ -7,7 +7,7 @@ import '../../../core/security/crypto_helper.dart';
 
 class AttachmentService {
   static const String _folderName = 'attachments';
-  static const int maxAttachmentBytes = 2 * 1024 * 1024;
+  static const int maxAttachmentBytes = 5 * 1024 * 1024;
 	
 	bool isValidAttachmentSize(int byteLength) {
   return byteLength > 0 && byteLength <= maxAttachmentBytes;

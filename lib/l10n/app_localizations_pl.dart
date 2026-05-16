@@ -39,7 +39,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get attachmentRemoved => 'Załącznik usunięty';
 
   @override
-  String get attachmentTooLarge => 'Maksymalnie 2 MB';
+  String get attachmentTooLarge => 'Maksymalnie 5 MB';
 
   @override
   String get authenticateToContinue => 'Uwierzytelnij, aby kontynuować';

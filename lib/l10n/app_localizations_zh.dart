@@ -39,7 +39,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get attachmentRemoved => '附件已删除';
 
   @override
-  String get attachmentTooLarge => '最大2MB';
+  String get attachmentTooLarge => '最大5MB';
 
   @override
   String get authenticateToContinue => '验证以继续';

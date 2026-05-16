@@ -39,7 +39,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get attachmentRemoved => '첨부 파일이 삭제되었습니다';
 
   @override
-  String get attachmentTooLarge => '최대 2MB';
+  String get attachmentTooLarge => '최대 5MB';
 
   @override
   String get authenticateToContinue => '계속하려면 인증하세요';

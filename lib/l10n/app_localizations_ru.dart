@@ -39,7 +39,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get attachmentRemoved => 'Вложение удалено';
 
   @override
-  String get attachmentTooLarge => 'Максимум 2 МБ';
+  String get attachmentTooLarge => 'Максимум 5 МБ';
 
   @override
   String get authenticateToContinue => 'Подтвердите для продолжения';

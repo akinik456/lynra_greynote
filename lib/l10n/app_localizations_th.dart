@@ -39,7 +39,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get attachmentRemoved => 'ลบไฟล์แนบแล้ว';
 
   @override
-  String get attachmentTooLarge => 'สูงสุด 2 MB';
+  String get attachmentTooLarge => 'สูงสุด 5 MB';
 
   @override
   String get authenticateToContinue => 'ยืนยันตัวตนเพื่อดำเนินการต่อ';

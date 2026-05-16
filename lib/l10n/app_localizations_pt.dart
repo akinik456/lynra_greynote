@@ -39,7 +39,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get attachmentRemoved => 'Attachment removed';
 
   @override
-  String get attachmentTooLarge => 'Max 2MB allowed';
+  String get attachmentTooLarge => 'Max 5MB allowed';
 
   @override
   String get authenticateToContinue => 'Authenticate to continue';
@@ -499,7 +499,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get attachmentRemoved => 'Anexo removido';
 
   @override
-  String get attachmentTooLarge => 'Máximo de 2 MB';
+  String get attachmentTooLarge => 'Máximo de 5 MB';
 
   @override
   String get authenticateToContinue => 'Autentique-se para continuar';

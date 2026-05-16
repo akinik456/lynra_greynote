@@ -39,7 +39,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get attachmentRemoved => 'Ek kaldırıldı';
 
   @override
-  String get attachmentTooLarge => 'Maksimum 2 MB';
+  String get attachmentTooLarge => 'Maksimum 5 MB';
 
   @override
   String get authenticateToContinue => 'Devam etmek için doğrulayın';

@@ -39,7 +39,7 @@
 "viewAttachment": 							"Voir la pièce jointe",
 "addAttachment": 								"Ajouter une pièce jointe",
 "attachmentReady": 							"Pièce jointe prête",
-"attachmentTooLarge": 					"Maximum 2 Mo",
+"attachmentTooLarge": 					"Maximum 5 Mo",
 
 "search": 					"Rechercher",
 "unlockToSearch": 			"Déverrouillez pour rechercher",

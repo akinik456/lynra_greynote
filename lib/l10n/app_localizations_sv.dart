@@ -39,7 +39,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get attachmentRemoved => 'Bilaga borttagen';
 
   @override
-  String get attachmentTooLarge => 'Max 2 MB';
+  String get attachmentTooLarge => 'Max 5 MB';
 
   @override
   String get authenticateToContinue => 'Autentisera för att fortsätta';

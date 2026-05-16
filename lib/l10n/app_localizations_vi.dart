@@ -39,7 +39,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get attachmentRemoved => 'Tệp đính kèm đã bị xóa';
 
   @override
-  String get attachmentTooLarge => 'Tối đa 2 MB';
+  String get attachmentTooLarge => 'Tối đa 5 MB';
 
   @override
   String get authenticateToContinue => 'Xác thực để tiếp tục';

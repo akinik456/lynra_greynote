@@ -38,7 +38,7 @@
 "viewAttachment": 							"查看附件",
 "addAttachment": 								"添加附件",
 "attachmentReady": 							"添付ファイルの準備完了",
-"attachmentTooLarge": 					"最大2MB",
+"attachmentTooLarge": 					"最大5MB",
 
 "search": 					"搜索",
 "unlockToSearch": 			"解锁后搜索",

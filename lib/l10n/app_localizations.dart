@@ -193,7 +193,7 @@ abstract class AppLocalizations {
   /// No description provided for @attachmentTooLarge.
   ///
   /// In en, this message translates to:
-  /// **'Max 2MB allowed'**
+  /// **'Max 5MB allowed'**
   String get attachmentTooLarge;
 
   /// No description provided for @authenticateToContinue.

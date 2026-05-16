@@ -37,7 +37,7 @@
 "addAttachment": 								"Lägg till fil",
 "attachmentReady": 							"Bilaga klar",
 "attachmentRemoved": 					"Bilaga borttagen",
-"attachmentTooLarge": 					"Max 2 MB",
+"attachmentTooLarge": 					"Max 5 MB",
 "search": 					"Sök",
 "unlockToSearch": 			"Lås upp för att söka",
 "limitReached": 			"Gräns nådd",

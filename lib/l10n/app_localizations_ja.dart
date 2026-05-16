@@ -39,7 +39,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get attachmentRemoved => '添付ファイルが削除されました';
 
   @override
-  String get attachmentTooLarge => '最大2MB';
+  String get attachmentTooLarge => '最大5MB';
 
   @override
   String get authenticateToContinue => '続行するには認証してください';

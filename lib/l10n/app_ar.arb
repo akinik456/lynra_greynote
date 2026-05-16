@@ -35,7 +35,7 @@
 "viewAttachment": 							"عرض المرفق",
 "addAttachment": 								"إضافة مرفق",
 "attachmentReady": 							"المرفق جاهز",
-"attachmentTooLarge": 					"الحد الأقصى 2 ميجابايت",
+"attachmentTooLarge": 					"الحد الأقصى 5 ميجابايت",
 "search": 					"بحث",
 "unlockToSearch": 			"افتح القفل للبحث",
 "limitReached": 			"تم الوصول إلى الحد",

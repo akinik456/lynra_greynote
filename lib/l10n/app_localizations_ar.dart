@@ -39,7 +39,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get attachmentRemoved => 'تمت إزالة المرفق';
 
   @override
-  String get attachmentTooLarge => 'الحد الأقصى 2 ميجابايت';
+  String get attachmentTooLarge => 'الحد الأقصى 5 ميجابايت';
 
   @override
   String get authenticateToContinue => 'تحقق للمتابعة';

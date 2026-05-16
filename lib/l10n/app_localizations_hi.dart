@@ -39,7 +39,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get attachmentRemoved => 'संलग्नक हटाया गया';
 
   @override
-  String get attachmentTooLarge => 'अधिकतम 2 MB';
+  String get attachmentTooLarge => 'अधिकतम 5 MB';
 
   @override
   String get authenticateToContinue => 'जारी रखने के लिए सत्यापित करें';

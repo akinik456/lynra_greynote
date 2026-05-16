@@ -38,7 +38,7 @@
 "viewAttachment": 							"첨부 파일 보기",
 "addAttachment": 								"첨부 파일 추가",
 "attachmentReady": 							"첨부 파일 준비됨",
-"attachmentTooLarge": 					"최대 2MB",
+"attachmentTooLarge": 					"최대 5MB",
 
 "search": 					"검색",
 "unlockToSearch": 			"검색하려면 잠금 해제",

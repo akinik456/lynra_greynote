@@ -39,7 +39,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get attachmentRemoved => 'Lampiran dihapus';
 
   @override
-  String get attachmentTooLarge => 'Maksimal 2 MB';
+  String get attachmentTooLarge => 'Maksimal 5 MB';
 
   @override
   String get authenticateToContinue => 'Autentikasi untuk melanjutkan';

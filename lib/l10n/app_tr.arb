@@ -40,7 +40,7 @@
 "viewAttachment": 							"Eki görüntüle",
 "addAttachment": 								"Dosya ekle",
 "attachmentReady": 							"Ek hazır",
-"attachmentTooLarge": 					"Maksimum 2 MB",
+"attachmentTooLarge": 					"Maksimum 5 MB",
 
 "search": 											"Ara",
 "unlockToSearch":               "Aramak için kilidi aç",
