@@ -48,6 +48,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get backupReminder => 'Рекомендуется создать резервную копию для защиты ваших данных';
 
   @override
+  String get backupPatternWarning => 'Для импорта этой резервной копии требуется тот же графический ключ.';
+
+  @override
   String get bankDetails => 'Банковские данные';
 
   @override

@@ -13,6 +13,7 @@
 "attachmentTooLarge": 					"Max 5MB allowed",
 "authenticateToContinue": 			"Authenticate to continue",
 "backupReminder":								"Consider creating a backup to keep your data safe",
+"backupPatternWarning": 				"The same pattern lock is required to import this backup",
 "bankDetails": 									"Bank Details",
 "biometric": 										"Biometric",
 "biometricFailed": 							"Biometric failed",

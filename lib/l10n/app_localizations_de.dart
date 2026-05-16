@@ -48,6 +48,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get backupReminder => 'Erwägen Sie, ein Backup zu erstellen, um Ihre Daten zu schützen';
 
   @override
+  String get backupPatternWarning => 'Zum Importieren dieses Backups ist dasselbe Entsperrmuster erforderlich.';
+
+  @override
   String get bankDetails => 'Bankdaten';
 
   @override

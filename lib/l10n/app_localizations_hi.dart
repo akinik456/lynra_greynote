@@ -48,6 +48,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get backupReminder => 'अपने डेटा को सुरक्षित रखने के लिए बैकअप बनाने पर विचार करें';
 
   @override
+  String get backupPatternWarning => 'इस बैकअप को इम्पोर्ट करने के लिए वही पैटर्न लॉक आवश्यक है।';
+
+  @override
   String get bankDetails => 'बैंक विवरण';
 
   @override

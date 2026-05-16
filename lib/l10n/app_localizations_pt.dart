@@ -48,6 +48,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get backupReminder => 'Consider creating a backup to keep your data safe';
 
   @override
+  String get backupPatternWarning => 'The same pattern lock is required to import this backup';
+
+  @override
   String get bankDetails => 'Bank Details';
 
   @override
@@ -506,6 +509,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get backupReminder => 'Considere criar um backup para manter seus dados seguros';
+
+  @override
+  String get backupPatternWarning => 'O mesmo padrão de bloqueio é necessário para importar este backup.';
 
   @override
   String get bankDetails => 'Dados bancários';

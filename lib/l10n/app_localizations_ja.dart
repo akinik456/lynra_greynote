@@ -48,6 +48,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get backupReminder => 'データを保護するためにバックアップの作成を検討してください';
 
   @override
+  String get backupPatternWarning => 'このバックアップをインポートするには、同じパターンロックが必要です。';
+
+  @override
   String get bankDetails => '銀行情報';
 
   @override

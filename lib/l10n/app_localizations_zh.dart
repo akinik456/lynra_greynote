@@ -48,6 +48,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get backupReminder => '建议创建备份以保护您的数据';
 
   @override
+  String get backupPatternWarning => '导入此备份需要使用相同的图案锁。';
+
+  @override
   String get bankDetails => '银行信息';
 
   @override

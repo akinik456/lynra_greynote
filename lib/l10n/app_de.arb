@@ -1,7 +1,7 @@
 {
 "@@locale": 										"de",
-
 "backupReminder": 							"Erwägen Sie, ein Backup zu erstellen, um Ihre Daten zu schützen",
+"backupPatternWarning": 				"Zum Importieren dieses Backups ist dasselbe Entsperrmuster erforderlich.",
 "clear": 												"Löschen",
 "clearMyVault": 								"Meinen Tresor leeren",
 "clearMyVaultConfirm": 					"Dadurch werden alle Einträge in meinem Tresor gelöscht. Dies kann nicht rückgängig gemacht werden.",

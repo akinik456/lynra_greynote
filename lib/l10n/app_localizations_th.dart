@@ -48,6 +48,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get backupReminder => 'พิจารณาสร้างข้อมูลสำรองเพื่อปกป้องข้อมูลของคุณ';
 
   @override
+  String get backupPatternWarning => 'จำเป็นต้องใช้รูปแบบล็อกเดียวกันเพื่อนำเข้าข้อมูลสำรองนี้';
+
+  @override
   String get bankDetails => 'ข้อมูลธนาคาร';
 
   @override

@@ -1,6 +1,7 @@
 {
 "rateOnPlayStore": "Noter sur le Play Store",
 "feedback": 										"Retour",
+"backupPatternWarning": "Le même schéma de verrouillage est requis pour importer cette sauvegarde.",
 
 "imported": "Importé",
 "duplicate": "Dupliqué",

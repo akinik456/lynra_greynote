@@ -208,6 +208,12 @@ abstract class AppLocalizations {
   /// **'Consider creating a backup to keep your data safe'**
   String get backupReminder;
 
+  /// No description provided for @backupPatternWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'The same pattern lock is required to import this backup'**
+  String get backupPatternWarning;
+
   /// No description provided for @bankDetails.
   ///
   /// In en, this message translates to:

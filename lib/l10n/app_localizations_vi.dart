@@ -48,6 +48,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get backupReminder => 'Hãy cân nhắc tạo bản sao lưu để bảo vệ dữ liệu của bạn';
 
   @override
+  String get backupPatternWarning => 'Cần cùng một khóa mẫu để nhập bản sao lưu này.';
+
+  @override
   String get bankDetails => 'Thông tin ngân hàng';
 
   @override

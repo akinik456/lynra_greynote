@@ -1,4 +1,6 @@
 {
+"backupPatternWarning": "このバックアップをインポートするには、同じパターンロックが必要です。",
+
 "rateOnPlayStore": "Playストアで評価",
 "feedback": 										"フィードバック",
 

@@ -48,6 +48,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get backupReminder => 'فكر في إنشاء نسخة احتياطية للحفاظ على أمان بياناتك';
 
   @override
+  String get backupPatternWarning => 'يلزم استخدام نفس نمط القفل لاستيراد هذه النسخة الاحتياطية';
+
+  @override
   String get bankDetails => 'تفاصيل البنك';
 
   @override

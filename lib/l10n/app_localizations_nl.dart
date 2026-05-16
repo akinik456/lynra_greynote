@@ -48,6 +48,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get backupReminder => 'Overweeg een back-up te maken om je gegevens te beschermen';
 
   @override
+  String get backupPatternWarning => 'Hetzelfde patroonslot is vereist om deze back-up te importeren.';
+
+  @override
   String get bankDetails => 'Bankgegevens';
 
   @override

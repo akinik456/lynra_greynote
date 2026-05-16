@@ -48,6 +48,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get backupReminder => 'Considera crear una copia de seguridad para mantener tus datos seguros';
 
   @override
+  String get backupPatternWarning => 'Se requiere el mismo patrón de bloqueo para importar esta copia de seguridad.';
+
+  @override
   String get bankDetails => 'Datos bancarios';
 
   @override

@@ -48,6 +48,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get backupReminder => 'Verilerinizi güvende tutmak için yedek almayı unutmayın';
 
   @override
+  String get backupPatternWarning => 'Bu yedeği içe aktarmak için aynı desen gereklidir.';
+
+  @override
   String get bankDetails => 'Banka Bilgileri';
 
   @override

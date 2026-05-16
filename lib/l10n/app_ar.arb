@@ -1,4 +1,6 @@
 {
+"backupPatternWarning": "يلزم استخدام نفس نمط القفل لاستيراد هذه النسخة الاحتياطية",
+
 "rateOnPlayStore": "قيّم على متجر Play",
 "feedback": 										"ملاحظات",
 "imported": "تم الاستيراد",

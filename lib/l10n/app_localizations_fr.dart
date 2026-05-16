@@ -48,6 +48,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get backupReminder => 'Pensez à créer une sauvegarde pour protéger vos données';
 
   @override
+  String get backupPatternWarning => 'Le même schéma de verrouillage est requis pour importer cette sauvegarde.';
+
+  @override
   String get bankDetails => 'Coordonnées bancaires';
 
   @override

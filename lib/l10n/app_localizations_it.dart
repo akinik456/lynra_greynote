@@ -48,6 +48,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get backupReminder => 'Considera di creare un backup per proteggere i tuoi dati';
 
   @override
+  String get backupPatternWarning => 'Per importare questo backup è necessario lo stesso schema di blocco.';
+
+  @override
   String get bankDetails => 'Dettagli bancari';
 
   @override

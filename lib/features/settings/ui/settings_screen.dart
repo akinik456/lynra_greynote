@@ -592,9 +592,17 @@ final exportPin = await showDialog<String>(
                 ),
               ),
             ),
-
-            const SizedBox(height: 24),
-
+						const SizedBox(height: 10),
+						Text(
+							AppLocalizations.of(context)!.backupPatternWarning,
+							textAlign: TextAlign.center,
+							style: const TextStyle(
+								color: AppColors.textSecondary,
+								fontSize: 12,
+								height: 1.4,
+							),
+						),
+						const SizedBox(height: 14),
             Row(
               children: [
                 Expanded(
@@ -697,7 +705,6 @@ for (final row in vaultRowsRaw) {
     }
   }
 }
-
     final portableJson = jsonEncode({
       'vault': portableVault,
 			'attachments': attachments,
@@ -709,35 +716,26 @@ for (final row in vaultRowsRaw) {
       exportPin: exportPin,
     );
 
-    await FileSaver.instance.saveAs(
-      name: 'lynra_backup',
-      bytes: Uint8List.fromList(
-        utf8.encode(jsonEncode(backupFileJson)),
-      ),
-      ext: 'json',
-      mimeType: MimeType.json,
-    );
-		
-		final savedPath = await FileSaver.instance.saveAs(
-  name: 'lynra_backup',
-  bytes: Uint8List.fromList(
-    utf8.encode(jsonEncode(backupFileJson)),
-  ),
-  ext: 'json',
-  mimeType: MimeType.json,
-);
+    final savedPath = await FileSaver.instance.saveAs(
+			name: 'lynra_backup',
+			bytes: Uint8List.fromList(
+				utf8.encode(jsonEncode(backupFileJson)),
+			),
+			ext: 'json',
+			mimeType: MimeType.json,
+		);
 
-if (!mounted) return;
+		if (!mounted) return;
 
-if (savedPath == null) {
-  return;
-}
+		if (savedPath == null) {
+			return;
+		}
 
-ScaffoldMessenger.of(context).showSnackBar(
-  SnackBar(
-    content: Text(AppLocalizations.of(context)!.exportCompleted),
-  ),
-);
+		ScaffoldMessenger.of(context).showSnackBar(
+			SnackBar(
+				content: Text(AppLocalizations.of(context)!.exportCompleted),
+			),
+		);
 
     if (!mounted) return;
 

@@ -48,6 +48,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get backupReminder => 'Pertimbangkan untuk membuat cadangan agar data Anda tetap aman';
 
   @override
+  String get backupPatternWarning => 'Pola kunci yang sama diperlukan untuk mengimpor cadangan ini.';
+
+  @override
   String get bankDetails => 'Detail Bank';
 
   @override

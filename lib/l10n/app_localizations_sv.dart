@@ -48,6 +48,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get backupReminder => 'Överväg att skapa en säkerhetskopia för att skydda dina data';
 
   @override
+  String get backupPatternWarning => 'Samma mönsterlås krävs för att importera denna säkerhetskopia.';
+
+  @override
   String get bankDetails => 'Bankuppgifter';
 
   @override

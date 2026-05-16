@@ -48,6 +48,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get backupReminder => 'Rozważ utworzenie kopii zapasowej, aby chronić swoje dane';
 
   @override
+  String get backupPatternWarning => 'Do zaimportowania tej kopii zapasowej wymagany jest ten sam wzór blokady.';
+
+  @override
   String get bankDetails => 'Dane bankowe';
 
   @override
