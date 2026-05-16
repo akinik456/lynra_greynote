@@ -1,0 +1,26 @@
+
+Uygulama Adı :LynraGreyNote
+
+Kısa açıklama: Offline, encrypted vault for secure notes, passwords, and personal data.
+
+Tam açıklama: Lynra GreyNote is a private, offline vault designed to securely store your most sensitive information.
+
+🔒 Private by Design
+Your data never leaves your device. Lynra GreyNote does not use servers, does not track you, and does not collect any personal data.
+
+🛡 Strong Encryption
+All records are protected with modern encryption. Only you can access your data using your PIN or biometric authentication.
+
+📱 Fully Offline
+No internet connection is required. Your notes, passwords, and personal information are always available and always under your control.
+
+📂 Secure Storage
+Store passwords, private notes, and sensitive information in one safe place with a clean and minimal interface.
+
+⚡ Fast and Simple
+Designed for speed and simplicity. No unnecessary features, no distractions — just secure and reliable storage.
+
+🔐 Your Responsibility
+For maximum security, your credentials are not recoverable. If you forget your PIN or pattern, your data cannot be restored.
+
+Lynra GreyNote is built for users who value privacy, simplicity, and full control over their data.

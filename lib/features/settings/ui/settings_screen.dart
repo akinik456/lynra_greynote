@@ -616,12 +616,18 @@ final exportPin = await showDialog<String>(
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 14),
                     ),
-                    onPressed: () {
-                      final pin = exportPinController.text.trim();
-                      if (pin.length == 5 && RegExp(r'^\d{5}$').hasMatch(pin)) {
-                        Navigator.pop(context, pin);
-                      }
-                    },
+                    onPressed: () async {
+											final pin = exportPinController.text.trim();
+
+											if (pin.length == 5 && RegExp(r'^\d{5}$').hasMatch(pin)) {
+												FocusScope.of(context).unfocus();        // keyboard kapat
+												await Future.delayed(const Duration(milliseconds: 120));
+
+												if (context.mounted) {
+													Navigator.pop(context, pin);
+												}
+											}
+										},
                     child: Text(AppLocalizations.of(context)!.export.toUpperCase()),
                   ),
                 ),
@@ -711,6 +717,27 @@ for (final row in vaultRowsRaw) {
       ext: 'json',
       mimeType: MimeType.json,
     );
+		
+		final savedPath = await FileSaver.instance.saveAs(
+  name: 'lynra_backup',
+  bytes: Uint8List.fromList(
+    utf8.encode(jsonEncode(backupFileJson)),
+  ),
+  ext: 'json',
+  mimeType: MimeType.json,
+);
+
+if (!mounted) return;
+
+if (savedPath == null) {
+  return;
+}
+
+ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text(AppLocalizations.of(context)!.exportCompleted),
+  ),
+);
 
     if (!mounted) return;
 
