@@ -81,6 +81,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get clearMyVaultConfirm => '这将删除我的保险库中的所有条目。此操作无法撤销。';
 
   @override
+  String get close => '关闭';
+
+  @override
   String get collection => '集合';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String updatedDate(Object date) {
     return '更新于 $date';
   }
+
+  @override
+  String get usageGuide => '使用指南';
+
+  @override
+  String get usageGuideText => '• 你的数据仅存储在你的设备上。\n\n• 建议定期备份，以便在更换设备等情况下保护你的数据。\n\n• 出于安全原因，图案条目不会包含在导出文件中。\n\n• Vault Word 会隐藏屏幕上的敏感内容。\n\n• 应用在进入后台时会自动锁定。\n\n• 此应用不使用云同步或外部服务器。\n\n• 在导入之前，请先下载合适的模板文件，并按照模板创建你的记录。\n\n• 长按条目或集合即可删除。';
 
   @override
   String get username => '用户名';

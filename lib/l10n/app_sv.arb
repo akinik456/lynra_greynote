@@ -1,8 +1,11 @@
 {
+"@@locale": 				"sv",
+"close": "Stäng",
+"usageGuide": "Användarguide",
+"usageGuideText": "• Dina data lagras endast på din enhet.\n\n• Regelbundna säkerhetskopior rekommenderas för att skydda dina data vid situationer som byte av enhet.\n\n• Mönsterposter inkluderas inte i exportfiler av säkerhetsskäl.\n\n• Vault Word döljer känsligt innehåll på skärmen.\n\n• Appen låses automatiskt när den går till bakgrunden.\n\n• Den här appen använder inte molnsynkronisering eller externa servrar.\n\n• För importåtgärder, ladda först ner rätt mallfil och skapa dina poster enligt den.\n\n• Tryck länge på en post eller samling för att radera den.",
 "backupPatternWarning": "Samma mönsterlås krävs för att importera denna säkerhetskopia.",
 "rateOnPlayStore": "Betygsätt på Play Store",
 "feedback": 										"Feedback",
-
 "imported": "Importerad",
 "duplicate": "Duplicera",
 "empty": "Tom",
@@ -19,7 +22,6 @@
 "exportCSV": "Exportera som CSV-fil",
 "csvTemplate":									"CSV-mall",
 "textTemplate":									"Textmall",
-
 "txtExportCompleted": "Export klar. Den här filen är inte krypterad.",
 "exportBackup": "Exportera krypterad säkerhetskopia",
 "exportText": "Exportera som textfil",
@@ -44,8 +46,6 @@
 "limitReached": 			"Gräns nådd",
 "freeLimitEntries": 		"Du kan lägga till upp till 2 poster i gratisversionen.",
 "upgrade": 					"Uppgradera",
-
-"@@locale": 				"sv",
 "add": 						"Lägg till",
 "addFirstSecureEntry": 		"Tryck på + för att lägga till din första säkra post.",
 "addIban": 					"Lägg till IBAN",
@@ -132,6 +132,7 @@
 "pinSaved": 				"PIN sparad",
 "pinsDoNotMatch": 			"PIN matchar inte",
 "privateByDesign": 			"Integritet är grund, inte funktion",
+"removeAttachment": "Ta bort bilaga",
 "save": 					"Spara",
 "savePin": 					"Spara PIN",
 "secondaryLock": 			"Sekundärt lås",

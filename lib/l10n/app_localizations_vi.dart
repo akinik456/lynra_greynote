@@ -81,6 +81,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get clearMyVaultConfirm => 'Thao tác này sẽ xóa tất cả mục trong Kho Của Tôi. Không thể hoàn tác.';
 
   @override
+  String get close => 'Đóng';
+
+  @override
   String get collection => 'Bộ sưu tập';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Cập nhật $date';
   }
+
+  @override
+  String get usageGuide => 'Hướng dẫn sử dụng';
+
+  @override
+  String get usageGuideText => '• Dữ liệu của bạn chỉ được lưu trên thiết bị của bạn.\n\n• Nên sao lưu định kỳ để bảo vệ dữ liệu trong các trường hợp như thay đổi thiết bị.\n\n• Các mục mẫu sẽ không được đưa vào tệp xuất vì lý do bảo mật.\n\n• Vault Word sẽ ẩn nội dung nhạy cảm trên màn hình.\n\n• Ứng dụng sẽ tự động khóa khi chuyển sang chế độ nền.\n\n• Ứng dụng này không sử dụng đồng bộ đám mây hoặc máy chủ bên ngoài.\n\n• Đối với thao tác nhập dữ liệu, trước tiên hãy tải xuống tệp mẫu phù hợp và tạo dữ liệu theo đúng định dạng đó.\n\n• Nhấn giữ vào mục hoặc bộ sưu tập để xóa.';
 
   @override
   String get username => 'Tên người dùng';

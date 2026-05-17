@@ -81,6 +81,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get clearMyVaultConfirm => 'यह मेरे वॉल्ट की सभी प्रविष्टियों को हटा देगा। इसे वापस नहीं किया जा सकता।';
 
   @override
+  String get close => 'बंद करें';
+
+  @override
   String get collection => 'संग्रह';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsHi extends AppLocalizations {
   String updatedDate(Object date) {
     return '$date को अपडेट किया गया';
   }
+
+  @override
+  String get usageGuide => 'उपयोग मार्गदर्शिका';
+
+  @override
+  String get usageGuideText => '• आपका डेटा केवल आपके डिवाइस पर संग्रहीत होता है।\n\n• डिवाइस बदलने जैसी स्थितियों में अपने डेटा की सुरक्षा के लिए नियमित बैकअप लेने की सलाह दी जाती है।\n\n• सुरक्षा कारणों से पैटर्न एंट्रियाँ एक्सपोर्ट फ़ाइलों में शामिल नहीं की जाती हैं।\n\n• Vault Word स्क्रीन पर संवेदनशील सामग्री को छिपाता है।\n\n• ऐप बैकग्राउंड में जाने पर स्वतः लॉक हो जाता है।\n\n• यह ऐप क्लाउड सिंक या बाहरी सर्वर का उपयोग नहीं करता है।\n\n• इम्पोर्ट प्रक्रिया के लिए पहले उपयुक्त टेम्पलेट फ़ाइल डाउनलोड करें और अपने रिकॉर्ड उसी अनुसार बनाएं।\n\n• किसी एंट्री या कलेक्शन को हटाने के लिए उस पर लंबा दबाएँ।';
 
   @override
   String get username => 'उपयोगकर्ता नाम';

@@ -81,6 +81,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get clearMyVaultConfirm => 'Esto eliminará todas las entradas de Mi Bóveda. Esta acción no se puede deshacer.';
 
   @override
+  String get close => 'Cerrar';
+
+  @override
   String get collection => 'Colección';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsEs extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Actualizado $date';
   }
+
+  @override
+  String get usageGuide => 'Guía de Uso';
+
+  @override
+  String get usageGuideText => '• Tus datos se almacenan únicamente en tu dispositivo.\n\n• Se recomiendan copias de seguridad periódicas para proteger tus datos en situaciones como cambios de dispositivo.\n\n• Las entradas de patrón se excluyen de los archivos de exportación por razones de seguridad.\n\n• La Palabra de Bóveda oculta el contenido sensible en la pantalla.\n\n• La aplicación se bloquea automáticamente cuando pasa a segundo plano.\n\n• Esta aplicación no utiliza sincronización en la nube ni servidores externos.\n\n• Para las operaciones de importación, primero descarga el archivo de plantilla adecuado y crea tus registros en consecuencia.\n\n• Mantén presionado un registro o colección para eliminarlo.';
 
   @override
   String get username => 'Nombre de usuario';

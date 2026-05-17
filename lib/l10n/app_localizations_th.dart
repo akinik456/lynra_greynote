@@ -81,6 +81,9 @@ class AppLocalizationsTh extends AppLocalizations {
   String get clearMyVaultConfirm => 'การดำเนินการนี้จะลบข้อมูลทั้งหมดใน Vault ของฉัน และไม่สามารถย้อนกลับได้';
 
   @override
+  String get close => 'ปิด';
+
+  @override
   String get collection => 'คอลเลกชัน';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsTh extends AppLocalizations {
   String updatedDate(Object date) {
     return 'อัปเดต $date';
   }
+
+  @override
+  String get usageGuide => 'คู่มือการใช้งาน';
+
+  @override
+  String get usageGuideText => '• ข้อมูลของคุณจะถูกเก็บไว้บนอุปกรณ์ของคุณเท่านั้น\n\n• แนะนำให้สำรองข้อมูลเป็นประจำเพื่อปกป้องข้อมูลของคุณในกรณีเช่นการเปลี่ยนอุปกรณ์\n\n• รายการรูปแบบจะไม่ถูกรวมอยู่ในไฟล์ส่งออกด้วยเหตุผลด้านความปลอดภัย\n\n• Vault Word จะซ่อนเนื้อหาที่ละเอียดอ่อนบนหน้าจอ\n\n• แอปจะล็อกอัตโนมัติเมื่อทำงานอยู่เบื้องหลัง\n\n• แอปนี้ไม่ใช้การซิงค์ผ่านคลาวด์หรือเซิร์ฟเวอร์ภายนอก\n\n• สำหรับการนำเข้าข้อมูล กรุณาดาวน์โหลดไฟล์เทมเพลตที่เหมาะสมก่อน แล้วสร้างข้อมูลของคุณตามรูปแบบนั้น\n\n• กดค้างที่รายการหรือคอลเลกชันเพื่อลบ';
 
   @override
   String get username => 'ชื่อผู้ใช้';

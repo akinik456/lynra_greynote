@@ -81,6 +81,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
 
   @override
+  String get close => 'Close';
+
+  @override
   String get collection => 'Collection';
 
   @override
@@ -458,6 +461,12 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
+  String get usageGuide => 'Usage Guide';
+
+  @override
+  String get usageGuideText => '• Your data is stored only on your device.\n\n•Periodic backups are recommended to protect your data in situations such as device changes.\n\n• Pattern entries are excluded from export files for security reasons.\n\n• Vault Word hides sensitive content on the screen.\n\n• The app automatically locks itself when sent to the background.\n\n• This application does not use cloud sync or external servers.\n\n• For import operations, first download the appropriate template file and create your records accordingly.\n\n• Long press on an entry or collection to delete it.';
+
+  @override
   String get username => 'Username';
 
   @override
@@ -542,6 +551,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get clearMyVaultConfirm => 'Isso excluirá todas as entradas do Meu Cofre. Esta ação não pode ser desfeita.';
+
+  @override
+  String get close => 'Fechar';
 
   @override
   String get collection => 'Coleção';
@@ -919,6 +931,12 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String updatedDate(Object date) {
     return 'Atualizado em $date';
   }
+
+  @override
+  String get usageGuide => 'Guia de Uso';
+
+  @override
+  String get usageGuideText => '• Seus dados são armazenados apenas no seu dispositivo.\n\n• Backups periódicos são recomendados para proteger seus dados em situações como troca de dispositivo.\n\n• Entradas de padrão são excluídas dos arquivos de exportação por motivos de segurança.\n\n• A Palavra do Cofre oculta conteúdos sensíveis na tela.\n\n• O aplicativo é bloqueado automaticamente quando vai para o segundo plano.\n\n• Este aplicativo não utiliza sincronização em nuvem nem servidores externos.\n\n• Para operações de importação, primeiro baixe o arquivo de modelo apropriado e crie seus registros de acordo.\n\n• Pressione e segure uma entrada ou coleção para excluí-la.';
 
   @override
   String get username => 'Nome de usuário';

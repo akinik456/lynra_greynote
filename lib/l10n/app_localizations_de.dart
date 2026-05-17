@@ -81,6 +81,9 @@ class AppLocalizationsDe extends AppLocalizations {
   String get clearMyVaultConfirm => 'Dadurch werden alle Einträge in meinem Tresor gelöscht. Dies kann nicht rückgängig gemacht werden.';
 
   @override
+  String get close => 'Schließen';
+
+  @override
   String get collection => 'Sammlung';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Aktualisiert am $date';
   }
+
+  @override
+  String get usageGuide => 'Benutzerhandbuch';
+
+  @override
+  String get usageGuideText => '• Deine Daten werden nur auf deinem Gerät gespeichert.\n\n• Regelmäßige Backups werden empfohlen, um deine Daten bei Gerätewechseln oder ähnlichen Situationen zu schützen.\n\n• Muster-Einträge werden aus Sicherheitsgründen nicht in Exportdateien aufgenommen.\n\n• Das Vault-Wort verbirgt sensible Inhalte auf dem Bildschirm.\n\n• Die App sperrt sich automatisch, wenn sie in den Hintergrund wechselt.\n\n• Diese Anwendung verwendet keine Cloud-Synchronisierung oder externe Server.\n\n• Lade für Importvorgänge zuerst die passende Vorlagendatei herunter und erstelle deine Einträge entsprechend.\n\n• Halte einen Eintrag oder eine Sammlung gedrückt, um sie zu löschen.';
 
   @override
   String get username => 'Benutzername';

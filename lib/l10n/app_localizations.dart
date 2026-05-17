@@ -274,6 +274,12 @@ abstract class AppLocalizations {
   /// **'This will delete all entries in My Vault. This cannot be undone.'**
   String get clearMyVaultConfirm;
 
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
   /// No description provided for @collection.
   ///
   /// In en, this message translates to:
@@ -999,6 +1005,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Updated {date}'**
   String updatedDate(Object date);
+
+  /// No description provided for @usageGuide.
+  ///
+  /// In en, this message translates to:
+  /// **'Usage Guide'**
+  String get usageGuide;
+
+  /// No description provided for @usageGuideText.
+  ///
+  /// In en, this message translates to:
+  /// **'• Your data is stored only on your device.\n\n•Periodic backups are recommended to protect your data in situations such as device changes.\n\n• Pattern entries are excluded from export files for security reasons.\n\n• Vault Word hides sensitive content on the screen.\n\n• The app automatically locks itself when sent to the background.\n\n• This application does not use cloud sync or external servers.\n\n• For import operations, first download the appropriate template file and create your records accordingly.\n\n• Long press on an entry or collection to delete it.'**
+  String get usageGuideText;
 
   /// No description provided for @username.
   ///

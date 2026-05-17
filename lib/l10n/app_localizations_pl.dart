@@ -81,6 +81,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get clearMyVaultConfirm => 'Spowoduje to usunięcie wszystkich wpisów w Moim Vault. Tej operacji nie można cofnąć.';
 
   @override
+  String get close => 'Zamknij';
+
+  @override
   String get collection => 'Kolekcja';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsPl extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Zaktualizowano $date';
   }
+
+  @override
+  String get usageGuide => 'Instrukcja użytkowania';
+
+  @override
+  String get usageGuideText => '• Twoje dane są przechowywane wyłącznie na Twoim urządzeniu.\n\n• Zaleca się regularne tworzenie kopii zapasowych w celu ochrony danych w sytuacjach takich jak zmiana urządzenia.\n\n• Wpisy wzorów są wykluczane z plików eksportu ze względów bezpieczeństwa.\n\n• Vault Word ukrywa wrażliwe treści na ekranie.\n\n• Aplikacja automatycznie blokuje się po przejściu do tła.\n\n• Ta aplikacja nie korzysta z synchronizacji w chmurze ani zewnętrznych serwerów.\n\n• W przypadku importu najpierw pobierz odpowiedni plik szablonu i utwórz dane zgodnie z nim.\n\n• Naciśnij i przytrzymaj wpis lub kolekcję, aby ją usunąć.';
 
   @override
   String get username => 'Nazwa użytkownika';

@@ -704,7 +704,7 @@ if (_vaultWordEnabled)
               await load();
             },
             onAdd: () {
-							if (!_isPremium && collections.length >= 2) {
+							if (!_isPremium && collections.length >= 2) {// ?*?
 							showUpgradeDialog();
 							return;
 							}
@@ -991,7 +991,7 @@ Padding(
       .length;
 
   if (!_isPremium && itemCount >= 2) {
-    showUpgradeDialog();
+    showUpgradeDialog();// ?*?
     return;
   }
 

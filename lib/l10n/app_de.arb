@@ -1,4 +1,7 @@
 {
+"close": 												"Schließen",
+"usageGuide": 									"Benutzerhandbuch",
+"usageGuideText": 							"• Deine Daten werden nur auf deinem Gerät gespeichert.\n\n• Regelmäßige Backups werden empfohlen, um deine Daten bei Gerätewechseln oder ähnlichen Situationen zu schützen.\n\n• Muster-Einträge werden aus Sicherheitsgründen nicht in Exportdateien aufgenommen.\n\n• Das Vault-Wort verbirgt sensible Inhalte auf dem Bildschirm.\n\n• Die App sperrt sich automatisch, wenn sie in den Hintergrund wechselt.\n\n• Diese Anwendung verwendet keine Cloud-Synchronisierung oder externe Server.\n\n• Lade für Importvorgänge zuerst die passende Vorlagendatei herunter und erstelle deine Einträge entsprechend.\n\n• Halte einen Eintrag oder eine Sammlung gedrückt, um sie zu löschen.",
 "@@locale": 										"de",
 "backupReminder": 							"Erwägen Sie, ein Backup zu erstellen, um Ihre Daten zu schützen",
 "backupPatternWarning": 				"Zum Importieren dieses Backups ist dasselbe Entsperrmuster erforderlich.",

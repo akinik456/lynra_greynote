@@ -81,6 +81,9 @@ class AppLocalizationsIt extends AppLocalizations {
   String get clearMyVaultConfirm => 'Questa operazione eliminerà tutte le voci nel Mio Vault. L\'operazione non può essere annullata.';
 
   @override
+  String get close => 'Chiudi';
+
+  @override
   String get collection => 'Collezione';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Aggiornato $date';
   }
+
+  @override
+  String get usageGuide => 'Guida all\'uso';
+
+  @override
+  String get usageGuideText => '• I tuoi dati vengono archiviati solo sul tuo dispositivo.\n\n• Si consigliano backup periodici per proteggere i dati in situazioni come il cambio di dispositivo.\n\n• Le voci con pattern sono escluse dai file di esportazione per motivi di sicurezza.\n\n• La Parola Cassaforte nasconde i contenuti sensibili sullo schermo.\n\n• L\'app si blocca automaticamente quando passa in background.\n\n• Questa applicazione non utilizza sincronizzazione cloud o server esterni.\n\n• Per le operazioni di importazione, scarica prima il file modello appropriato e crea i tuoi record di conseguenza.\n\n• Tieni premuto su una voce o raccolta per eliminarla.';
 
   @override
   String get username => 'Nome utente';

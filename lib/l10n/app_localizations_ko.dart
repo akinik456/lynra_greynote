@@ -81,6 +81,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get clearMyVaultConfirm => '이 작업은 내 Vault의 모든 항목을 삭제합니다. 되돌릴 수 없습니다.';
 
   @override
+  String get close => '닫기';
+
+  @override
   String get collection => '컬렉션';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String updatedDate(Object date) {
     return '$date 업데이트됨';
   }
+
+  @override
+  String get usageGuide => '사용 가이드';
+
+  @override
+  String get usageGuideText => '• 데이터는 오직 기기에만 저장됩니다.\n\n• 기기 변경과 같은 상황에 대비해 데이터를 보호하려면 정기적인 백업을 권장합니다.\n\n• 보안상의 이유로 패턴 항목은 내보내기 파일에 포함되지 않습니다.\n\n• Vault Word는 화면의 민감한 내용을 숨깁니다.\n\n• 앱은 백그라운드로 전환되면 자동으로 잠깁니다.\n\n• 이 앱은 클라우드 동기화 또는 외부 서버를 사용하지 않습니다.\n\n• 가져오기 작업을 위해 먼저 적절한 템플릿 파일을 다운로드하고 그 형식에 맞게 데이터를 작성하세요.\n\n• 항목이나 컬렉션을 삭제하려면 길게 누르세요.';
 
   @override
   String get username => '사용자 이름';

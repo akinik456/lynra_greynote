@@ -81,6 +81,9 @@ class AppLocalizationsNl extends AppLocalizations {
   String get clearMyVaultConfirm => 'Hiermee worden alle items in Mijn Vault verwijderd. Dit kan niet ongedaan worden gemaakt.';
 
   @override
+  String get close => 'Sluiten';
+
+  @override
   String get collection => 'Collectie';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsNl extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Bijgewerkt $date';
   }
+
+  @override
+  String get usageGuide => 'Gebruikershandleiding';
+
+  @override
+  String get usageGuideText => '• Je gegevens worden alleen op je apparaat opgeslagen.\n\n• Regelmatige back-ups worden aanbevolen om je gegevens te beschermen bij situaties zoals het wisselen van apparaat.\n\n• Patroonitems worden om veiligheidsredenen niet opgenomen in exportbestanden.\n\n• Vault Word verbergt gevoelige inhoud op het scherm.\n\n• De app wordt automatisch vergrendeld wanneer deze naar de achtergrond gaat.\n\n• Deze app gebruikt geen cloudsynchronisatie of externe servers.\n\n• Download voor importbewerkingen eerst het juiste sjabloonbestand en maak je gegevens volgens dat formaat aan.\n\n• Houd een item of collectie ingedrukt om deze te verwijderen.';
 
   @override
   String get username => 'Gebruikersnaam';

@@ -81,6 +81,9 @@ class AppLocalizationsId extends AppLocalizations {
   String get clearMyVaultConfirm => 'Ini akan menghapus semua entri di Vault Saya. Tindakan ini tidak dapat dibatalkan.';
 
   @override
+  String get close => 'Tutup';
+
+  @override
   String get collection => 'Koleksi';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsId extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Diperbarui $date';
   }
+
+  @override
+  String get usageGuide => 'Panduan Penggunaan';
+
+  @override
+  String get usageGuideText => '• Data Anda hanya disimpan di perangkat Anda.\n\n• Pencadangan berkala disarankan untuk melindungi data Anda dalam situasi seperti pergantian perangkat.\n\n• Entri pola tidak disertakan dalam file ekspor demi alasan keamanan.\n\n• Vault Word menyembunyikan konten sensitif di layar.\n\n• Aplikasi akan terkunci secara otomatis saat berjalan di latar belakang.\n\n• Aplikasi ini tidak menggunakan sinkronisasi cloud atau server eksternal.\n\n• Untuk proses impor, unduh terlebih dahulu file template yang sesuai dan buat data Anda berdasarkan template tersebut.\n\n• Tekan lama pada entri atau koleksi untuk menghapusnya.';
 
   @override
   String get username => 'Username';

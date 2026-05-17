@@ -81,6 +81,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get clearMyVaultConfirm => 'سيؤدي هذا إلى حذف جميع الإدخالات في خزنتي. لا يمكن التراجع عن هذا الإجراء';
 
   @override
+  String get close => 'إغلاق';
+
+  @override
   String get collection => 'مجموعة';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String updatedDate(Object date) {
     return 'تم التحديث $date';
   }
+
+  @override
+  String get usageGuide => 'دليل الاستخدام';
+
+  @override
+  String get usageGuideText => '• يتم تخزين بياناتك على جهازك فقط.\n\n• يُوصى بإجراء نسخ احتياطية دورية لحماية بياناتك في حالات مثل تغيير الجهاز.\n\n• يتم استبعاد إدخالات النمط من ملفات التصدير لأسباب أمنية.\n\n• يقوم Vault Word بإخفاء المحتوى الحساس على الشاشة.\n\n• يتم قفل التطبيق تلقائيًا عند انتقاله إلى الخلفية.\n\n• لا يستخدم هذا التطبيق المزامنة السحابية أو الخوادم الخارجية.\n\n• لعمليات الاستيراد، قم أولاً بتنزيل ملف القالب المناسب وأنشئ سجلاتك وفقًا له.\n\n• اضغط مطولاً على إدخال أو مجموعة لحذفها.';
 
   @override
   String get username => 'اسم المستخدم';

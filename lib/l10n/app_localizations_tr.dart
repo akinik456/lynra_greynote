@@ -81,6 +81,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get clearMyVaultConfirm => 'Bu işlem Kasamdaki tüm kayıtları silecektir. Bu işlem geri alınamaz.';
 
   @override
+  String get close => 'Close';
+
+  @override
   String get collection => 'Koleksiyon';
 
   @override
@@ -450,6 +453,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Güncellendi $date';
   }
+
+  @override
+  String get usageGuide => 'Kullanım Rehberi';
+
+  @override
+  String get usageGuideText => '• Verilerin yalnızca cihazında saklanır.\n\n•Cihaz değişimi gibi durumlarda verilerini koruyabilmek için periyodik yedek alman önerilir.\n\n• Güvenlik nedeniyle pattern girişleri export dosyalarına dahil edilmez.\n\n• Kasa Kelimesi ekrandaki hassas içerikleri gizler.\n\n• Uygulama arka plana geçtiğinde otomatik olarak kilitlenir.\n\n• Bu uygulama bulut senkronizasyonu veya harici sunucu kullanmaz.\n\n• Import işlemleri için önce uygun template dosyasını indirip kayıtlarını buna uygun oluştur.\n\n• Bir kayıt veya koleksiyonu silmek için uzun bas.';
 
   @override
   String get username => 'Kullanıcı Adı';

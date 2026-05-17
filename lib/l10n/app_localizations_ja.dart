@@ -81,6 +81,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get clearMyVaultConfirm => 'これによりマイVault内のすべての項目が削除されます。この操作は元に戻せません。';
 
   @override
+  String get close => '閉じる';
+
+  @override
   String get collection => 'コレクション';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String updatedDate(Object date) {
     return '$dateに更新';
   }
+
+  @override
+  String get usageGuide => '使用ガイド';
+
+  @override
+  String get usageGuideText => '• データは端末内のみに保存されます。\n\n• 端末変更などの場合にデータを保護するため、定期的なバックアップを推奨します。\n\n• セキュリティ上の理由により、パターン項目はエクスポートファイルに含まれません。\n\n• Vault Word は画面上の機密情報を隠します。\n\n• アプリはバックグラウンドに移動すると自動的にロックされます。\n\n• このアプリはクラウド同期や外部サーバーを使用しません。\n\n• インポートを行う前に、適切なテンプレートファイルをダウンロードし、それに合わせてデータを作成してください。\n\n• 項目またはコレクションを削除するには長押ししてください。';
 
   @override
   String get username => 'ユーザー名';

@@ -1,4 +1,7 @@
 {
+"close": 													"Close",
+"usageGuide": "Kullanım Rehberi",
+"usageGuideText": "• Verilerin yalnızca cihazında saklanır.\n\n•Cihaz değişimi gibi durumlarda verilerini koruyabilmek için periyodik yedek alman önerilir.\n\n• Güvenlik nedeniyle pattern girişleri export dosyalarına dahil edilmez.\n\n• Kasa Kelimesi ekrandaki hassas içerikleri gizler.\n\n• Uygulama arka plana geçtiğinde otomatik olarak kilitlenir.\n\n• Bu uygulama bulut senkronizasyonu veya harici sunucu kullanmaz.\n\n• Import işlemleri için önce uygun template dosyasını indirip kayıtlarını buna uygun oluştur.\n\n• Bir kayıt veya koleksiyonu silmek için uzun bas.",
 "backupPatternWarning": "Bu yedeği içe aktarmak için aynı desen gereklidir.",
 
 "rateOnPlayStore": "Play Store'da Puanla",

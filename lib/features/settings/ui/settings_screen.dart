@@ -518,6 +518,51 @@ _Item(
 							);
 						},
 					),
+					
+					_Item(
+	title: AppLocalizations.of(context)!.usageGuide,
+	onTap: () {
+		showDialog(
+			context: context,
+			builder: (context) {
+				return AlertDialog(
+					backgroundColor: AppColors.surface,
+					shape: RoundedRectangleBorder(
+						borderRadius: BorderRadius.circular(24),
+					),
+					title: Text(
+						AppLocalizations.of(context)!.usageGuide,
+						style: const TextStyle(
+							color: AppColors.textPrimary,
+							fontWeight: FontWeight.w700,
+						),
+					),
+					content: SingleChildScrollView(
+						child: Text(
+							AppLocalizations.of(context)!.usageGuideText,
+							style: const TextStyle(
+								color: AppColors.textSecondary,
+								height: 1.5,
+							),
+						),
+					),
+					actions: [
+						TextButton(
+							onPressed: () => Navigator.pop(context),
+							child: Text(
+								AppLocalizations.of(context)!.close,
+								style: const TextStyle(
+									color: AppColors.textPrimary,
+								),
+							),
+						),
+					],
+				);
+			},
+		);
+	},
+),
+					
 					_Item(
   title: AppLocalizations.of(context)!.rateOnPlayStore,//"Rate on Play Store",
   onTap: () async {

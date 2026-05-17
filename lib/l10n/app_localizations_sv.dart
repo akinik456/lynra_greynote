@@ -81,6 +81,9 @@ class AppLocalizationsSv extends AppLocalizations {
   String get clearMyVaultConfirm => 'Detta kommer att radera alla poster i Mitt Valv. Detta kan inte ångras.';
 
   @override
+  String get close => 'Stäng';
+
+  @override
   String get collection => 'Samling';
 
   @override
@@ -337,7 +340,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get rateOnPlayStore => 'Betygsätt på Play Store';
 
   @override
-  String get removeAttachment => 'Remove';
+  String get removeAttachment => 'Ta bort bilaga';
 
   @override
   String get save => 'Spara';
@@ -456,6 +459,12 @@ class AppLocalizationsSv extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Uppdaterad $date';
   }
+
+  @override
+  String get usageGuide => 'Användarguide';
+
+  @override
+  String get usageGuideText => '• Dina data lagras endast på din enhet.\n\n• Regelbundna säkerhetskopior rekommenderas för att skydda dina data vid situationer som byte av enhet.\n\n• Mönsterposter inkluderas inte i exportfiler av säkerhetsskäl.\n\n• Vault Word döljer känsligt innehåll på skärmen.\n\n• Appen låses automatiskt när den går till bakgrunden.\n\n• Den här appen använder inte molnsynkronisering eller externa servrar.\n\n• För importåtgärder, ladda först ner rätt mallfil och skapa dina poster enligt den.\n\n• Tryck länge på en post eller samling för att radera den.';
 
   @override
   String get username => 'Användarnamn';

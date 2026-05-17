@@ -81,6 +81,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clearMyVaultConfirm => 'This will delete all entries in My Vault. This cannot be undone.';
 
   @override
+  String get close => 'Close';
+
+  @override
   String get collection => 'Collection';
 
   @override
@@ -456,6 +459,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String updatedDate(Object date) {
     return 'Updated $date';
   }
+
+  @override
+  String get usageGuide => 'Usage Guide';
+
+  @override
+  String get usageGuideText => '• Your data is stored only on your device.\n\n•Periodic backups are recommended to protect your data in situations such as device changes.\n\n• Pattern entries are excluded from export files for security reasons.\n\n• Vault Word hides sensitive content on the screen.\n\n• The app automatically locks itself when sent to the background.\n\n• This application does not use cloud sync or external servers.\n\n• For import operations, first download the appropriate template file and create your records accordingly.\n\n• Long press on an entry or collection to delete it.';
 
   @override
   String get username => 'Username';
