@@ -567,7 +567,7 @@ _Item(
   title: AppLocalizations.of(context)!.rateOnPlayStore,//"Rate on Play Store",
   onTap: () async {
     final Uri url = Uri.parse(
-      "https://play.google.com/store/apps/details?id=com.akinik.findlostgadget.app&pli=1",//?*?
+													'https://play.google.com/apps/testing/com.lynra.greynote', // ?*?
     );
 
     await launchUrl(

@@ -9,6 +9,9 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - オフライン＆プライベート保管庫。クラウドなし。広告なし。サブスクリプションなし。';
+
+  @override
   String get add => '追加';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get privateByDesign => 'プライバシーは機能ではなく基本です';
 
   @override
-  String get rateOnPlayStore => 'Playストアで評価';
+  String get rateOnPlayStore => '評価';
 
   @override
   String get removeAttachment => 'ファイルを削除';
@@ -380,6 +383,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get setPin => 'PINを設定';
+
+  @override
+  String get share => '共有';
 
   @override
   String get sort => '並び替え';

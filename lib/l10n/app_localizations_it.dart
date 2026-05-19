@@ -9,6 +9,9 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Vault Privato Offline. Nessun cloud. Nessuna pubblicità. Nessun abbonamento.';
+
+  @override
   String get add => 'Aggiungi';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get privateByDesign => 'La privacy è fondamentale, non una funzione';
 
   @override
-  String get rateOnPlayStore => 'Valuta su Play Store';
+  String get rateOnPlayStore => 'Valuta';
 
   @override
   String get removeAttachment => 'Rimuovi file';
@@ -380,6 +383,9 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get setPin => 'Imposta PIN';
+
+  @override
+  String get share => 'Condividi';
 
   @override
   String get sort => 'Ordina';

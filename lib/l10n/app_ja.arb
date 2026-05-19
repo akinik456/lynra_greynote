@@ -1,4 +1,6 @@
 {
+"shareText": "Lynra GreyNote - オフライン＆プライベート保管庫。クラウドなし。広告なし。サブスクリプションなし。",
+"share": "共有",
 "earlysupporter": "ローンチ支援プログラム",
 "earlysupporterText": "リリース記念特販：Lynra GreyNoteの改善にご協力ください！ 💙\nアプリが役に立った場合は、Play Storeに 正直なレビューを残して開発をサポートしていただけますと幸いです。\nレビュー後、設定 → フィードバックから、Play Storeのユーザー名をメールでお送りください。最初の1週間限定で、早期サポーターの皆様に「永久プレミアム」アクセスコードをプレゼントいたします！ 🙂",
 "close": "閉じる",
@@ -7,7 +9,7 @@
 
 "backupPatternWarning": "このバックアップをインポートするには、同じパターンロックが必要です。",
 
-"rateOnPlayStore": "Playストアで評価",
+"rateOnPlayStore": "評価",
 "feedback": 										"フィードバック",
 
 "imported": "インポート済み",

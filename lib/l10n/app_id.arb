@@ -1,11 +1,13 @@
 {
+"shareText": "Lynra GreyNote - Vault Pribadi Offline. Tanpa cloud. Tanpa iklan. Tanpa langganan.",
+"share": "Bagikan",
 "earlysupporter": "Program Dukungan Peluncuran",
 "earlysupporterText": "Spesial Peluncuran: Bantu Kami Meningkatkan Lynra GreyNote! 💙\nJika Anda merasa aplikasi ini bermanfaat, Anda dapat mendukung pengembangan kami dengan meninggalkan ulasan jujur di Play Store.\nSetelah mengulas, cukup kirimkan nama pengguna Play Store Anda melalui email di Pengaturan → Masukan. Eksklusif untuk minggu pertama, kami menghadiahkan kode akses Premium Seumur Hidup untuk para pendukung awal kami! 🙂",
 "close": "Tutup",
 "usageGuide": "Panduan Penggunaan",
 "usageGuideText": "• Data Anda hanya disimpan di perangkat Anda.\n\n• Pencadangan berkala disarankan untuk melindungi data Anda dalam situasi seperti pergantian perangkat.\n\n• Entri pola tidak disertakan dalam file ekspor demi alasan keamanan.\n\n• Vault Word menyembunyikan konten sensitif di layar.\n\n• Aplikasi akan terkunci secara otomatis saat berjalan di latar belakang.\n\n• Aplikasi ini tidak menggunakan sinkronisasi cloud atau server eksternal.\n\n• Untuk proses impor, unduh terlebih dahulu file template yang sesuai dan buat data Anda berdasarkan template tersebut.\n\n• Tekan lama pada entri atau koleksi untuk menghapusnya.",
 "backupPatternWarning": "Pola kunci yang sama diperlukan untuk mengimpor cadangan ini.",
-"rateOnPlayStore": "Beri Rating di Play Store",
+"rateOnPlayStore": "Beri Rating",
 "feedback": 										"Masukan",
 
 "imported": "Diimpor",

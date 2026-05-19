@@ -9,6 +9,9 @@ class AppLocalizationsSv extends AppLocalizations {
   AppLocalizationsSv([String locale = 'sv']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Offline och Privat Valv. Ingen molntjänst. Ingen reklam. Ingen prenumeration.';
+
+  @override
   String get add => 'Lägg till';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get privateByDesign => 'Integritet är grund, inte funktion';
 
   @override
-  String get rateOnPlayStore => 'Betygsätt på Play Store';
+  String get rateOnPlayStore => 'Betygsätt';
 
   @override
   String get removeAttachment => 'Ta bort bilaga';
@@ -380,6 +383,9 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get setPin => 'Ställ in PIN';
+
+  @override
+  String get share => 'Dela';
 
   @override
   String get sort => 'Sortera';

@@ -1,4 +1,6 @@
 {
+"shareText": "Lynra GreyNote - Offline- und Privater Tresor. Keine Cloud. Keine Werbung. Kein Abo.",
+"share": "Teilen",
 "earlysupporter": "Startunterstützungsprogramm",
 "earlysupporterText": "Launch-Spezial: Hilf uns, Lynra GreyNote zu verbessern! 💙\nWenn du die App nützlich findest, kannst du unsere Entwicklung unterstützen, indem du eine ehrliche Bewertung im Play Store hinterlässt.\nSende uns nach der Bewertung einfach deinen Play Store-Benutzernamen per E-Mail über Einstellungen → Feedback. Nur in der ersten Woche schenken wir unseren frühen Unterstützern einen lebenslangen Premium-Zugangscode! 🙂",
 "close": 												"Schließen",
@@ -28,7 +30,7 @@
 "myVaultCleared": 							"Tresor geleert",
 "pattern": 											"Muster",
 "patternSkipped": 							"Muster übersprungen",
-"rateOnPlayStore": 							"Im Play Store bewerten",
+"rateOnPlayStore": 							"Bewerten",
 "removeAttachment": 						"Datei entfernen",
 "sort": 												"Sortieren",
 "sortAZ": 											"A–Z",

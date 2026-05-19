@@ -9,6 +9,9 @@ class AppLocalizationsTr extends AppLocalizations {
   AppLocalizationsTr([String locale = 'tr']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Çevrimdışı ve Gizli Kasa. Bulut yok. Reklam yok. Abonelik yok.';
+
+  @override
   String get add => 'Ekle';
 
   @override
@@ -157,7 +160,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get earlysupporter => 'Lansman Destek Programı';
 
   @override
-  String get earlysupporterText => 'Lansmana Özel: Lynra GreyNote’u Geliştirmemize Yardımcı Ol! 💙\nUygulamayı faydalı bulduysan Play Store\'da dürüst bir yorum bırakarak gelişimimize destek olabilirsin.\nYorum yaptıktan sonra Play Store kullanıcı adını Ayarlar → Geri Bildirim bölümünden bize e-posta ile göndermen yeterli.İlk haftaya özel, erken dönem destekçilerimize Ömür Boyu Premium erişim kodu hediye ediyoruz! 🙂';
+  String get earlysupporterText => 'Lansmana Özel: Lynra GreyNote’u Geliştirmemize Yardımcı Ol! 💙\nUygulamayı faydalı bulduysan Play Store’da dürüst bir yorum bırakarak veya Lynra GreyNote’u arkadaşlarınla paylaşarak gelişimimize destek olabilirsin.\nYorum yaptıktan yaptıktan sonra Play Store kullanıcı adını veya paylaşım ekran görüntüsünü Ayarlar → Geri Bildirim bölümünden bize e-posta ile göndermen yeterli.İlk haftaya özel, erken dönem destekçilerimize Ömür Boyu Premium erişim kodu hediye ediyoruz! 🙂';
 
   @override
   String get empty => 'Boş';
@@ -343,7 +346,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get privateByDesign => 'Gizlilik Özellik Değil Temeldir';
 
   @override
-  String get rateOnPlayStore => 'Play Store\'da Puanla';
+  String get rateOnPlayStore => 'Puanla';
 
   @override
   String get removeAttachment => 'Dosyayı kaldır';
@@ -380,6 +383,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get setPin => 'PIN Ayarla';
+
+  @override
+  String get share => 'Paylaş';
 
   @override
   String get sort => 'Sırala';

@@ -9,6 +9,9 @@ class AppLocalizationsFr extends AppLocalizations {
   AppLocalizationsFr([String locale = 'fr']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Coffre Privé Hors Ligne. Pas de cloud. Pas de publicité. Pas d’abonnement.';
+
+  @override
   String get add => 'Ajouter';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get privateByDesign => 'La confidentialité est essentielle, pas une option';
 
   @override
-  String get rateOnPlayStore => 'Noter sur le Play Store';
+  String get rateOnPlayStore => 'Noter';
 
   @override
   String get removeAttachment => 'Supprimer le fichier';
@@ -380,6 +383,9 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get setPin => 'Définir le code PIN';
+
+  @override
+  String get share => 'Partager';
 
   @override
   String get sort => 'Trier';

@@ -9,6 +9,9 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - ऑफलाइन और निजी वॉल्ट। कोई क्लाउड नहीं। कोई विज्ञापन नहीं। कोई सदस्यता नहीं।';
+
+  @override
   String get add => 'जोड़ें';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get privateByDesign => 'गोपनीयता एक मूल सिद्धांत है, सुविधा नहीं';
 
   @override
-  String get rateOnPlayStore => 'Play Store पर रेट करें';
+  String get rateOnPlayStore => 'रेट करें';
 
   @override
   String get removeAttachment => 'फ़ाइल हटाएं';
@@ -380,6 +383,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get setPin => 'PIN सेट करें';
+
+  @override
+  String get share => 'साझा करें';
 
   @override
   String get sort => 'क्रमबद्ध करें';

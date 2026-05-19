@@ -9,6 +9,9 @@ class AppLocalizationsKo extends AppLocalizations {
   AppLocalizationsKo([String locale = 'ko']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - 오프라인 개인 보관함. 클라우드 없음. 광고 없음. 구독 없음.';
+
+  @override
   String get add => '추가';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get privateByDesign => '프라이버시는 기능이 아닌 기본입니다';
 
   @override
-  String get rateOnPlayStore => 'Play 스토어에서 평가하기';
+  String get rateOnPlayStore => '평가';
 
   @override
   String get removeAttachment => '파일 제거';
@@ -380,6 +383,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get setPin => 'PIN 설정';
+
+  @override
+  String get share => '공유';
 
   @override
   String get sort => '정렬';

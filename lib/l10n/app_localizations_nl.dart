@@ -9,6 +9,9 @@ class AppLocalizationsNl extends AppLocalizations {
   AppLocalizationsNl([String locale = 'nl']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Offline en Privékluis. Geen cloud. Geen advertenties. Geen abonnement.';
+
+  @override
   String get add => 'Toevoegen';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get privateByDesign => 'Privacy is een basis, geen functie';
 
   @override
-  String get rateOnPlayStore => 'Beoordeel in Play Store';
+  String get rateOnPlayStore => 'Beoordeel';
 
   @override
   String get removeAttachment => 'Bestand verwijderen';
@@ -380,6 +383,9 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get setPin => 'PIN instellen';
+
+  @override
+  String get share => 'Delen';
 
   @override
   String get sort => 'Sorteren';

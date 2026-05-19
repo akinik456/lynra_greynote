@@ -9,6 +9,9 @@ class AppLocalizationsRu extends AppLocalizations {
   AppLocalizationsRu([String locale = 'ru']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Оффлайн и приватное хранилище. Без облака. Без рекламы. Без подписки.';
+
+  @override
   String get add => 'Добавить';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get privateByDesign => 'Приватность — основа, а не функция';
 
   @override
-  String get rateOnPlayStore => 'Оценить в Play Маркете';
+  String get rateOnPlayStore => 'Оценить';
 
   @override
   String get removeAttachment => 'Удалить файл';
@@ -380,6 +383,9 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get setPin => 'Установить PIN';
+
+  @override
+  String get share => 'Поделиться';
 
   @override
   String get sort => 'Сортировка';

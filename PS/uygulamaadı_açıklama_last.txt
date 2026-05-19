@@ -1,0 +1,30 @@
+Uygulama Adı (Title): 
+Secure Note & Password Manager
+
+Kısa Açıklama (Short Description)
+Offline, encrypted secure notebook and private vault for your personal data.
+
+Tam Açıklama (Full Description)
+
+Lynra GreyNote is a private, offline vault designed to securely store your most sensitive information. If you are looking for an encrypted notes app that respects your data privacy, this is your safe haven.
+
+🔒 Private by Design & Secure Notepad
+Your data never leaves your device. Lynra GreyNote does not use servers, does not track you, and does not collect any personal data. It is a strictly private notes application.
+No Ads, No Subscriptions
+
+🛡 Strong Encryption
+All records are protected with modern encryption. Only you can access your encrypted notes using your PIN or biometric authentication.
+
+📱 Fully Offline Notes
+No internet connection is required. Your offline notebook, passwords, and personal information are always available and always under your total control.
+
+📂 Secure Storage & Password Vault
+Store passwords, private notes, and sensitive information in one safe place with a clean, minimal, and premium interface.
+
+⚡ Fast and Simple
+Designed for speed and simplicity. No unnecessary features, no bloated code, no distractions — just secure and reliable storage.
+
+🔐 Your Responsibility (Zero-Knowledge)
+For maximum security, your credentials are not recoverable. If you forget your PIN or pattern, your encrypted data cannot be restored.
+
+Lynra GreyNote is built for users who value privacy, simplicity, and full control over their digital life.

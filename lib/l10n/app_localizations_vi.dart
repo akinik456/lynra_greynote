@@ -9,6 +9,9 @@ class AppLocalizationsVi extends AppLocalizations {
   AppLocalizationsVi([String locale = 'vi']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Kho Lưu Trữ Riêng Tư Ngoại Tuyến. Không đám mây. Không quảng cáo. Không đăng ký.';
+
+  @override
   String get add => 'Thêm';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get privateByDesign => 'Quyền riêng tư là nền tảng, không phải tính năng';
 
   @override
-  String get rateOnPlayStore => 'Đánh giá trên Play Store';
+  String get rateOnPlayStore => 'Đánh giá';
 
   @override
   String get removeAttachment => 'Xóa tệp';
@@ -380,6 +383,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get setPin => 'Đặt PIN';
+
+  @override
+  String get share => 'Chia sẻ';
 
   @override
   String get sort => 'Sắp xếp';

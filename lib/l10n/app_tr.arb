@@ -1,12 +1,15 @@
 {
-"earlysupporterText":			"Lansmana Özel: Lynra GreyNote’u Geliştirmemize Yardımcı Ol! 💙\nUygulamayı faydalı bulduysan Play Store'da dürüst bir yorum bırakarak gelişimimize destek olabilirsin.\nYorum yaptıktan sonra Play Store kullanıcı adını Ayarlar → Geri Bildirim bölümünden bize e-posta ile göndermen yeterli.İlk haftaya özel, erken dönem destekçilerimize Ömür Boyu Premium erişim kodu hediye ediyoruz! 🙂",
+"shareText": "Lynra GreyNote - Çevrimdışı ve Gizli Kasa. Bulut yok. Reklam yok. Abonelik yok.",
+"share": 												"Paylaş",
+
+"earlysupporterText":			"Lansmana Özel: Lynra GreyNote’u Geliştirmemize Yardımcı Ol! 💙\nUygulamayı faydalı bulduysan Play Store’da dürüst bir yorum bırakarak veya Lynra GreyNote’u arkadaşlarınla paylaşarak gelişimimize destek olabilirsin.\nYorum yaptıktan yaptıktan sonra Play Store kullanıcı adını veya paylaşım ekran görüntüsünü Ayarlar → Geri Bildirim bölümünden bize e-posta ile göndermen yeterli.İlk haftaya özel, erken dönem destekçilerimize Ömür Boyu Premium erişim kodu hediye ediyoruz! 🙂",
 "earlysupporter":					"Lansman Destek Programı",
 "close": 									"Close",
 "usageGuide": "Kullanım Rehberi",
 "usageGuideText": "• Verilerin yalnızca cihazında saklanır.\n\n•Cihaz değişimi gibi durumlarda verilerini koruyabilmek için periyodik yedek alman önerilir.\n\n• Güvenlik nedeniyle pattern girişleri export dosyalarına dahil edilmez.\n\n• Kasa Kelimesi ekrandaki hassas içerikleri gizler.\n\n• Uygulama arka plana geçtiğinde otomatik olarak kilitlenir.\n\n• Bu uygulama bulut senkronizasyonu veya harici sunucu kullanmaz.\n\n• Import işlemleri için önce uygun template dosyasını indirip kayıtlarını buna uygun oluştur.\n\n• Bir kayıt veya koleksiyonu silmek için uzun bas.",
 "backupPatternWarning": "Bu yedeği içe aktarmak için aynı desen gereklidir.",
 
-"rateOnPlayStore": "Play Store'da Puanla",
+"rateOnPlayStore": "Puanla",
 "feedback": "Geri Bildirim",
 "imported": "Aktarıldı",
 "duplicate": "Kopya",

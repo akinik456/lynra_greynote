@@ -9,6 +9,9 @@ class AppLocalizationsTh extends AppLocalizations {
   AppLocalizationsTh([String locale = 'th']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - ห้องเก็บข้อมูลส่วนตัวแบบออฟไลน์ ไม่มีคลาวด์ ไม่มีโฆษณา ไม่มีการสมัครสมาชิก';
+
+  @override
   String get add => 'เพิ่ม';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get privateByDesign => 'ความเป็นส่วนตัวคือพื้นฐาน ไม่ใช่ฟีเจอร์';
 
   @override
-  String get rateOnPlayStore => 'ให้คะแนนบน Play Store';
+  String get rateOnPlayStore => 'ให้คะแนน';
 
   @override
   String get removeAttachment => 'ลบไฟล์';
@@ -380,6 +383,9 @@ class AppLocalizationsTh extends AppLocalizations {
 
   @override
   String get setPin => 'ตั้งค่า PIN';
+
+  @override
+  String get share => 'แชร์';
 
   @override
   String get sort => 'จัดเรียง';

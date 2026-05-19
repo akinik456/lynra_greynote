@@ -15,6 +15,7 @@ import 'package:in_app_update/in_app_update.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../core/db/database_helper.dart';
@@ -129,9 +130,8 @@ void initState() {
         setState(() {
           _isPremium = true;
         });
-//_isPremium = false;//?*?
         await prefs.setBool('isPremium', true);
-
+//_isPremium = false; // /*/
         if (purchase.pendingCompletePurchase) {
           await InAppPurchase.instance.completePurchase(purchase);
         }
@@ -1143,24 +1143,56 @@ void showEarlySupportOrUpgradeDialog() {
             const SizedBox(height: 24),
 
             Row(
-              children: [
-                const SizedBox(width: 12),
-                Expanded(
-                  child: SizedBox(
-                    height: 48,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.accent,
-                        foregroundColor: AppColors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(14),
-                        ),
-                        elevation: 0,
-                      ),
-                      onPressed: () async {
-											Navigator.pop(context);
+							children: [
+								Expanded(
+									child: SizedBox(
+										height: 48,
+										child: OutlinedButton(
+											style: OutlinedButton.styleFrom(
+												side: BorderSide(
+													color: AppColors.accent.withOpacity(0.4),
+												),
+												foregroundColor: AppColors.textPrimary,
+												shape: RoundedRectangleBorder(
+													borderRadius: BorderRadius.circular(14),
+												),
+											),
+											onPressed: () async {
+												await Share.share(
+													'${AppLocalizations.of(context)!.shareText}\n\n'
+													'https://play.google.com/apps/testing/com.lynra.greynote', // ?*?
+												);
+												Navigator.pop(context);
+											},
+											child: Text(
+												AppLocalizations.of(context)!.share,
+												style: const TextStyle(
+													fontWeight: FontWeight.w600,
+												),
+											),
+										),
+									),
+								),
+
+								const SizedBox(width: 12),
+
+								Expanded(
+									child: SizedBox(
+										height: 48,
+										child: ElevatedButton(
+											style: ElevatedButton.styleFrom(
+												backgroundColor: AppColors.accent,
+												foregroundColor: AppColors.black,
+												shape: RoundedRectangleBorder(
+													borderRadius: BorderRadius.circular(14),
+												),
+												elevation: 0,
+											),
+											onPressed: () async {
+												Navigator.pop(context);
+
 												final Uri url = Uri.parse(
-													"https://play.google.com/store/apps/details?id=com.akinik.findlostgadget.app&pli=1",//?*?
+													'https://play.google.com/apps/testing/com.lynra.greynote', // ?*?
 												);
 
 												await launchUrl(
@@ -1168,17 +1200,17 @@ void showEarlySupportOrUpgradeDialog() {
 													mode: LaunchMode.externalApplication,
 												);
 											},
-                      child: Text(
-                        AppLocalizations.of(context)!.close,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+											child: Text(
+												AppLocalizations.of(context)!.rateOnPlayStore,
+												style: const TextStyle(
+													fontWeight: FontWeight.w600,
+												),
+											),
+										),
+									),
+								),
+							],
+						),
           ],
         ),
       ),

@@ -130,6 +130,12 @@ abstract class AppLocalizations {
     Locale('zh')
   ];
 
+  /// No description provided for @shareText.
+  ///
+  /// In en, this message translates to:
+  /// **'Lynra GreyNote - Offline & Private Vault. No cloud. No ads. No subscription.'**
+  String get shareText;
+
   /// No description provided for @add.
   ///
   /// In en, this message translates to:
@@ -793,7 +799,7 @@ abstract class AppLocalizations {
   /// No description provided for @rateOnPlayStore.
   ///
   /// In en, this message translates to:
-  /// **'Rate on Play Store'**
+  /// **'Rate'**
   String get rateOnPlayStore;
 
   /// No description provided for @removeAttachment.
@@ -867,6 +873,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Set PIN'**
   String get setPin;
+
+  /// No description provided for @share.
+  ///
+  /// In en, this message translates to:
+  /// **'Share'**
+  String get share;
 
   /// No description provided for @sort.
   ///

@@ -1,11 +1,13 @@
 {
+"shareText": "Lynra GreyNote - Vault Privato Offline. Nessun cloud. Nessuna pubblicità. Nessun abbonamento.",
+"share": "Condividi",
 "earlysupporter": "Programma di Supporto al Lancio",
 "earlysupporterText": "Speciale Lancio: Aiutaci a migliorare Lynra GreyNote! 💙\nSe trovi utile l'app, puoi sostenere il nostro sviluppo lasciando una recensione onesta sul Play Store.\nDopo aver recensito, inviaci semplicemente il tuo nome utente del Play Store via e-mail tramite Impostazioni → Feedback. In esclusiva per la prima settimana, regaliamo un codice di accesso Premium a vita ai nostri primi sostenitori! 🙂",
 "close": "Chiudi",
 "usageGuide": "Guida all'uso",
 "usageGuideText": "• I tuoi dati vengono archiviati solo sul tuo dispositivo.\n\n• Si consigliano backup periodici per proteggere i dati in situazioni come il cambio di dispositivo.\n\n• Le voci con pattern sono escluse dai file di esportazione per motivi di sicurezza.\n\n• La Parola Cassaforte nasconde i contenuti sensibili sullo schermo.\n\n• L'app si blocca automaticamente quando passa in background.\n\n• Questa applicazione non utilizza sincronizzazione cloud o server esterni.\n\n• Per le operazioni di importazione, scarica prima il file modello appropriato e crea i tuoi record di conseguenza.\n\n• Tieni premuto su una voce o raccolta per eliminarla.",
 "backupPatternWarning": "Per importare questo backup è necessario lo stesso schema di blocco.",
-"rateOnPlayStore": "Valuta su Play Store",
+"rateOnPlayStore": "Valuta",
 "feedback": 										"Feedback",
 
 "imported": "Importato",

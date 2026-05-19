@@ -9,6 +9,9 @@ class AppLocalizationsId extends AppLocalizations {
   AppLocalizationsId([String locale = 'id']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Vault Pribadi Offline. Tanpa cloud. Tanpa iklan. Tanpa langganan.';
+
+  @override
   String get add => 'Tambah';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get privateByDesign => 'Privasi adalah dasar, bukan fitur';
 
   @override
-  String get rateOnPlayStore => 'Beri Rating di Play Store';
+  String get rateOnPlayStore => 'Beri Rating';
 
   @override
   String get removeAttachment => 'Hapus file';
@@ -380,6 +383,9 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get setPin => 'Atur PIN';
+
+  @override
+  String get share => 'Bagikan';
 
   @override
   String get sort => 'Urutkan';

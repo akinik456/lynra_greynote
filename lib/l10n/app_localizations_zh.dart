@@ -9,6 +9,9 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - 离线私人保险库。无云端。无广告。无订阅。';
+
+  @override
   String get add => '添加';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get privateByDesign => '隐私是基础，而非功能';
 
   @override
-  String get rateOnPlayStore => '在 Play 商店评分';
+  String get rateOnPlayStore => '评分';
 
   @override
   String get removeAttachment => '移除文件';
@@ -380,6 +383,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get setPin => '设置 PIN';
+
+  @override
+  String get share => '分享';
 
   @override
   String get sort => '排序';

@@ -1,11 +1,13 @@
 {
+"shareText": "Lynra GreyNote - Offline en Privékluis. Geen cloud. Geen advertenties. Geen abonnement.",
+"share": "Delen",
 "earlysupporter": "Launchondersteuningsprogramma",
 "earlysupporterText": "Launch Special: Help ons Lynra GreyNote te verbeteren! 💙\nAls je de app nuttig vindt, kun je onze ontwikkeling steunen door een eerlijke recensie achter te laten in de Play Store.\nStuur ons na het beoordelen eenvoudig je Play Store-gebruikersnaam via Instellingen → Feedback per e-mail. Exclusief voor de eerste week schenken we een Levenslange Premium toegangscode aan onze vroege supporters! 🙂",
 "close": "Sluiten",
 "usageGuide": "Gebruikershandleiding",
 "usageGuideText": "• Je gegevens worden alleen op je apparaat opgeslagen.\n\n• Regelmatige back-ups worden aanbevolen om je gegevens te beschermen bij situaties zoals het wisselen van apparaat.\n\n• Patroonitems worden om veiligheidsredenen niet opgenomen in exportbestanden.\n\n• Vault Word verbergt gevoelige inhoud op het scherm.\n\n• De app wordt automatisch vergrendeld wanneer deze naar de achtergrond gaat.\n\n• Deze app gebruikt geen cloudsynchronisatie of externe servers.\n\n• Download voor importbewerkingen eerst het juiste sjabloonbestand en maak je gegevens volgens dat formaat aan.\n\n• Houd een item of collectie ingedrukt om deze te verwijderen.",
 "backupPatternWarning": "Hetzelfde patroonslot is vereist om deze back-up te importeren.",
-"rateOnPlayStore": "Beoordeel in Play Store",
+"rateOnPlayStore": "Beoordeel",
 "feedback": 										"Feedback",
 
 "imported": "Geïmporteerd",

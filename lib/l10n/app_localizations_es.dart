@@ -9,6 +9,9 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Bóveda Privada y Sin Conexión. Sin nube. Sin anuncios. Sin suscripción.';
+
+  @override
   String get add => 'Añadir';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get privateByDesign => 'La privacidad es fundamental, no una función';
 
   @override
-  String get rateOnPlayStore => 'Calificar en Play Store';
+  String get rateOnPlayStore => 'Calificar';
 
   @override
   String get removeAttachment => 'Eliminar archivo';
@@ -380,6 +383,9 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get setPin => 'Configurar PIN';
+
+  @override
+  String get share => 'Compartir';
 
   @override
   String get sort => 'Ordenar';

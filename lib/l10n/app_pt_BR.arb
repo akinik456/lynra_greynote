@@ -1,4 +1,6 @@
 {
+"shareText": "Lynra GreyNote - Cofre Privado Offline. Sem nuvem. Sem anúncios. Sem assinatura.",
+"share": "Compartilhar",
 "earlysupporter": "Programa de Apoio ao Lançamento",
 "earlysupporterText": "Especial de Lançamento: Ajude-nos a melhorar o Lynra GreyNote! 💙\nSe você achar o aplicativo útil, poderá apoiar nosso desenvolvimento deixando uma avaliação honesta na Play Store.\nApós avaliar, basta enviar seu nome de usuário da Play Store por e-mail em Configurações → Feedback. Exclusivo para a primeira semana, estamos presenteando nossos primeiros apoiadores com um código de acesso Premium Vitalício! 🙂",
 "close": "Fechar",
@@ -6,7 +8,7 @@
 "usageGuideText": "• Seus dados são armazenados apenas no seu dispositivo.\n\n• Backups periódicos são recomendados para proteger seus dados em situações como troca de dispositivo.\n\n• Entradas de padrão são excluídas dos arquivos de exportação por motivos de segurança.\n\n• A Palavra do Cofre oculta conteúdos sensíveis na tela.\n\n• O aplicativo é bloqueado automaticamente quando vai para o segundo plano.\n\n• Este aplicativo não utiliza sincronização em nuvem nem servidores externos.\n\n• Para operações de importação, primeiro baixe o arquivo de modelo apropriado e crie seus registros de acordo.\n\n• Pressione e segure uma entrada ou coleção para excluí-la.",
 "backupPatternWarning": "O mesmo padrão de bloqueio é necessário para importar este backup.",
 
-"rateOnPlayStore": "Avaliar na Play Store",
+"rateOnPlayStore": "Avaliar",
 "feedback": 										"Feedback",
 
 "imported": "Importado",

@@ -9,6 +9,9 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - خزنة خاصة دون اتصال. لا سحابة. لا إعلانات. لا اشتراكات.';
+
+  @override
   String get add => 'إضافة';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get privateByDesign => 'الخصوصية أساس وليست ميزة';
 
   @override
-  String get rateOnPlayStore => 'قيّم على متجر Play';
+  String get rateOnPlayStore => 'قيّم';
 
   @override
   String get removeAttachment => 'إزالة الملف';
@@ -380,6 +383,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get setPin => 'تعيين PIN';
+
+  @override
+  String get share => 'مشاركة';
 
   @override
   String get sort => 'ترتيب';

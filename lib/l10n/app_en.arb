@@ -1,4 +1,5 @@
 {
+"shareText": 										"Lynra GreyNote - Offline & Private Vault. No cloud. No ads. No subscription.",
 "@@locale": 										"en",
 "add": 													"Add",
 "addAttachment": 								"Add Attachment",
@@ -120,7 +121,7 @@
 "pinSaved": 										"PIN saved",
 "pinsDoNotMatch": 							"PINs do not match",
 "privateByDesign": 							"Privacy is a fundamental, not a feature",
-"rateOnPlayStore": 							"Rate on Play Store",
+"rateOnPlayStore": 							"Rate",
 "removeAttachment": 						"Remove",
 "save": 												"Save",
 "savePin": 											"Save PIN",
@@ -133,6 +134,8 @@
 "selectLanguage": 							"Select Language",
 "settings": 										"Settings",
 "setPin": 											"Set PIN",
+"share": 												"Share",
+"shareText": 										"Lynra GreyNote - Offline & Private Vault. No cloud. No ads. No subscription.",
 "sort": 												"Sort",
 "sortFavorites": 								"Favorites",
 "sortUpdated": 									"Last updated",

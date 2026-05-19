@@ -9,6 +9,9 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
+  String get shareText => 'Lynra GreyNote - Offline & Private Vault. No cloud. No ads. No subscription.';
+
+  @override
   String get add => 'Add';
 
   @override
@@ -343,7 +346,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get privateByDesign => 'Privacy is a fundamental, not a feature';
 
   @override
-  String get rateOnPlayStore => 'Rate on Play Store';
+  String get rateOnPlayStore => 'Rate';
 
   @override
   String get removeAttachment => 'Remove';
@@ -380,6 +383,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get setPin => 'Set PIN';
+
+  @override
+  String get share => 'Share';
 
   @override
   String get sort => 'Sort';
@@ -485,6 +491,9 @@ class AppLocalizationsPt extends AppLocalizations {
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
 class AppLocalizationsPtBr extends AppLocalizationsPt {
   AppLocalizationsPtBr(): super('pt_BR');
+
+  @override
+  String get shareText => 'Lynra GreyNote - Cofre Privado Offline. Sem nuvem. Sem anúncios. Sem assinatura.';
 
   @override
   String get add => 'Adicionar';
@@ -821,7 +830,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get privateByDesign => 'Privacidade é fundamental, não um recurso';
 
   @override
-  String get rateOnPlayStore => 'Avaliar na Play Store';
+  String get rateOnPlayStore => 'Avaliar';
 
   @override
   String get removeAttachment => 'Remover arquivo';
@@ -858,6 +867,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get setPin => 'Definir PIN';
+
+  @override
+  String get share => 'Compartilhar';
 
   @override
   String get sort => 'Ordenar';

@@ -1,4 +1,6 @@
 {
+"shareText": "Lynra GreyNote - 离线私人保险库。无云端。无广告。无订阅。",
+"share": "分享",
 "earlysupporter": "发布支持计划",
 "earlysupporterText": "发布特惠：帮助 us 改进 Lynra GreyNote！ 💙\n如果您觉得这款应用有所帮助，可以在 Play Store 上留下诚实的评价以支持我们的开发。\n评价完成后，只需通过 设置 → 反馈 经由电子邮件将您的 Play Store 用户名发给我们就行。首周独家福利，我们将向早期支持者赠送终身 Premium 访问码！ 🙂",
 "close": "关闭",
@@ -7,7 +9,7 @@
 
 "backupPatternWarning": "导入此备份需要使用相同的图案锁。",
 
-"rateOnPlayStore": "在 Play 商店评分",
+"rateOnPlayStore": "评分",
 "feedback": 										"反馈",
 
 "imported": "已导入",
