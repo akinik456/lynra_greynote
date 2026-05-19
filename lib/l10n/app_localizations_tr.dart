@@ -154,6 +154,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get editEntry => 'Kaydı Düzenle';
 
   @override
+  String get earlysupporter => 'Lansman Destek Programı';
+
+  @override
+  String get earlysupporterText => 'Lansmana Özel: Lynra GreyNote’u Geliştirmemize Yardımcı Ol! 💙\nUygulamayı faydalı bulduysan Play Store\'da dürüst bir yorum bırakarak gelişimimize destek olabilirsin.\nYorum yaptıktan sonra Play Store kullanıcı adını Ayarlar → Geri Bildirim bölümünden bize e-posta ile göndermen yeterli.İlk haftaya özel, erken dönem destekçilerimize Ömür Boyu Premium erişim kodu hediye ediyoruz! 🙂';
+
+  @override
   String get empty => 'Boş';
 
   @override

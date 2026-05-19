@@ -154,6 +154,12 @@ class AppLocalizationsKo extends AppLocalizations {
   String get editEntry => '항목 수정';
 
   @override
+  String get earlysupporter => '출시 지원 프로그램';
+
+  @override
+  String get earlysupporterText => '출시 기념 특별 이벤트: Lynra GreyNote를 함께 발전시켜 주세요! 💙\n앱이 유용하셨다면 Play Store에 솔직한 리뷰를 남겨 저희 개발팀을 응원하실 수 있습니다.\n리뷰 작성 후, 설정 → 피드백을 통해 이메일로 Play Store 사용자 이름을 보내주시면 됩니다. 출시 첫 주 동안만, 초기 지원자분들께 평생 프리미엄(Lifetime Premium) 액세스 코드를 선물로 드립니다! 🙂';
+
+  @override
   String get empty => '비어 있음';
 
   @override

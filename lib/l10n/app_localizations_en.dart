@@ -154,6 +154,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get editEntry => 'Edit Entry';
 
   @override
+  String get earlysupporter => 'Launch Support Program';
+
+  @override
+  String get earlysupporterText => 'Launch Special: Help Us Improve Lynra GreyNote! 💙\nIf you find the app useful, you can support our development by leaving an honest review on the Play Store.\nAfter reviewing, simply send us your Play Store username via Settings → Feedback by email. Exclusive to the first week, we are gifting a Lifetime Premium access code to our early supporters! 🙂';
+
+  @override
   String get empty => 'Empty';
 
   @override

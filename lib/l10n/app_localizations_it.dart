@@ -154,6 +154,12 @@ class AppLocalizationsIt extends AppLocalizations {
   String get editEntry => 'Modifica elemento';
 
   @override
+  String get earlysupporter => 'Programma di Supporto al Lancio';
+
+  @override
+  String get earlysupporterText => 'Speciale Lancio: Aiutaci a migliorare Lynra GreyNote! 💙\nSe trovi utile l\'app, puoi sostenere il nostro sviluppo lasciando una recensione onesta sul Play Store.\nDopo aver recensito, inviaci semplicemente il tuo nome utente del Play Store via e-mail tramite Impostazioni → Feedback. In esclusiva per la prima settimana, regaliamo un codice di accesso Premium a vita ai nostri primi sostenitori! 🙂';
+
+  @override
   String get empty => 'Vuoto';
 
   @override

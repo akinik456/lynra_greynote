@@ -154,6 +154,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get editEntry => 'エントリを編集';
 
   @override
+  String get earlysupporter => 'ローンチ支援プログラム';
+
+  @override
+  String get earlysupporterText => 'リリース記念特販：Lynra GreyNoteの改善にご協力ください！ 💙\nアプリが役に立った場合は、Play Storeに 正直なレビューを残して開発をサポートしていただけますと幸いです。\nレビュー後、設定 → フィードバックから、Play Storeのユーザー名をメールでお送りください。最初の1週間限定で、早期サポーターの皆様に「永久プレミアム」アクセスコードをプレゼントいたします！ 🙂';
+
+  @override
   String get empty => '空';
 
   @override

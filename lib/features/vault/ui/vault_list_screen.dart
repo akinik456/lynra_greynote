@@ -14,6 +14,7 @@ import 'package:device_info_plus/device_info_plus.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../core/db/database_helper.dart';
@@ -128,7 +129,7 @@ void initState() {
         setState(() {
           _isPremium = true;
         });
-
+_isPremium = false;//??
         await prefs.setBool('isPremium', true);
 
         if (purchase.pendingCompletePurchase) {
@@ -705,7 +706,7 @@ if (_vaultWordEnabled)
             },
             onAdd: () {
 							if (!_isPremium && collections.length >= 2) {// ?*?
-							showUpgradeDialog();
+							showEarlySupportOrUpgradeDialog();
 							return;
 							}
 							openAddCollection();
@@ -991,7 +992,7 @@ Padding(
       .length;
 
   if (!_isPremium && itemCount >= 2) {
-    showUpgradeDialog();// ?*?
+    showEarlySupportOrUpgradeDialog();// ?*?
     return;
   }
 
@@ -1098,7 +1099,92 @@ Padding(
       });
     }
   }
+void showEarlySupportOrUpgradeDialog() {
+  final campaignEnd = DateTime(2026, 5, 31, 23, 59);
 
+  if (DateTime.now().isAfter(campaignEnd)) {
+    showUpgradeDialog();
+    return;
+  }
+
+  showDialog(
+    context: context,
+    builder: (_) => Dialog(
+      backgroundColor: AppColors.surface,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(24),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              AppLocalizations.of(context)!.earlysupporter,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: AppColors.textPrimary,
+                fontWeight: FontWeight.w700,
+                fontSize: 18,
+              ),
+            ),
+
+            const SizedBox(height: 16),
+
+            Text(
+              AppLocalizations.of(context)!.earlysupporterText,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: AppColors.textSecondary,
+                fontSize: 14,
+              ),
+            ),
+
+            const SizedBox(height: 24),
+
+            Row(
+              children: [
+                const SizedBox(width: 12),
+                Expanded(
+                  child: SizedBox(
+                    height: 48,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.accent,
+                        foregroundColor: AppColors.black,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        elevation: 0,
+                      ),
+                      onPressed: () async {
+											Navigator.pop(context);
+												final Uri url = Uri.parse(
+													"https://play.google.com/store/apps/details?id=com.akinik.findlostgadget.app&pli=1",//?*?
+												);
+
+												await launchUrl(
+													url,
+													mode: LaunchMode.externalApplication,
+												);
+											},
+                      child: Text(
+                        AppLocalizations.of(context)!.close,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    ),
+  );
+}
 void showUpgradeDialog() {
   showDialog(
     context: context,

@@ -154,6 +154,12 @@ class AppLocalizationsVi extends AppLocalizations {
   String get editEntry => 'Sửa mục';
 
   @override
+  String get earlysupporter => 'Chương trình Hỗ trợ Ra mắt';
+
+  @override
+  String get earlysupporterText => 'Ưu Đãi Ra Mắt: Hãy giúp chúng tôi cải thiện Lynra GreyNote! 💙\nNếu bạn thấy ứng dụng hữu ích, bạn có thể hỗ trợ sự phát triển của chúng tôi bằng cách để lại đánh giá trung thực trên Play Store.\nSau khi đánh giá, chỉ cần gửi cho chúng tôi tên người dùng Play Store của bạn qua email tại Cài đặt → Phản hồi. Duy nhất trong tuần đầu tiên, chúng tôi sẽ tặng mã truy cập Premium Trọn Đời cho những người ủng hộ sớm! 🙂';
+
+  @override
   String get empty => 'Trống';
 
   @override

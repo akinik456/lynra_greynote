@@ -154,6 +154,12 @@ class AppLocalizationsId extends AppLocalizations {
   String get editEntry => 'Edit Entri';
 
   @override
+  String get earlysupporter => 'Program Dukungan Peluncuran';
+
+  @override
+  String get earlysupporterText => 'Spesial Peluncuran: Bantu Kami Meningkatkan Lynra GreyNote! 💙\nJika Anda merasa aplikasi ini bermanfaat, Anda dapat mendukung pengembangan kami dengan meninggalkan ulasan jujur di Play Store.\nSetelah mengulas, cukup kirimkan nama pengguna Play Store Anda melalui email di Pengaturan → Masukan. Eksklusif untuk minggu pertama, kami menghadiahkan kode akses Premium Seumur Hidup untuk para pendukung awal kami! 🙂';
+
+  @override
   String get empty => 'Kosong';
 
   @override

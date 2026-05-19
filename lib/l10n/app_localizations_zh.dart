@@ -154,6 +154,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get editEntry => '编辑条目';
 
   @override
+  String get earlysupporter => '发布支持计划';
+
+  @override
+  String get earlysupporterText => '发布特惠：帮助 us 改进 Lynra GreyNote！ 💙\n如果您觉得这款应用有所帮助，可以在 Play Store 上留下诚实的评价以支持我们的开发。\n评价完成后，只需通过 设置 → 反馈 经由电子邮件将您的 Play Store 用户名发给我们就行。首周独家福利，我们将向早期支持者赠送终身 Premium 访问码！ 🙂';
+
+  @override
   String get empty => '空';
 
   @override

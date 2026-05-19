@@ -214,7 +214,6 @@ class _AppGateState extends State<AppGate> with WidgetsBindingObserver {
   }
 
   Future<void> _secureScreen() async {
-	return;//?*?
     await FlutterWindowManagerPlus.addFlags(
       FlutterWindowManagerPlus.FLAG_SECURE,
     );
