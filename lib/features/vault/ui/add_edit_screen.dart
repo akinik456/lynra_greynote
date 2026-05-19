@@ -536,14 +536,23 @@ if (entryType != "pattern")
               LynraApp.of(context).setSuspendAutoLock(true);
               try {
                 final result = await FilePicker.pickFiles(
-                  type: FileType.custom,
-                  allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
+                  type: FileType.any,
+                  //allowedExtensions: ['jpg', 'jpeg', 'png', 'pdf'],
                 );
                 if (result == null) return;
 
                 final pickedFile = result.files.first;
+								final allowedExtensions = ['jpg', 'jpeg', 'png', 'pdf'];
+								if (pickedFile.extension == null || !allowedExtensions.contains(pickedFile.extension!.toLowerCase())) {
+									ScaffoldMessenger.of(context).showSnackBar(
+										const SnackBar(
+											content: Text("Unsupported file format."),
+										),
+									);
+									return;
+								}
                 Uint8List? fileBytes = pickedFile.bytes;
-
+							
                 if (fileBytes == null && pickedFile.path != null) {
                   fileBytes = await File(pickedFile.path!).readAsBytes();
                 }

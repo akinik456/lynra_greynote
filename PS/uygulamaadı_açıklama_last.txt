@@ -10,7 +10,7 @@ Lynra GreyNote is a private, offline vault designed to securely store your most 
 
 🔒 Private by Design & Secure Notepad
 Your data never leaves your device. Lynra GreyNote does not use servers, does not track you, and does not collect any personal data. It is a strictly private notes application.
-No Ads, No Subscriptions
+No Ads, No Subscriptions.
 
 🛡 Strong Encryption
 All records are protected with modern encryption. Only you can access your encrypted notes using your PIN or biometric authentication.

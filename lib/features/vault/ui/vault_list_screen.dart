@@ -1160,7 +1160,7 @@ void showEarlySupportOrUpgradeDialog() {
 											onPressed: () async {
 												await Share.share(
 													'${AppLocalizations.of(context)!.shareText}\n\n'
-													'https://play.google.com/apps/testing/com.lynra.greynote', // ?*?
+													'https://play.google.com/store/apps/details?id=com.lynra.greynote', 
 												);
 												Navigator.pop(context);
 											},
@@ -1192,7 +1192,7 @@ void showEarlySupportOrUpgradeDialog() {
 												Navigator.pop(context);
 
 												final Uri url = Uri.parse(
-													'https://play.google.com/apps/testing/com.lynra.greynote', // ?*?
+													'https://play.google.com/store/apps/details?id=com.lynra.greynote', 
 												);
 
 												await launchUrl(

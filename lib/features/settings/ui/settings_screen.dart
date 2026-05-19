@@ -567,7 +567,7 @@ _Item(
   title: AppLocalizations.of(context)!.rateOnPlayStore,//"Rate on Play Store",
   onTap: () async {
     final Uri url = Uri.parse(
-													'https://play.google.com/apps/testing/com.lynra.greynote', // ?*?
+													'https://play.google.com/store/apps/details?id=com.lynra.greynote', 
     );
 
     await launchUrl(
