@@ -179,7 +179,6 @@ Widget build(BuildContext context) {
         _FieldCard(
           label: AppLocalizations.of(context)!.title,
           child: SizedBox(
-            height: 18,
             child: TextField(
               controller: titleCtrl,
               maxLines: 1,
@@ -189,7 +188,7 @@ Widget build(BuildContext context) {
               ),
               decoration: InputDecoration(
                 isDense: true,
-                contentPadding: const EdgeInsets.symmetric(vertical: 4),
+                contentPadding: const EdgeInsets.symmetric(vertical: 8),
                 hintText: AppLocalizations.of(context)!.title,
                 hintStyle: const TextStyle(color: AppColors.textSecondary),
                 border: InputBorder.none,

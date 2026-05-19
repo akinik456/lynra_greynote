@@ -1,0 +1,11 @@
+#
+# LynraGreyNote CSV Template
+# Offline. Private. Yours.
+#
+# Open this file in Excel or Google Sheets
+# Do not change the header row
+#
+
+Title,Username,Password,IBAN,Note
+Gmail,user@gmail.com,myPassword123,,Personal mail account
+Netflix,user@gmail.com,netflixPass,,

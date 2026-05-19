@@ -1,0 +1,29 @@
+#
+# LynraGreyNote txt Template
+# Offline. Private. Yours.
+#
+# Fill the fields below and import this file into the app.
+# Do not remove the separators (---)
+#
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
+
+---
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
+
+---
+
+Title:
+Username:
+Password:
+IBAN:
+Note:
