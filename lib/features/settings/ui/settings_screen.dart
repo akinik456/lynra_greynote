@@ -746,7 +746,7 @@ for (final row in vaultRowsRaw) {
 		);
 
 		attachments[itemId] = decryptedAttachment;
-		print("EXPORT ATTACHMENT START: ${decryptedAttachment.substring(0, 20)}");
+		//print("EXPORT ATTACHMENT START: ${decryptedAttachment.substring(0, 20)}");
     }
   }
 }
@@ -933,7 +933,7 @@ if (hasAttachment) {
     attachmentContent,
     widget.payloadKey,
   );
-print("IMPORT ATTACHMENT START: ${attachmentContent.substring(0, 20)}");
+//print("IMPORT ATTACHMENT START: ${attachmentContent.substring(0, 20)}");
   final attachmentPath =
       await attachmentService.getAttachmentPath(importedId);
 
@@ -1392,15 +1392,22 @@ IBAN:
 Note:
 ''';
 
-LynraApp.of(context).setSuspendAutoLock(true);
+  final bytes = Uint8List.fromList(utf8.encode(content));
 
- await FileSaver.instance.saveAs(
-  name: "LynraGreyNote_txt_template",
-  bytes: Uint8List.fromList(utf8.encode(content)),
-  ext: "txt",
-  mimeType: MimeType.text,
-);
-LynraApp.of(context).setSuspendAutoLock(false);
+  //print("TXT TEMPLATE bytes length: ${bytes.length}");
+
+  LynraApp.of(context).setSuspendAutoLock(true);
+
+  try {
+    await FileSaver.instance.saveAs(
+      name: "LynraGreyNote_txt_template",
+      bytes: bytes,
+      ext: "txt",
+      mimeType: MimeType.text,
+    );
+  } finally {
+    LynraApp.of(context).setSuspendAutoLock(false);
+  }
 }
 
 Future<void> downloadCsvTemplate() async {
@@ -1418,15 +1425,18 @@ Gmail,user@gmail.com,myPassword123,,Personal mail account
 Netflix,user@gmail.com,netflixPass,,
 ''';
 
-LynraApp.of(context).setSuspendAutoLock(true);
+  LynraApp.of(context).setSuspendAutoLock(true);
 
- await FileSaver.instance.saveAs(
-  name: "LynraGreyNote_csv_template",
-  bytes: Uint8List.fromList(utf8.encode(content)),
-  ext: "csv",
-  mimeType: MimeType.csv,
-);
-LynraApp.of(context).setSuspendAutoLock(false);
+  try {
+    await FileSaver.instance.saveAs(
+      name: "LynraGreyNote_csv_template",
+      bytes: Uint8List.fromList(utf8.encode(content)),
+      ext: "csv",
+      mimeType: MimeType.csv,
+    );
+  } finally {
+    LynraApp.of(context).setSuspendAutoLock(false);
+  }
 }
 Future<void> openFeedback() async {
 	String _appVersion = '';

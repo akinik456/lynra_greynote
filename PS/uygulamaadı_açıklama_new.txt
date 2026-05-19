@@ -1,7 +1,7 @@
 Uygulama Adı (Title): Lynra GreyNote Secure Notes
 
 Kısa Açıklama (Short Description)
-Offline, encrypted secure notebook and private vault for your personal notes.
+Offline, encrypted secure notebook and private vault for your personal notes.No ads, no subscriptions.
 
 Tam Açıklama (Full Description)
 
@@ -26,3 +26,41 @@ Designed for speed and simplicity. No unnecessary features, no bloated code, no 
 For maximum security, your credentials are not recoverable. If you forget your PIN or pattern, your encrypted data cannot be restored.
 
 Lynra GreyNote is built for users who value privacy, simplicity, and full control over their digital life.
+
+tr: Reklam Yok, Abonelik Yok
+
+en: No Ads, No Subscriptions
+
+es: Sin anuncios, sin suscripciones
+
+de: Keine Werbung, keine Abonnements
+
+fr: Sans publicité, sans abonnement
+
+it: Nessuna pubblicità, nessun abbonamento
+
+pt_BR: Sem anúncios, sem assinaturas
+
+hi: कोई विज्ञापन नहीं, कोई सब्सक्रिप्शन नहीं
+
+ko: 광고 없음, 정기 결제 없음
+
+ja: 広告なし、サブスクリプションなし
+
+zh: 无广告，无 subscription
+
+ar: لا إعلانات، لا اشتراكات
+
+ru: Без рекламы, без подписок
+
+id: Tanpa Iklan, Tanpa Langganan
+
+vi: Không quảng cáo, không đăng ký gói
+
+th: ไม่มีโฆษณา ไม่มีระบบสมัครสมาชิก
+
+nl: Geen advertenties, geen abonnementen
+
+pl: Bez reklam, bez subskrypcji
+
+sv: Ingen reklam, inga prenumerationer

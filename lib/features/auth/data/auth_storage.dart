@@ -17,7 +17,7 @@ class AuthStorage {
     try {
       return await _storage.read(key: key);
     } catch (e) {
-      debugPrint('SECURE STORAGE READ FAILED: $key -> $e');
+      //debugPrint('SECURE STORAGE READ FAILED: $key -> $e');
       await _storage.deleteAll();
       return null;
     }
@@ -30,7 +30,7 @@ class AuthStorage {
     try {
       await _storage.write(key: key, value: value);
     } catch (e) {
-      debugPrint('SECURE STORAGE WRITE FAILED: $key -> $e');
+      //debugPrint('SECURE STORAGE WRITE FAILED: $key -> $e');
       await _storage.deleteAll();
       rethrow;
     }
@@ -40,7 +40,7 @@ class AuthStorage {
     try {
       await _storage.delete(key: key);
     } catch (e) {
-      debugPrint('SECURE STORAGE DELETE FAILED: $key -> $e');
+      //debugPrint('SECURE STORAGE DELETE FAILED: $key -> $e');
       await _storage.deleteAll();
     }
   }

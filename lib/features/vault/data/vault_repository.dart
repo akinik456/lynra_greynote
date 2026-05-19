@@ -84,7 +84,7 @@ class VaultRepository {
             hasAttachment: (row['hasAttachment'] ?? 0) == 1,
           ),
         );
-				print("ITEM: ${item.title} ATTACH: ${(row['hasAttachment'] ?? 0)}");
+				//print("ITEM: ${item.title} ATTACH: ${(row['hasAttachment'] ?? 0)}");
       } catch (e) {
         // corrupted / wrong key / legacy payload skip
       }

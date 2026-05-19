@@ -1,0 +1,26 @@
+🧵 
+Big tech scans your notes, stores your data on cloud servers, and charges you monthly subscriptions.
+
+I got tired of it, so as an embedded software engineer, I built a strictly offline, encrypted digital vault for myself.
+
+Meet Lynra GreyNote 🔑🛡️
+
+🌐 100% Cloud-Independent
+🚫 No Ads, No Subscriptions
+🔒 PBKDF2-SHA256 & AES Local Encryption
+
+[Buraya en son hazırladığımız "No Ads, No Subscriptions" yazan 1024x500 Özellik Grafiğini ekle]
+
+🧵 2/3 (Cevap Tweeti)
+Privacy shouldn't be a premium feature; it's a fundamental right.
+
+Your data never leaves your hardware. No network permissions, zero data collection. You hold the key. If you forget your security model, even I cannot recover your data. Absolute zero-knowledge by design.
+
+🧵 3/3 (Kampanya ve İndirme Linki)
+To celebrate our production launch, I’m gifting Lifetime Premium access codes to our first week supporters!
+
+1️⃣ Download the app
+2️⃣ Leave an honest review on the Play Store
+3️⃣ Send your Play Store username via Settings -> Feedback
+
+Download now: [PLAY STORE LİNKİN] 👇

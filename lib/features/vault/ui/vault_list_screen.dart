@@ -124,12 +124,12 @@ void initState() {
               purchase.status == PurchaseStatus.restored) &&
           purchase.productID == 'lynragreynote') {
 					_premiumFoundInStore = true;
-        debugPrint('IAP PREMIUM UNLOCKED');
+        //debugPrint('IAP PREMIUM UNLOCKED');
 
         setState(() {
           _isPremium = true;
         });
-_isPremium = false;//??
+//_isPremium = false;//?*?
         await prefs.setBool('isPremium', true);
 
         if (purchase.pendingCompletePurchase) {
@@ -138,7 +138,7 @@ _isPremium = false;//??
       }
 
       if (purchase.status == PurchaseStatus.error) {
-        debugPrint('IAP error: ${purchase.error}');
+        //debugPrint('IAP error: ${purchase.error}');
       }
     }
   });
@@ -172,7 +172,7 @@ Future<void> _verifyPremium() async {
     });
 
     await prefs.setBool('isPremium', false);
-    debugPrint('IAP PREMIUM REMOVED / NOT FOUND');
+    //debugPrint('IAP PREMIUM REMOVED / NOT FOUND');
   }
 }
   
@@ -392,7 +392,7 @@ List<VaultItem> get filteredItems {
 
   final attachmentBytes = result['attachmentBytes'] as Uint8List?;
   final attachmentType = result['attachmentType'] as String?;
-  print("ATTACHMENT: $attachmentType / ${attachmentBytes?.length}");
+  //print("ATTACHMENT: $attachmentType / ${attachmentBytes?.length}");
     final mk = await _getUnwrappedMasterKey();
     if (mk == null) return;
 		final itemId = Uuid().v4();
@@ -443,7 +443,7 @@ if (exists) {
     hasAttachment: true,
   );
 
-  print("ATTACH FLAG TRUE SET FOR: $itemId");
+ // print("ATTACH FLAG TRUE SET FOR: $itemId");
 }
 	ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
@@ -634,7 +634,7 @@ Future<void> delete(VaultItem item) async {
 				  ),
 				);
 				await loadVaultWordState();
-				print("return from settings shouldHide:$shouldHide , _vaultWordEnabled:$_vaultWordEnabled ");
+				//print("return from settings shouldHide:$shouldHide , _vaultWordEnabled:$_vaultWordEnabled ");
 				//if (result == true) {
 				  await loadCollections();
 				  await load();
@@ -1261,7 +1261,7 @@ void showUpgradeDialog() {
   });
 
   if (response.productDetails.isEmpty) {
-    debugPrint('Product not found');
+    //debugPrint('Product not found');
     return;
   }
 
