@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
-    id("kotlin-android")
+    // id("kotlin-android") -> Bu eski satırı tamamen siliyoruz
+    id("org.jetbrains.kotlin.android") // Yerine bu modern satırı ekliyoruz
     id("dev.flutter.flutter-gradle-plugin")
 }
 
